@@ -1,0 +1,214 @@
+{
+  "pages": [
+   {
+    "name": "pageIntro"
+   },
+   {
+    "name": "pageUserInfoVek",
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "userInfoVek",
+      "title": "Koľko máte rokov?",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "vek25amenej",
+        "text": "do 25 rokov"
+       },
+       {
+        "value": "vek26az35",
+        "text": "26 - 35 rokov"
+       },
+       {
+        "value": "vek36az45",
+        "text": "36 - 45 rokov"
+       },
+       {
+        "value": "vek46az55",
+        "text": "46 - 55 rokov"
+       },
+       {
+        "value": "vek56aviac",
+        "text": "56 a viac"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "pageUserInfoStudium",
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "userInfoStudium",
+      "title": "Študuješ?",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "studiumStrednaSkola",
+        "text": "Áno, stredná škola"
+       },
+       {
+        "value": "studiumVysokaSkola",
+        "text": "Áno, vysoká škola"
+       },
+       {
+        "value": "studiumPraca",
+        "text": "Nie, práca"
+       }
+      ]
+     }
+    ],
+    "visibleIf": "{userInfoVek} = 'vek25amenej'"
+   },
+   {
+    "name": "pageUserInfoZdrojPrijmu",
+    "elements": [
+     {
+      "type": "checkbox",
+      "name": "userInfoZdrojPrijmu",
+      "title": "Aké su tvoje aktuálne zdroje príjmu?",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "brigada",
+        "text": "Brigáda alebo iná forma pracovnej dohody"
+       },
+       {
+        "value": "zivnost",
+        "text": "Živnosť"
+       },
+       {
+        "value": "vreckove",
+        "text": "Vreckové",
+        "visibleIf": "{userInfoStudium} anyof ['studiumStrednaSkola', 'studiumVysokaSkola']"
+       },
+       {
+        "value": "socialnestipendium",
+        "text": "Sociálne štipendium",
+        "visibleIf": "{userInfoStudium} anyof ['studiumStrednaSkola', 'studiumVysokaSkola']"
+       },
+       {
+        "value": "prospechovestipendium",
+        "text": "Prospechové štipendium",
+        "visibleIf": "{userInfoStudium} anyof ['studiumStrednaSkola', 'studiumVysokaSkola']"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "pageUserInfoVyskaPrijmu",
+    "elements": [
+     {
+      "type": "text",
+      "name": "userInfoVyskaPrijmu",
+      "title": "Aka je vyska tvojho cisteho priemerneho mesacneho prijmu?",
+      "description": "Hodnota v €",
+      "inputType": "number",
+      "min": "0"
+     }
+    ]
+   },
+   {
+    "name": "pageKdePracujes",
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "kdePracujes",
+      "title": "V ktorom kraji pracujes?",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "item1",
+        "text": "Banskobystrický kraj"
+       },
+       {
+        "value": "item2",
+        "text": "Bratislavský kraj"
+       },
+       {
+        "value": "item3",
+        "text": "Košický kraj"
+       },
+       {
+        "value": "item4",
+        "text": "Nitriansky kraj"
+       },
+       {
+        "value": "item5",
+        "text": "Prešovský kraj"
+       },
+       {
+        "value": "item6",
+        "text": "Trenčiansky kraj"
+       },
+       {
+        "value": "item7",
+        "text": "Trnavský kraj"
+       },
+       {
+        "value": "item8",
+        "text": "Žilinský kraj"
+       }
+      ],
+      "choicesOrder": "asc"
+     }
+    ]
+   },
+   {
+    "name": "pageOdlozeniePenazi",
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "akoSiOdkladasPeniaze",
+      "title": "Vies si odlozit z vyplaty peniaze?",
+      "hasComment": true,
+      "choices": [
+       {
+        "value": "item1",
+        "text": "Ano, nechavam si ich vsak na beznom ucte"
+       },
+       {
+        "value": "item2",
+        "text": "Ano, odlozim si ich bokom na konci mesiaca"
+       },
+       {
+        "value": "item3",
+        "text": "Ano, hned po vyplate odlozim"
+       },
+       {
+        "value": "item4",
+        "text": "Ano, odkladam si priebezne pocas mesiaca"
+       },
+       {
+        "value": "item5",
+        "text": "Ano, ale nepravidelne"
+       },
+       {
+        "value": "item6",
+        "text": "Nie"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "pageKolkoSiOdkladas",
+    "elements": [
+     {
+      "type": "text",
+      "name": "kolkoSiOdkladas",
+      "title": "Kolko sa ti dari priemerne mesacne odlozit?",
+      "isRequired": true,
+      "inputType": "number",
+      "min": "0"
+     }
+    ],
+    "enableIf": "{akoSiOdkladasPeniaze} <> 'item6'"
+   }
+  ],
+  "showTitle": false,
+  "goNextPageAutomatic": true
+ }
