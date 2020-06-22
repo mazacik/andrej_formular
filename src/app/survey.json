@@ -367,7 +367,12 @@
       "inputType": "number",
       "min": "0",
       "placeHolder": "Hodnota v €"
-     },
+     }
+    ]
+   },
+   {
+    "name": "pageFinancnaRezervaVyska",
+    "elements": [
      {
       "type": "text",
       "name": "financnaRezervaVyska",
@@ -596,8 +601,5 @@
    }
   ],
   "showTitle": false,
-  "showProgressBar": "bottom",
-  "progressBarType": "correctquestions",
   "goNextPageAutomatic": true
  }
- 
