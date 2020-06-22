@@ -4,18 +4,14 @@ import * as jsonFile from '../survey.json';
 import * as $ from "jquery";
 
 //Survey.StylesManager.applyTheme("default");
-Survey
-  .Serializer
-  .addProperty("page", {
-    name: "navigationTitle:string",
-    isLocalizable: true
-  });
-Survey
-  .Serializer
-  .addProperty("page", {
-    name: "navigationDescription:string",
-    isLocalizable: true
-  });
+Survey.Serializer.addProperty("page", {
+  name: "navigationTitle:string",
+  isLocalizable: true
+});
+Survey.Serializer.addProperty("page", {
+  name: "navigationDescription:string",
+  isLocalizable: true
+});
 
 @Component({
   selector: 'app-start',
@@ -43,21 +39,38 @@ export class StartComponent implements OnInit {
     }
   }
 
-
-
   ngOnInit(): void {
+    var sections = ["sekciaUvodneOtazky", "sekciaVyberProduktov", "sekciaPracaSPeniazmi", "sekciaFinancnaGramotnost", "sekciaOkruhyZaujmu"];
+    var currentSection = sections[0];
+
+    var navbarElements = [];
+
+    createNavBar();
+
     var survey = new Survey.Model((jsonFile as any).default);
     survey.onComplete.add(onSurveyComplete);
     survey.onCurrentPageChanged.add(onCurrentPageChanged);
     survey.onAfterRenderQuestion.add(doAfterRenderQuestion);
 
-    createNavBar();
-
-
     function onCurrentPageChanged(sender, options) {
       insertAlternativeNextButton();
 
+      for (let i = 0; i < sections.length; i++) {
+        if (sections[i] == currentSection) {
+          navbarElements[i].classList.remove("current");
+          console.log(currentSection);
+        }
+      }
+
       updateCurrentSection();
+
+      for (let i = 0; i < sections.length; i++) {
+        const element = sections[i];
+
+        if (element == currentSection) {
+          navbarElements[i].classList.add("current");
+        }
+      }
     }
 
     function updateCurrentSection() {
@@ -72,32 +85,30 @@ export class StartComponent implements OnInit {
         case "pageKdePracujes":
         case "pageOdkladaniePenazi":
         case "pageOdkladaniePenaziVyska":
-          (<any>window).currentSection = "sekciaUvodneOtazky";
+          currentSection = sections[0];
           break;
         case "pageProduktyZivotnePoistenie":
         case "pageProduktyDruhyPilier":
         case "pageProduktyUverHypotekaPozicka":
         case "pageProduktyIneInvesticie":
         case "pageAkeAkciePlanujes":
-          (<any>window).currentSection = "sekciaVyberProduktov";
+          currentSection = sections[1];
           break;
         case "pageSKymSaRadis":
         case "pageFinancnaRezerva":
         case "pagePrehladOVydavkoch":
-          (<any>window).currentSection = "sekciaPracaSPeniazmi";
+          currentSection = sections[2];
           break;
         case "pageFinancnaGramotnostDlhodobaInvesticia":
         case "pageFinancnaGramotnostPoisteniePriInvestovani":
         case "pageFinancnaGramotnostDruhyPilier":
         case "pageFinancnaGramotnostVynos":
         case "pageFinancnaGramotnostByt":
-          (<any>window).currentSection = "sekciaFinancnaGramotnost";
+          currentSection = sections[3];
           break;
         case "pageCoChcesVediet":
-          (<any>window).currentSection = "sekciaOkruhyZaujmu";
+          currentSection = sections[4];
       }
-
-      document.getElementById("sectionElement").innerHTML = (<any>window).currentSection;
     }
 
     function createNavBar() {
@@ -109,51 +120,19 @@ export class StartComponent implements OnInit {
       var navProgBar = document.createElement("ul");
       navProgBar.className = "navigationProgressbar";
       navProgBarDiv.appendChild(navProgBar);
-      var liEls = [];
-      for (var i = 0; i < survey.visiblePageCount; i++) {
+
+      for (var i = 0; i < sections.length; i++) {
         var liEl = document.createElement("li");
-        if (survey.currentPageNo == i) {
+        if (currentSection == sections[i]) {
           liEl.classList.add("current");
         }
-        liEl.onclick = function (index) {
-          return function () {
-            if (survey['isCompleted'])
-              return;
-            liEls[survey.currentPageNo].classList.remove("current");
-            if (index < survey.currentPageNo) {
-              survey.currentPageNo = index;
-            } else if (index > survey.currentPageNo) {
-              var j = survey.currentPageNo;
-              for (; j < index; j++) {
-                if (survey.visiblePages[j].hasErrors(true, true))
-                  break;
-                if (!liEls[j].classList.contains("completed")) {
-                  liEls[j]
-                    .classList
-                    .add("completed");
-                }
-              }
-              survey.currentPageNo = j;
-            }
-            liEls[survey.currentPageNo].classList.add("current");
-          };
-        }(i);
         var pageTitle = document.createElement("span");
-        if (!(<any>survey.visiblePages[i]).navigationTitle) {
-          pageTitle.innerText = survey.visiblePages[i].name;
-        } else
-          pageTitle.innerText = (<any>survey.visiblePages[i]).navigationTitle
-        pageTitle.className = "pageTitle";
+        pageTitle.innerText = sections[i];
+        pageTitle.className = "sectionTitle";
         liEl.appendChild(pageTitle);
         var br = document.createElement("br");
         liEl.appendChild(br);
-        var pageDescription = document.createElement("span");
-        if (!!(<any>survey.visiblePages[i]).navigationTitle) {
-          pageDescription.innerText = (<any>survey.visiblePages[i]).navigationTitle
-        }
-        pageDescription.className = "pageDescription";
-        liEl.appendChild(pageDescription);
-        liEls.push(liEl);
+        navbarElements.push(liEl);
         navProgBar.appendChild(liEl);
       }
     }

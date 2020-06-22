@@ -10,7 +10,7 @@
       "type": "radiogroup",
       "name": "vek",
       "title": "Koľko máš rokov?",
-      "isRequired": true,
+      "isRequired": false,
       "choices": [
        {
         "value": "vek25amenej",
@@ -43,7 +43,7 @@
       "type": "radiogroup",
       "name": "studium",
       "title": "Študuješ?",
-      "isRequired": true,
+      "isRequired": false,
       "choices": [
        {
         "value": "studiumStredna",
@@ -69,7 +69,7 @@
       "type": "checkbox",
       "name": "zdrojPrijmu",
       "title": "Aké su tvoje aktuálne zdroje príjmu?",
-      "isRequired": true,
+      "isRequired": false,
       "choices": [
        {
         "value": "zdrojPrijmuBrigada",
@@ -118,7 +118,7 @@
       "type": "radiogroup",
       "name": "kdePracujes",
       "title": "V ktorom kraji pracuješ?",
-      "isRequired": true,
+      "isRequired": false,
       "choices": [
        {
         "value": "kdePracujesBB",

@@ -134,7 +134,7 @@ h5.sv_q_title {
 /*navigacny bar*/
 .navigationContainer {
   width: 100%;
-  height: 110px;
+  height: 150px;
   max-width: 1100px;
   margin: 10px auto -70px;
   white-space: nowrap;
@@ -165,7 +165,7 @@ h5.sv_q_title {
 }
 
 .navigationProgressbar li {
-  width: 138px;
+  width: 100;
   font-size: 14px;
   font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: relative;
@@ -173,14 +173,11 @@ h5.sv_q_title {
   display: inline-block;
 }
 
-.navigationProgressbar .pageTitle {
+.navigationProgressbar .sectionTitle {
   font-weight: bold;
   color: black;
 }
 
-.navigationProgressbar .pageDescription {
-  color: black;
-}
 .navigationProgressbar li:before {
   width: 24px;
   height: 24px;
