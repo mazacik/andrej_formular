@@ -130,8 +130,6 @@ export class StartComponent implements OnInit {
         pageTitle.innerText = sections[i];
         pageTitle.className = "sectionTitle";
         liEl.appendChild(pageTitle);
-        var br = document.createElement("br");
-        liEl.appendChild(br);
         navbarElements.push(liEl);
         navProgBar.appendChild(liEl);
       }
