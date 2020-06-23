@@ -215,5 +215,5 @@ h5.sv_q_title {
 }
 .navigationProgressbar li.current:before {
   border-color: #1ab394;
-  background-color: white;
+  box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.3);
 }

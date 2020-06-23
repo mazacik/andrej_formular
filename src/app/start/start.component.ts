@@ -136,15 +136,48 @@ export class StartComponent implements OnInit {
     }
 
     function insertAlternativeNextButton() {
-      var $el = $(".sv_q_text_root");
+      function showAlternativeNextButton() {
+        $el.append('<input id="surveyNextAlternative" onclick="survey.nextPage();"' +
+          ' type="button"' +
+          ' value="Next"' +
+          ' class="sv_next_btn sv_next_btn--alternative">');
+      }
+      function hideAlternativeNextButton() {
+        $("#surveyNextAlternative").remove();
+      }
+      function checkCheckboxes() {
+        var isAnyChecked = $(".sv_q_checkbox_control_item:checked").length > 0;
+        nextButtonAlreadyExists = $("#surveyNextAlternative").length > 0;
+        if (isAnyChecked && !nextButtonAlreadyExists) {
+          showAlternativeNextButton();
+        }
+        if (!isAnyChecked) {
+          hideAlternativeNextButton();
+        }
+      }
+
+      var $el = $(".sv_q.sv_qstn");
       if ($el.length > 0) {
-        $el = $($el[0]);
-        var value = $el.val();
         var nextButtonAlreadyExists = $("#surveyNextAlternative").length > 0;
-        if (value != "" && !nextButtonAlreadyExists) {
-          $el.after('<input id="surveyNextAlternative" onclick="survey.nextPage();" type="button" value="Next" class="sv_next_btn sv_next_btn--alternative">')
-        } else if (value == "") {
-          $("#surveyNextAlternative").remove();
+
+        // check if there are checkboxes
+        var checkboxExists = $(".sv_q_checkbox_label").length > 0;
+        if (checkboxExists) {
+          checkCheckboxes();
+          $(".sv_q_checkbox_control_item").on("change", function(){
+            checkCheckboxes();
+          });
+        }
+
+        // check if there is text input
+        var inputTextExists = $(".sv_q_text_root").length > 0;
+        var value = $(".sv_q_text_root").val();
+        if (inputTextExists) {
+          if (value !== "" && !nextButtonAlreadyExists) {
+            showAlternativeNextButton();
+          } else if (value === "") {
+            hideAlternativeNextButton();
+          }
         }
       }
     }
