@@ -4,6 +4,7 @@ import * as Survey from 'survey-angular';
 import * as jsonFile from '../survey.json';
 import * as $ from "jquery";
 import * as tooltips from "../tooltips.json"
+import tippy from 'tippy.js';
 
 Survey.Serializer.addProperty("page", {
   name: "navigationTitle:string",
@@ -15,12 +16,12 @@ Survey.Serializer.addProperty("page", {
 });
 
 @Component({
-  selector: 'app-start',
-  templateUrl: './start.component.html',
-  styleUrls: ['./start.component.css'],
+  selector: 'app-survey',
+  templateUrl: './survey.component.html',
+  styleUrls: ['./survey.component.css'],
 })
 
-export class StartComponent implements OnInit {
+export class SurveyComponent implements OnInit {
   constructor(
     public router: Router
   ) { }
@@ -130,6 +131,7 @@ export class StartComponent implements OnInit {
       function updateNavBar() {
         function getSectionByCurrentPage() {
           switch (survey.currentPage.name) {
+            case "pageMeno":
             case "pageVek":
             case "pageStudium":
             case "pageZdrojPrijmu":
@@ -188,10 +190,9 @@ export class StartComponent implements OnInit {
     function onUpdateQuestionCssClasses(survey: Survey.SurveyModel, options: any) {
       var classes = options.cssClasses;
 
-      classes.root = "sq-root";
-      classes.title = "sq-title"
-      classes.item = "sq-item";
-      classes.label = "sq-label";
+      if (options.question.name === "odkladaniePenaziVyska") {
+        classes.root += " currency";
+      }
 
       if (options.question.isRequired) {
         classes.title += " sq-title-required";
@@ -222,14 +223,6 @@ export class StartComponent implements OnInit {
   }
 
   onSurveyComplete(): void {
-    // function changeElementVisibility() {
-    //   document.getElementById("surveyContainerMain").hidden = true;
-    //   document.getElementById("btnCompleteSurvey").hidden = true;
-    //   document.getElementById("resultContainer").removeAttribute("hidden");
-    // }
-
-    // changeElementVisibility();
-    console.log(JSON.stringify((<any>window).survey.data));
-    // this.router.navigate(['result']);
+    this.router.navigate(['result']);
   }
 }

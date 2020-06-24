@@ -1,7 +1,15 @@
 {
+  "focusFirstQuestionAutomatic": false,
   "pages": [
    {
-    "name": "pageIntro"
+    "name": "pageMeno",
+    "elements": [
+     {
+      "type": "text",
+      "name": "meno",
+      "title": "Ako si želáš, aby sme ťa oslovovali?"
+     }
+    ]
    },
    {
     "name": "pageVek",
@@ -10,7 +18,6 @@
       "type": "radiogroup",
       "name": "vek",
       "title": "Koľko máš rokov?",
-      "isRequired": false,
       "choices": [
        {
         "value": "vek25amenej",
@@ -43,7 +50,6 @@
       "type": "radiogroup",
       "name": "studium",
       "title": "Študuješ?",
-      "isRequired": false,
       "choices": [
        {
         "value": "studiumStredna",
@@ -69,7 +75,6 @@
       "type": "checkbox",
       "name": "zdrojPrijmu",
       "title": "Aké su tvoje aktuálne zdroje príjmu?",
-      "isRequired": false,
       "choices": [
        {
         "value": "zdrojPrijmuBrigada",
@@ -118,7 +123,6 @@
       "type": "radiogroup",
       "name": "kdePracujes",
       "title": "V ktorom kraji pracuješ?",
-      "isRequired": false,
       "choices": [
        {
         "value": "kdePracujesBB",
@@ -603,3 +607,4 @@
   "showTitle": false,
   "goNextPageAutomatic": true
  }
+ 
