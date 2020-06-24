@@ -233,3 +233,17 @@ h5.sv_q_title {
 .currency {
   color: pink;
 }
+
+.text-input-wrapper {
+  position: relative
+}
+
+.text-input-wrapper:after {
+  position: absolute;
+  bottom: 0;
+  content: "€";
+  right: 0;
+  font-size: 2em;
+  line-height: 2em;
+  color: white;
+}
