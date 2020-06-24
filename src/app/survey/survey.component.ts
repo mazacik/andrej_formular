@@ -183,6 +183,13 @@ export class SurveyComponent implements OnInit {
         }
       }
 
+      if (survey) {
+        var surveyCookie = {
+          currentPageNo: survey.currentPageNo,
+          data: survey.data
+        };
+        window.sessionStorage.setItem('surveyCookie', JSON.stringify(surveyCookie));
+      }
       insertAlternativeNextButton();
       updateNavBar();
     }
@@ -194,14 +201,18 @@ export class SurveyComponent implements OnInit {
         classes.content += " text-input-wrapper";
         classes.root += " currency";
       }
+    }
 
-      if (options.question.isRequired) {
-        classes.title += " sq-title-required";
-        classes.root += " sq-root-required";
-      }
-
-      if (options.question.getType() === "checkbox") {
-        classes.root += " sq-root-cb";
+    function tryLoadSurveyDataFromCookie(survey: Survey.Survey) {
+      var surveyCookie = window.sessionStorage.getItem("surveyCookie");
+      if (surveyCookie) {
+        var jsonCookie = JSON.parse(surveyCookie);
+        if (jsonCookie.currentPageNo) {
+          survey.currentPageNo = jsonCookie.currentPageNo;
+        }
+        if (jsonCookie.data) {
+          survey.data = jsonCookie.data;
+        }
       }
     }
 
@@ -219,11 +230,21 @@ export class SurveyComponent implements OnInit {
     survey.onAfterRenderQuestion.add(doAfterRenderQuestion);
     survey.onUpdateQuestionCssClasses.add(onUpdateQuestionCssClasses);
 
+    tryLoadSurveyDataFromCookie(survey);
+
     Survey.SurveyNG.render("surveyElement", { model: survey });
     (<any>window).survey = survey;
   }
 
   onSurveyComplete(): void {
+    var survey = (<any>window).survey;
+    var surveyCookie = {
+      currentPageNo: survey.currentPageNo,
+      data: survey.data
+    };
+
+    // window.sessionStorage.removeItem('surveyCookie');
+    // window.sessionStorage.setItem('surveyCookie', JSON.stringify(surveyCookie));
     this.router.navigate(['result']);
   }
 }
