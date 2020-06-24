@@ -229,8 +229,8 @@
         "text": "Platia mi ho rodičia"
        },
        {
-        "value": "produktyZivotnePoistenieNieNeplanujem",
-        "text": "Nie, a neplánujem"
+        "value": "produktyZivotnePoistenieNiePlanujem",
+        "text": "Nie, ale plánujem"
        },
        {
         "value": "produktyZivotnePoistenieNie",
@@ -253,8 +253,8 @@
         "text": "Áno"
        },
        {
-        "value": "produktyDruhyPilierNieNeplanujem",
-        "text": "Nie, a neplánujem"
+        "value": "produktyDruhyPilierNiePlanujem",
+        "text": "Nie, ale plánujem"
        },
        {
         "value": "produktyDruhyPilierNie",
@@ -281,8 +281,8 @@
         "text": "Áno"
        },
        {
-        "value": "produktyUverHypotekaPozickaNieNeplanujem",
-        "text": "Nie, a neplánujem"
+        "value": "produktyUverHypotekaPozickaNiePlanujem",
+        "text": "Nie, ale plánujem"
        },
        {
         "value": "produktyUverHypotekaPozickaNie",
@@ -305,8 +305,8 @@
         "text": "Áno"
        },
        {
-        "value": "produktyIneInvesticieNieNeplanujem",
-        "text": "Nie, a neplánujem"
+        "value": "produktyIneInvesticieNiePlanujem",
+        "text": "Nie, ale plánujem"
        }
       ]
      }

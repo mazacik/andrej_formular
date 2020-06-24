@@ -8,6 +8,7 @@ import { IntroComponent } from './intro/intro.component';
 const routes: Routes = [
   {path:'', component: IntroComponent},
   {path:'intro', component: IntroComponent},
+  {path:'intro/:name/:rank', component: IntroComponent},
   {path:'survey', component: SurveyComponent},
   {path:'result', component: ResultComponent},
   {path:'**', component: ErrorComponent}

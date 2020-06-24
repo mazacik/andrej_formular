@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-intro',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntroComponent implements OnInit {
 
-  constructor() { }
+  name: string;
+  rank: string;
+
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-  }
+    this.name = this.route.snapshot.params['name'];
+    this.rank = this.route.snapshot.params['rank'];
 
+    if (this.name && this.rank) {
+      document.getElementById("challenge").removeAttribute("hidden");
+    }
+  }
 }

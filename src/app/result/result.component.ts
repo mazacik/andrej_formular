@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultComponent implements OnInit {
 
-  data: any = (<any>window).survey.data;
+  data: any = (<any>window).survey.data; // survey result
 
   constructor() { }
 
