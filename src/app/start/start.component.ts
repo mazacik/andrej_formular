@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import * as Survey from 'survey-angular';
 import * as jsonFile from '../survey.json';
 import * as $ from "jquery";
+import * as tooltips from "../tooltips.json"
 
 Survey.Serializer.addProperty("page", {
   name: "navigationTitle:string",
@@ -116,6 +117,13 @@ export class StartComponent implements OnInit {
       });
     }
 
+    function doOnAfterRenderPage() {
+      // tooltips
+      for (const [key, value] of Object.entries((<any> tooltips).default)) {
+        tippy(key, value);
+      }
+    }
+
     function onCurrentPageChanged() {
       function updateNavBar() {
         function getSectionByCurrentPage() {
@@ -151,22 +159,22 @@ export class StartComponent implements OnInit {
               return sections[4];
           }
         }
-  
+
         var newSection = getSectionByCurrentPage();
-  
+
         if (currentSection != newSection) {
           for (let i = 0; i < sections.length; i++) {
             if (sections[i] == currentSection) {
               navbarElements[i].classList.remove("current");
             }
           }
-  
+
           for (let i = 0; i < sections.length; i++) {
             if (sections[i] == currentSection) {
               navbarElements[i].classList.add("current");
             }
           }
-  
+
           currentSection = newSection;
         }
       }
@@ -185,6 +193,7 @@ export class StartComponent implements OnInit {
     var survey = new Survey.Model((<any>jsonFile).default);
     survey.onComplete.add(onSurveyComplete);
     survey.onCurrentPageChanged.add(onCurrentPageChanged);
+    survey.onAfterRenderPage.add(doOnAfterRenderPage);
     survey.onAfterRenderQuestion.add(doAfterRenderQuestion);
 
     Survey.SurveyNG.render("surveyElement", { model: survey });
