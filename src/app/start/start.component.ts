@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 import * as Survey from 'survey-angular';
 import * as jsonFile from '../survey.json';
 import * as $ from "jquery";
@@ -19,8 +20,9 @@ Survey.Serializer.addProperty("page", {
 })
 
 export class StartComponent implements OnInit {
-
-  constructor() { }
+  constructor(
+    public router: Router
+  ) { }
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
@@ -40,7 +42,7 @@ export class StartComponent implements OnInit {
 
   ngOnInit(): void {
     function createNavBar() {
-      var navTopEl = document.querySelector("#surveyNavigationTop");
+      var navTopEl = document.querySelector("#surveyNavBar");
       navTopEl.className = "navigationContainer";
       var navProgBarDiv = document.createElement("div");
       navProgBarDiv.className = "navigationProgressbarDiv";
@@ -92,7 +94,7 @@ export class StartComponent implements OnInit {
         var checkboxExists = $(".sv_q_checkbox_label").length > 0;
         if (checkboxExists) {
           checkCheckboxes();
-          $(".sv_q_checkbox_control_item").on("change", function(){
+          $(".sv_q_checkbox_control_item").on("change", function () {
             checkCheckboxes();
           });
         }
@@ -151,28 +153,46 @@ export class StartComponent implements OnInit {
               return sections[4];
           }
         }
-  
+
         var newSection = getSectionByCurrentPage();
-  
+
         if (currentSection != newSection) {
           for (let i = 0; i < sections.length; i++) {
             if (sections[i] == currentSection) {
               navbarElements[i].classList.remove("current");
             }
           }
-  
+
           for (let i = 0; i < sections.length; i++) {
             if (sections[i] == currentSection) {
               navbarElements[i].classList.add("current");
             }
           }
-  
+
           currentSection = newSection;
         }
       }
 
       insertAlternativeNextButton();
       updateNavBar();
+    }
+
+    function onUpdateQuestionCssClasses(survey: Survey.SurveyModel, options: any) {
+      var classes = options.cssClasses;
+
+      classes.root = "sq-root";
+      classes.title = "sq-title"
+      classes.item = "sq-item";
+      classes.label = "sq-label";
+
+      if (options.question.isRequired) {
+        classes.title += " sq-title-required";
+        classes.root += " sq-root-required";
+      }
+
+      if (options.question.getType() === "checkbox") {
+        classes.root += " sq-root-cb";
+      }
     }
 
     var sections = ["sekciaUvodneOtazky", "sekciaVyberProduktov", "sekciaPracaSPeniazmi", "sekciaFinancnaGramotnost", "sekciaOkruhyZaujmu"];
@@ -183,21 +203,24 @@ export class StartComponent implements OnInit {
     createNavBar();
 
     var survey = new Survey.Model((<any>jsonFile).default);
-    survey.onComplete.add(onSurveyComplete);
+    survey.onComplete.add(() => this.onSurveyComplete());
     survey.onCurrentPageChanged.add(onCurrentPageChanged);
     survey.onAfterRenderQuestion.add(doAfterRenderQuestion);
+    survey.onUpdateQuestionCssClasses.add(onUpdateQuestionCssClasses);
 
     Survey.SurveyNG.render("surveyElement", { model: survey });
     (<any>window).survey = survey;
   }
 
-  manuallyCompleteSurvey() {
-    // document.getElementById("surveyContainer").hidden = true;
-    // document.getElementById("btnCompleteSurvey").hidden = true;
-    // document.getElementById("resultContainer").removeAttribute("hidden");
+  onSurveyComplete(): void {
+    // function changeElementVisibility() {
+    //   document.getElementById("surveyContainerMain").hidden = true;
+    //   document.getElementById("btnCompleteSurvey").hidden = true;
+    //   document.getElementById("resultContainer").removeAttribute("hidden");
+    // }
+
+    // changeElementVisibility();
+    console.log(JSON.stringify((<any>window).survey.data));
+    // this.router.navigate(['result']);
   }
-}
-
-function onSurveyComplete(survey) {
-
 }

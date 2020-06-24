@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Survey } from 'survey-angular';
 
 @Component({
   selector: 'app-result',
@@ -7,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultComponent implements OnInit {
 
-  points: String = '';
+  test: String = '';
 
   constructor() { }
 
   ngOnInit(): void {
-    this.points = sessionStorage.getItem('points'); 
+    // this.test = sessionStorage.getItem('points');
+    this.test = (<any>window).survey.data;
   }
 
 }
