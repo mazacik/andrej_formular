@@ -75,6 +75,18 @@ h5.sv_q_title {
   margin-top: 16px!important;
 }
 
+::-webkit-input-placeholder { /* Edge */
+  color: rgba(255, 255, 255, .5);
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgba(255, 255, 255, .5);
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, .5);
+}
+
 .sv_q_radiogroup_other {
   background-color: transparent!important;
   border: none!important;
