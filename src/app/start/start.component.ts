@@ -3,7 +3,6 @@ import * as Survey from 'survey-angular';
 import * as jsonFile from '../survey.json';
 import * as $ from "jquery";
 
-//Survey.StylesManager.applyTheme("default");
 Survey.Serializer.addProperty("page", {
   name: "navigationTitle:string",
   isLocalizable: true
@@ -40,77 +39,6 @@ export class StartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    var sections = ["sekciaUvodneOtazky", "sekciaVyberProduktov", "sekciaPracaSPeniazmi", "sekciaFinancnaGramotnost", "sekciaOkruhyZaujmu"];
-    var currentSection = sections[0];
-
-    var navbarElements = [];
-
-    createNavBar();
-
-    var survey = new Survey.Model((jsonFile as any).default);
-    survey.onComplete.add(onSurveyComplete);
-    survey.onCurrentPageChanged.add(onCurrentPageChanged);
-    survey.onAfterRenderQuestion.add(doAfterRenderQuestion);
-
-    function onCurrentPageChanged(sender, options) {
-      insertAlternativeNextButton();
-
-      for (let i = 0; i < sections.length; i++) {
-        if (sections[i] == currentSection) {
-          navbarElements[i].classList.remove("current");
-          console.log(currentSection);
-        }
-      }
-
-      updateCurrentSection();
-
-      for (let i = 0; i < sections.length; i++) {
-        const element = sections[i];
-
-        if (element == currentSection) {
-          navbarElements[i].classList.add("current");
-        }
-      }
-    }
-
-    function updateCurrentSection() {
-      switch (survey.currentPage.name) {
-        case "pageVek":
-        case "pageStudium":
-        case "pageZdrojPrijmu":
-        case "pageVyskaPrijmu":
-        case "pageKdePracujes":
-        case "pageOdkladaniePenazi":
-        case "pageOdkladaniePenaziVyska":
-        case "pageKdePracujes":
-        case "pageOdkladaniePenazi":
-        case "pageOdkladaniePenaziVyska":
-          currentSection = sections[0];
-          break;
-        case "pageProduktyZivotnePoistenie":
-        case "pageProduktyDruhyPilier":
-        case "pageProduktyUverHypotekaPozicka":
-        case "pageProduktyIneInvesticie":
-        case "pageAkeAkciePlanujes":
-          currentSection = sections[1];
-          break;
-        case "pageSKymSaRadis":
-        case "pageFinancnaRezerva":
-        case "pagePrehladOVydavkoch":
-          currentSection = sections[2];
-          break;
-        case "pageFinancnaGramotnostDlhodobaInvesticia":
-        case "pageFinancnaGramotnostPoisteniePriInvestovani":
-        case "pageFinancnaGramotnostDruhyPilier":
-        case "pageFinancnaGramotnostVynos":
-        case "pageFinancnaGramotnostByt":
-          currentSection = sections[3];
-          break;
-        case "pageCoChcesVediet":
-          currentSection = sections[4];
-      }
-    }
-
     function createNavBar() {
       var navTopEl = document.querySelector("#surveyNavigationTop");
       navTopEl.className = "navigationContainer";
@@ -182,11 +110,82 @@ export class StartComponent implements OnInit {
       }
     }
 
-    function doAfterRenderQuestion(survey) {
+    function doAfterRenderQuestion() {
       $(".sv_q_text_root").on("keyup", function (event) {
         insertAlternativeNextButton();
       });
     }
+
+    function onCurrentPageChanged() {
+      function updateNavBar() {
+        function getSectionByCurrentPage() {
+          switch (survey.currentPage.name) {
+            case "pageVek":
+            case "pageStudium":
+            case "pageZdrojPrijmu":
+            case "pageVyskaPrijmu":
+            case "pageKdePracujes":
+            case "pageOdkladaniePenazi":
+            case "pageOdkladaniePenaziVyska":
+            case "pageKdePracujes":
+            case "pageOdkladaniePenazi":
+            case "pageOdkladaniePenaziVyska":
+              return sections[0];
+            case "pageProduktyZivotnePoistenie":
+            case "pageProduktyDruhyPilier":
+            case "pageProduktyUverHypotekaPozicka":
+            case "pageProduktyIneInvesticie":
+            case "pageAkeAkciePlanujes":
+              return sections[1];
+            case "pageSKymSaRadis":
+            case "pageFinancnaRezerva":
+            case "pagePrehladOVydavkoch":
+              return sections[2];
+            case "pageFinancnaGramotnostDlhodobaInvesticia":
+            case "pageFinancnaGramotnostPoisteniePriInvestovani":
+            case "pageFinancnaGramotnostDruhyPilier":
+            case "pageFinancnaGramotnostVynos":
+            case "pageFinancnaGramotnostByt":
+              return sections[3];
+            case "pageCoChcesVediet":
+              return sections[4];
+          }
+        }
+  
+        var newSection = getSectionByCurrentPage();
+  
+        if (currentSection != newSection) {
+          for (let i = 0; i < sections.length; i++) {
+            if (sections[i] == currentSection) {
+              navbarElements[i].classList.remove("current");
+            }
+          }
+  
+          for (let i = 0; i < sections.length; i++) {
+            if (sections[i] == currentSection) {
+              navbarElements[i].classList.add("current");
+            }
+          }
+  
+          currentSection = newSection;
+        }
+      }
+
+      insertAlternativeNextButton();
+      updateNavBar();
+    }
+
+    var sections = ["sekciaUvodneOtazky", "sekciaVyberProduktov", "sekciaPracaSPeniazmi", "sekciaFinancnaGramotnost", "sekciaOkruhyZaujmu"];
+    var currentSection = sections[0];
+
+    var navbarElements = [];
+
+    createNavBar();
+
+    var survey = new Survey.Model((<any>jsonFile).default);
+    survey.onComplete.add(onSurveyComplete);
+    survey.onCurrentPageChanged.add(onCurrentPageChanged);
+    survey.onAfterRenderQuestion.add(doAfterRenderQuestion);
 
     Survey.SurveyNG.render("surveyElement", { model: survey });
     (<any>window).survey = survey;
@@ -197,7 +196,6 @@ export class StartComponent implements OnInit {
     // document.getElementById("btnCompleteSurvey").hidden = true;
     // document.getElementById("resultContainer").removeAttribute("hidden");
   }
-
 }
 
 function onSurveyComplete(survey) {
