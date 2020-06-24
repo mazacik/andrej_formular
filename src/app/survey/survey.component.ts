@@ -122,7 +122,7 @@ export class SurveyComponent implements OnInit {
 
     function doOnAfterRenderPage() {
       // tooltips
-      for (const [key, value] of Object.entries((<any> tooltips).default)) {
+      for (const [key, value] of Object.entries((<any>tooltips).default)) {
         tippy(key, value);
       }
     }
@@ -191,6 +191,7 @@ export class SurveyComponent implements OnInit {
       var classes = options.cssClasses;
 
       if (options.question.name === "odkladaniePenaziVyska") {
+        classes.content += " text-input-wrapper";
         classes.root += " currency";
       }
 
