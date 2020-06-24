@@ -23,6 +23,7 @@
     "jquery": "^3.5.1",
     "rxjs": "~6.5.4",
     "survey-angular": "^1.7.12",
+    "tippy.js": "^6.2.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },

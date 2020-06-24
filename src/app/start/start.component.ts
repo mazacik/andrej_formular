@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import * as Survey from 'survey-angular';
 import * as jsonFile from '../survey.json';
 import * as $ from "jquery";
+import * as tooltips from "../tooltips.json"
 
 Survey.Serializer.addProperty("page", {
   name: "navigationTitle:string",
@@ -118,6 +119,13 @@ export class StartComponent implements OnInit {
       });
     }
 
+    function doOnAfterRenderPage() {
+      // tooltips
+      for (const [key, value] of Object.entries((<any> tooltips).default)) {
+        tippy(key, value);
+      }
+    }
+
     function onCurrentPageChanged() {
       function updateNavBar() {
         function getSectionByCurrentPage() {
@@ -205,6 +213,7 @@ export class StartComponent implements OnInit {
     var survey = new Survey.Model((<any>jsonFile).default);
     survey.onComplete.add(() => this.onSurveyComplete());
     survey.onCurrentPageChanged.add(onCurrentPageChanged);
+    survey.onAfterRenderPage.add(doOnAfterRenderPage);
     survey.onAfterRenderQuestion.add(doAfterRenderQuestion);
     survey.onUpdateQuestionCssClasses.add(onUpdateQuestionCssClasses);
 
