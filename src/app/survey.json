@@ -475,7 +475,8 @@
     "elements": [
      {
       "type": "radiogroup",
-      "name": "V ktorých fondoch je najlepšie mať založený druhý pilier?",
+      "name": "financnaGramotnostDruhyPilier",
+      "title": "V ktorých fondoch je najlepšie mať založený druhý pilier?",
       "choices": [
        {
         "value": "financnaGramotnostDruhyPilierGarantovane",

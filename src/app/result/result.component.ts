@@ -21,29 +21,6 @@ export class ResultComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    function resolveElementVisibility() {
-      // cyklus hlada zhodu ID vybratej odpovede a ID HTML elementu - pri zhode sa element zobrazi
-      for (var value in this.data) {
-        var resultId = this.data[value];
-        this.showElement(resultId);
-      }
-
-      // odlozit50percentprijmu
-      if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.5) {
-        this.showElement("odlozit50percentprijmu");
-      }
-
-      // vyskarezervy5nasobokprijmu
-      if (this.data.financnaRezervaVyska >= this.data.vyskaPrijmu * 5) {
-        this.showElement("vyskarezervy5nasobokprijmu");
-      }
-
-      // mesacnarezerva30percentprijmu
-      if (this.data.financnaRezervaMesacne >= this.data.vyskaPrijmu * 0.3) {
-        this.showElement("mesacnarezerva30percentprijmu");
-      }
-    }
-
     // nacitaj data
     var base64data = this.route.snapshot.params['base64data'];
     if (base64data) {
@@ -57,22 +34,40 @@ export class ResultComponent implements OnInit {
     if (this.data) {
       // vytvor challengeLink
       this.challengeLink = window.location.origin + "/intro/" + this.data.meno + "/" + this.rank;
+      
+      // cyklus hlada zhodu ID vybratej odpovede a ID HTML elementu - pri zhode sa element zobrazi
+      for (var value in this.data) {
+        var resultId = this.data[value];
+        this.showElementById(resultId);
+      }
 
-      () => resolveElementVisibility();
+      // odlozit50percentprijmu
+      if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.5) {
+        this.showElementsByClass("odlozit50percentprijmu");
+      }
+
+      // vyskarezervy5nasobokprijmu
+      if (this.data.financnaRezervaVyska >= this.data.vyskaPrijmu * 5) {
+        this.showElementsByClass("vyskarezervy5nasobokprijmu");
+      }
+
+      // mesacnarezerva30percentprijmu
+      if (this.data.financnaRezervaMesacne >= this.data.vyskaPrijmu * 0.3) {
+        this.showElementsByClass("mesacnarezerva30percentprijmu");
+      }
     }
   }
 
-  hideElement(elementId: string): void {
+  hideElementById(elementId: string): void {
     var element = document.getElementById(elementId);
     if (element) element.hidden = true;
   }
-  showElement(elementId: string): void {
+  showElementById(elementId: string): void {
     var element = document.getElementById(elementId);
     if (element) element.removeAttribute("hidden");
   }
-  toggleElement(elementId: string): void {
+  toggleElementById(elementId: string): void {
     var element = document.getElementById(elementId);
-    console.log(element);
     if (element) if (element.hasAttribute("hidden")) {
       element.removeAttribute("hidden");
     } else {
@@ -80,9 +75,17 @@ export class ResultComponent implements OnInit {
     }
   }
 
+  showElementsByClass(c: string) {
+    var elements = document.getElementsByClassName(c);
+    for (let i = 0; i < elements.length; i++) {
+      const element = elements[i];
+      element.removeAttribute("hidden");
+    }
+  }
+
   showResultContent(): void {
-    this.hideElement("resultSummary");
-    this.showElement("resultContent");
+    this.hideElementById("resultSummary");
+    this.showElementById("resultContent");
   }
 
   generateDataUrl(): string {

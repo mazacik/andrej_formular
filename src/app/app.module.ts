@@ -10,7 +10,6 @@ import { SurveyComponent } from './survey/survey.component';
 import { ErrorComponent } from './error/error.component';
 import { ResultComponent } from './result/result.component';
 import { IntroComponent } from './intro/intro.component';
-import { ToggleTextComponent } from './toggle-text/toggle-text.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { ToggleTextComponent } from './toggle-text/toggle-text.component';
     ErrorComponent,
     ResultComponent,
     IntroComponent,
-    ToggleTextComponent,
   ],
   imports: [
     BrowserModule,

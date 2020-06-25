@@ -10,9 +10,9 @@
     <button (click)="copyToClipboard(challengeLink)">SKOPÍROVAŤ</button></p>
 
   <p><b>Tieto 3 veci Ti vyšli najlepšie:</b></p>
-  <p id="odlozit50percentprijmu">Vieš si odložiť 50% z Tvojho príjmu.</p>
-  <p id="vyskarezervy5nasobokprijmu">Rezervu máš vybudovanú vo výške 5-násobného príjmu.</p>
-  <p id="mesacnarezerva30percentprijmu">Mesačne si odkladáš 30% z Tvojho príjmu na rezervu.</p>
+  <div class="odlozit50percentprijmu"><p>Vieš si odložiť 50% z Tvojho príjmu.</p></div>
+  <div class="vyskarezervy5nasobokprijmu"><p>Rezervu máš vybudovanú vo výške 5-násobného príjmu.</p></div>
+  <div class="mesacnarezerva30percentprijmu"><p>Mesačne si odkladáš 30% z Tvojho príjmu na rezervu.</p></div>
 
   <p><b>Tvoje 3 najväčšie problémy:</b></p>
   <p id="produktyIneInvesticieNiePlanujem">Neinvestuješ.</p>
@@ -20,9 +20,9 @@
   <p id="odkladaniePenaziSposobBeznyUcet">Držíš si všetky peniaze na jednom účte.</p>
 
   <p><b>3 najväčšie pomoci od nás:</b></p>
-  <p id="">Zistíme za akých podmienok by ti banka poskytla hypotéku a v akej výške.</p>
-  <p id="">Porovnáme dostupné investičné produkty a odporučíme tie, ktorá by ti najviac vyhovovali.</p>
-  <p id="">Založíme ti druhý pilier so správne nastavenou investičnou stratégiou.</p>
+  <p>Zistíme za akých podmienok by ti banka poskytla hypotéku a v akej výške.</p>
+  <p>Porovnáme dostupné investičné produkty a odporučíme tie, ktorá by ti najviac vyhovovali.</p>
+  <p>Založíme ti druhý pilier so správne nastavenou investičnou stratégiou.</p>
 
   <p><b>V ďalšej časti sa dozvieš:</b></p>
   <p>Správne odpovede na otázky z časti finančnej gramotnosti.</p>
@@ -35,58 +35,89 @@
 
 <div id="resultContent" hidden>
   <p>Vo výbere finančných produktov sa ti darilo lepšie ako {{percentHorsichProdukty}}% účastníkom testu.</p>
-
   <h3>Na tieto oblasti ti odporúčame sa pozrieť</h3>
-  <toggle-text id="produktyDruhyPilierNeviemCoToJe" hidden [titleText]="'Nevieš, čo znamená druhý pilier.'"
-    [contentText]="'Druhý pilier sú jediné peniaze, ktoré vieš od štátu získať zadarmo navyše len tak. Funguje to tak, že časť z Tvojich odvodov nesmerujú na vyplácanie aktuálnych dôchodcov, ale idú priamo Tebe na účet, z ktorého si vieš nasporené peniaze vytiahnuť na dôchodku. Založenie druhého piliera by malo byť jeden z prvých úkonov, ktoré spravíš po získaní prvého pracovného miesta, aj brigády.'">
-  </toggle-text>
-  <toggle-text id="produktyZivotnePoistenieRodicia" hidden [titleText]="'Životné poistenie Ti platia rodičia.'"
-    [contentText]="'Keď už máš pravidelný mesačný príjem, odporúčame prevziať zodpovednosť v poistení na seba. Jeden z dôvodov, prečo tak spraviť je, že je pravdepodobné, že rodičia platia Tvoje poistenie už dlhšie - môže byť neaktuálne a platia teda zbytočné peniaze. Je preto dobré, si to nechať skontrolovať poverenou osobou.'">
-  </toggle-text>
+  <div id="produktyDruhyPilierNeviemCoToJe">
+    <p><button (click)="toggleElementById('produktyDruhyPilierNeviemCoToJeViac')">+</button><b>Nevieš, čo znamená druhý
+        pilier.</b></p>
+    <p id="produktyDruhyPilierNeviemCoToJeViac" hidden>Druhý pilier sú jediné peniaze, ktoré vieš od štátu získať
+      zadarmo navyše len tak. Funguje to tak, že časť z
+      Tvojich odvodov nesmerujú na vyplácanie
+      aktuálnych dôchodcov, ale idú priamo Tebe na účet, z ktorého si vieš nasporené peniaze vytiahnuť na dôchodku.
+      Založenie druhého piliera by malo byť jeden z prvých úkonov, ktoré spravíš po získaní prvého pracovného miesta, aj
+      brigády.</p>
+  </div>
+  <div id="produktyZivotnePoistenieRodicia">
+    <p><button (click)="toggleElementById('produktyZivotnePoistenieRodiciaViac')">+</button><b>Životné poistenie Ti platia rodičia.</b></p>
+    <p id="produktyZivotnePoistenieRodiciaViac" hidden>Keď už máš pravidelný
+      mesačný príjem, odporúčame prevziať zodpovednosť v poistení na seba. Jeden z dôvodov, prečo tak spraviť je, že je
+      pravdepodobné, že rodičia platia Tvoje poistenie už dlhšie - môže byť neaktuálne a platia teda zbytočné peniaze. Je
+      preto dobré, si to nechať skontrolovať poverenou osobou.</p>
+  </div>
 
-  <h3>Nedostatky</h3>
-  <toggle-text id="produktyIneInvesticieNiePlanujem" hidden [titleText]="'Neinvestuješ.'"
-    [contentText]="'S investovaním je najlepšie začať čo najskôr, hoci by to malo znamenať, že investuješ len 10€ mesačne. Týmto spôsobom si buduješ návyk na mesačné odkladanie peňazí a, navyše, aj malá čiastka sa vie pekne zhodnotiť. Ak vezmeme do úvahy riziko, výnos a energiu, investovanie je ten najefektívnejší spôsob, ako nadobudnúť peniaze bez práce.'">
-  </toggle-text>
+  <h3>Tvoje vážne nedostatky</h3>
+  <div id="produktyIneInvesticieNiePlanujem">
+    <p><button (click)="toggleElementById('produktyIneInvesticieNiePlanujemViac')">+</button><b>Neinvestuješ.</b></p>
+    <p id="produktyIneInvesticieNiePlanujemViac" hidden>S investovaním je najlepšie začať čo najskôr,
+      hoci by to malo znamenať, že investuješ len 10€ mesačne. Týmto spôsobom si buduješ návyk na mesačné odkladanie
+      peňazí a, navyše, aj malá čiastka sa vie pekne zhodnotiť. Ak vezmeme do úvahy riziko, výnos a energiu, investovanie
+      je ten najefektívnejší spôsob, ako nadobudnúť peniaze bez práce.</p>
+  </div>
 
   <h3>Tieto sféry máš zvládnuté excelentne</h3>
-  <p id="odlozit50percentprijmu" hidden><b>Vieš si odložiť 50% z Tvojho príjmu.</b>Na študenta je táto suma veľmi
+  <p class="odlozit50percentprijmu" hidden><b>Vieš si odložiť 50% z Tvojho príjmu.</b> Na študenta je táto suma veľmi
     úctyhodná, len tak ďalej!</p>
-  <p id="vyskarezervy5nasobokprijmu" hidden><b>Rezervu máš vybudovanú vo výške 5-násobného príjmu.</b> Je vidno, že k
+  <p class="vyskarezervy5nasobokprijmu" hidden><b>Rezervu máš vybudovanú vo výške 5-násobného príjmu.</b> Je vidno, že k
     peniazom pristupuješ zodpovedne. Až 80% Slovákov nemá dostatočnú rezervu alebo si ju dokonca ani netvorí. Ty medzi
     nich nepatríš, čo je veľmi chvályhodné.</p>
-  <p id="mesacnarezerva30percentprijmu" hidden><b>Mesačne si odkladáš 30% z Tvojho príjmu na rezervu.</b> Podľa
+  <p class="mesacnarezerva30percentprijmu" hidden><b>Mesačne si odkladáš 30% z Tvojho príjmu na rezervu.</b> Podľa
     finančných pravidiel by si si mal odkladať minimálne 10%, ty však zvládaš oveľa viac!</p>
   <p id="odkladaniePenaziSposobBeznyUcet odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca odkladaniePenaziSposobSporiaciUcetPoVyplate odkladaniePenaziSposobSporiaciUcetPriebezne"
     hidden><b>Odkladáš si pravidelne.</b> Pri peniazoch sú konzistentnosť a disciplína kľúčové. Vyzerá to, že máš
     obe vlastnosti zvládnuté.</p>
 
   <h3>Na toto si daj pozor</h3>
-  <toggle-text id="prehladOVydavkochNesledujem" hidden [titleText]="'Nezaznamenávaš si výdavky.'"
-    [contentText]="'Zaznamenávanie všetkých príjmov a výdavkov Ti pomôže v mnohých ohľadoch. Presne budeš vedieť, kam smerujú Tvoje peniaze, a ak sa Ti to nebude páčiť, vieš na tom pracovať. Navyše, ak si bežne kupuješ veci narýchlo a podľa nálady, tak pri evidencii každého výdavku Ťa to bude na konci bolieť a poučíš sa. Na tento účel odporúčame aplikáciu Wallet, 1Money alebo poslúži aj Excel.'">
-  </toggle-text>
+  <div id="prehladOVydavkochNesledujem">
+    <p><button (click)="toggleElementById('prehladOVydavkochNesledujemViac')">+</button><b>Nezaznamenávaš si výdavky.</b></p>
+    <p id="prehladOVydavkochNesledujemViac" hidden>Zaznamenávanie všetkých príjmov a
+      výdavkov Ti pomôže v mnohých ohľadoch. Presne budeš vedieť, kam smerujú Tvoje peniaze, a ak sa Ti to nebude páčiť,
+      vieš na tom pracovať. Navyše, ak si bežne kupuješ veci narýchlo a podľa nálady, tak pri evidencii každého výdavku Ťa
+      to bude na konci bolieť a poučíš sa. Na tento účel odporúčame aplikáciu Wallet, 1Money alebo poslúži aj Excel.</p>
+  </div>
 
   <h3>Tvoje vážne nedostatky</h3>
-  <toggle-text id="odkladaniePenaziSposobBeznyUcet" hidden [titleText]="'Držíš si všetky peniaze na jednom účte.'"
-    [contentText]="'Takýmto štýlom odkladania peňazí budeš mať v tom stále neporiadok. Založ si sporiaci účet a vždy po výplate si naň pošli vopred určenú sumu podľa Tvojich finančných cieľov. Odloženým peniazom vždy priraď jasný účel a výber si účet, ktorý má aj nejaké zhodnotenie.'">
-  </toggle-text>
-  <toggle-text id="sKymSaRadisInternetAKnihy" hidden [titleText]="'Svoje financie nekonzultuješ s odborníkom.'"
-    [contentText]="'Finančných produktov každým rokom pribúda a tým je väčšia šanca, že si zvolíš ten nesprávny. Práve od toho sú tu odborníci zameraní na financie, ktorí tieto produkty sledujú a budú ti vedieť poradiť. Daj si však pozor, s kým sa o financiách rozprávaš. Informácie, ktoré Ti poskytne si radšej over a never každému.'">
-  </toggle-text>
+  <div id="odkladaniePenaziSposobBeznyUcet">
+    <p><button (click)="toggleElementById('odkladaniePenaziSposobBeznyUcetViac')">+</button><b>Držíš si všetky peniaze na jednom účte.</b></p>
+    <p id="odkladaniePenaziSposobBeznyUcetViac" hidden>Takýmto štýlom
+      odkladania peňazí budeš mať v tom stále neporiadok. Založ si sporiaci účet a vždy po výplate si naň pošli vopred
+      určenú sumu podľa Tvojich finančných cieľov. Odloženým peniazom vždy priraď jasný účel a výber si účet, ktorý má aj
+      nejaké zhodnotenie.</p>
+  </div>
+  <div id="sKymSaRadisInternetAKnihy">
+    <p><button (click)="toggleElementById('sKymSaRadisInternetAKnihyViac')">+</button><b>Svoje financie nekonzultuješ s odborníkom.</b></p>
+    <p id="sKymSaRadisInternetAKnihyViac" hidden>Finančných produktov každým
+      rokom pribúda a tým je
+      väčšia šanca, že si zvolíš ten nesprávny. Práve od toho sú tu odborníci zameraní na financie, ktorí tieto produkty
+      sledujú a budú ti vedieť poradiť. Daj si však pozor, s kým sa o financiách rozprávaš. Informácie, ktoré Ti poskytne
+      si radšej over a never každému.</p>
+  </div>
 
   <!-- financna gramotnost -->
 
   <div id="coChcesVedietVlastneByvanie" hidden>
     <h3>Vlastné bývanie - čo všetko treba vedieť pred kúpou prvej nehnuteľnosti a ako sa na to pripraviť?</h3>
-    <toggle-text hidden [titleText]="'Koľko potrebuješ peňazí?'"
-      [contentText]="'Ak si chceš kúpiť byt za 100 000€, banka Ti nepožičia všetky peniaze. Dá Ti maximálne 80% z hodnoty nehnuteľnosti, výnimočne až 90%. Preto musíš mať našetrených vlastných minimálne 10%, čo je v tomto prípade až 10 000€. Vieš to financovať aj spotrebným úverom alebo medziúverom, to však nie sú finančne najlepšie možnosti, pretože majú vysoké úroky a na konci zaplatíš o veľa viac než Ti banka požičala. Preto odporúčame začať s prípravou na vlastné bývanie už niekoľko rokov predtým ako plánuješ jej kúpu.'">
-    </toggle-text>
-    <toggle-text hidden [titleText]="'Čo ďalšie by si mal vedieť?'"
-      [contentText]="'Zadlžiť sa môžeš maximálne do 8-násobku Tvojho ročného príjmu. V praxi to znamená, že ak zarábaš, napríklad, 1000€ mesačne, banka Ti požičia maximálne 96 000€. Pracovníci v banke sledujú Tvoj príjem za posledných 3-12 mesiacov, to však záleží od samotnej banky.'">
-    </toggle-text>
-    <toggle-text hidden [titleText]="'Na koľko si hypotéku zobrať?'"
-      [contentText]="'Hoci je riešenie tejto otázky veľmi individuálne, strategicky sa najviac oplatí vziať si hypotéku na najdlhšiu možnú dobu (štandardne na 30 rokov). Týmto krokom sa zmenší Tvoja mesačná splátka. Má to však zmysel len vtedy, ak ušetrené peniaze  investuješ. Tieto peniaze potom nadobudnú vyššiu hodnotu a ak sa to v danom momente oplatí, vieš ich použiť na predčasné splatenie hypotéky. Takto môžeš ušetriť na preplatení až 30%.'">
-    </toggle-text>
+    <p><b>Koľko potrebuješ peňazí?</b> Ak si chceš kúpiť byt za 100 000€, banka Ti nepožičia všetky peniaze. Dá Ti
+      maximálne 80% z hodnoty nehnuteľnosti, výnimočne až 90%. Preto musíš mať našetrených vlastných minimálne 10%, čo
+      je v tomto prípade až 10 000€. Vieš to financovať aj spotrebným úverom alebo medziúverom, to však nie sú finančne
+      najlepšie možnosti, pretože majú vysoké úroky a na konci zaplatíš o veľa viac než Ti banka požičala. Preto
+      odporúčame začať s prípravou na vlastné bývanie už niekoľko rokov predtým ako plánuješ jej kúpu.</p>
+    <p><b>Čo ďalšie by si mal vedieť?</b> Zadlžiť sa môžeš maximálne do 8-násobku Tvojho ročného príjmu. V praxi to
+      znamená, že ak zarábaš, napríklad, 1000€ mesačne, banka Ti požičia maximálne 96 000€. Pracovníci v banke sledujú
+      Tvoj príjem za posledných 3-12 mesiacov, to však záleží od samotnej banky.</p>
+    <p><b>Na koľko si hypotéku zobrať?</b> Hoci je riešenie tejto otázky veľmi individuálne, strategicky sa najviac
+      oplatí vziať si hypotéku na najdlhšiu možnú dobu (štandardne na 30 rokov). Týmto krokom sa zmenší Tvoja mesačná
+      splátka. Má to však zmysel len vtedy, ak ušetrené peniaze investuješ. Tieto peniaze potom nadobudnú vyššiu hodnotu
+      a ak sa to v danom momente oplatí, vieš ich použiť na predčasné splatenie hypotéky. Takto môžeš ušetriť na
+      preplatení až 30%.</p>
   </div>
 
   <!-- s cim vedia pomoct nasi odbornici -->
