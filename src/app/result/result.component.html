@@ -1,4 +1,14 @@
-<button routerLink="/intro">Späť na začiatok</button>
+<button routerLink="/intro">DEV.RESET</button>
+<button (click)="saveDataUrlAsHTML()">DEV.SAVE_DATA_URL_AS_HTML</button>
+<button (click)="copyDataUrlToClipboard()">DEV.COPY_DATA_URL_TO_CLIP</button>
+
+<div id="resultSummary">
+  <h1>Vyhodnotenie</h1>
+  <p>Gratulujeme {{data.meno}} k vyplneniu testu. Dostal si sa na úroveň - {{rank}}.</p>
+  <p>{{percentHorsich}}% účastníkom testu sa darilo horšie ako tebe</p>
+  <p>Chceš sa porovnať aj s Tvojimi blízkymi? Pošli im link a zisti, kto získal viac bodov! [{{challengeLink}}] <button
+      (click)="copyToClipboard(challengeLink)">SKOPÍROVAŤ</button></p>
+</div>
 
 <div>
   <h3>Tieto oblasti by si mal zvážiť</h3>
