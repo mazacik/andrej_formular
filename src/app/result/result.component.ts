@@ -8,11 +8,12 @@ import * as FileSaver from 'file-saver';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-
+  test123 = 'test123';
   data: any;
 
   rank: string = "Genius";
   percentHorsich: number = 45;
+  percentHorsichProdukty: number = 37;
   challengeLink: string = "";
 
   constructor(
@@ -21,30 +22,25 @@ export class ResultComponent implements OnInit {
 
   ngOnInit(): void {
     function resolveElementVisibility() {
-      function removeHiddenFromElement(elementId: string) {
-        var element = document.getElementById(elementId);
-        if (element) element.removeAttribute("hidden");
-      }
-
       // cyklus hlada zhodu ID vybratej odpovede a ID HTML elementu - pri zhode sa element zobrazi
       for (var value in this.data) {
         var resultId = this.data[value];
-        removeHiddenFromElement(resultId);
+        this.showElement(resultId);
       }
 
       // odlozit50percentprijmu
       if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.5) {
-        removeHiddenFromElement("odlozit50percentprijmu");
+        this.showElement("odlozit50percentprijmu");
       }
 
       // vyskarezervy5nasobokprijmu
       if (this.data.financnaRezervaVyska >= this.data.vyskaPrijmu * 5) {
-        removeHiddenFromElement("vyskarezervy5nasobokprijmu");
+        this.showElement("vyskarezervy5nasobokprijmu");
       }
 
       // mesacnarezerva30percentprijmu
       if (this.data.financnaRezervaMesacne >= this.data.vyskaPrijmu * 0.3) {
-        removeHiddenFromElement("mesacnarezerva30percentprijmu");
+        this.showElement("mesacnarezerva30percentprijmu");
       }
     }
 
@@ -64,6 +60,29 @@ export class ResultComponent implements OnInit {
 
       () => resolveElementVisibility();
     }
+  }
+
+  hideElement(elementId: string): void {
+    var element = document.getElementById(elementId);
+    if (element) element.hidden = true;
+  }
+  showElement(elementId: string): void {
+    var element = document.getElementById(elementId);
+    if (element) element.removeAttribute("hidden");
+  }
+  toggleElement(elementId: string): void {
+    var element = document.getElementById(elementId);
+    console.log(element);
+    if (element) if (element.hasAttribute("hidden")) {
+      element.removeAttribute("hidden");
+    } else {
+      element.hidden = true;
+    }
+  }
+
+  showResultContent(): void {
+    this.hideElement("resultSummary");
+    this.showElement("resultContent");
   }
 
   generateDataUrl(): string {
