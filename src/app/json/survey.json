@@ -162,7 +162,7 @@
     ]
    },
    {
-    "name": "pageOdkladaniePenazi",
+    "name": "pageOdkladaniePenaziSposob",
     "elements": [
      {
       "type": "radiogroup",
@@ -336,7 +336,7 @@
     "name": "pageSKymSaRadis",
     "elements": [
      {
-      "type": "checkbox",
+      "type": "radiogroup",
       "name": "sKymSaRadis",
       "title": "S kým sa radíš o svojich financiách, resp. odkiaľ získavaš informácie?",
       "choices": [
@@ -390,7 +390,7 @@
     "name": "pagePrehladOVydavkoch",
     "elements": [
      {
-      "type": "checkbox",
+      "type": "radiogroup",
       "name": "prehladOVydavkoch",
       "title": "Aký máš prehľad o svojich výdavkoch?",
       "choices": [

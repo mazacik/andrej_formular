@@ -1,0 +1,40 @@
+{
+  "answerDetails": [
+    {
+      "id": "produktyDruhyPilierNeviemCoToJe",
+      "title": "Nevieš, čo znamená druhý pilier.",
+      "content": "Druhý pilier sú jediné peniaze, ktoré vieš od štátu získať zadarmo navyše len tak. Funguje to tak, že časť z Tvojich odvodov nesmerujú na vyplácanie aktuálnych dôchodcov, ale idú priamo Tebe na účet, z ktorého si vieš nasporené peniaze vytiahnuť na dôchodku. Založenie druhého piliera by malo byť jeden z prvých úkonov, ktoré spravíš po získaní prvého pracovného miesta, aj brigády.",
+      "points": -0.5
+    },
+    {
+      "id": "produktyZivotnePoistenieRodicia",
+      "title": "Životné poistenie Ti platia rodičia.",
+      "content": "Keď už máš pravidelný mesačný príjem, odporúčame prevziať zodpovednosť v poistení na seba. Jeden z dôvodov, prečo tak spraviť je, že je pravdepodobné, že rodičia platia Tvoje poistenie už dlhšie - môže byť neaktuálne a platia teda zbytočné peniaze. Je preto dobré, si to nechať skontrolovať poverenou osobou.",
+      "points": -0.5
+    },
+    {
+      "id": "produktyIneInvesticieNiePlanujem",
+      "title": "Neinvestuješ.",
+      "content": "S investovaním je najlepšie začať čo najskôr, hoci by to malo znamenať, že investuješ len 10€ mesačne. Týmto spôsobom si buduješ návyk na mesačné odkladanie peňazí a, navyše, aj malá čiastka sa vie pekne zhodnotiť. Ak vezmeme do úvahy riziko, výnos a energiu, investovanie je ten najefektívnejší spôsob, ako nadobudnúť peniaze bez práce. ",
+      "points": -0.5
+    },
+    {
+      "id": "prehladOVydavkochMamDobruPredstavu",
+      "title": "Nezaznamenávaš si výdavky.",
+      "content": "Zaznamenávanie všetkých príjmov a výdavkov Ti pomôže v mnohých ohľadoch. Presne budeš vedieť, kam smerujú Tvoje peniaze, a ak sa Ti to nebude páčiť, vieš na tom pracovať. Navyše, ak si bežne kupuješ veci narýchlo a podľa nálady, tak pri evidencii každého výdavku Ťa to bude na konci bolieť a poučíš sa. Na tento účel odporúčame aplikáciu Wallet, 1Money alebo poslúži aj Excel.",
+      "points": -0.5
+    },
+    {
+      "id": "odkladaniePenaziSposobBeznyUcet",
+      "title": "Držíš si všetky peniaze na jednom účte.",
+      "content": "Takýmto štýlom odkladania peňazí budeš mať v tom stále neporiadok. Založ si sporiaci účet a vždy po výplate si naň pošli vopred určenú sumu podľa Tvojich finančných cieľov. Odloženým peniazom vždy priraď jasný účel a výber si účet, ktorý má aj nejaké zhodnotenie.",
+      "points": -1
+    },
+    {
+      "id": "sKymSaRadisInternetAKnihy",
+      "title": "Svoje financie nekonzultuješ s odborníkom.",
+      "content": "Finančných produktov každým rokom pribúda a tým je väčšia šanca, že si zvolíš ten nesprávny. Práve od toho sú tu odborníci zameraní na financie, ktorí tieto produkty sledujú a budú ti vedieť poradiť. Daj si však pozor, s kým sa o financiách rozprávaš. Informácie, ktoré Ti poskytne si radšej over a never každému.",
+      "points": -1
+    }
+  ]
+}

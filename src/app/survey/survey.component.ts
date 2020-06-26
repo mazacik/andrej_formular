@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import * as Survey from 'survey-angular';
-import * as jsonFile from '../survey.json';
+import * as jsonFile from '../json/survey.json';
 import * as $ from "jquery";
 import * as tooltips from "../tooltips.json"
 import tippy from 'tippy.js';
@@ -188,7 +188,7 @@ export class SurveyComponent implements OnInit {
           currentPageNo: survey.currentPageNo,
           data: survey.data
         };
-        window.sessionStorage.setItem('surveyCookie', JSON.stringify(surveyCookie));
+        //window.sessionStorage.setItem('surveyCookie', JSON.stringify(surveyCookie));
       }
       insertAlternativeNextButton();
       updateNavBar();
@@ -230,7 +230,7 @@ export class SurveyComponent implements OnInit {
     survey.onAfterRenderQuestion.add(doAfterRenderQuestion);
     survey.onUpdateQuestionCssClasses.add(onUpdateQuestionCssClasses);
 
-    tryLoadSurveyDataFromCookie(survey);
+    //tryLoadSurveyDataFromCookie(survey);
 
     Survey.SurveyNG.render("surveyElement", { model: survey });
     (<any>window).survey = survey;
