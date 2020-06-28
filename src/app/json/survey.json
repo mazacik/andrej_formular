@@ -1,4 +1,7 @@
 {
+  "showTitle": false,
+  "goNextPageAutomatic": true,
+  "textUpdateMode": "onTyping",
   "focusFirstQuestionAutomatic": false,
   "pages": [
    {
@@ -627,8 +630,6 @@
      }
     ]
    }
-  ],
-  "showTitle": false,
-  "goNextPageAutomatic": true
+  ]
  }
  
