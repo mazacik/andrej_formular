@@ -157,7 +157,9 @@ export class ResultComponent implements OnInit {
       }
     }
   }
-
+  concatCapitalize(prefix: string, toCapitalize: string): string {
+    return prefix + toCapitalize.charAt(0).toUpperCase() + toCapitalize.slice(1);
+  }
   resolveAnswer(answerId: string) {
     var answerDetails = this.getAnswerDetailsById(answerId);
     if (answerDetails) {
@@ -170,11 +172,6 @@ export class ResultComponent implements OnInit {
       this.showElementById(divId);
     }
   }
-
-  concatCapitalize(prefix: string, toCapitalize: string): string {
-    return prefix + toCapitalize.charAt(0).toUpperCase() + toCapitalize.slice(1);
-  }
-
   createToggleElement(id: string, title: string, content: string, divSuffix: string = ""): void {
     // toggle button
     var buttonToggle = document.createElement("button");
@@ -221,7 +218,6 @@ export class ResultComponent implements OnInit {
       element.hidden = true;
     }
   }
-
   showElementsByClass(c: string) {
     var elements = document.getElementsByClassName(c);
     for (let i = 0; i < elements.length; i++) {
@@ -230,17 +226,28 @@ export class ResultComponent implements OnInit {
     }
   }
 
+  copyToClipboard(value: string): void {
+    const copyElement = document.createElement('textarea');
+    copyElement.style.position = 'fixed';
+    copyElement.style.left = '0';
+    copyElement.style.top = '0';
+    copyElement.style.opacity = '0';
+    copyElement.value = value;
+    document.body.appendChild(copyElement);
+    copyElement.focus();
+    copyElement.select();
+    document.execCommand('copy');
+    document.body.removeChild(copyElement);
+  }
   generateDataUrl(): string {
     return window.location.origin + "/result/" + btoa(JSON.stringify(this.data));
   }
-
   saveDataUrlAsHTML(): void {
     var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + this.generateDataUrl() + "'></head>";
     var fileBlob = new Blob([htmlContent], { type: "text/plain;charset=utf-8" });
     var fileName = "Vysledok.html";
     FileSaver.saveAs(fileBlob, fileName);
   }
-
   sendDataUrlAsEmail(): void {
     var to = "";
     var from = "andrej@otestujsa.sk";
@@ -273,23 +280,8 @@ export class ResultComponent implements OnInit {
       _this.emailSend(to, from, subject, body, htmlUrl);
     });
   }
-
   copyDataUrlToClipboard(): void {
     this.copyToClipboard(this.generateDataUrl());
-  }
-
-  copyToClipboard(value: string): void {
-    const copyElement = document.createElement('textarea');
-    copyElement.style.position = 'fixed';
-    copyElement.style.left = '0';
-    copyElement.style.top = '0';
-    copyElement.style.opacity = '0';
-    copyElement.value = value;
-    document.body.appendChild(copyElement);
-    copyElement.focus();
-    copyElement.select();
-    document.execCommand('copy');
-    document.body.removeChild(copyElement);
   }
 
   emailSendToAndrej(): void {
@@ -346,7 +338,6 @@ export class ResultComponent implements OnInit {
       _this.emailSend(to, from, subject, body, htmlUrl);
     });
   }
-
   emailSend(to: string, from: string, subject: string, body: string, attachment: any = undefined): void {
     var email = {
       send: function (jsonData) {
@@ -405,7 +396,6 @@ export class ResultComponent implements OnInit {
 
     alert("Email bol odoslaný.");
   }
-
   blobToDataURL(blob: Blob, callback: { (htmlUrl: any): void; (htmlUrl: any): void; (arg0: string | ArrayBuffer): void; }) {
     var fileReader = new FileReader();
     fileReader.onload = function (event) { callback(event.target.result); }
