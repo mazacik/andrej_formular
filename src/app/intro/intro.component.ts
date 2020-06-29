@@ -17,7 +17,11 @@ export class IntroComponent implements OnInit {
 
   ngOnInit(): void {
     this.name = this.route.snapshot.params['name'];
-    this.rank = decodeURIComponent(atob(this.route.snapshot.params['rank']));
+
+    var url_rank = this.route.snapshot.params['rank'];
+    if (url_rank) {
+      this.rank = decodeURIComponent(atob(this.route.snapshot.params['rank']));
+    }
 
     if (this.name && this.rank) {
       document.getElementById("challenge").removeAttribute("hidden");

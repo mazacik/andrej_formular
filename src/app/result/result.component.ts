@@ -206,4 +206,46 @@ export class ResultComponent implements OnInit {
     document.execCommand('copy');
     document.body.removeChild(copyElement);
   }
+
+  emailSend(): void {
+    var Email = {
+      send: function (jsonData) {
+        return new Promise(function () {
+          jsonData.nocache = Math.floor(1e6 * Math.random() + 1), jsonData.Action = "Send";
+          var jsonString = JSON.stringify(jsonData);
+          var request = new XMLHttpRequest;
+          request.open("POST", "https://smtpjs.com/v3/smtpjs.aspx?", !0);
+          request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          console.log(request);
+          console.log(jsonString);
+          // request.send(jsonString);
+        });
+      }
+    };
+
+    var emailFrom = (<any>document.getElementById("emailKlienta")).value;
+    if (emailFrom.trim().length >= 7) {
+      const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (emailRegex.test(emailFrom)) {
+        var emailText = document.getElementById("emailText").innerText;
+        if (emailText.trim().length <= 0) {
+          emailText = "no text";
+        }
+  
+        Email.send({
+          Host: "smtp.gmail.com",
+          Username: "surveyemailer123",
+          Password: "surveyemailerandrej123",
+          To: 'mazak.miso@gmail.com',
+          From: emailFrom,
+          Subject: "Žiadosť o úvodnú konzultáciu zdarma",
+          Body: emailText
+        });
+      } else {
+        // error - email nezodpoveda regexu
+      }
+    } else {
+      // error - email ma menej ako 7 znakov
+    }
+  }
 }

@@ -32,12 +32,23 @@ export class SurveyComponent implements OnInit {
     var key = event.key;
 
     if (survey != null) {
-      if (key == "Enter" || key == "ArrowRight" || key == "ArrowDown") {
-        event.preventDefault();
-        survey.nextPage();
-      } else if (key == "ArrowUp" || key == "ArrowLeft") {
-        event.preventDefault();
-        survey.prevPage();
+      if (survey.currentPage.questions[0].getType() == "text" && survey.currentPage.questions[0].inputType != "text") {
+        // question is a text input that only allows numbers
+        if (key == "Enter" || key == "ArrowRight" || key == "ArrowDown") {
+          var element = document.getElementById("surveyNextAlternative");
+          if (element) element.focus;
+        } else if (key == "ArrowUp" || key == "ArrowLeft") {
+          event.preventDefault();
+          survey.prevPage();
+        }
+      } else {
+        if (key == "Enter" || key == "ArrowRight" || key == "ArrowDown") {
+          event.preventDefault();
+          survey.nextPage();
+        } else if (key == "ArrowUp" || key == "ArrowLeft") {
+          event.preventDefault();
+          survey.prevPage();
+        }
       }
     }
   }
@@ -190,6 +201,7 @@ export class SurveyComponent implements OnInit {
         };
         //window.sessionStorage.setItem('surveyCookie', JSON.stringify(surveyCookie));
       }
+
       insertAlternativeNextButton();
       updateNavBar();
     }
