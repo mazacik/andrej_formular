@@ -1,7 +1,3 @@
-<button routerLink="/intro">DEV.RESET</button>
-<button (click)="saveDataUrlAsHTML()">DEV.SAVE</button>
-<button (click)="copyDataUrlToClipboard()">DEV.COPY</button>
-
 <div id="resultSummary">
   <h1>Vyhodnotenie</h1>
   <p>Gratulujeme {{data.meno}} k vyplneniu testu. Dostal si sa na úroveň - {{dosiahnutaHodnost}}.</p>
@@ -98,7 +94,7 @@
   </div>
 
   <h1>Niečo malo o témach, ktoré ťa zaujímali.</h1>
-  <div id="coChcesVedietVlastneByvanie" hidden>
+  <div id="divCoChcesVedietVlastneByvanie" hidden>
     <h3>Vlastné bývanie - čo všetko treba vedieť pred kúpou prvej nehnuteľnosti a ako sa na to pripraviť?</h3>
     <p><b>Koľko potrebuješ peňazí?</b> Ak si chceš kúpiť byt za 100 000€, banka Ti nepožičia všetky peniaze. Dá Ti
       maximálne 80% z hodnoty nehnuteľnosti, výnimočne až 90%. Preto musíš mať našetrených vlastných minimálne 10%, čo
@@ -115,14 +111,22 @@
       preplatení až 30%.</p>
   </div>
 
-  <h1>S čím ti vieme pomôcť my?</h1>
-  <!-- s cim vedia pomoct nasi odbornici -->
+  <div>
+    <h1>S čím ti vieme pomôcť my?</h1>
+    <p>Zistíme za akých podmienok by ti banka poskytla hypotéku a v akej výške.</p>
+    <p>Porovnáme dostupné investičné produkty a odporučíme tie, ktorá by ti najviac vyhovovali.</p>
+    <p>Založíme ti druhý pilier so správne nastavenou investičnou stratégiou.</p>
+    <p>Skontrolujeme ti poistenie a zhodnotíme, či spĺňa tvoje očakávania.</p>
+    <p>Pomôžeme ti nastaviť čo najefektívnejšie rozloženie portfólia vzhľadom na tvoje ciele.</p>
+    <p>Ukážeme ti sporiace účty, ktoré sú zadarmo, a majú aj malé zhodnotenie.</p>
+    <div id="divKtoSuNasiOdbornici"></div>
+  </div>
 
   <div>
     <h2>Využi od nás úvodnú konzultáciu zdarma.</h2>
     <p>Na konkrétnych podmienkach spolupráce sa dohodneme až keď zistime tvoje požiadavky.</p>
     <p><b>Komu: </b>andrej@otestujsa.sk</p>
-    <p><b>Od: </b><input id="emailKlienta" type="email" placeholder="example@gmail.com"></p>
+    <p><b>Od: </b><input id="emailKlientaZiadost" type="email" placeholder="example@gmail.com"></p>
     <p id="emailText" contenteditable="true">Na úvodnej bezplatnej konzultácii sa chcem informovať o:<br>
       - Podmienkach za akých mi banka poskytne hypotéku<br>
       - Možnostiach investovania<br>
@@ -130,6 +134,12 @@
       - Aktuálnom nastavení môjho životného poistenia<br>
       - Ideálnom rozložení kam smerovať moje peniaze<br>
       - Alternatívach oproti bežnému účtu v banke</p>
-    <button (click)="emailSend()">ODOSLAŤ</button>
+    <button (click)="emailSendToAndrej()">ODOSLAŤ</button>
+  </div>
+  <div>
+    <h2>Nemám záujem o konzultáciu, chcem si však uložiť vyhodnotenie.</h2>
+    <p><button (click)="sendDataUrlAsEmail()">POSLAŤ EMAILOM</button><input id="emailKlientaVysledok" type="email" placeholder="example@gmail.com"></p>
+    <p><button (click)="saveDataUrlAsHTML()">ULOŽIŤ</button></p>
+    <p><button (click)="copyDataUrlToClipboard()">SKOPÍROVAŤ LINK</button></p>
   </div>
 </div>

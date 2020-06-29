@@ -1,5 +1,5 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
 
 import * as answersJSON from '../json/answerDetails.json';
@@ -24,7 +24,8 @@ export class ResultComponent implements OnInit {
 
   constructor(
     private renderer: Renderer2,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,38 +36,41 @@ export class ResultComponent implements OnInit {
       this.data = JSON.parse(atob(base64data));
     } else {
       // survey
-      this.data = (<any>window).survey.data;
+      var survey = (<any>window).survey;
+      if (survey) this.data = survey.data;
     }
 
-    if (this.data) {
-      function getAnswerDetailsById(id: string) {
-        for (let i = 0; i < answersJSON.answerDetails.length; i++) {
-          const question = answersJSON.answerDetails[i];
-          if (question.id == id) {
-            return question;
-          }
-        }
-      }
-
+    if (!this.data) {
+      this.data = '{"meno": ""}'; // prevents console error
+      this.router.navigate(['intro']);
+    } else {
       // cyklus hlada zhodu ID vybratej odpovede a ID HTML elementu
       for (var value in this.data) {
         var answerId = this.data[value];
 
-        if (typeof answerId == 'string' && answerId.startsWith("financnaGramotnost")) {
-          // financna gramotnost
-          var userChoiceAndPoints = gramotnostJSON.userChoiceAndPoints.find(function (param) { return param.id == answerId; });
-          this.pocetBodov += userChoiceAndPoints.points;
-          var userChoiceElement = document.getElementById(value + "UserChoice");
-          if (userChoiceElement) userChoiceElement.innerHTML = userChoiceAndPoints.userChoice;
+        if (typeof answerId == 'string') {
+          // odpoved je string
+          if (answerId.startsWith("financnaGramotnost")) {
+            // financna gramotnost
+            var userChoiceAndPoints = gramotnostJSON.userChoiceAndPoints.find(function (param) { return param.id == answerId; });
+            if (userChoiceAndPoints) {
+              this.pocetBodov += userChoiceAndPoints.points;
+              var userChoiceElement = document.getElementById(value + "UserChoice");
+              if (userChoiceElement) userChoiceElement.innerHTML = userChoiceAndPoints.userChoice;
 
-          var correctChoiceAndContent = gramotnostJSON.correctChoiceAndContent.find(function (param) { return param.id == value; });
-          if (correctChoiceAndContent) this.createToggleElement(value, "Vysvetlenie", correctChoiceAndContent.content, "Vysvetlenie");
+              var correctChoiceAndContent = gramotnostJSON.correctChoiceAndContent.find(function (param) { return param.id == value; });
+              if (correctChoiceAndContent) this.createToggleElement(value, "Vysvetlenie", correctChoiceAndContent.content, "Vysvetlenie");
+            } else {
+              console.log(answerId + " not found in answer json");
+            }
+          } else {
+            // vsetko okrem financnej gramotnosti a matematiky
+            this.resolveAnswer(answerId);
+          }
         } else {
-          // vsetko okrem financnej gramotnosti a matematiky
-          var answerDetails = getAnswerDetailsById(this.data[value]);
-          if (answerDetails) {
-            this.pocetBodov += answerDetails.points;
-            this.createToggleElement(answerDetails.id, answerDetails.title, answerDetails.content);
+          // odpoved je array
+          for (let i = 0; i < answerId.length; i++) {
+            this.resolveAnswer(answerId[i]);
           }
         }
       }
@@ -89,38 +93,86 @@ export class ResultComponent implements OnInit {
         this.showElementsByClass("mesacnarezerva30percentprijmu");
       }
 
+      // nasi odbornici
+      this.createToggleElement("ktoSuNasiOdbornici", "Kto sú naši odborníci?",
+        "Karolína Lehocká za dôchodky → Učiteľka dôchodkového systému<br>" +
+        "Ondrej Broska za investície → Riaditeľ spoločnosti TowerFinance<br>" +
+        "Marián Markech za poistenia → Bývalý generálny riaditeľ Axa<br>" +
+        "Martin Kraus za hypotéky → Bývalý Teamleader v prvej stavebnej sporiteľni<br>" +
+        "Andrej Nejedlík za komunikáciu s klientami → autor projektu");
+
       // dosiahnuta hodnost
+      var hodnost: string;
       if (this.pocetBodov > 10) {
         this.dosiahnutaHodnost = "Finančná legenda";
+        hodnost = "FinancnaLegenda";
       } else if (this.pocetBodov > 8) {
         this.dosiahnutaHodnost = "Finančná sova";
+        hodnost = "FinancnaSova";
       } else if (this.pocetBodov > 6) {
         this.dosiahnutaHodnost = "Finančná hviezda";
+        hodnost = "FinancnaHviezda";
       } else if (this.pocetBodov > 4) {
         this.dosiahnutaHodnost = "Finančný profesor";
+        hodnost = "FinancnyProfesor";
       } else if (this.pocetBodov > 2) {
         this.dosiahnutaHodnost = "Finančný ninja";
+        hodnost = "FinancnyNinja";
       } else if (this.pocetBodov > 0) {
         this.dosiahnutaHodnost = "Finančný kúzelník";
+        hodnost = "FinancnyKuzelnik";
       } else if (this.pocetBodov == 0) {
         this.dosiahnutaHodnost = "Finančný dospelák";
+        hodnost = "FinancnyDospelak";
       } else if (this.pocetBodov > -2) {
         this.dosiahnutaHodnost = "Finančný uceň";
+        hodnost = "FinancnyUcen";
       } else if (this.pocetBodov > -4) {
         this.dosiahnutaHodnost = "Finančný študent";
+        hodnost = "FinancnyStudent";
       } else if (this.pocetBodov > -6) {
         this.dosiahnutaHodnost = "Finančný junior";
+        hodnost = "FinancnyJunior";
       } else if (this.pocetBodov > -8) {
         this.dosiahnutaHodnost = "Finančný začiatočník";
+        hodnost = "FinancnyZaciatocnik";
       } else if (this.pocetBodov > -10) {
         this.dosiahnutaHodnost = "Finančný prváčik";
+        hodnost = "FinancnyPrvacik";
       } else if (this.pocetBodov > -12) {
         this.dosiahnutaHodnost = "Finančné embryo";
+        hodnost = "FinancneEmbryo";
       }
 
       // vytvor challengeLink
-      this.challengeLink = window.location.origin + "/intro/" + this.data.meno + "/" + btoa(encodeURIComponent(this.dosiahnutaHodnost));
+      this.challengeLink = window.location.origin + "/intro/" + this.data.meno + "/" + hodnost;
     }
+  }
+
+  getAnswerDetailsById(id: string) {
+    for (let i = 0; i < answersJSON.answerDetails.length; i++) {
+      const question = answersJSON.answerDetails[i];
+      if (question.id == id) {
+        return question;
+      }
+    }
+  }
+
+  resolveAnswer(answerId: string) {
+    var answerDetails = this.getAnswerDetailsById(answerId);
+    if (answerDetails) {
+      // detaily boli najdene, vygeneruj toggleElement do divu podla IDcka
+      this.pocetBodov += answerDetails.points;
+      this.createToggleElement(answerDetails.id, answerDetails.title, answerDetails.content);
+    } else {
+      // detaily neboli najdene, skus zobrazit div podla IDcka
+      var divId = this.concatCapitalize("div", answerId);
+      this.showElementById(divId);
+    }
+  }
+
+  concatCapitalize(prefix: string, toCapitalize: string): string {
+    return prefix + toCapitalize.charAt(0).toUpperCase() + toCapitalize.slice(1);
   }
 
   createToggleElement(id: string, title: string, content: string, divSuffix: string = ""): void {
@@ -144,7 +196,7 @@ export class ResultComponent implements OnInit {
     pContent.innerHTML = content;
 
     // div
-    var divId = "div" + id.charAt(0).toUpperCase() + id.slice(1) + divSuffix;
+    var divId = this.concatCapitalize("div", id) + divSuffix;
     var div = document.getElementById(divId);
 
     div.appendChild(pTitle);
@@ -189,6 +241,39 @@ export class ResultComponent implements OnInit {
     FileSaver.saveAs(fileBlob, fileName);
   }
 
+  sendDataUrlAsEmail(): void {
+    var to = "";
+    var from = "andrej@otestujsa.sk";
+    var subject = "Výsledky Tvojho finančného dotazníku";
+    var body = "";
+
+    // email from
+    var toElement = (<any>document.getElementById("emailKlientaVysledok"));
+    if (toElement) to = toElement.value; else return;
+    if (to.trim().length >= 7) {
+      const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (!regex.test(to)) {
+        // error - emailova adresa nezodpoveda regexu
+        return;
+      }
+    } else {
+      // error - emailova adresa ma menej ako 7 znakov
+      return;
+    }
+
+    // email body
+    body = "Gratulujeme k vyplneniu bla bla bla, vysledok je v prilohe";
+
+    // email attachments
+    var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + this.generateDataUrl() + "'></head>";
+    var htmlFileBlob = new Blob([htmlContent], { type: "text/plain;charset=utf-8" });
+
+    var _this = this;
+    this.blobToDataURL(htmlFileBlob, function (htmlUrl: any) {
+      _this.emailSend(to, from, subject, body, htmlUrl);
+    });
+  }
+
   copyDataUrlToClipboard(): void {
     this.copyToClipboard(this.generateDataUrl());
   }
@@ -207,8 +292,63 @@ export class ResultComponent implements OnInit {
     document.body.removeChild(copyElement);
   }
 
-  emailSend(): void {
-    var Email = {
+  emailSendToAndrej(): void {
+    // primitivna anti-spam kontrola
+    var limit = 5;
+
+    var emailCount = parseInt(localStorage.getItem("emailCount")) || 0;
+    var emailTime: number = parseInt(localStorage.getItem("emailTime")) || 0;
+
+    if (Date.now() >= emailTime + 86400000) {
+      // od poslania posledneho emailu uplynulo 24h
+      localStorage.setItem("emailCount", "1");
+      localStorage.setItem("emailTime", Date.now().toString());
+    } else if (emailCount >= limit) {
+      // clovek poslal "limit" emailov za poslednych 24h
+      alert("Za posledných 24 hodín si nám už poslal(a) " + limit + " emailov.");
+      return;
+    } else {
+      // clovek poslal menej ako "limit" emailov za poslednych 24h
+      localStorage.setItem("emailCount", (emailCount + 1).toString());
+    }
+
+    var to = "mazak.miso@gmail.com";
+    var from = "";
+    var subject = "Žiadosť o úvodnú konzultáciu zdarma";
+    var body = "";
+
+    // email from
+    var fromElement = (<any>document.getElementById("emailKlientaZiadost"));
+    if (fromElement) from = fromElement.value; else return;
+    if (from.trim().length >= 7) {
+      const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (!regex.test(from)) {
+        // error - emailova adresa nezodpoveda regexu
+        return;
+      }
+    } else {
+      // error - emailova adresa ma menej ako 7 znakov
+      return;
+    }
+
+    // email body
+    var bodyElement = document.getElementById("emailText");
+    if (bodyElement) body = bodyElement.innerText;
+    if (body.trim().length <= 0) body = "empty email body";
+    body += "<br><br>" + JSON.stringify(this.data);
+
+    // email attachments
+    var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + this.generateDataUrl() + "'></head>";
+    var htmlFileBlob = new Blob([htmlContent], { type: "text/plain;charset=utf-8" });
+    var _this = this;
+    this.blobToDataURL(htmlFileBlob, function (htmlUrl: any) {
+      // send email
+      _this.emailSend(to, from, subject, body, htmlUrl);
+    });
+  }
+
+  emailSend(to: string, from: string, subject: string, body: string, attachment: any = undefined): void {
+    var email = {
       send: function (jsonData) {
         return new Promise(function () {
           jsonData.nocache = Math.floor(1e6 * Math.random() + 1), jsonData.Action = "Send";
@@ -216,36 +356,59 @@ export class ResultComponent implements OnInit {
           var request = new XMLHttpRequest;
           request.open("POST", "https://smtpjs.com/v3/smtpjs.aspx?", !0);
           request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-          console.log(request);
-          console.log(jsonString);
-          // request.send(jsonString);
+          request.send(jsonString);
         });
       }
     };
 
-    var emailFrom = (<any>document.getElementById("emailKlienta")).value;
-    if (emailFrom.trim().length >= 7) {
-      const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      if (emailRegex.test(emailFrom)) {
-        var emailText = document.getElementById("emailText").innerText;
-        if (emailText.trim().length <= 0) {
-          emailText = "no text";
-        }
-  
-        Email.send({
-          Host: "smtp.gmail.com",
-          Username: "surveyemailer123",
-          Password: "surveyemailerandrej123",
-          To: 'mazak.miso@gmail.com',
-          From: emailFrom,
-          Subject: "Žiadosť o úvodnú konzultáciu zdarma",
-          Body: emailText
-        });
-      } else {
-        // error - email nezodpoveda regexu
-      }
+    // Email.send({
+    //   // v google ucet nastaveniach treba vypnut 2-faktor autentifikaciu
+    //   // v google ucet nastaveniach treba povolit "less secure apps"
+    //   SecureToken : "2cb4ec7b-33de-4bb2-81ff-2dfecdd3f063",
+    //   To: to,
+    //   From: from,
+    //   Subject: subject,
+    //   Body: body
+    // });
+
+    if (attachment) {
+      email.send({
+        // v google ucet nastaveniach treba vypnut 2-faktor autentifikaciu
+        // v google ucet nastaveniach treba povolit "less secure apps"
+        Host: "smtp.gmail.com",
+        Username: "surveyemailer123",
+        Password: "surveyemailerandrej123",
+        To: to,
+        From: from,
+        Subject: subject,
+        Body: body,
+        Attachments: [
+          {
+            name: "Vysledok.html",
+            data: attachment
+          }
+        ]
+      });
     } else {
-      // error - email ma menej ako 7 znakov
+      email.send({
+        // v google ucet nastaveniach treba vypnut 2-faktor autentifikaciu
+        // v google ucet nastaveniach treba povolit "less secure apps"
+        Host: "smtp.gmail.com",
+        Username: "surveyemailer123",
+        Password: "surveyemailerandrej123",
+        To: to,
+        From: from,
+        Subject: subject,
+        Body: body
+      });
     }
+
+    alert("Email bol odoslaný.");
+  }
+
+  blobToDataURL(blob: Blob, callback: { (htmlUrl: any): void; (htmlUrl: any): void; (arg0: string | ArrayBuffer): void; }) {
+    var fileReader = new FileReader();
+    fileReader.onload = function (event) { callback(event.target.result); }
+    fileReader.readAsDataURL(blob);
   }
 }
