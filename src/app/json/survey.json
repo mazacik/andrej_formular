@@ -240,7 +240,7 @@
           "type": "radiogroup",
           "name": "produktyZivotnePoistenie",
           "title": "Platíš si životné poistenie?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
