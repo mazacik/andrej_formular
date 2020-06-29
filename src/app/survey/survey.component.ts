@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import * as Survey from 'survey-angular';
 import * as jsonFile from '../json/survey.json';
 import * as $ from "jquery";
-import * as tooltips from "../tooltips.json"
 import tippy from 'tippy.js';
 
 Survey.Serializer.addProperty("page", {
@@ -131,14 +130,7 @@ export class SurveyComponent implements OnInit {
       });
     }
 
-    function doOnAfterRenderPage() {
-      // tooltips
-      for (const [key, value] of Object.entries((<any>tooltips).default)) {
-        tippy(key, value);
-      }
-    }
-
-    function onCurrentPageChanged() {
+    function onCurrentPageChanged(survey: Survey.SurveyModel, options: any) {
       function updateNavBar() {
         function getSectionByCurrentPage() {
           switch (survey.currentPage.name) {
@@ -202,6 +194,26 @@ export class SurveyComponent implements OnInit {
         //window.sessionStorage.setItem('surveyCookie', JSON.stringify(surveyCookie));
       }
 
+      // tooltip proof of concept
+      var titleElement = document.getElementsByClassName("sv_q_title").item(0);
+      if (titleElement) {
+        var innerHTML = titleElement.innerHTML;
+
+        var indexFirst = innerHTML.indexOf("priemerného");
+        var indexLast = indexFirst + "priemerného".length;
+
+        if (indexFirst >= 0) {
+          innerHTML = innerHTML.slice(0, indexLast) + "</span>" + innerHTML.slice(indexLast);
+          innerHTML = innerHTML.slice(0, indexFirst) + "<span class='priemerneho'>" + innerHTML.slice(indexFirst);
+
+          titleElement.innerHTML = innerHTML;
+
+          tippy('.priemerneho', {
+            "content": "tooltip"
+          })
+        }
+      }
+
       insertAlternativeNextButton();
       updateNavBar();
     }
@@ -238,7 +250,6 @@ export class SurveyComponent implements OnInit {
     var survey = new Survey.Model((<any>jsonFile).default);
     survey.onComplete.add(() => this.onSurveyComplete());
     survey.onCurrentPageChanged.add(onCurrentPageChanged);
-    survey.onAfterRenderPage.add(doOnAfterRenderPage);
     survey.onAfterRenderQuestion.add(doAfterRenderQuestion);
     survey.onUpdateQuestionCssClasses.add(onUpdateQuestionCssClasses);
 
