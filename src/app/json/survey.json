@@ -317,6 +317,66 @@
       ]
     },
     {
+      "name": "pageProduktyZivotnePoistenieKolkoPlati",
+      "elements": [
+        {
+          "type": "text",
+          "name": "produktyZivotnePoistenieKolkoPlati",
+          "title": "Koľko priemerne mesačne platíš za svoje poistenie?",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "inputType": "number",
+          "min": "0",
+          "placeHolder": "Mesačná čiastka v €"
+        }
+      ],
+      "visibleIf": "{produktyZivotnePoistenie} = 'produktyZivotnePoistenieAno'"
+    },
+    {
+      "name": "pageProduktyZivotnePoistenieInvesticia",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "produktyZivotnePoistenieInvesticia",
+          "title": "Máš poistenie spojené s investíciou?",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "choices": [
+            {
+              "value": "produktyZivotnePoistenieInvesticiaAno",
+              "text": "Áno"
+            },
+            {
+              "value": "produktyZivotnePoistenieInvesticiaNie",
+              "text": "Nie"
+            },
+            {
+              "value": "produktyZivotnePoistenieInvesticiaNeviem",
+              "text": "Neviem"
+            }
+          ]
+        }
+      ],
+      "visibleIf": "{produktyZivotnePoistenie} = 'produktyZivotnePoistenieAno'"
+    },
+    {
+      "name": "pageProduktyZivotnePoistenieInvesticiaVyska",
+      "elements": [
+        {
+          "type": "text",
+          "name": "produktyZivotnePoistenieInvesticiaVyska",
+          "title": "Koľko z {produktyZivotnePoistenieKolkoPlati}€ je investičná zložka?",
+          "description": "(napíš aspoň približne, ak naozaj nevieš, otázku preskoč)",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "inputType": "number",
+          "min": "0",
+          "placeHolder": "Mesačná čiastka v €"
+        }
+      ],
+      "visibleIf": "{produktyZivotnePoistenieInvesticia} = 'produktyZivotnePoistenieInvesticiaAno'"
+    },
+    {
       "name": "pageProduktyDruhyPilier",
       "elements": [
         {
@@ -345,6 +405,38 @@
           ]
         }
       ]
+    },
+    {
+      "name": "pageProduktyDruhyPilier",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "produktyDruhyPilierFondy",
+          "title": "V akých fondoch máš druhý pilier?",
+          "description": "(akú tam máš nastavenú investičnú stratégiu)",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "choices": [
+            {
+              "value": "produktyDruhyPilierFondyIndexove",
+              "text": "Indexové negarantované"
+            },
+            {
+              "value": "produktyDruhyPilierFondyAkciove",
+              "text": "Akciové negarantované"
+            },
+            {
+              "value": "produktyDruhyPilierFondyDlhopisove",
+              "text": "Dlhopisové garantované"
+            },
+            {
+              "value": "produktyDruhyPilierFondyNeviem",
+              "text": "Neviem"
+            }
+          ]
+        }
+      ],
+      "visibleIf": "{produktyDruhyPilier} = 'produktyDruhyPilierAno'"
     },
     {
       "name": "pageProduktyUverHypotekaPozicka",
@@ -468,41 +560,11 @@
         {
           "type": "text",
           "name": "financnaRezervaVyska",
-          "title": "Koľko eur tvorí teraz Tvoju rezervu?\n",
+          "title": "Koľko eur tvorí teraz Tvoju rezervu?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
           "placeHolder": "Hodnota v €"
-        }
-      ]
-    },
-    {
-      "name": "pageFinancnaRezervaVyska",
-      "elements": [
-        {
-          "type": "radiogroup",
-          "name": "financnaRezervaVyska",
-          "title": "Koľko eur tvorí teraz Tvoju rezervu?\n",
-          "isRequired": false,
-          "requiredErrorText": "Otázka je povinná.",
-          "choices": [
-            {
-              "value": "6nasobok",
-              "text": "Viac ako 6-násobok môjho príjmu"
-            },
-            {
-              "value": "36nasobok",
-              "text": "3 až 6-násobok môjho príjmu"
-            },
-            {
-              "value": "13nasobok",
-              "text": "1 až 3-násobok môjho príjmu"
-            },
-            {
-              "value": "1nasobok",
-              "text": "Menej ako 1-násobok môjho príjmu"
-            }
-          ]
         }
       ]
     },
