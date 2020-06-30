@@ -145,6 +145,7 @@ export class SurveyComponent implements OnInit {
             case "pageKdePracujes":
             case "pageOdkladaniePenazi":
             case "pageOdkladaniePenaziVyska":
+            case "pageZaciatokBodovania":
               return sections[0];
             case "pageProduktyZivotnePoistenie":
             case "pageProduktyDruhyPilier":
@@ -186,6 +187,10 @@ export class SurveyComponent implements OnInit {
         }
       }
 
+      function createTooltip() {
+
+      }
+
       if (survey) {
         var surveyCookie = {
           currentPageNo: survey.currentPageNo,
@@ -209,7 +214,7 @@ export class SurveyComponent implements OnInit {
           titleElement.innerHTML = innerHTML;
 
           tippy('.priemerneho', {
-            "content": "tooltip"
+            "content": "Mesačný príjem môže občas klesať alebo stúpať, preto si ho neváhaj vyrátať."
           })
         }
       }

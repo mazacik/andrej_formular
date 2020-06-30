@@ -50,7 +50,8 @@ export class IntroComponent implements OnInit {
     }
 
     if (this.name && this.rank) {
-      document.getElementById("challenge").removeAttribute("hidden");
+      document.getElementById("divStandard").setAttribute("hidden", "true");
+      document.getElementById("divChallenge").removeAttribute("hidden");
     }
   }
 }

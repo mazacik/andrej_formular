@@ -111,10 +111,48 @@
               "value": "zdrojPrijmuProspechoveStipendium",
               "text": "Prospechové štipendium",
               "visibleIf": "{studium} anyof ['studiumStredna', 'studiumVysoka']"
+            },
+            {
+              "value": "zdrojPrijmuNemaPrijem",
+              "text": "Nemám príjem"
             }
           ]
         }
       ]
+    },
+    {
+      "name": "pageNemaPrijem",
+      "elements": [
+        {
+          "type": "radioGroup",
+          "name": "nemaPrijem",
+          "title": "Test je zameraný na osobu s aspoň čiastočným príjmom, avšak aj Ty sa v ňom vieš dozvedieť veľa zaujímavostí. Želáš si aj napriek tomu pokračovať?",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "choices": [
+            {
+              "value": "nemaPrijemAnoChcemPokracovat",
+              "text": "Áno, chcem aj tak pokračovať"
+            },
+            {
+              "value": "nemaPrijemNieDajteMiVediet",
+              "text": "Nie, dajte mi prosím vedieť keď vyrobíte test užitočný aj pre mňa"
+            }
+          ]
+        }
+      ],
+      "visibleIf": "{zdrojPrijmu} = ['zdrojPrijmuNemaPrijem']"
+    },
+    {
+      "name": "pageDajteMiVediet",
+      "elements": [
+        {
+          "type": "html",
+          "name": "dajteMiVediet",
+          "html": "<p>DAJTE MI VEDIET</p>"
+        } 
+      ],
+      "visibleIf": "{nemaPrijem} = 'nemaPrijemNieDajteMiVediet'"
     },
     {
       "name": "pageVyskaPrijmu",
@@ -125,6 +163,7 @@
           "title": "Aká je výška Tvojho priemerného mesačného príjmu? (v čistom)",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
+          "description": "Bez toho, aby sme vedeli tvoj príjem, nedokážeme test vyhodnotiť na mieru. Nezabudni, že po vyhodnotení testu sa všetky tvoje odpovede vrátane príjmu zmažú.",
           "inputType": "number",
           "min": "0",
           "placeHolder": "Hodnota v €"
@@ -172,9 +211,12 @@
             {
               "value": "kdePracujesZA",
               "text": "Žilinský kraj"
+            },
+            {
+              "value": "kdePracujesMimoSR",
+              "text": "V žiadnom, pracujem v zahraničí"
             }
-          ],
-          "choicesOrder": "asc"
+          ]
         }
       ]
     },
@@ -232,8 +274,16 @@
           "min": "0",
           "placeHolder": "Hodnota v €"
         } 
-
-       
+      ]
+    },
+    {
+      "name": "pageZaciatokBodovania",
+      "elements": [
+        {
+          "type": "html",
+          "name": "zaciatokBodovania",
+          "html": "<p>Ďakujeme {meno} za vyplnenie otázok, teraz už vieme ktorý test bude pre teba najvhodnejší.</p>"
+        } 
       ]
     },
     {
