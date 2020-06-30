@@ -13,7 +13,7 @@
           "type": "text",
           "name": "meno",
           "title": "Ako si želáš, aby sme ťa oslovovali?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná."
         }
       ]
@@ -59,7 +59,7 @@
           "type": "radiogroup",
           "name": "studium",
           "title": "Študuješ?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -86,7 +86,7 @@
           "type": "checkbox",
           "name": "zdrojPrijmu",
           "title": "Aké su tvoje aktuálne zdroje príjmu?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -122,8 +122,8 @@
         {
           "type": "text",
           "name": "vyskaPrijmu",
-          "title": "Aká je výška Tvojho priemerného mesačného príjmu?",
-          "isRequired": true,
+          "title": "Aká je výška Tvojho priemerného mesačného príjmu? (v čistom)",
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
           "min": "0",
@@ -138,7 +138,7 @@
           "type": "radiogroup",
           "name": "kdePracujes",
           "title": "V ktorom kraji pracuješ?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -185,7 +185,7 @@
           "type": "radiogroup",
           "name": "odkladaniePenaziSposob",
           "title": "Vies si odložiť z Tvojho prijímu peniaze?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "hasOther": true,
           "choices": [
@@ -225,12 +225,15 @@
           "type": "text",
           "name": "odkladaniePenaziVyska",
           "title": "Koľko sa Ti darí priemerne mesačne odložiť?",
-          "isRequired": true,
+          "isRequired": false,
+          "description": "Bez toho, aby sme vedeli tvoj príjem, nedokážeme test vyhodnotiť na mieru. Nezabudni, že po vyhodnotení testu sa všetky tvoje odpovede vrátane príjmu zmažú.",
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
           "min": "0",
           "placeHolder": "Hodnota v €"
-        }
+        } 
+
+       
       ]
     },
     {
@@ -240,7 +243,7 @@
           "type": "radiogroup",
           "name": "produktyZivotnePoistenie",
           "title": "Platíš si životné poistenie?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -270,7 +273,7 @@
           "type": "radiogroup",
           "name": "produktyDruhyPilier",
           "title": "Máš založený druhý pilier?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -300,7 +303,7 @@
           "type": "radiogroup",
           "name": "produktyUverHypotekaPozicka",
           "title": "Splácaš úver, hypotéku alebo pôžičku?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -326,7 +329,7 @@
           "type": "radiogroup",
           "name": "produktyIneInvesticie",
           "title": "Máš iné investície alebo sporenia so zhodnotením?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -348,7 +351,7 @@
           "type": "checkbox",
           "name": "akeInvesticiePlanujes",
           "title": "Aké investície alebo sporenia plánuješ?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -369,8 +372,8 @@
         {
           "type": "radiogroup",
           "name": "sKymSaRadis",
-          "title": "S kým sa radíš o svojich financiách, resp. odkiaľ získavaš informácie?",
-          "isRequired": true,
+          "title": "S kým sa najčastejšie radíš o svojich financiách, resp. odkiaľ získavaš informácie?",
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -400,7 +403,7 @@
           "type": "text",
           "name": "financnaRezervaMesacne",
           "title": "Mesačne si odkľadáš {odkladaniePenaziVyska}€. Koľko z toho vnímaš ako finančnú rezervu?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "description": "Peniaze, ktoré si odkladáš tzv. \"na horšie časy\".",
           "inputType": "number",
@@ -416,10 +419,40 @@
           "type": "text",
           "name": "financnaRezervaVyska",
           "title": "Koľko eur tvorí teraz Tvoju rezervu?\n",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
           "placeHolder": "Hodnota v €"
+        }
+      ]
+    },
+    {
+      "name": "pageFinancnaRezervaVyska",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "financnaRezervaVyska",
+          "title": "Koľko eur tvorí teraz Tvoju rezervu?\n",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "choices": [
+            {
+              "value": "6nasobok",
+              "text": "Viac ako 6-násobok môjho príjmu"
+            },
+            {
+              "value": "36nasobok",
+              "text": "3 až 6-násobok môjho príjmu"
+            },
+            {
+              "value": "13nasobok",
+              "text": "1 až 3-násobok môjho príjmu"
+            },
+            {
+              "value": "1nasobok",
+              "text": "Menej ako 1-násobok môjho príjmu"
+            }
+          ]
         }
       ]
     },
@@ -430,7 +463,7 @@
           "type": "radiogroup",
           "name": "prehladOVydavkoch",
           "title": "Aký máš prehľad o svojich výdavkoch?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -460,7 +493,7 @@
           "type": "radiogroup",
           "name": "financnaGramotnostDlhodobaInvesticia",
           "title": "Na dlhodobú investíciu si vložil 1000€. Počas roka hodnota investície klesla na 900€. Čo bude Tvoj ďalší krok?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -490,7 +523,7 @@
           "type": "radiogroup",
           "name": "financnaGramotnostPoisteniePriInvestovani",
           "title": "Ak chceš byť poistený a zároveň tiež investovať, aký produkt by si si vybral?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -520,7 +553,7 @@
           "type": "radiogroup",
           "name": "financnaGramotnostDruhyPilier",
           "title": "V ktorých fondoch je najlepšie mať založený druhý pilier?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -558,7 +591,7 @@
           "type": "radiogroup",
           "name": "financnaGramotnostVynos",
           "title": "Máš v banke 1000€ s 1% výnosom. Aká bude reálna hodnota týchto peňazí o rok?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -588,7 +621,7 @@
           "type": "radiogroup",
           "name": "financnaGramotnostByt",
           "title": "Máš 100,000€ a chceš si kúpiť byt v tejto hodnote, čo urobíš?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -618,7 +651,7 @@
           "type": "checkbox",
           "name": "coChcesVediet",
           "title": "O čom by si sa rád dozvedel viac?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "hasOther": true,
           "choices": [
