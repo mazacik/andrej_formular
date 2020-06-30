@@ -90,6 +90,10 @@
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
+              "value": "zdrojPrijmuTPP",
+              "text": "Trvalý pracovný pomer"
+            },
+            {
               "value": "zdrojPrijmuBrigada",
               "text": "Brigáda alebo iná forma pracovnej dohody"
             },
@@ -439,50 +443,327 @@
       "visibleIf": "{produktyDruhyPilier} = 'produktyDruhyPilierAno'"
     },
     {
-      "name": "pageProduktyUverHypotekaPozicka",
+      "name": "pageProduktyTretiPilier",
       "elements": [
         {
           "type": "radiogroup",
-          "name": "produktyUverHypotekaPozicka",
-          "title": "Splácaš úver, hypotéku alebo pôžičku?",
+          "name": "produktyTretiPilier",
+          "title": "Máš založený tretí pilier?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
-              "value": "produktyUverHypotekaPozickaAno",
-              "text": "Áno"
+              "value": "produktyTretiPilierAnoZamestnavatelPrispieva",
+              "text": "Áno, prispieva mi aj zamestnávateľ"
             },
             {
-              "value": "produktyUverHypotekaPozickaNiePlanujem",
-              "text": "Nie, ale plánujem"
+              "value": "produktyTretiPilierAnoZamestnavatelNeprispieva",
+              "text": "Áno, zamestnávateľ mi však neprispieva"
+            },
+            {
+              "value": "produktyTretiPilierNieBezPrispevku",
+              "text": "Nie, pretože zamestnávateľ by mi neprispieval"
+            },
+            {
+              "value": "produktyTretiPilierNiePlanuje",
+              "text": "nie, ale plánujem"
+            },
+            {
+              "value": "produktyTretiPilierNie",
+              "text": "Nie"
+            },
+            {
+              "value": "produktyTretiPilierNeviemCoToJe",
+              "text": "Neviem, čo je tretí pilier"
+            }
+          ]
+        }
+      ],
+      "visibleIf": "{zdrojPrijmu} = ['zdrojPrijmuTPP']"
+    },
+    {
+      "name": "pageProduktyTretiPilierFondy",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "produktyTretiPilierFondy",
+          "title": "V akých fondoch máš tretí pilier?",
+          "description": "(akú tam máš nastavenú investičnú stratégiu)",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "choices": [
+            {
+              "value": "produktyTretiPilierFondyIndexove",
+              "text": "Indexové negarantované"
+            },
+            {
+              "value": "produktyTretiPilierFondyAkciove",
+              "text": "Akciové negarantované"
+            },
+            {
+              "value": "produktyTretiPilierFondyDlhopisove",
+              "text": "Dlhopisové garantované"
+            },
+            {
+              "value": "produktyTretiPilierFondyNeviem",
+              "text": "Neviem"
+            }
+          ]
+        }
+      ],
+      "visibleIf": "{produktyTretiPilier} = 'produktyTretiPilierAno'"
+    },
+    {
+      "name": "pageProduktyTretiPilierVyskaPrispevku",
+      "elements": [
+        {
+          "type": "text",
+          "name": "produktyTretiPilierVyskaPrispevku",
+          "title": "Koľko mesačne si prispievaš?",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "inputType": "number",
+          "min": "0",
+          "placeHolder": "Mesačná čiastka v €"
+        }
+      ],
+      "visibleIf": "{produktyTretiPilier} anyof ['produktyTretiPilierAnoZamestnavatelPrispieva', 'produktyTretiPilierAnoZamestnavatelNePrispieva']"
+    },
+    {
+      "name": "pageProduktyTretiPilierVyskaPrispevkuZamestnavatela",
+      "elements": [
+        {
+          "type": "text",
+          "name": "produktyTretiPilierVyskaPrispevkuZamestnavatela",
+          "title": "Koľko mesačne ti prispieva zamestnávateľ?",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "inputType": "number",
+          "min": "0",
+          "placeHolder": "Mesačná čiastka v €"
+        }
+      ],
+      "visibleIf": "{produktyTretiPilier} = 'produktyTretiPilierAnoZamestnavatelPrispieva'"
+    },
+    {
+      "name": "pageProduktyUverHypotekaPozicka",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "produktyUverHypotekaPozicka",
+          "title": "Máš požičané peniaze? (hypotéka, úver, pôžička)",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "choices": [
+            {
+              "value": "produktyUverHypotekaPozickaAnoHypoteka",
+              "text": "áno, mám hypotéku"
+            },
+            {
+              "value": "produktyUverHypotekaPozickaAnoUverPozicka",
+              "text": "áno, mám úver alebo pôžičku"
             },
             {
               "value": "produktyUverHypotekaPozickaNie",
-              "text": "Nie"
+              "text": "nie"
+            },
+            {
+              "value": "produktyUverHypotekaPozickaNiePlanujem",
+              "text": "nie, ale plánujem"
             }
           ]
         }
       ]
     },
     {
-      "name": "pageProduktyIneInvesticie",
+      "name": "pageProduktyHypotekaVyskaSplatky",
+      "elements": [
+        {
+          "type": "text",
+          "name": "produktyHypotekaVyskaSplatky",
+          "title": "Aká je Tvoja mesačná splátka hypotéky?",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "inputType": "number",
+          "min": "0",
+          "placeHolder": "Mesačná splátka v €"
+        }
+      ],
+      "visibleIf": "{produktyUverHypotekaPozicka} contains 'produktyUverHypotekaPozickaAnoHypoteka'"
+    },
+    {
+      "name": "pageProduktyHypotekaUrok",
       "elements": [
         {
           "type": "radiogroup",
-          "name": "produktyIneInvesticie",
-          "title": "Máš iné investície alebo sporenia so zhodnotením?",
+          "name": "produktyHypotekaUrok",
+          "title": "Aký máš na hypotéke úrok?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
-              "value": "produktyIneInvesticieAno",
-              "text": "Áno"
+              "value": "produktyHypotekaUrokDo1",
+              "text": "do 1%"
             },
             {
-              "value": "produktyIneInvesticieNiePlanujem",
-              "text": "Nie, ale plánujem"
+              "value": "produktyHypotekaUrokDo2",
+              "text": "do 2%"
+            },
+            {
+              "value": "produktyHypotekaUrokViacAko2",
+              "text": "Viac ako 2%"
+            },
+            {
+              "value": "produktyHypotekaUrokNeviem",
+              "text": "Neviem"
             }
           ]
+        }
+      ],
+      "visibleIf": "{produktyUverHypotekaPozicka} contains 'produktyUverHypotekaPozickaAnoHypoteka'"
+    },
+    {
+      "name": "pageProduktyUverPozickaVyskaSplatky",
+      "elements": [
+        {
+          "type": "text",
+          "name": "produktyUverPozickaVyskaSplatky",
+          "title": "Aká je Tvoja mesačná splátka úveru alebo pôžičky?",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "inputType": "number",
+          "min": "0",
+          "placeHolder": "Mesačná splátka v €"
+        }
+      ],
+      "visibleIf": "{produktyUverHypotekaPozicka} contains 'produktyUverHypotekaPozickaAnoHypoteka'"
+    },
+    {
+      "name": "pageProduktyUverPozickaUrok",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "produktyUverPozickaUrok",
+          "title": "Aké máš úroky?",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "choices": [
+            {
+              "value": "produktyUverPozickaUrokDo5",
+              "text": "do 5%"
+            },
+            {
+              "value": "produktyUverPozickaUrokDo10",
+              "text": "do 10%"
+            },
+            {
+              "value": "produktyUverPozickaUrokViacAko10",
+              "text": "Viac ako 10%"
+            },
+            {
+              "value": "produktyUverPozickaUrokNeviem",
+              "text": "Neviem"
+            }
+          ]
+        }
+      ],
+      "visibleIf": "{produktyUverHypotekaPozicka} contains 'produktyUverHypotekaPozickaAnoUverPozicka'"
+    },
+    {
+      "name": "pageProduktyBeznyUcet",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "produktyBeznyUcet",
+          "title": "Platíš si za bežný účet?",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "choices": [
+            {
+              "value": "produktyBeznyUcetAno",
+              "text": "áno"
+            },
+            {
+              "value": "produktyBeznyUcetNie",
+              "text": "nie"
+            },
+            {
+              "value": "produktyBeznyUcetNemaUcet",
+              "text": "nemám bežný účet"
+            }
+          ]
+        }
+      ],
+      "visibleIf": "{studium} <> 'studiumStredna' and {studium} <> 'studiumVysoka'"
+    },
+    {
+      "name": "pageProduktyInvesticieSporenia",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "produktyInvesticieSporenia",
+          "title": "Máš sporenia alebo investície?",
+          "description": "(Nerátaj bežný účet ani sporiaci účet v banke)",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "choices": [
+            {
+              "value": "produktyInvesticieSporeniaAno",
+              "text": "áno"
+            },
+            {
+              "value": "produktyInvesticieSporeniaAnoAPlanujemDalsie",
+              "text": "nie, ale plánujem"
+            },
+            {
+              "value": "produktyInvesticieSporeniaNiePlanujem",
+              "text": "nie, ale plánujem"
+            },
+            {
+              "value": "produktyInvesticieSporeniaNie",
+              "text": "nie"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pageProduktyInvesticieSporeniaPocet",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "produktyInvesticieSporeniaPocet",
+          "title": "Koľko investičných alebo sporiacich produktov využívaš?",
+          "description": "(Nerátaj bežný účet ani sporiaci účet v banke)",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "choices": [
+            {
+              "value": "produktyInvesticieSporeniaPocet1",
+              "text": "1"
+            },
+            {
+              "value": "produktyInvesticieSporeniaPocet2",
+              "text": "2"
+            },
+            {
+              "value": "produktyInvesticieSporeniaPocet3",
+              "text": "3"
+            },
+            {
+              "value": "produktyInvesticieSporeniaPocet4",
+              "text": "4"
+            },
+            {
+              "value": "produktyInvesticieSporeniaPocet5",
+              "text": "5"
+            },
+            {
+              "value": "produktyInvesticieSporeniaPocet6",
+              "text": "6"
+            }
+          ],
+          "visibleIf": "{produktyInvesticieSporenia} = 'produktyInvesticieSporeniaAno'"
         }
       ]
     },
@@ -537,6 +818,29 @@
           ]
         }
       ]
+    },
+    {
+      "name": "pageOmeskanieSplatky",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "omeskanieSplatky",
+          "title": "Nastalo u Teba niekedy meškanie pri splácaní splátok?",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "choices": [
+            {
+              "value": "omeskanieSplatkyÁno",
+              "text": "áno"
+            },
+            {
+              "value": "omeskanieSplatkyNie",
+              "text": "nie"
+            }
+          ]
+        }
+      ],
+      "visibleIf": "{produktyUverHypotekaPozicka} anyof 'produktyUverHypotekaPozickaAnoUverPozicka', 'produktyUverHypotekaPozickaAnoHypoteka'"
     },
     {
       "name": "pageFinancnaRezerva",
