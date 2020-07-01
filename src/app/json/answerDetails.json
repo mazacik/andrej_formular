@@ -2,94 +2,101 @@
   "answers": [
     {
       "id": "financnaGramotnostDlhodobaInvesticiaNeviem",
-      "surveyString": "Neviem",
+      "choiceString": "Neviem",
       "resultTitle": "",
       "resultVysvetlenie": "",
-      "resultPoints": -0.5
+      "resultPointsStratil": 0.5
     },
     {
       "id": "financnaGramotnostPoisteniePriInvestovaniNeviem",
-      "surveyString": "Neviem",
+      "choiceString": "Neviem",
       "resultTitle": "",
       "resultVysvetlenie": "",
-      "resultPoints": -0.5
+      "resultPointsStratil": 0.5
     },
     {
       "id": "financnaGramotnostDruhyPilierNeviem",
-      "surveyString": "Neviem",
+      "choiceString": "Neviem",
       "resultTitle": "",
       "resultVysvetlenie": "",
-      "resultPoints": -0.5
+      "resultPointsStratil": 0.5
     },
     {
       "id": "financnaGramotnostVynosVyssia",
-      "surveyString": "Vyššia",
+      "choiceString": "Vyššia",
       "resultTitle": "",
       "resultVysvetlenie": "",
-      "resultPoints": -1
+      "resultPointsStratil": 1
     },
     {
       "id": "financnaGramotnostVynosNeviem",
-      "surveyString": "Neviem",
+      "choiceString": "Neviem",
       "resultTitle": "",
       "resultVysvetlenie": "",
-      "resultPoints": -0.5
+      "resultPointsStratil": 0.5
     },
     {
       "id": "financnaGramotnostByt5050",
-      "surveyString": "Na kúpu bytu použijem vlastných 50,000€ a na ďalších 50,000€ si vezmem hypotéku",
+      "choiceString": "Na kúpu bytu použijem vlastných 50,000€ a na ďalších 50,000€ si vezmem hypotéku",
       "resultTitle": "",
       "resultVysvetlenie": "",
-      "resultPoints": -1
+      "resultPointsStratil": 1
     },
     {
       "id": "financnaGramotnostBytNeviem",
-      "surveyString": "Neviem",
+      "choiceString": "Neviem",
       "resultTitle": "",
       "resultVysvetlenie": "",
-      "resultPoints": -0.5
+      "resultPointsStratil": 0.5
     },
     {
       "id": "produktyDruhyPilierNeviemCoToJe",
-      "surveyString": "",
+      "choiceString": "",
       "resultTitle": "Nevieš, čo znamená druhý pilier.",
       "resultVysvetlenie": "Druhý pilier sú jediné peniaze, ktoré vieš od štátu získať zadarmo navyše len tak. Funguje to tak, že časť z Tvojich odvodov nesmerujú na vyplácanie aktuálnych dôchodcov, ale idú priamo Tebe na účet, z ktorého si vieš nasporené peniaze vytiahnuť na dôchodku. Založenie druhého piliera by malo byť jeden z prvých úkonov, ktoré spravíš po získaní prvého pracovného miesta, aj brigády.",
-      "resultPoints": -0.5
+      "resultPointsStratil": 0.5
     },
     {
       "id": "produktyZivotnePoistenieRodicia",
-      "surveyString": "",
+      "choiceString": "",
       "resultTitle": "Životné poistenie Ti platia rodičia.",
       "resultVysvetlenie": "Keď už máš pravidelný mesačný príjem, odporúčame prevziať zodpovednosť v poistení na seba. Jeden z dôvodov, prečo tak spraviť je, že je pravdepodobné, že rodičia platia Tvoje poistenie už dlhšie - môže byť neaktuálne a platia teda zbytočné peniaze. Je preto dobré, si to nechať skontrolovať poverenou osobou.",
-      "resultPoints": -0.5
+      "resultPointsStratil": 0.5
     },
     {
-      "id": "produktyIneInvesticieNiePlanujem",
-      "surveyString": "",
-      "resultTitle": "Neinvestuješ.",
-      "resultVysvetlenie": "S investovaním je najlepšie začať čo najskôr, hoci by to malo znamenať, že investuješ len 10€ mesačne. Týmto spôsobom si buduješ návyk na mesačné odkladanie peňazí a, navyše, aj malá čiastka sa vie pekne zhodnotiť. Ak vezmeme do úvahy riziko, výnos a energiu, investovanie je ten najefektívnejší spôsob, ako nadobudnúť peniaze bez práce. ",
-      "resultPoints": -0.5
+      "id": "produktyInvesticieSporeniaNiePlanujem",
+      "choiceString": "",
+      "resultTitle": "Plánuješ investovať.",
+      "resultVysvetlenie": "S investovaním by sa malo začať hneď s prvým príjmom, hoci by to malo znamenať, že investuješ len 10€ mesačne. O investovaní nás však nikde neučia, preto je pochopiteľné, že stále neinvestuješ. Teší nás, že to plánuješ zmeniť a odporúčame to spraviť čo najskôr, keďže platí, že čím dlhšie investuješ, tým viac zarobíš. Najefektívnejší spôsob investovania je cez takzvané podielové ETF fondy.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "produktyUverHypotekaPozickaNie",
+      "choiceString": "",
+      "resultTitle": "Neplánuješ vlastné bývanie (hypotéku).",
+      "resultVysvetlenie": "Rozumieme, že nie každý sa chce zadlžovať. V dnešnej dobe sú však tak nízke úroky, že sa hypotéka stala finančne výhodným rozhodnutím a odporúčame to každému, kto má dostatočný príjem na jej splácanie. Ak však chceš niekedy bývať vo svojom, musíš vedieť, že banka ti nepožičia 100% z hodnoty nehnuteľnosti. Potrebuješ minimálne 10%, čo pri byte za 120 000€, znamená, že potrebuješ vlastných 12 000€. Najlepšie, čo môžeš spraviť je si tieto peniaze začať postupne šetriť. Môže to síce trvať niekoľko rokov, je to však rozumnejšie riešenie ako dofinancovať úver nevýhodným spotrebným úverom.",
+      "resultPointsStratil": 0.5
     },
     {
       "id": "prehladOVydavkochMamDobruPredstavu",
-      "surveyString": "",
+      "choiceString": "",
       "resultTitle": "Nezaznamenávaš si výdavky.",
       "resultVysvetlenie": "Zaznamenávanie všetkých príjmov a výdavkov Ti pomôže v mnohých ohľadoch. Presne budeš vedieť, kam smerujú Tvoje peniaze, a ak sa Ti to nebude páčiť, vieš na tom pracovať. Navyše, ak si bežne kupuješ veci narýchlo a podľa nálady, tak pri evidencii každého výdavku Ťa to bude na konci bolieť a poučíš sa. Na tento účel odporúčame aplikáciu Wallet, 1Money alebo poslúži aj Excel.",
-      "resultPoints": -0.5
+      "resultPointsStratil": 0.5
     },
     {
       "id": "odkladaniePenaziSposobBeznyUcet",
-      "surveyString": "",
+      "choiceString": "",
       "resultTitle": "Držíš si všetky peniaze na jednom účte.",
       "resultVysvetlenie": "Takýmto štýlom odkladania peňazí budeš mať v tom stále neporiadok. Založ si sporiaci účet a vždy po výplate si naň pošli vopred určenú sumu podľa Tvojich finančných cieľov. Odloženým peniazom vždy priraď jasný účel a výber si účet, ktorý má aj nejaké zhodnotenie.",
-      "resultPoints": -1
+      "resultPointsStratil": 1
     },
     {
       "id": "sKymSaRadisInternetAKnihy",
-      "surveyString": "",
+      "choiceString": "",
       "resultTitle": "Svoje financie nekonzultuješ s odborníkom.",
       "resultVysvetlenie": "Finančných produktov každým rokom pribúda a tým je väčšia šanca, že si zvolíš ten nesprávny. Práve od toho sú tu odborníci zameraní na financie, ktorí tieto produkty sledujú a budú ti vedieť poradiť. Daj si však pozor, s kým sa o financiách rozprávaš. Informácie, ktoré Ti poskytne si radšej over a never každému.",
-      "resultPoints": -1
+      "resultPointsStratil": 1
     }
   ]
 }

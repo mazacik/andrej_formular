@@ -709,19 +709,19 @@
           "choices": [
             {
               "value": "produktyInvesticieSporeniaAno",
-              "text": "áno"
+              "text": "Áno"
             },
             {
               "value": "produktyInvesticieSporeniaAnoAPlanujemDalsie",
-              "text": "nie, ale plánujem"
+              "text": "Ano a plánujem ďaľšie"
             },
             {
               "value": "produktyInvesticieSporeniaNiePlanujem",
-              "text": "nie, ale plánujem"
+              "text": "Nie, ale plánujem"
             },
             {
               "value": "produktyInvesticieSporeniaNie",
-              "text": "nie"
+              "text": "Nie"
             }
           ]
         }
