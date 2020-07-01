@@ -1,7 +1,7 @@
 <div id="resultSummary">
   <h1>Vyhodnotenie</h1>
-  <p>Gratulujeme {{data.meno}} k vyplneniu testu. Dostal si sa na úroveň - {{dosiahnutaHodnost}}.</p>
-  <p>{{percentHorsich}}% účastníkom testu sa darilo horšie ako tebe.</p>
+  <p>Gratulujeme {{data.meno}} k vyplneniu testu. Dostal si sa na úroveň - {{pocetBodovHodnost}}.</p>
+  <p>{{percentil}}% účastníkom testu sa darilo horšie ako tebe.</p>
   <p>Chceš sa porovnať aj s Tvojimi blízkymi? Pošli im link a zisti, kto získal viac bodov! [{{challengeLink}}]
     <button (click)="copyToClipboard(challengeLink)">SKOPÍROVAŤ</button>
   </p>
@@ -32,17 +32,15 @@
 
 <div id="resultContent" hidden>
   <h1>Výber produktov</h1>
-  <p>Vo výbere finančných produktov sa ti darilo lepšie ako {{percentHorsichProdukty}}% účastníkom testu.</p>
   <h3>Na tieto oblasti ti odporúčame sa pozrieť</h3>
-  <div class="divProduktyDruhyPilierNeviemCoToJe"></div>
-  <div class="divProduktyZivotnePoistenieRodicia"></div>
-  <div class="divProduktyInvesticieSporeniaNiePlanujem"></div>
+  <div class="produktyDruhyPilierNeviemCoToJe"></div>
+  <div class="produktyZivotnePoistenieRodicia"></div>
+  <div class="produktyInvesticieSporeniaNiePlanujem"></div>
 
   <h3>Tvoje vážne nedostatky</h3>
-  <div class="divProduktyUverHypotekaPozickaNie"></div>
+  <div class="produktyUverHypotekaPozickaNie"></div>
 
   <h1>Práca s peniazmi</h1>
-  <p>Pri práci s peniazmi sa ti darilo lepšie ako {{percentHorsichPracaSPeniazmi}}% účastníkom testu.</p>
   <h3>Tieto sféry máš zvládnuté excelentne</h3>
 
   <p class="vyskarezervy5nasobokprijmu" hidden><b>Rezervu máš vybudovanú vo výške 5-násobného príjmu.</b> Je vidno, že k
@@ -55,11 +53,11 @@
 
 
   <h3>Na toto si daj pozor</h3>
-  <div class="divPrehladOVydavkochMamDobruPredstavu divPrehladOVydavkochAkoTakViem divPrehladOVydavkochNesledujem"></div>
+  <div class="prehladOVydavkochMamDobruPredstavu divPrehladOVydavkochAkoTakViem divPrehladOVydavkochNesledujem"></div>
 
   <h3>Tvoje vážne nedostatky</h3>
-  <div class="divOdkladaniePenaziSposobBeznyUcet"></div>
-  <div class="divSKymSaRadisInternetAKnihy"></div>
+  <div class="odkladaniePenaziSposobBeznyUcet"></div>
+  <div class="sKymSaRadisInternetAKnihy"></div>
 
   <h3>Rozloženie</h3>
   <div class="chart-container" style="position: relative; margin: auto; width: 95vw; height: 400px;">
@@ -72,40 +70,40 @@
 
 
   <h1>Finančná gramotnosť</h1>
-  <p>V sekcii finančnej gramotnosti sa ti darilo lepšie ako {{percentHorsichGramotnost}}% účastníkom testu.</p>
+  <p>V sekcii finančnej gramotnosti sa ti darilo lepšie ako {{percentilGramotnost}}% účastníkom testu.</p>
   <div>
     <p><b>Na dlhodobú investíciu si vložil 1000€, o rok hodnota tejto investície klesla na 900€. Čo urobíš?</b></p>
     <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostDlhodobaInvesticiaUserChoice"></span></p>
     <p><b>Správna odpoveď:</b> Vložím tam ďalšie peniaze</p>
-    <div class="divFinancnaGramotnostDlhodobaInvesticiaVysvetlenie"></div>
+    <div class="financnaGramotnostDlhodobaInvesticiaVysvetlenie"></div>
   </div>
   <div>
     <p><b>Ak chceš byť poistený a tiež investovať, aký produkt by si si vybral?</b></p>
     <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostPoisteniePriInvestovaniUserChoice"></span></p>
     <p><b>Správna odpoveď:</b> Životné poistenie a sporenie zvlášť</p>
-    <div class="divFinancnaGramotnostPoisteniePriInvestovaniVysvetlenie"></div>
+    <div class="financnaGramotnostPoisteniePriInvestovaniVysvetlenie"></div>
   </div>
   <div>
     <p><b>V ktorých fondoch je najlepšie mať založený druhý pilier?</b></p>
     <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostDruhyPilierUserChoice"></span></p>
     <p><b>Správna odpoveď:</b> Indexové negarantované fondy</p>
-    <div class="divFinancnaGramotnostDruhyPilierVysvetlenie"></div>
+    <div class="financnaGramotnostDruhyPilierVysvetlenie"></div>
   </div>
   <div>
     <p><b>V banke máš vložených 1000€ s 1%-ným výnosom. Aká bude reálna hodnota Tvojich peňazí o rok?</b></p>
     <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostVynosUserChoice"></span></p>
     <p><b>Správna odpoveď:</b> Nižšia</p>
-    <div class="divFinancnaGramotnostVynosVysvetlenie"></div>
+    <div class="financnaGramotnostVynosVysvetlenie"></div>
   </div>
   <div>
     <p><b>Máš 100 000€ a chceš si kúpiť byt v hodnote 100 000€, čo by si spravil?</b></p>
     <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostBytUserChoice"></span></p>
     <p><b>Správna odpoveď:</b> Z banky si požičiam, čo najviac mi dajú a ostatné si financujem sám.</p>
-    <div class="divFinancnaGramotnostBytVysvetlenie"></div>
+    <div class="financnaGramotnostBytVysvetlenie"></div>
   </div>
 
   <h1>Niečo malo o témach, ktoré ťa zaujímali.</h1>
-  <div class="divCoChcesVedietVlastneByvanie" hidden>
+  <div class="coChcesVedietVlastneByvanie" hidden>
     <h3>Vlastné bývanie - čo všetko treba vedieť pred kúpou prvej nehnuteľnosti a ako sa na to pripraviť?</h3>
     <p><b>Koľko potrebuješ peňazí?</b> Ak si chceš kúpiť byt za 100 000€, banka Ti nepožičia všetky peniaze. Dá Ti
       maximálne 80% z hodnoty nehnuteľnosti, výnimočne až 90%. Preto musíš mať našetrených vlastných minimálne 10%, čo
@@ -130,7 +128,7 @@
     <p>Skontrolujeme ti poistenie a zhodnotíme, či spĺňa tvoje očakávania.</p>
     <p>Pomôžeme ti nastaviť čo najefektívnejšie rozloženie portfólia vzhľadom na tvoje ciele.</p>
     <p>Ukážeme ti sporiace účty, ktoré sú zadarmo, a majú aj malé zhodnotenie.</p>
-    <div id="divKtoSuNasiOdbornici"></div>
+    <div id="ktoSuNasiOdbornici"></div>
   </div>
 
   <div>
