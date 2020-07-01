@@ -1,9 +1,10 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
+import * as Chart from 'chart.js';
 
-import * as answersJSON from '../json/answerDetails.json';
-import * as gramotnostJSON from '../json/gramotnost.json';
+import * as questionDetails from '../json/questionDetails.json';
+import * as answerDetails from '../json/answerDetails.json';
 
 @Component({
   selector: 'app-result',
@@ -13,7 +14,8 @@ import * as gramotnostJSON from '../json/gramotnost.json';
 export class ResultComponent implements OnInit {
   data: any;
 
-  pocetBodov: number = 0;
+  pocetBodovMax: number = 0;
+  pocetBodovStratil: number = 0;
   dosiahnutaHodnost: string = "";
 
   percentHorsich: number = 45;
@@ -47,28 +49,9 @@ export class ResultComponent implements OnInit {
       // cyklus hlada zhodu ID vybratej odpovede a ID HTML elementu
       for (var value in this.data) {
         var answerId = this.data[value];
-
         if (typeof answerId == 'string') {
-          // odpoved je string
-          if (answerId.startsWith("financnaGramotnost")) {
-            // financna gramotnost
-            var userChoiceAndPoints = gramotnostJSON.userChoiceAndPoints.find(function (param) { return param.id == answerId; });
-            if (userChoiceAndPoints) {
-              this.pocetBodov += userChoiceAndPoints.points;
-              var userChoiceElement = document.getElementById(value + "UserChoice");
-              if (userChoiceElement) userChoiceElement.innerHTML = userChoiceAndPoints.userChoice;
-
-              var correctChoiceAndContent = gramotnostJSON.correctChoiceAndContent.find(function (param) { return param.id == value; });
-              if (correctChoiceAndContent) this.createToggleElement(value, "Vysvetlenie", correctChoiceAndContent.content, "Vysvetlenie");
-            } else {
-              console.log(answerId + " not found in answer json");
-            }
-          } else {
-            // vsetko okrem financnej gramotnosti a matematiky
-            this.resolveAnswer(answerId);
-          }
+          this.resolveAnswer(answerId);
         } else {
-          // odpoved je array
           for (let i = 0; i < answerId.length; i++) {
             this.resolveAnswer(answerId[i]);
           }
@@ -77,19 +60,19 @@ export class ResultComponent implements OnInit {
 
       // odlozit50percentprijmu
       if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.5) {
-        this.pocetBodov += 1;
+        this.pocetBodovStratil += 1;
         this.showElementsByClass("odlozit50percentprijmu");
       }
 
       // vyskarezervy5nasobokprijmu
       if (this.data.financnaRezervaVyska >= this.data.vyskaPrijmu * 5) {
-        this.pocetBodov += 1;
+        this.pocetBodovStratil += 1;
         this.showElementsByClass("vyskarezervy5nasobokprijmu");
       }
 
       // mesacnarezerva30percentprijmu
       if (this.data.financnaRezervaMesacne >= this.data.vyskaPrijmu * 0.3) {
-        this.pocetBodov += 1;
+        this.pocetBodovStratil += 1;
         this.showElementsByClass("mesacnarezerva30percentprijmu");
       }
 
@@ -103,103 +86,173 @@ export class ResultComponent implements OnInit {
 
       // dosiahnuta hodnost
       var hodnost: string;
-      if (this.pocetBodov > 10) {
+      if (this.pocetBodovStratil > 10) {
         this.dosiahnutaHodnost = "Finančná legenda";
         hodnost = "FinancnaLegenda";
-      } else if (this.pocetBodov > 8) {
+      } else if (this.pocetBodovStratil > 8) {
         this.dosiahnutaHodnost = "Finančná sova";
         hodnost = "FinancnaSova";
-      } else if (this.pocetBodov > 6) {
+      } else if (this.pocetBodovStratil > 6) {
         this.dosiahnutaHodnost = "Finančná hviezda";
         hodnost = "FinancnaHviezda";
-      } else if (this.pocetBodov > 4) {
+      } else if (this.pocetBodovStratil > 4) {
         this.dosiahnutaHodnost = "Finančný profesor";
         hodnost = "FinancnyProfesor";
-      } else if (this.pocetBodov > 2) {
+      } else if (this.pocetBodovStratil > 2) {
         this.dosiahnutaHodnost = "Finančný ninja";
         hodnost = "FinancnyNinja";
-      } else if (this.pocetBodov > 0) {
+      } else if (this.pocetBodovStratil > 0) {
         this.dosiahnutaHodnost = "Finančný kúzelník";
         hodnost = "FinancnyKuzelnik";
-      } else if (this.pocetBodov == 0) {
+      } else if (this.pocetBodovStratil == 0) {
         this.dosiahnutaHodnost = "Finančný dospelák";
         hodnost = "FinancnyDospelak";
-      } else if (this.pocetBodov > -2) {
+      } else if (this.pocetBodovStratil > -2) {
         this.dosiahnutaHodnost = "Finančný uceň";
         hodnost = "FinancnyUcen";
-      } else if (this.pocetBodov > -4) {
+      } else if (this.pocetBodovStratil > -4) {
         this.dosiahnutaHodnost = "Finančný študent";
         hodnost = "FinancnyStudent";
-      } else if (this.pocetBodov > -6) {
+      } else if (this.pocetBodovStratil > -6) {
         this.dosiahnutaHodnost = "Finančný junior";
         hodnost = "FinancnyJunior";
-      } else if (this.pocetBodov > -8) {
+      } else if (this.pocetBodovStratil > -8) {
         this.dosiahnutaHodnost = "Finančný začiatočník";
         hodnost = "FinancnyZaciatocnik";
-      } else if (this.pocetBodov > -10) {
+      } else if (this.pocetBodovStratil > -10) {
         this.dosiahnutaHodnost = "Finančný prváčik";
         hodnost = "FinancnyPrvacik";
-      } else if (this.pocetBodov > -12) {
+      } else if (this.pocetBodovStratil > -12) {
         this.dosiahnutaHodnost = "Finančné embryo";
         hodnost = "FinancneEmbryo";
       }
 
       // vytvor challengeLink
       this.challengeLink = window.location.origin + "/intro/" + this.data.meno + "/" + hodnost;
+
+      // graf proof of concept - chartjs
+      var vyskaPrijmu = 0;
+      var investicieKratkobe = 0;
+      var investicieDlhodobe = 0;
+      var poistenie = 0;
+      var pasiva = 0;
+      var spotreba = 0;
+
+      var produktyHypotekaVyskaSplatky = this.data.produktyHypotekaVyskaSplatky;
+      var produktyUverPozickaVyskaSplatky = this.data.produktyUverPozickaVyskaSplatky;
+
+      vyskaPrijmu = this.data.vyskaPrijmu;
+      if (produktyHypotekaVyskaSplatky) pasiva += produktyHypotekaVyskaSplatky;
+      if (produktyUverPozickaVyskaSplatky) pasiva += produktyUverPozickaVyskaSplatky;
+
+      var myChart = new Chart("chart-js", {
+        type: 'pie',
+        data: {
+          labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
+          datasets: [{
+            label: '# of Votes',
+            data: [investicieKratkobe, investicieDlhodobe, poistenie, pasiva, spotreba],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 2
+          }]
+        },
+        options: {
+          maintainAspectRatio: false
+        }
+      });
     }
   }
 
-  getAnswerDetailsById(id: string) {
-    for (let i = 0; i < answersJSON.answerDetails.length; i++) {
-      const question = answersJSON.answerDetails[i];
+  getQuestionById(id: string) {
+    for (let i = 0; i < questionDetails.questions.length; i++) {
+      const question = questionDetails.questions[i];
       if (question.id == id) {
         return question;
+      }
+    }
+  }
+  getAnswerById(id: string) {
+    for (let i = 0; i < answerDetails.answers.length; i++) {
+      const answer = answerDetails.answers[i];
+      if (answer.id == id) {
+        return answer;
       }
     }
   }
   concatCapitalize(prefix: string, toCapitalize: string): string {
     return prefix + toCapitalize.charAt(0).toUpperCase() + toCapitalize.slice(1);
   }
-  resolveAnswer(answerId: string) {
-    var answerDetails = this.getAnswerDetailsById(answerId);
-    if (answerDetails) {
-      // detaily boli najdene, vygeneruj toggleElement do divu podla IDcka
-      this.pocetBodov += answerDetails.points;
-      this.createToggleElement(answerDetails.id, answerDetails.title, answerDetails.content);
+  resolveAnswer(id: string) {
+    // skusi zobrazit element podla 'id'
+    this.showElementById(id);
+
+    // skusi zobrazit div podla 'id'
+    this.showElementById(this.concatCapitalize("div", id));
+
+    // skusi najst v 'questionDetails.json' entry pre 'id'
+    var question = this.getQuestionById(id);
+    if (question) {
+      this.pocetBodovMax += question.resultPointsMax;
+    }
+
+    // skusi najst v 'answerDetails.json' entry pre 'id'
+    var answer = this.getAnswerById(id);
+    if (answer) {
+      // bodovanie
+      this.pocetBodovStratil += answer.resultPoints;
+
+      // vygeneruje toggleElement do divu podla 'id' (napr. pre 'id' "misko" musi byt div.id "divMisko")
+      this.createToggleElement(answer.id, answer.resultTitle, answer.resultVysvetlenie);
     } else {
       // detaily neboli najdene, skus zobrazit div podla IDcka
-      var divId = this.concatCapitalize("div", answerId);
+      var divId = this.concatCapitalize("div", id);
       this.showElementById(divId);
     }
   }
   createToggleElement(id: string, title: string, content: string, divSuffix: string = ""): void {
-    // toggle button
-    var buttonToggle = document.createElement("button");
-    buttonToggle.innerHTML = "+";
-    buttonToggle.setAttribute("name", id);
-    this.renderer.listen(buttonToggle, 'click', (event) => this.toggleElementById(event.currentTarget.getAttribute("name") + "Content"));
-
-    // title
-    var bTitle = document.createElement("b");
-    bTitle.innerHTML = title;
-    var pTitle = document.createElement("p");
-    pTitle.appendChild(buttonToggle);
-    pTitle.appendChild(bTitle);
-
-    // content
-    var pContent = document.createElement("p");
-    pContent.id = id + "Content";
-    pContent.setAttribute("hidden", "true");
-    pContent.innerHTML = content;
-
-    // div
+    // check if div exists
     var divId = this.concatCapitalize("div", id) + divSuffix;
     var div = document.getElementById(divId);
+    if (div) {
+      // toggle button
+      var buttonToggle = document.createElement("button");
+      buttonToggle.innerHTML = "+";
+      buttonToggle.setAttribute("name", id);
+      this.renderer.listen(buttonToggle, 'click', (event) => this.toggleElementById(event.currentTarget.getAttribute("name") + "Content"));
 
-    div.appendChild(pTitle);
-    div.appendChild(pContent);
+      // title
+      var bTitle = document.createElement("b");
+      bTitle.innerHTML = title;
+      var pTitle = document.createElement("p");
+      pTitle.appendChild(buttonToggle);
+      pTitle.appendChild(bTitle);
 
-    this.showElementById(divId);
+      // content
+      var pContent = document.createElement("p");
+      pContent.id = id + "Content";
+      pContent.setAttribute("hidden", "true");
+      pContent.innerHTML = content;
+
+      // div
+      div.appendChild(pTitle);
+      div.appendChild(pContent);
+      this.showElementById(divId);
+    } else {
+      console.log(divId + " not found")
+    }
   }
 
   hideElementById(elementId: string): void {

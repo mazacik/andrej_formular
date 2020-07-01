@@ -3,17 +3,18 @@
   <p>Gratulujeme {{data.meno}} k vyplneniu testu. Dostal si sa na úroveň - {{dosiahnutaHodnost}}.</p>
   <p>{{percentHorsich}}% účastníkom testu sa darilo horšie ako tebe.</p>
   <p>Chceš sa porovnať aj s Tvojimi blízkymi? Pošli im link a zisti, kto získal viac bodov! [{{challengeLink}}]
-    <button (click)="copyToClipboard(challengeLink)">SKOPÍROVAŤ</button></p>
+    <button (click)="copyToClipboard(challengeLink)">SKOPÍROVAŤ</button>
+  </p>
 
   <p><b>Tieto 3 veci Ti vyšli najlepšie:</b></p>
-  <p class="odlozit50percentprijmu">Vieš si odložiť 50% z Tvojho príjmu.</p>
-  <p class="vyskarezervy5nasobokprijmu">Rezervu máš vybudovanú vo výške 5-násobného príjmu.</p>
-  <p class="mesacnarezerva30percentprijmu">Mesačne si odkladáš 30% z Tvojho príjmu na rezervu.</p>
+  <p class="odlozit50percentprijmu" hidden>Vieš si odložiť 50% z Tvojho príjmu.</p>
+  <p class="vyskarezervy5nasobokprijmu" hidden>Rezervu máš vybudovanú vo výške 5-násobného príjmu.</p>
+  <p class="mesacnarezerva30percentprijmu" hidden>Mesačne si odkladáš 30% z Tvojho príjmu na rezervu.</p>
 
   <p><b>Tvoje 3 najväčšie problémy:</b></p>
-  <p id="produktyIneInvesticieNiePlanujem">Neinvestuješ.</p>
-  <p id="produktyDruhyPilierNeviemCoToJe">Nemáš druhý pilier.</p>
-  <p id="odkladaniePenaziSposobBeznyUcet">Držíš si všetky peniaze na jednom účte.</p>
+  <p id="produktyInvesticieSporeniaNiePlanujem" hidden>Neinvestuješ.</p>
+  <p id="produktyDruhyPilierNeviemCoToJe" hidden>Nemáš druhý pilier.</p>
+  <p id="odkladaniePenaziSposobBeznyUcet" hidden>Držíš si všetky peniaze na jednom účte.</p>
 
   <p><b>3 najväčšie pomoci od nás:</b></p>
   <p>Zistíme za akých podmienok by ti banka poskytla hypotéku a v akej výške.</p>
@@ -52,6 +53,9 @@
   <p id="odkladaniePenaziSposobBeznyUcet odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca odkladaniePenaziSposobSporiaciUcetPoVyplate odkladaniePenaziSposobSporiaciUcetPriebezne"
     hidden><b>Odkladáš si pravidelne.</b> Pri peniazoch sú konzistentnosť a disciplína kľúčové. Vyzerá to, že máš
     obe vlastnosti zvládnuté.</p>
+  <div class="chart-container" style="position: relative; margin: auto; width: 100vw; height: 400px;">
+    <canvas id="chart-js"></canvas>
+  </div>
 
   <h3>Na toto si daj pozor</h3>
   <div id="divPrehladOVydavkochNesledujem"></div>
@@ -138,7 +142,8 @@
   </div>
   <div>
     <h2>Nemám záujem o konzultáciu, chcem si však uložiť vyhodnotenie.</h2>
-    <p><button (click)="sendDataUrlAsEmail()">POSLAŤ EMAILOM</button><input id="emailKlientaVysledok" type="email" placeholder="example@gmail.com"></p>
+    <p><button (click)="sendDataUrlAsEmail()">POSLAŤ EMAILOM</button><input id="emailKlientaVysledok" type="email"
+        placeholder="example@gmail.com"></p>
     <p><button (click)="saveDataUrlAsHTML()">ULOŽIŤ</button></p>
     <p><button (click)="copyDataUrlToClipboard()">SKOPÍROVAŤ LINK</button></p>
   </div>
