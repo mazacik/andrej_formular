@@ -547,7 +547,7 @@
       "name": "pageProduktyUverHypotekaPozicka",
       "elements": [
         {
-          "type": "checkbox",
+          "type": "radiogroup",
           "name": "produktyUverHypotekaPozicka",
           "title": "Máš požičané peniaze? (hypotéka, úver, pôžička)",
           "isRequired": false,
@@ -755,7 +755,7 @@
               "choices": [
                 {
                   "value": "konzervativneInvesticieNazovProduktuNeviem",
-                  "text": "Neviem ako sa volá"
+                  "text": "neviem ako sa volá"
                 },
                 {
                   "value": "konzervativneInvesticieNazovProduktuStavebneSporenie",
@@ -771,19 +771,19 @@
                 },
                 {
                   "value": "konzervativneInvesticieNazovProduktuDraheKovy",
-                  "text": "Zlato, striebro, alebo iné drahé kovy"
+                  "text": "zlato, striebro, alebo iné drahé kovy"
                 },
                 {
                   "value": "konzervativneInvesticieNazovProduktuDlhopisoveFondy",
-                  "text": "Dlhopisové fondy"
+                  "text": "dlhopisové fondy"
                 },
                 {
                   "value": "konzervativneInvesticieNazovProduktuRealitneFondy",
-                  "text": "Realitné fondy"
+                  "text": "realitné fondy"
                 },
                 {
                   "value": "konzervativneInvesticieNazovProduktuPenazneFondy",
-                  "text": "Peňažné fondy"
+                  "text": "peňažné fondy"
                 },
                 {
                   "value": "konzervativneInvesticieNazovProduktuIADUcet",
@@ -991,7 +991,7 @@
               ]
             },
             {
-              "name": "dynamickeInvesticiefrekvenciaPlatby",
+              "name": "dynamickeInvesticieFrekvenciaPlatby",
               "title": "Posielaš sem peniaze pravidelne?",
               "cellType": "dropdown",
               "isRequired": false,
@@ -1001,26 +1001,26 @@
               "requiredErrorText": "Otázka je povinná.",
               "choices": [
                 {
-                  "value": "dynamickeInvesticiefrekvenciaPlatbyKazdyMesiac",
+                  "value": "dynamickeInvesticieFrekvenciaPlatbyKazdyMesiac",
                   "text": "áno, každý mesiac"
                 },
                 {
-                  "value": "dynamickeInvesticiefrekvenciaPlatbyNepravidelne",
+                  "value": "dynamickeInvesticieFrekvenciaPlatbyNepravidelne",
                   "text": "skôr nepravidelne"
                 },
                 {
-                  "value": "dynamickeInvesticiefrekvenciaPlatbyJednorazovo",
+                  "value": "dynamickeInvesticieFrekvenciaPlatbyJednorazovo",
                   "text": "nie, iba jednorazovo"
                 }
               ]
             },
             {
-              "name": "dynamickeInvesticiefrekvenciaMesacneHodnota",
+              "name": "dynamickeInvesticieFrekvenciaMesacneHodnota",
               "title": "Koľko platíš mesačne?",
               "cellType": "text",
               "isRequired": false,
-              "visibleIf": "{row.dynamickeInvesticiefrekvenciaPlatby} = 'dynamickeInvesticiefrekvenciaPlatbyKazdyMesiac'",
-              "requiredIf": "{row.dynamickeInvesticiefrekvenciaPlatby} notempty",
+              "visibleIf": "{row.dynamickeInvesticieFrekvenciaPlatby} = 'dynamickeInvesticieFrekvenciaPlatbyKazdyMesiac'",
+              "requiredIf": "{row.dynamickeInvesticieFrekvenciaPlatby} notempty",
               "inputType": "number",
               "requiredErrorText": "Otázka je povinná.",
               "min": "0",
@@ -1028,17 +1028,17 @@
               
             },
             {
-              "name": "dynamickeInvesticiefrekvenciaNepravidelneHodnota",
+              "name": "dynamickeInvesticieFrekvenciaNepravidelneHodnota",
               "title": "Koľko si sem poslal za posledných 6 mesiacov?",
               "cellType": "text",
               "isRequired": false,
-              "visibleIf": "{row.dynamickeInvesticiefrekvenciaPlatby} = 'dynamickeInvesticiefrekvenciaPlatbyNepravidelne'",
-              "requiredIf": "{row.dynamickeInvesticiefrekvenciaPlatby} notempty",
+              "visibleIf": "{row.dynamickeInvesticieFrekvenciaPlatby} = 'dynamickeInvesticieFrekvenciaPlatbyNepravidelne'",
+              "requiredIf": "{row.dynamickeInvesticieFrekvenciaPlatby} notempty",
               "inputType": "number",
               "min": "0"
             },
             {
-              "name": "dynamickeInvesticieucelProduktu",
+              "name": "dynamickeInvesticieUcelProduktu",
               "title": "Aký je účel?",
               "requiredErrorText": "Otázka je povinná.",
               "cellType": "dropdown",
@@ -1047,41 +1047,41 @@
               "requiredIf": "{row.dynamickeInvesticieNazovProduktu} notempty",
               "choices": [
                 {
-                  "value": "dynamickeInvesticieucelProduktuBudovanieRezervy",
+                  "value": "dynamickeInvesticieUcelProduktuBudovanieRezervy",
                   "text": "Budovanie rezervy"
                 },
                 {
-                  "value": "dynamickeInvesticieucelProduktuDochodok",
+                  "value": "dynamickeInvesticieUcelProduktuDochodok",
                   "text": "Dôchodok"
                 },
                 {
-                  "value": "dynamickeInvesticieucelProduktuZhodnotenie",
+                  "value": "dynamickeInvesticieUcelProduktuZhodnotenie",
                   "text": "Zhodnotenie"
                 },
                 {
-                  "value": "dynamickeInvesticieucelProduktuOchranaPredInflaciou",
+                  "value": "dynamickeInvesticieUcelProduktuOchranaPredInflaciou",
                   "text": "Ochrana penazí pred infáciou"
                 },
                 {
-                  "value": "dynamickeInvesticieucelProduktuŠetrenieNaByvanie",
+                  "value": "dynamickeInvesticieUcelProduktuŠetrenieNaByvanie",
                   "text": "Šetrenie na bývanie"
                 },
                 {
-                  "value": "dynamickeInvesticieucelProduktuPoisteniePredStratouHodnoty",
+                  "value": "dynamickeInvesticieUcelProduktuPoisteniePredStratouHodnoty",
                   "text": "Poistenie pred stratou hodnoty"
                 },
                 {
-                  "value": "dynamickeInvesticieucelProduktuPredcasneSplatenieHypoteky",
+                  "value": "dynamickeInvesticieUcelProduktuPredcasneSplatenieHypoteky",
                   "text": "Predčasné splatenie hypotéky"
                 },
                 {
-                  "value": "dynamickeInvesticieucelProduktuNemaUcel",
+                  "value": "dynamickeInvesticieUcelProduktuNemaUcel",
                   "text": "Nemá účel"
                 }
               ]
             },
             {
-              "name": "dynamickeInvesticieoKolkoRokovVyberie",
+              "name": "dynamickeInvesticieOKolkoRokovVyberie",
               "title": "Približne o koľko rokov plánuješ peniaze vybrať?",
               "cellType": "dropdown",
               "requiredErrorText": "Otázka je povinná.",
@@ -1089,27 +1089,27 @@
               "isRequired": false,
               "choices": [
                 {
-                  "value": "dynamickeInvesticieoKolkoRokovVyberieDo1",
+                  "value": "dynamickeInvesticieOKolkoRokovVyberieDo1",
                   "text": "do 1 roka"
                 },
                 {
-                  "value": "dynamickeInvesticieoKolkoRokovVyberieDo5",
+                  "value": "dynamickeInvesticieOKolkoRokovVyberieDo5",
                   "text": "do 5 rokov"
                 },
                 {
-                  "value": "dynamickeInvesticieoKolkoRokovVyberieDo10",
+                  "value": "dynamickeInvesticieOKolkoRokovVyberieDo10",
                   "text": "do 10 rokov"
                 },
                 {
-                  "value": "dynamickeInvesticieoKolkoRokovVyberieDo15",
+                  "value": "dynamickeInvesticieOKolkoRokovVyberieDo15",
                   "text": "do 15 rokov"
                 },
                 {
-                  "value": "dynamickeInvesticieoKolkoRokovVyberieViacAko15",
+                  "value": "dynamickeInvesticieoKOlkoRokovVyberieViacAko15",
                   "text": "viac ako 15 rokov"
                 },
                 {
-                  "value": "dynamickeInvesticieoKolkoRokovVyberieNemamPlan",
+                  "value": "dynamickeInvesticieOKolkoRokovVyberieNemamPlan",
                   "text": "nemám plán"
                 }
               ]
@@ -1204,7 +1204,7 @@
           ]
         }
       ],
-      "visibleIf": "{produktyUverHypotekaPozicka} anyof 'produktyUverHypotekaPozickaAnoUverPozicka', 'produktyUverHypotekaPozickaAnoHypoteka'"
+      "visibleIf": "{produktyUverHypotekaPozicka} anyof ['produktyUverHypotekaPozickaAnoUverPozicka', 'produktyUverHypotekaPozickaAnoHypoteka']"
     },
     {
       "name": "pageFinancnaRezerva",
