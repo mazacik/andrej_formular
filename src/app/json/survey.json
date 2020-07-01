@@ -233,7 +233,6 @@
           "title": "Vies si odložiť z Tvojho prijímu peniaze?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
-          "hasOther": true,
           "choices": [
             {
               "value": "odkladaniePenaziSposobBeznyUcet",
@@ -259,8 +258,7 @@
               "value": "odkladaniePenaziSposobNie",
               "text": "Nie"
             }
-          ],
-          "otherText": "Iné"
+          ]
         }
       ]
     },
@@ -732,41 +730,61 @@
       "elements": [
         {
           "type": "matrixdynamic",
-          "name": "kratkodoveInvesticie",
-          "title": "Máš nejaké krátkodobé investície?",
-          "description": "123",
+          "name": "konzervativneInvesticie",
+          "title": "Pozrime sa najprv na tvoje konzervatívne produkty",
+          "description": "(zarabaju menej, ale vieš si z nich bez rizika vybrať peniaze v kratšej dobre)",
           "columns": [
             {
-              "name": "nazovProduktu",
+              "name": "konzervativneInvesticieNazovProduktu",
               "title": "Názov produktu",
               "cellType": "dropdown",
               "isRequired": true,
               "choices": [
                 {
-                  "value": "moznost1",
-                  "text": "Možnosť 1"
+                  "value": "konzervativneInvesticieNazovProduktuStavebneSporenie",
+                  "text": "stavebné sporenie"
                 },
                 {
-                  "value": "moznost2",
-                  "text": "Možnosť 2"
+                  "value": "konzervativneInvesticieNazovProduktuDepozitneKonto",
+                  "text": "depozitné konto"
                 },
                 {
-                  "value": "moznost3",
-                  "text": "Možnosť 3"
+                  "value": "konzervativneInvesticieNazovProduktuAxaUcet",
+                  "text": "AXA portfóliový účet"
+                },
+                {
+                  "value": "konzervativneInvesticieNazovProduktuDraheKovy",
+                  "text": "Zlato, striebro, alebo iné drahé kovy"
+                },
+                {
+                  "value": "konzervativneInvesticieNazovProduktuDlhopisoveFondy",
+                  "text": "Dlhopisové fondy"
+                },
+                {
+                  "value": "konzervativneInvesticieNazovProduktuRealitneFondy",
+                  "text": "Realitné fondy"
+                },
+                {
+                  "value": "konzervativneInvesticieNazovProduktuPenazneFondy",
+                  "text": "Peňažné fondy"
+                },
+                {
+                  "value": "konzervativneInvesticieNazovProduktuIADUcet",
+                  "text": "IAD portfóliový účet"
                 }
               ],
               "choicesOrder": "asc"
             },
             {
               "name": "frekvenciaPlatby",
-              "title": "Frekvencia platby",
+              "title": "Posielaš sem peniaze pravidelne?",
               "cellType": "dropdown",
               "isRequired": true,
-              "visibleIf": "{row.nazovProduktu} notempty",
+              "visibleIf": "{row.konzervativneInvesticieNazovProduktu} notempty",
               "choices": [
                 {
                   "value": "frekvenciaMesacne",
-                  "text": "Mesačne"
+                  "text": "áno, každý mesiac"
                 },
                 {
                   "value": "frekvenciaNepravidelne",
