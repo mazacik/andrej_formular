@@ -233,7 +233,6 @@
           "title": "Vies si odložiť z Tvojho prijímu peniaze?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
-          "hasOther": true,
           "choices": [
             {
               "value": "odkladaniePenaziSposobBeznyUcet",
@@ -259,8 +258,7 @@
               "value": "odkladaniePenaziSposobNie",
               "text": "Nie"
             }
-          ],
-          "otherText": "Iné"
+          ]
         }
       ]
     },
