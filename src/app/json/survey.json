@@ -749,8 +749,9 @@
               "name": "konzervativneInvesticieNazovProduktu",
               "title": "Aký máš produkt?",
               "cellType": "dropdown",
-              "optionsCaption": "Vyber názov",
-              "isRequired": true,
+              "optionsCaption": "Vyber názov..",
+              "requiredErrorText": "Otázka je povinná.",
+              "isRequired": false,
               "choices": [
                 {
                   "value": "konzervativneInvesticieNazovProduktuNeviem",
@@ -794,9 +795,11 @@
               "name": "frekvenciaPlatby",
               "title": "Posielaš sem peniaze pravidelne?",
               "cellType": "dropdown",
-              "isRequired": true,
-              "optionsCaption": "Mesačne..",
+              "isRequired": false,
+              "optionsCaption": "Vyber možnosť..",
               "visibleIf": "{row.konzervativneInvesticieNazovProduktu} notempty",
+              "requiredIf": "{row.konzervativneInvesticieNazovProduktu} notempty",
+              "requiredErrorText": "Otázka je povinná.",
               "choices": [
                 {
                   "value": "frekvenciaPlatbyKazdyMesiac",
@@ -816,27 +819,33 @@
               "name": "frekvenciaMesacneHodnota",
               "title": "Koľko platíš mesačne?",
               "cellType": "text",
-              "isRequired": true,
-              "visibleIf": "{row.frekvenciaPlatby} = 'frekvenciaMesacne'",
+              "isRequired": false,
+              "visibleIf": "{row.frekvenciaPlatby} = 'frekvenciaPlatbyKazdyMesiac'",
+              "requiredIf": "{row.frekvenciaPlatby} notempty",
               "inputType": "number",
+              "requiredErrorText": "Otázka je povinná.",
               "min": "0",
               "placeHolder": "suma v €"
+              
             },
             {
               "name": "frekvenciaNepravidelneHodnota",
               "title": "Koľko si sem poslal za posledných 6 mesiacov?",
               "cellType": "text",
-              "isRequired": true,
-              "visibleIf": "{row.frekvenciaPlatby} = 'frekvenciaNepravidelne'",
+              "isRequired": false,
+              "visibleIf": "{row.frekvenciaPlatby} = 'frekvenciaPlatbyNepravidelne'",
+              "requiredIf": "{row.frekvenciaPlatby} notempty",
               "inputType": "number",
               "min": "0"
             },
             {
               "name": "ucelProduktu",
               "title": "Aký je účel?",
+              "requiredErrorText": "Otázka je povinná.",
               "cellType": "dropdown",
-              "optionsCaption": "Zadaj účel",
-              "isRequired": true,
+              "optionsCaption": "Zadaj účel..",
+              "isRequired": false,
+              "requiredIf": "{row.konzervativneInvesticieNazovProduktu} notempty",
               "choices": [
                 {
                   "value": "ucelProduktuBudovanieRezervy",
@@ -876,8 +885,9 @@
               "name": "oKolkoRokovVyberie",
               "title": "Približne o koľko rokov plánuješ peniaze vybrať?",
               "cellType": "dropdown",
-              "optionsCaption": "Vyber obdobie",
-              "isRequired": true,
+              "requiredErrorText": "Otázka je povinná.",
+              "optionsCaption": "Vyber obdobie..",
+              "isRequired": false,
               "choices": [
                 {
                   "value": "oKolkoRokovVyberieDo1",
@@ -919,7 +929,206 @@
           "removeRowText": "Vymazať produkt"
         }
       ],
-      "visibleIf": "{produktyInvesticieSporenia} = 'produktyInvesticieSporeniaAno'"
+      "visibleIf": "{produktyInvesticieSporenia} anyof ['produktyInvesticieSporeniaAno', 'produktyInvesticieSporeniaAnoAPlanujemDalsie']"
+    },
+    {
+      "name": "pageDynamickeInvesticie",
+      "elements": [
+        {
+          "type": "matrixdynamic",
+          "name": "dynamickeInvesticie",
+          "title": "Teraz tvoje dynamické investičné produkty?",
+          "description": "(zarábajú viac, ale vieš si z nich peniaze vybrať bez rizika až po dlhšej dobe)",
+          "columns": [
+            {
+              "name": "dynamickeInvesticieNazovProduktu",
+              "title": "Aký máš produkt?",
+              "cellType": "dropdown",
+              "optionsCaption": "Vyber názov..",
+              "requiredErrorText": "Otázka je povinná.",
+              "isRequired": false,
+              "choices": [
+                {
+                  "value": "dynamickeInvesticieNazovProduktuNeviem",
+                  "text": "Neviem ako sa volá"
+                },
+                {
+                  "value": "dynamickeInvesticieNazovProduktuStrategiaZBanky",
+                  "text": "dynamická stratégia z banky (fondy)"
+                },
+                {
+                  "value": "dynamickeInvesticieNazovProduktuAmundi",
+                  "text": "Amundi dlhodobá stratégia - akciové podielové fondy"
+                },
+                {
+                  "value": "dynamickeInvesticieNazovProduktuETF",
+                  "text": "ETF podielové fondy"
+                },
+                {
+                  "value": "dynamickeInvesticieNazovProduktuKryptomeny",
+                  "text": "kryptomeny"
+                },
+                {
+                  "value": "dynamickeInvesticieNazovProduktuIndexoveFondy",
+                  "text": "Indexové podielové fondy"
+                },
+                {
+                  "value": "dynamickeInvesticieNazovProduktuCeleAkcie",
+                  "text": "mám nakúpene celé akcie"
+                },
+                {
+                  "value": "dynamickeInvesticieNazovProduktuZmiesaneFondy",
+                  "text": "zmiešané podielové fondy"
+                },
+                {
+                  "value": "dynamickeInvesticieNazovProduktuInvesticnyByt",
+                  "text": "investičný byt"
+                },
+				        {
+                  "value": "dynamickeInvesticieNazovProduktuPrispevkyDoDruhehoPiliera",
+                  "text": "dobrovoľné príspevky do druhého piliera"
+                }
+              ]
+            },
+            {
+              "name": "dynamickeInvesticiefrekvenciaPlatby",
+              "title": "Posielaš sem peniaze pravidelne?",
+              "cellType": "dropdown",
+              "isRequired": false,
+              "optionsCaption": "Vyber možnosť..",
+              "visibleIf": "{row.dynamickeInvesticieNazovProduktu} notempty",
+              "requiredIf": "{row.dynamickeInvesticieNazovProduktu} notempty",
+              "requiredErrorText": "Otázka je povinná.",
+              "choices": [
+                {
+                  "value": "dynamickeInvesticiefrekvenciaPlatbyKazdyMesiac",
+                  "text": "áno, každý mesiac"
+                },
+                {
+                  "value": "dynamickeInvesticiefrekvenciaPlatbyNepravidelne",
+                  "text": "skôr nepravidelne"
+                },
+                {
+                  "value": "dynamickeInvesticiefrekvenciaPlatbyJednorazovo",
+                  "text": "nie, iba jednorazovo"
+                }
+              ]
+            },
+            {
+              "name": "dynamickeInvesticiefrekvenciaMesacneHodnota",
+              "title": "Koľko platíš mesačne?",
+              "cellType": "text",
+              "isRequired": false,
+              "visibleIf": "{row.dynamickeInvesticiefrekvenciaPlatby} = 'dynamickeInvesticiefrekvenciaPlatbyKazdyMesiac'",
+              "requiredIf": "{row.dynamickeInvesticiefrekvenciaPlatby} notempty",
+              "inputType": "number",
+              "requiredErrorText": "Otázka je povinná.",
+              "min": "0",
+              "placeHolder": "suma v €"
+              
+            },
+            {
+              "name": "dynamickeInvesticiefrekvenciaNepravidelneHodnota",
+              "title": "Koľko si sem poslal za posledných 6 mesiacov?",
+              "cellType": "text",
+              "isRequired": false,
+              "visibleIf": "{row.dynamickeInvesticiefrekvenciaPlatby} = 'dynamickeInvesticiefrekvenciaPlatbyNepravidelne'",
+              "requiredIf": "{row.dynamickeInvesticiefrekvenciaPlatby} notempty",
+              "inputType": "number",
+              "min": "0"
+            },
+            {
+              "name": "dynamickeInvesticieucelProduktu",
+              "title": "Aký je účel?",
+              "requiredErrorText": "Otázka je povinná.",
+              "cellType": "dropdown",
+              "optionsCaption": "Zadaj účel..",
+              "isRequired": false,
+              "requiredIf": "{row.dynamickeInvesticieNazovProduktu} notempty",
+              "choices": [
+                {
+                  "value": "dynamickeInvesticieucelProduktuBudovanieRezervy",
+                  "text": "Budovanie rezervy"
+                },
+                {
+                  "value": "dynamickeInvesticieucelProduktuDochodok",
+                  "text": "Dôchodok"
+                },
+                {
+                  "value": "dynamickeInvesticieucelProduktuZhodnotenie",
+                  "text": "Zhodnotenie"
+                },
+                {
+                  "value": "dynamickeInvesticieucelProduktuOchranaPredInflaciou",
+                  "text": "Ochrana penazí pred infáciou"
+                },
+                {
+                  "value": "dynamickeInvesticieucelProduktuŠetrenieNaByvanie",
+                  "text": "Šetrenie na bývanie"
+                },
+                {
+                  "value": "dynamickeInvesticieucelProduktuPoisteniePredStratouHodnoty",
+                  "text": "Poistenie pred stratou hodnoty"
+                },
+                {
+                  "value": "dynamickeInvesticieucelProduktuPredcasneSplatenieHypoteky",
+                  "text": "Predčasné splatenie hypotéky"
+                },
+                {
+                  "value": "dynamickeInvesticieucelProduktuNemaUcel",
+                  "text": "Nemá účel"
+                }
+              ]
+            },
+            {
+              "name": "dynamickeInvesticieoKolkoRokovVyberie",
+              "title": "Približne o koľko rokov plánuješ peniaze vybrať?",
+              "cellType": "dropdown",
+              "requiredErrorText": "Otázka je povinná.",
+              "optionsCaption": "Vyber obdobie..",
+              "isRequired": false,
+              "choices": [
+                {
+                  "value": "dynamickeInvesticieoKolkoRokovVyberieDo1",
+                  "text": "do 1 roka"
+                },
+                {
+                  "value": "dynamickeInvesticieoKolkoRokovVyberieDo5",
+                  "text": "do 5 rokov"
+                },
+                {
+                  "value": "dynamickeInvesticieoKolkoRokovVyberieDo10",
+                  "text": "do 10 rokov"
+                },
+                {
+                  "value": "dynamickeInvesticieoKolkoRokovVyberieDo15",
+                  "text": "do 15 rokov"
+                },
+                {
+                  "value": "dynamickeInvesticieoKolkoRokovVyberieViacAko15",
+                  "text": "viac ako 15 rokov"
+                },
+                {
+                  "value": "dynamickeInvesticieoKolkoRokovVyberieNemamPlan",
+                  "text": "nemám plán"
+                }
+              ]
+            }
+          ],
+          "choices": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "rowCount": 1,
+          "maxRowCount": 15,
+          "addRowText": "Pridať produkt",
+          "removeRowText": "Vymazať produkt"
+        }
+      ],
+      "visibleIf": "{produktyInvesticieSporenia} anyof ['produktyInvesticieSporeniaAno', 'produktyInvesticieSporeniaAnoAPlanujemDalsie']"
     },
     {
       "name": "pageAkeInvesticiePlanujes",
@@ -942,7 +1151,7 @@
           ]
         }
       ],
-      "visibleIf": "{produktyInvesticieSporenia} = 'produktyInvesticieSporeniaNiePlanujem'"
+      "visibleIf": "{produktyInvesticieSporenia} anyof ['produktyInvesticieSporeniaNiePlanujem', 'produktyInvesticieSporeniaAnoAPlanujemDalsie']"
     },
     {
       "name": "pageSKymSaRadis",
