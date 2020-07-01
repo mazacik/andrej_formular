@@ -1,0 +1,40 @@
+{
+  "questions": [
+    {
+      "id": "odkladaniePenaziSposob",
+      "resultPointsMax": 1,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
+    },
+    {
+      "id": "financnaGramotnostDlhodobaInvesticia",
+      "resultPointsMax": 1,
+      "correctChoice": "Vložím tam ďalšie peniaze",
+      "resultVysvetlenie": "Dlhodobo sa investuje do akcií, čo sú vlastne podiely spoločnosti, ako napríklad Facebook alebo Tesla. Ak klesla hodnota Tvojej investície z 1000€ a 900€, znamená to, že hodnota akcií klesla a teda sú lacnejšie. To znamená, že ich vieš aj lacnejšie kúpiť. Je to bezpečné keďže sa neinvestuje iba do pár spoločností, ale do viacerých vybraných z celého sveta, ktoré reprezentujú ekonomiku. Keďže ekonomika pôjde raz hore, znamená to, že keď kúpiš lacnejšie, tak na tom raz zarobíš."
+    },
+    {
+      "id": "financnaGramotnostPoisteniePriInvestovani",
+      "resultPointsMax": 1,
+      "correctChoice": "Vložím tam ďalšie peniaze",
+      "resultVysvetlenie": "Na Slovensku je aktuálne uzavretých viac ako 1,2 milióna zmlúv kapitálového a investičného životného poistenia. Oba tieto produkty majú veľmi nevýhodne nastavené poplatky a ľudia často nevedia, za čo presne platia. Ešte aj dnes sa často predávajú, pretože sú za ne veľké provízie pre finančné inštitúcie. Preto, ak budeš chcieť investovať a byť aj poistený, určite tieto dva ciele nespájaj do jedného produktu."
+    },
+    {
+      "id": "financnaGramotnostDruhyPilier",
+      "resultPointsMax": 1,
+      "correctChoice": "Vložím tam ďalšie peniaze",
+      "resultVysvetlenie": "Druhý pilier sú jediné peniaze, ktoré vieš od štátu získať zadarmo navyše len tak. Funguje to tak, že časť z Tvojich odvodov nesmerujú na vyplácanie aktuálnych dôchodcov, ale idú priamo Tebe na účet, z ktorého si vieš nasporené peniaze vytiahnuť na dôchodku. Je však naozaj dôležité mať ho založený na správnom mieste. Dokážeš si tým prilepšiť až o 500€ mesačne naviac."
+    },
+    {
+      "id": "financnaGramotnostVynos",
+      "resultPointsMax": 1,
+      "correctChoice": "Nižšia",
+      "resultVysvetlenie": "Ekonomika sa každý rok posúva vpredu a s ňou aj stúpajú ceny. Peniaze však ostávajú mať rovnakú hodnotu, a preto sa znehodnocujú až o 2-3 percentá každý rok. Ak si necháš peniaze uložené v banke, tak Ti ani 1%-ný výnos nepomôže nakoľko strácajú svoju hodnotu. Tento jav sa nazýva inflácia."
+    },
+    {
+      "id": "financnaGramotnostByt",
+      "resultPointsMax": 1,
+      "correctChoice": "Z banky si požičiam najviac, ako sa dá a zvyšok doplatím",
+      "resultVysvetlenie": "Momentálne je to pre Teba najvýhodnejší krok, pretože banky ponúkajú extrémne nízke úroky a peniaze, ktoré Ti ostanú vieš výhodne investovať."
+    }
+  ]
+}

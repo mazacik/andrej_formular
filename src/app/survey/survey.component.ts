@@ -4,6 +4,7 @@ import * as Survey from 'survey-angular';
 import * as jsonFile from '../json/survey.json';
 import * as $ from "jquery";
 import tippy from 'tippy.js';
+import Velocity from "velocity-animate";
 
 Survey.Serializer.addProperty("page", {
   name: "navigationTitle:string",
@@ -130,6 +131,35 @@ export class SurveyComponent implements OnInit {
       });
     }
 
+    // function animate(animationType, duration) {
+    //   if (!duration) duration = 1000;
+    //   var element = document.getElementById("surveyElement");
+    //   // Velocity(element, { transform: ["translateY(0px)", "translateY(100px)"] }, { duration: 1000 });
+    // }
+    // var doAnimantion = true;
+    // function onCurrentPageChanging(survey: Survey.SurveyModel, options: any) {
+    //   if (!doAnimantion)
+    //     return;
+    //   options.allowChanging = false;
+    //   setTimeout(function () {
+    //     doAnimantion = false;
+    //     survey.currentPage = options.newCurrentPage;
+    //     doAnimantion = true;
+    //   }, 500);
+    //   animate("slideUp", 500);
+    // }
+    // function onCompleting(survey: Survey.SurveyModel, options: any) {
+    //   if (!doAnimantion)
+    //     return;
+    //   options.allowComplete = false;
+    //   setTimeout(function () {
+    //     doAnimantion = false;
+    //     survey.doComplete();
+    //     doAnimantion = true;
+    //   }, 500);
+    //   animate("slideUp", 500);
+    // }
+
     function onCurrentPageChanged(survey: Survey.SurveyModel, options: any) {
       function updateNavBar() {
         function getSectionByCurrentPage() {
@@ -219,6 +249,9 @@ export class SurveyComponent implements OnInit {
         }
       }
 
+      // animation
+      // animate("slideDown", 500);
+
       insertAlternativeNextButton();
       updateNavBar();
     }
@@ -254,6 +287,8 @@ export class SurveyComponent implements OnInit {
 
     var survey = new Survey.Model((<any>jsonFile).default);
     survey.onComplete.add(() => this.onSurveyComplete());
+    // survey.onCompleting.add(onCompleting);
+    // survey.onCurrentPageChanging.add(onCurrentPageChanging);
     survey.onCurrentPageChanged.add(onCurrentPageChanged);
     survey.onAfterRenderQuestion.add(doAfterRenderQuestion);
     survey.onUpdateQuestionCssClasses.add(onUpdateQuestionCssClasses);
@@ -262,6 +297,8 @@ export class SurveyComponent implements OnInit {
 
     Survey.SurveyNG.render("surveyElement", { model: survey });
     (<any>window).survey = survey;
+
+    // animate("slideDown", 1000);
   }
 
   onSurveyComplete(): void {

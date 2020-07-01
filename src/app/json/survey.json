@@ -154,7 +154,7 @@
           "type": "html",
           "name": "dajteMiVediet",
           "html": "<p>DAJTE MI VEDIET</p>"
-        } 
+        }
       ],
       "visibleIf": "{nemaPrijem} = 'nemaPrijemNieDajteMiVediet'"
     },
@@ -277,7 +277,7 @@
           "inputType": "number",
           "min": "0",
           "placeHolder": "Hodnota v €"
-        } 
+        }
       ]
     },
     {
@@ -287,7 +287,7 @@
           "type": "html",
           "name": "zaciatokBodovania",
           "html": "<p>Ďakujeme {meno} za vyplnenie otázok, teraz už vieme ktorý test bude pre teba najvhodnejší.</p>"
-        } 
+        }
       ]
     },
     {
@@ -724,6 +724,139 @@
               "text": "nie"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "pageKratkodobeInvesticie",
+      "elements": [
+        {
+          "type": "matrixdynamic",
+          "name": "kratkodoveInvesticie",
+          "title": "Máš nejaké krátkodobé investície?",
+          "description": "123",
+          "columns": [
+            {
+              "name": "nazovProduktu",
+              "title": "Názov produktu",
+              "cellType": "dropdown",
+              "isRequired": true,
+              "choices": [
+                {
+                  "value": "moznost1",
+                  "text": "Možnosť 1"
+                },
+                {
+                  "value": "moznost2",
+                  "text": "Možnosť 2"
+                },
+                {
+                  "value": "moznost3",
+                  "text": "Možnosť 3"
+                }
+              ],
+              "choicesOrder": "asc"
+            },
+            {
+              "name": "frekvenciaPlatby",
+              "title": "Frekvencia platby",
+              "cellType": "dropdown",
+              "isRequired": true,
+              "visibleIf": "{row.nazovProduktu} notempty",
+              "choices": [
+                {
+                  "value": "frekvenciaMesacne",
+                  "text": "Mesačne"
+                },
+                {
+                  "value": "frekvenciaNepravidelne",
+                  "text": "Nepravidelne"
+                },
+                {
+                  "value": "frekvenciaJednorazovo",
+                  "text": "Jednorázovo"
+                }
+              ]
+            },
+            {
+              "name": "frekvenciaMesacneHodnota",
+              "title": "Koľko platíš mesačne?",
+              "cellType": "text",
+              "isRequired": true,
+              "visibleIf": "{row.frekvenciaPlatby} = 'frekvenciaMesacne'",
+              "inputType": "number",
+              "min": "0"
+            },
+            {
+              "name": "frekvenciaNepravidelneHodnota",
+              "title": "Koľko si zaplatil za posledných 6 mesiacov?",
+              "cellType": "text",
+              "isRequired": true,
+              "visibleIf": "{row.frekvenciaPlatby} = 'frekvenciaNepravidelne'",
+              "inputType": "number",
+              "min": "0"
+            },
+            {
+              "name": "ucelProduktu",
+              "title": "Aký je účel?",
+              "cellType": "dropdown",
+              "isRequired": true,
+              "choices": [
+                {
+                  "value": "ucelProduktuBudovanieRezervy",
+                  "text": "Budovanie rezervy"
+                },
+                {
+                  "value": "ucelProduktuDochodok",
+                  "text": "Dôchodok"
+                },
+                {
+                  "value": "ucelProduktuZhodnotenie",
+                  "text": "Zhodnotenie"
+                },
+                {
+                  "value": "ucelProduktuOchranaPredInflaciou",
+                  "text": "Ochrana penazí pred infáciou"
+                },
+                {
+                  "value": "ucelProduktuŠetrenieNaByvanie",
+                  "text": "Šetrenie na bývanie"
+                },
+                {
+                  "value": "ucelProduktuPoisteniePredStratouHodnoty",
+                  "text": "Poistenie pred stratou hodnoty"
+                },
+                {
+                  "value": "ucelProduktuPredcasneSplatenieHypoteky",
+                  "text": "Predčasné splatenie hypotéky"
+                },
+                {
+                  "value": "ucelProduktuNemaUcel",
+                  "text": "Nemá účel"
+                }
+              ]
+            },
+            {
+              "name": "oKolkoRokovVyberie",
+              "title": "Približne o koľko rokov plánuješ peniaze vybrať?",
+              "cellType": "text",
+              "isRequired": true,
+              "inputType": "number",
+              "min": "0",
+              "placeHolder": "Ak nemáš plán, nechaj prázdne"
+            }
+          ],
+          "choices": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "rowCount": 1,
+          "maxRowCount": 15,
+          "addRowText": "Pridať riadok",
+          "removeRowText": "Vymazať"
         }
       ]
     },
