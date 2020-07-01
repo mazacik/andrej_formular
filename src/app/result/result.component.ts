@@ -179,7 +179,7 @@ export class ResultComponent implements OnInit {
   getQuestionById(id: string) {
     for (let i = 0; i < questionDetails.questions.length; i++) {
       const question = questionDetails.questions[i];
-      if (question.id == id) {
+      if (question.id == id || id.startsWith(question.id)) {
         return question;
       }
     }
@@ -195,38 +195,66 @@ export class ResultComponent implements OnInit {
   concatCapitalize(prefix: string, toCapitalize: string): string {
     return prefix + toCapitalize.charAt(0).toUpperCase() + toCapitalize.slice(1);
   }
-  resolveAnswer(id: string) {
-    // skusi zobrazit element podla 'id'
-    this.showElementById(id);
-
-    // skusi zobrazit div podla 'id'
-    this.showElementById(this.concatCapitalize("div", id));
-
-    // skusi najst v 'questionDetails.json' entry pre 'id'
+  resolveAnswerFinancnaGramotnost(id: string) {
+    // financna gramotnost
     var question = this.getQuestionById(id);
-    if (question) {
-      this.pocetBodovMax += question.resultPointsMax;
-    }
-
-    // skusi najst v 'answerDetails.json' entry pre 'id'
     var answer = this.getAnswerById(id);
-    if (answer) {
-      // bodovanie
-      this.pocetBodovStratil += answer.resultPoints;
 
-      // vygeneruje toggleElement do divu podla 'id' (napr. pre 'id' "misko" musi byt div.id "divMisko")
-      this.createToggleElement(answer.id, answer.resultTitle, answer.resultVysvetlenie);
+    if (question && answer) {
+      this.pocetBodovMax += question.resultPointsMax;
+      this.pocetBodovStratil += answer.resultPointsStratil;
+
+      var choiceString = document.getElementById(question.id + "UserChoice");
+      if (choiceString) choiceString.innerHTML = answer.choiceString;
+
+      this.createToggleElement(question.id, "Vysvetlenie", question.resultVysvetlenie, "Vysvetlenie");
     } else {
-      // detaily neboli najdene, skus zobrazit div podla IDcka
-      var divId = this.concatCapitalize("div", id);
-      this.showElementById(divId);
+      console.log(id + " not found in answer json");
+    }
+  }
+  resolveAnswer(id: string) {
+    // je to sekcia financnej gramotnosti?
+    if (typeof id == "string") {
+      // odpoved je string
+      if (id.startsWith("financnaGramotnost")) {
+        this.resolveAnswerFinancnaGramotnost(id);
+      } else {
+        // skusi zobrazit element podla 'id'
+        this.showElementsByClass(id);
+
+        // skusi zobrazit div podla 'id'
+        this.showElementsByClass(this.concatCapitalize("div", id));
+
+        // skusi najst v 'questionDetails.json' entry pre 'id'
+        var question = this.getQuestionById(id);
+        if (question) {
+          this.pocetBodovMax += question.resultPointsMax;
+        }
+
+        // skusi najst v 'answerDetails.json' entry pre 'id'
+        var answer = this.getAnswerById(id);
+        if (answer) {
+          // bodovanie
+          this.pocetBodovStratil += answer.resultPointsStratil;
+
+          // vygeneruje toggleElement do divu podla 'id' (napr. pre 'id' "misko" musi byt div.id "divMisko")
+          this.createToggleElement(answer.id, answer.resultTitle, answer.resultVysvetlenie);
+        } else {
+          // detaily neboli najdene, skus zobrazit div podla IDcka
+          var divId = this.concatCapitalize("div", id);
+          this.showElementsByClass(divId);
+        }
+      }
+    } else {
+      // odpoved je objekt (matica)
     }
   }
   createToggleElement(id: string, title: string, content: string, divSuffix: string = ""): void {
     // check if div exists
-    var divId = this.concatCapitalize("div", id) + divSuffix;
-    var div = document.getElementById(divId);
-    if (div) {
+    var divClass = this.concatCapitalize("div", id) + divSuffix;
+    var divs = document.getElementsByClassName(divClass);
+    for (let i = 0; i < divs.length; i++) {
+      const div = divs[i];
       // toggle button
       var buttonToggle = document.createElement("button");
       buttonToggle.innerHTML = "+";
@@ -249,16 +277,10 @@ export class ResultComponent implements OnInit {
       // div
       div.appendChild(pTitle);
       div.appendChild(pContent);
-      this.showElementById(divId);
-    } else {
-      console.log(divId + " not found")
+      div.removeAttribute("hidden");
     }
   }
 
-  hideElementById(elementId: string): void {
-    var element = document.getElementById(elementId);
-    if (element) element.hidden = true;
-  }
   showElementById(elementId: string): void {
     var element = document.getElementById(elementId);
     if (element) element.removeAttribute("hidden");
