@@ -115,22 +115,47 @@ export class ResultComponent implements OnInit {
         this.percentilGramotnost = 5;
       }
 
+      console.log(this.data);
+
       // grafy
-      var vyskaPrijmu = 0;
+      var vyskaPrijmu = this.data.vyskaPrijmu;
+      
       var investicieKratkobe = 0;
+      if (this.data.konzervativneInvesticie) {
+        for (let i = 0; i < this.data.konzervativneInvesticie.length; i++) {
+          const entry = this.data.konzervativneInvesticie[i];
+          if (entry.frekvenciaMesacneHodnota) {
+            investicieKratkobe += entry.frekvenciaMesacneHodnota;
+          } else if (entry.frekvenciaNepravidelneHodnota) {
+            investicieKratkobe += entry.frekvenciaNepravidelneHodnota / 6;
+          }
+        }
+      }
+      investicieKratkobe += this.data.financnaRezervaMesacne;
+      
       var investicieDlhodobe = 0;
+      if (this.data.dynamickeInvesticie) {
+        for (let i = 0; i < this.data.dynamickeInvesticie.length; i++) {
+          const entry = this.data.dynamickeInvesticie[i];
+          if (entry.dynamickeInvesticiefrekvenciaMesacneHodnota) {
+            investicieDlhodobe += entry.dynamickeInvesticiefrekvenciaMesacneHodnota;
+          } else if (entry.dynamickeInvesticiefrekvenciaNepravidelneHodnota) {
+            investicieDlhodobe += entry.dynamickeInvesticiefrekvenciaNepravidelneHodnota / 6;
+          }
+        }
+      }
+      
       var poistenie = 0;
+      if (this.data.produktyZivotnePoistenieKolkoPlati) pasiva += this.data.produktyZivotnePoistenieKolkoPlati;
+      if (this.data.produktyZivotnePoistenieInvesticiaVyska) pasiva -= this.data.produktyZivotnePoistenieInvesticiaVyska;
+      
       var pasiva = 0;
-      var spotreba = 0;
+      if (this.data.produktyHypotekaVyskaSplatky) pasiva += this.data.produktyHypotekaVyskaSplatky;
+      if (this.data.produktyUverPozickaVyskaSplatky) pasiva += this.data.produktyUverPozickaVyskaSplatky;
+      
+      var spotreba = vyskaPrijmu - investicieKratkobe - investicieDlhodobe - pasiva - poistenie;
 
-      var produktyHypotekaVyskaSplatky = this.data.produktyHypotekaVyskaSplatky;
-      var produktyUverPozickaVyskaSplatky = this.data.produktyUverPozickaVyskaSplatky;
-
-      vyskaPrijmu = this.data.vyskaPrijmu;
-      if (produktyHypotekaVyskaSplatky) pasiva += produktyHypotekaVyskaSplatky;
-      if (produktyUverPozickaVyskaSplatky) pasiva += produktyUverPozickaVyskaSplatky;
-
-      var myChart = new Chart("chart-js", {
+      new Chart("chart-js", {
         type: 'pie',
         data: {
           labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
