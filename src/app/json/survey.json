@@ -726,6 +726,17 @@
       ]
     },
     {
+      "name": "pageZaciatokBodovania",
+      "elements": [
+        {
+          "type": "html",
+          "name": "zaciatokBodovania",
+          "html": "<p>V tejto časti si prejeme do hĺbky tvoje sporiace a investičné produkty. Vo vyhodnotení dostaneš spätnú väzbu na ich výber a rozloženie vzhľadom na tvoj príjem.</p>"
+        }
+      ],
+      "visibleIf": "{produktyInvesticieSporenia} = 'produktyInvesticieSporeniaAno'"
+    },
+    {
       "name": "pageKratkodobeInvesticie",
       "elements": [
         {
@@ -736,10 +747,15 @@
           "columns": [
             {
               "name": "konzervativneInvesticieNazovProduktu",
-              "title": "Názov produktu",
+              "title": "Aký máš produkt?",
               "cellType": "dropdown",
+              "optionsCaption": "Vyber názov",
               "isRequired": true,
               "choices": [
+                {
+                  "value": "konzervativneInvesticieNazovProduktuNeviem",
+                  "text": "Neviem ako sa volá"
+                },
                 {
                   "value": "konzervativneInvesticieNazovProduktuStavebneSporenie",
                   "text": "stavebné sporenie"
@@ -772,27 +788,27 @@
                   "value": "konzervativneInvesticieNazovProduktuIADUcet",
                   "text": "IAD portfóliový účet"
                 }
-              ],
-              "choicesOrder": "asc"
+              ]
             },
             {
               "name": "frekvenciaPlatby",
               "title": "Posielaš sem peniaze pravidelne?",
               "cellType": "dropdown",
               "isRequired": true,
+              "optionsCaption": "Mesačne..",
               "visibleIf": "{row.konzervativneInvesticieNazovProduktu} notempty",
               "choices": [
                 {
-                  "value": "frekvenciaMesacne",
+                  "value": "frekvenciaPlatbyKazdyMesiac",
                   "text": "áno, každý mesiac"
                 },
                 {
-                  "value": "frekvenciaNepravidelne",
-                  "text": "Nepravidelne"
+                  "value": "frekvenciaPlatbyNepravidelne",
+                  "text": "skôr nepravidelne"
                 },
                 {
-                  "value": "frekvenciaJednorazovo",
-                  "text": "Jednorázovo"
+                  "value": "frekvenciaPlatbyJednorazovo",
+                  "text": "nie, iba jednorazovo"
                 }
               ]
             },
@@ -803,11 +819,12 @@
               "isRequired": true,
               "visibleIf": "{row.frekvenciaPlatby} = 'frekvenciaMesacne'",
               "inputType": "number",
-              "min": "0"
+              "min": "0",
+              "placeHolder": "suma v €"
             },
             {
               "name": "frekvenciaNepravidelneHodnota",
-              "title": "Koľko si zaplatil za posledných 6 mesiacov?",
+              "title": "Koľko si sem poslal za posledných 6 mesiacov?",
               "cellType": "text",
               "isRequired": true,
               "visibleIf": "{row.frekvenciaPlatby} = 'frekvenciaNepravidelne'",
@@ -818,6 +835,7 @@
               "name": "ucelProduktu",
               "title": "Aký je účel?",
               "cellType": "dropdown",
+              "optionsCaption": "Zadaj účel",
               "isRequired": true,
               "choices": [
                 {
@@ -857,11 +875,35 @@
             {
               "name": "oKolkoRokovVyberie",
               "title": "Približne o koľko rokov plánuješ peniaze vybrať?",
-              "cellType": "text",
+              "cellType": "dropdown",
+              "optionsCaption": "Vyber obdobie",
               "isRequired": true,
-              "inputType": "number",
-              "min": "0",
-              "placeHolder": "Ak nemáš plán, nechaj prázdne"
+              "choices": [
+                {
+                  "value": "oKolkoRokovVyberieDo1",
+                  "text": "do 1 roka"
+                },
+                {
+                  "value": "oKolkoRokovVyberieDo5",
+                  "text": "do 5 rokov"
+                },
+                {
+                  "value": "oKolkoRokovVyberieDo10",
+                  "text": "do 10 rokov"
+                },
+                {
+                  "value": "oKolkoRokovVyberieDo15",
+                  "text": "do 15 rokov"
+                },
+                {
+                  "value": "oKolkoRokovVyberieViacAko15",
+                  "text": "viac ako 15 rokov"
+                },
+                {
+                  "value": "oKolkoRokovVyberieNemamPlan",
+                  "text": "nemám plán"
+                }
+              ]
             }
           ],
           "choices": [
@@ -873,50 +915,11 @@
           ],
           "rowCount": 1,
           "maxRowCount": 15,
-          "addRowText": "Pridať riadok",
-          "removeRowText": "Vymazať"
+          "addRowText": "Pridať produkt",
+          "removeRowText": "Vymazať produkt"
         }
-      ]
-    },
-    {
-      "name": "pageProduktyInvesticieSporeniaPocet",
-      "elements": [
-        {
-          "type": "radiogroup",
-          "name": "produktyInvesticieSporeniaPocet",
-          "title": "Koľko investičných alebo sporiacich produktov využívaš?",
-          "description": "(Nerátaj bežný účet ani sporiaci účet v banke)",
-          "isRequired": false,
-          "requiredErrorText": "Otázka je povinná.",
-          "choices": [
-            {
-              "value": "produktyInvesticieSporeniaPocet1",
-              "text": "1"
-            },
-            {
-              "value": "produktyInvesticieSporeniaPocet2",
-              "text": "2"
-            },
-            {
-              "value": "produktyInvesticieSporeniaPocet3",
-              "text": "3"
-            },
-            {
-              "value": "produktyInvesticieSporeniaPocet4",
-              "text": "4"
-            },
-            {
-              "value": "produktyInvesticieSporeniaPocet5",
-              "text": "5"
-            },
-            {
-              "value": "produktyInvesticieSporeniaPocet6",
-              "text": "6"
-            }
-          ],
-          "visibleIf": "{produktyInvesticieSporenia} = 'produktyInvesticieSporeniaAno'"
-        }
-      ]
+      ],
+      "visibleIf": "{produktyInvesticieSporenia} = 'produktyInvesticieSporeniaAno'"
     },
     {
       "name": "pageAkeInvesticiePlanujes",
@@ -938,7 +941,8 @@
             }
           ]
         }
-      ]
+      ],
+      "visibleIf": "{produktyInvesticieSporenia} = 'produktyInvesticieSporeniaNiePlanujem'"
     },
     {
       "name": "pageSKymSaRadis",
