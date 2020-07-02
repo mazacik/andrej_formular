@@ -15,6 +15,20 @@
       "resultPointsStratil": 0.5
     },
     {
+      "id": "produktyDruhyPilierFondyIndexove",
+      "choiceString": "",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 0
+    },
+    {
+      "id": "produktyDruhyPilierFondyDlhopisove",
+      "choiceString": "",
+      "resultTitle": "Mas dlhopisove fondy",
+      "resultVysvetlenie": "Je to fakt zle lebo je to zle a to je fakt zle.",
+      "resultPointsStratil": -1
+    },
+    {
       "id": "financnaGramotnostDruhyPilierNeviem",
       "choiceString": "Neviem",
       "resultTitle": "",
