@@ -91,7 +91,7 @@ export class ResultComponent implements OnInit {
       // challengeLink
       this.challengeLink = window.location.origin + "/intro/" + this.data.meno + "/" + this.calculateHodnost();
 
-      // percentil financnej gramotnosti
+      // percentil financnej gramotnosti (vseobecny percentil je rieseny v 'calculateHodnost()' ^^^^^)
       var pocetBodovGramotnost = (this.pocetBodovGramotnostMax - this.pocetBodovGramotnostStratil) / this.pocetBodovGramotnostMax * 100;
       if (pocetBodovGramotnost > 90) {
         this.percentilGramotnost = 100;
@@ -115,11 +115,7 @@ export class ResultComponent implements OnInit {
         this.percentilGramotnost = 5;
       }
 
-      console.log(this.data);
-
       // grafy
-      var vyskaPrijmu = this.data.vyskaPrijmu;
-      
       var investicieKratkobe = 0;
       if (this.data.konzervativneInvesticie) {
         for (let i = 0; i < this.data.konzervativneInvesticie.length; i++) {
@@ -144,16 +140,16 @@ export class ResultComponent implements OnInit {
           }
         }
       }
+
+      var pasiva = 0;
+      if (this.data.produktyHypotekaVyskaSplatky) pasiva += this.data.produktyHypotekaVyskaSplatky;
+      if (this.data.produktyUverPozickaVyskaSplatky) pasiva += this.data.produktyUverPozickaVyskaSplatky;
       
       var poistenie = 0;
       if (this.data.produktyZivotnePoistenieKolkoPlati) pasiva += this.data.produktyZivotnePoistenieKolkoPlati;
       if (this.data.produktyZivotnePoistenieInvesticiaVyska) pasiva -= this.data.produktyZivotnePoistenieInvesticiaVyska;
       
-      var pasiva = 0;
-      if (this.data.produktyHypotekaVyskaSplatky) pasiva += this.data.produktyHypotekaVyskaSplatky;
-      if (this.data.produktyUverPozickaVyskaSplatky) pasiva += this.data.produktyUverPozickaVyskaSplatky;
-      
-      var spotreba = vyskaPrijmu - investicieKratkobe - investicieDlhodobe - pasiva - poistenie;
+      var spotreba = this.data.vyskaPrijmu - investicieKratkobe - investicieDlhodobe - pasiva - poistenie;
 
       new Chart("chart-js", {
         type: 'pie',
