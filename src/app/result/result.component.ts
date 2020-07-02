@@ -5,6 +5,7 @@ import * as Chart from 'chart.js';
 
 import * as questionDetails from '../json/questionDetails.json';
 import * as answerDetails from '../json/answerDetails.json';
+import * as naj3Order from '../json/naj3Order.json';
 
 @Component({
   selector: 'app-result',
@@ -59,25 +60,89 @@ export class ResultComponent implements OnInit {
         }
       }
 
+      var naj3Extra = [];
+
       // odlozit50percentprijmu
       if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.5) {
         this.pocetBodovMax += 1;
         this.pocetBodovStratil += 1;
-        this.showElementsByClass("odlozit50percentprijmu");
+        naj3Extra[naj3Extra.length] = 'naj_odlozit50percentprijmu';
       }
 
       // vyskarezervy5nasobokprijmu
       if (this.data.financnaRezervaVyska >= this.data.vyskaPrijmu * 5) {
         this.pocetBodovMax += 1;
         this.pocetBodovStratil += 1;
-        this.showElementsByClass("vyskarezervy5nasobokprijmu");
+        naj3Extra[naj3Extra.length] = 'naj_vyskarezervy5nasobokprijmu';
       }
 
       // mesacnarezerva30percentprijmu
       if (this.data.financnaRezervaMesacne >= this.data.vyskaPrijmu * 0.3) {
         this.pocetBodovMax += 1;
         this.pocetBodovStratil += 1;
-        this.showElementsByClass("mesacnarezerva30percentprijmu");
+        naj3Extra[naj3Extra.length] = 'naj_mesacnarezerva30percentprijmu';
+      }
+
+      // top 3 najlepsie
+      var najlepsiePocet = 0;
+      for (let i = 0; i < naj3Order.najlepsie.length; i++) {
+        if (najlepsiePocet == 3) break;
+        const entry = naj3Order.najlepsie[i];
+        var found = false;
+        for (let j = 0; j < naj3Extra.length; j++) {
+          const extra = naj3Extra[j];
+          if (entry == extra) {
+            this.showElementsByClass(entry);
+            found = true;
+            najlepsiePocet++;
+            break;
+          }
+        }
+
+        if (!found) {
+          for (var value in this.data) {
+            var answer = this.data[value];
+            if (typeof answer == 'string') {
+              if (entry.endsWith(answer)) {
+                this.showElementsByClass(entry);
+                found = true;
+                najlepsiePocet++;
+                break;
+              }
+            }
+          }
+        }
+      }
+
+      // top 3 najhorsie
+      var najhorsiePocet = 0;
+      for (let i = 0; i < naj3Order.najhorsie.length; i++) {
+        if (najhorsiePocet == 3) break;
+        const entry = naj3Order.najhorsie[i];
+        var found = false;
+        for (let j = 0; j < naj3Extra.length; j++) {
+          const extra = naj3Extra[j];
+          if (entry == extra) {
+            this.showElementsByClass(entry);
+            found = true;
+            najhorsiePocet++;
+            break;
+          }
+        }
+
+        if (!found) {
+          for (var value in this.data) {
+            var answer = this.data[value];
+            if (typeof answer == 'string') {
+              if (entry.endsWith(answer)) {
+                this.showElementsByClass(entry);
+                found = true;
+                najhorsiePocet++;
+                break;
+              }
+            }
+          }
+        }
       }
 
       // nasi odbornici
@@ -128,7 +193,7 @@ export class ResultComponent implements OnInit {
         }
       }
       investicieKratkobe += this.data.financnaRezervaMesacne;
-      
+
       var investicieDlhodobe = 0;
       if (this.data.dynamickeInvesticie) {
         for (let i = 0; i < this.data.dynamickeInvesticie.length; i++) {
@@ -144,11 +209,11 @@ export class ResultComponent implements OnInit {
       var pasiva = 0;
       if (this.data.produktyHypotekaVyskaSplatky) pasiva += this.data.produktyHypotekaVyskaSplatky;
       if (this.data.produktyUverPozickaVyskaSplatky) pasiva += this.data.produktyUverPozickaVyskaSplatky;
-      
+
       var poistenie = 0;
       if (this.data.produktyZivotnePoistenieKolkoPlati) pasiva += this.data.produktyZivotnePoistenieKolkoPlati;
       if (this.data.produktyZivotnePoistenieInvesticiaVyska) pasiva -= this.data.produktyZivotnePoistenieInvesticiaVyska;
-      
+
       var spotreba = this.data.vyskaPrijmu - investicieKratkobe - investicieDlhodobe - pasiva - poistenie;
 
       new Chart("chart-js", {
