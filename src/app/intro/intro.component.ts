@@ -22,28 +22,22 @@ export class IntroComponent implements OnInit {
     if (url_rank) {
       if (url_rank == "FinancnaLegenda") {
         this.rank = "Finančná legenda";
-      } else if (url_rank == "FinancnaSova") {
-        this.rank = "Finančná sova";
       } else if (url_rank == "FinancnaHviezda") {
         this.rank = "Finančná hviezda";
-      } else if (url_rank == "FinancnyProfesor") {
-        this.rank = "Finančný profesor";
-      } else if (url_rank == "FinancnyNinja") {
-        this.rank = "Finančný ninja";
       } else if (url_rank == "FinancnyKuzelnik") {
         this.rank = "Finančný kúzelník";
-      } else if (url_rank == "FinancnyDospelak") {
-        this.rank = "Finančný dospelák";
+      } else if (url_rank == "FinancnyProfesor") {
+        this.rank = "Finančný profesor";
+      } else if (url_rank == "FinancnyMajster") {
+        this.rank = "Finančný majster";
       } else if (url_rank == "FinancnyUcen") {
         this.rank = "Finančný učeň";
-      } else if (url_rank == "FinancnyStudent") {
-        this.rank = "Finančný študent";
       } else if (url_rank == "FinancnyJunior") {
         this.rank = "Finančný junior";
+      } else if (url_rank == "FinancnyNovacik") {
+        this.rank = "Finančný nováčik";
       } else if (url_rank == "FinancnyZaciatocnik") {
         this.rank = "Finančný začiatočník";
-      } else if (url_rank == "FinancnyPrvacik") {
-        this.rank = "Finančný prváčik";
       } else if (url_rank == "FinancneEmbryo") {
         this.rank = "Finančné embryo";
       }

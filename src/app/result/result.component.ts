@@ -16,13 +16,14 @@ export class ResultComponent implements OnInit {
 
   pocetBodovMax: number = 0;
   pocetBodovStratil: number = 0;
-  dosiahnutaHodnost: string = "";
+  pocetBodovGramotnostMax: number = 0;
+  pocetBodovGramotnostStratil: number = 0;
+  pocetBodovHodnost: string = "nedefinované";
 
-  percentHorsich: number = 45;
-  percentHorsichProdukty: number = 37;
-  percentHorsichPracaSPeniazmi: number = 75;
-  percentHorsichGramotnost: number = 39;
-  challengeLink: string = "";
+  percentil: number = 0;
+  percentilGramotnost: number = 0;
+
+  challengeLink: string = "error";
 
   constructor(
     private renderer: Renderer2,
@@ -48,30 +49,33 @@ export class ResultComponent implements OnInit {
     } else {
       // cyklus hlada zhodu ID vybratej odpovede a ID HTML elementu
       for (var value in this.data) {
-        var answerId = this.data[value];
-        if (typeof answerId == 'string') {
-          this.resolveAnswer(answerId);
+        var answer = this.data[value];
+        if (typeof answer == 'string') {
+          this.resolveAnswer(answer);
         } else {
-          for (let i = 0; i < answerId.length; i++) {
-            this.resolveAnswer(answerId[i]);
+          for (let i = 0; i < answer.length; i++) {
+            this.resolveAnswer(answer[i]);
           }
         }
       }
 
       // odlozit50percentprijmu
       if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.5) {
+        this.pocetBodovMax += 1;
         this.pocetBodovStratil += 1;
         this.showElementsByClass("odlozit50percentprijmu");
       }
 
       // vyskarezervy5nasobokprijmu
       if (this.data.financnaRezervaVyska >= this.data.vyskaPrijmu * 5) {
+        this.pocetBodovMax += 1;
         this.pocetBodovStratil += 1;
         this.showElementsByClass("vyskarezervy5nasobokprijmu");
       }
 
       // mesacnarezerva30percentprijmu
       if (this.data.financnaRezervaMesacne >= this.data.vyskaPrijmu * 0.3) {
+        this.pocetBodovMax += 1;
         this.pocetBodovStratil += 1;
         this.showElementsByClass("mesacnarezerva30percentprijmu");
       }
@@ -84,68 +88,74 @@ export class ResultComponent implements OnInit {
         "Martin Kraus za hypotéky → Bývalý Teamleader v prvej stavebnej sporiteľni<br>" +
         "Andrej Nejedlík za komunikáciu s klientami → autor projektu");
 
-      // dosiahnuta hodnost
-      var hodnost: string;
-      if (this.pocetBodovStratil > 10) {
-        this.dosiahnutaHodnost = "Finančná legenda";
-        hodnost = "FinancnaLegenda";
-      } else if (this.pocetBodovStratil > 8) {
-        this.dosiahnutaHodnost = "Finančná sova";
-        hodnost = "FinancnaSova";
-      } else if (this.pocetBodovStratil > 6) {
-        this.dosiahnutaHodnost = "Finančná hviezda";
-        hodnost = "FinancnaHviezda";
-      } else if (this.pocetBodovStratil > 4) {
-        this.dosiahnutaHodnost = "Finančný profesor";
-        hodnost = "FinancnyProfesor";
-      } else if (this.pocetBodovStratil > 2) {
-        this.dosiahnutaHodnost = "Finančný ninja";
-        hodnost = "FinancnyNinja";
-      } else if (this.pocetBodovStratil > 0) {
-        this.dosiahnutaHodnost = "Finančný kúzelník";
-        hodnost = "FinancnyKuzelnik";
-      } else if (this.pocetBodovStratil == 0) {
-        this.dosiahnutaHodnost = "Finančný dospelák";
-        hodnost = "FinancnyDospelak";
-      } else if (this.pocetBodovStratil > -2) {
-        this.dosiahnutaHodnost = "Finančný uceň";
-        hodnost = "FinancnyUcen";
-      } else if (this.pocetBodovStratil > -4) {
-        this.dosiahnutaHodnost = "Finančný študent";
-        hodnost = "FinancnyStudent";
-      } else if (this.pocetBodovStratil > -6) {
-        this.dosiahnutaHodnost = "Finančný junior";
-        hodnost = "FinancnyJunior";
-      } else if (this.pocetBodovStratil > -8) {
-        this.dosiahnutaHodnost = "Finančný začiatočník";
-        hodnost = "FinancnyZaciatocnik";
-      } else if (this.pocetBodovStratil > -10) {
-        this.dosiahnutaHodnost = "Finančný prváčik";
-        hodnost = "FinancnyPrvacik";
-      } else if (this.pocetBodovStratil > -12) {
-        this.dosiahnutaHodnost = "Finančné embryo";
-        hodnost = "FinancneEmbryo";
+      // challengeLink
+      this.challengeLink = window.location.origin + "/intro/" + this.data.meno + "/" + this.calculateHodnost();
+
+      // percentil financnej gramotnosti
+      var pocetBodovGramotnost = (this.pocetBodovGramotnostMax - this.pocetBodovGramotnostStratil) / this.pocetBodovGramotnostMax * 100;
+      if (pocetBodovGramotnost > 90) {
+        this.percentilGramotnost = 100;
+      } else if (pocetBodovGramotnost > 80) {
+        this.percentilGramotnost = 95;
+      } else if (pocetBodovGramotnost > 70) {
+        this.percentilGramotnost = 88;
+      } else if (pocetBodovGramotnost > 60) {
+        this.percentilGramotnost = 77;
+      } else if (pocetBodovGramotnost > 50) {
+        this.percentilGramotnost = 67;
+      } else if (pocetBodovGramotnost > 40) {
+        this.percentilGramotnost = 53;
+      } else if (pocetBodovGramotnost > 30) {
+        this.percentilGramotnost = 43;
+      } else if (pocetBodovGramotnost > 20) {
+        this.percentilGramotnost = 28;
+      } else if (pocetBodovGramotnost > 10) {
+        this.percentilGramotnost = 12;
+      } else if (pocetBodovGramotnost > 0) {
+        this.percentilGramotnost = 5;
       }
 
-      // vytvor challengeLink
-      this.challengeLink = window.location.origin + "/intro/" + this.data.meno + "/" + hodnost;
+      console.log(this.data);
 
-      // graf proof of concept - chartjs
-      var vyskaPrijmu = 0;
+      // grafy
+      var vyskaPrijmu = this.data.vyskaPrijmu;
+      
       var investicieKratkobe = 0;
+      if (this.data.konzervativneInvesticie) {
+        for (let i = 0; i < this.data.konzervativneInvesticie.length; i++) {
+          const entry = this.data.konzervativneInvesticie[i];
+          if (entry.frekvenciaMesacneHodnota) {
+            investicieKratkobe += entry.frekvenciaMesacneHodnota;
+          } else if (entry.frekvenciaNepravidelneHodnota) {
+            investicieKratkobe += entry.frekvenciaNepravidelneHodnota / 6;
+          }
+        }
+      }
+      investicieKratkobe += this.data.financnaRezervaMesacne;
+      
       var investicieDlhodobe = 0;
+      if (this.data.dynamickeInvesticie) {
+        for (let i = 0; i < this.data.dynamickeInvesticie.length; i++) {
+          const entry = this.data.dynamickeInvesticie[i];
+          if (entry.dynamickeInvesticiefrekvenciaMesacneHodnota) {
+            investicieDlhodobe += entry.dynamickeInvesticiefrekvenciaMesacneHodnota;
+          } else if (entry.dynamickeInvesticiefrekvenciaNepravidelneHodnota) {
+            investicieDlhodobe += entry.dynamickeInvesticiefrekvenciaNepravidelneHodnota / 6;
+          }
+        }
+      }
+      
       var poistenie = 0;
+      if (this.data.produktyZivotnePoistenieKolkoPlati) pasiva += this.data.produktyZivotnePoistenieKolkoPlati;
+      if (this.data.produktyZivotnePoistenieInvesticiaVyska) pasiva -= this.data.produktyZivotnePoistenieInvesticiaVyska;
+      
       var pasiva = 0;
-      var spotreba = 0;
+      if (this.data.produktyHypotekaVyskaSplatky) pasiva += this.data.produktyHypotekaVyskaSplatky;
+      if (this.data.produktyUverPozickaVyskaSplatky) pasiva += this.data.produktyUverPozickaVyskaSplatky;
+      
+      var spotreba = vyskaPrijmu - investicieKratkobe - investicieDlhodobe - pasiva - poistenie;
 
-      var produktyHypotekaVyskaSplatky = this.data.produktyHypotekaVyskaSplatky;
-      var produktyUverPozickaVyskaSplatky = this.data.produktyUverPozickaVyskaSplatky;
-
-      vyskaPrijmu = this.data.vyskaPrijmu;
-      if (produktyHypotekaVyskaSplatky) pasiva += produktyHypotekaVyskaSplatky;
-      if (produktyUverPozickaVyskaSplatky) pasiva += produktyUverPozickaVyskaSplatky;
-
-      var myChart = new Chart("chart-js", {
+      new Chart("chart-js", {
         type: 'pie',
         data: {
           labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
@@ -176,6 +186,51 @@ export class ResultComponent implements OnInit {
     }
   }
 
+  calculateHodnost(): string {
+    var pocetBodovPercent = (this.pocetBodovMax - this.pocetBodovStratil) / this.pocetBodovMax * 100;
+    if (pocetBodovPercent > 90) {
+      this.pocetBodovHodnost = "Finančná legenda";
+      this.percentil = 100;
+      return "FinancnaLegenda";
+    } else if (pocetBodovPercent > 80) {
+      this.pocetBodovHodnost = "Finančná hviezda";
+      this.percentil = 95;
+      return "FinancnaHviezda";
+    } else if (pocetBodovPercent > 70) {
+      this.pocetBodovHodnost = "Finančný kúzelník";
+      this.percentil = 88;
+      return "FinancnyKuzelnik";
+    } else if (pocetBodovPercent > 60) {
+      this.pocetBodovHodnost = "Finančný profesor";
+      this.percentil = 77;
+      return "FinancnyProfesor";
+    } else if (pocetBodovPercent > 50) {
+      this.pocetBodovHodnost = "Finančný majster";
+      this.percentil = 67;
+      return "FinancnyMajster";
+    } else if (pocetBodovPercent > 40) {
+      this.pocetBodovHodnost = "Finančný uceň";
+      this.percentil = 53;
+      return "FinancnyUcen";
+    } else if (pocetBodovPercent > 30) {
+      this.pocetBodovHodnost = "Finančný junior";
+      this.percentil = 43;
+      return "FinancnyJunior";
+    } else if (pocetBodovPercent > 20) {
+      this.pocetBodovHodnost = "Finančný nováčik";
+      this.percentil = 28;
+      return "FinancnyNovacik";
+    } else if (pocetBodovPercent > 10) {
+      this.pocetBodovHodnost = "Finančný začiatočník";
+      this.percentil = 12;
+      return "FinancnyZaciatocnik";
+    } else if (pocetBodovPercent > 0) {
+      this.pocetBodovHodnost = "Finančné embryo";
+      this.percentil = 5;
+      return "FinancneEmbryo";
+    }
+  }
+
   getQuestionById(id: string) {
     for (let i = 0; i < questionDetails.questions.length; i++) {
       const question = questionDetails.questions[i];
@@ -192,9 +247,9 @@ export class ResultComponent implements OnInit {
       }
     }
   }
-  concatCapitalize(prefix: string, toCapitalize: string): string {
-    return prefix + toCapitalize.charAt(0).toUpperCase() + toCapitalize.slice(1);
-  }
+  // concatCapitalize(prefix: string, toCapitalize: string): string {
+  //   return prefix + toCapitalize.charAt(0).toUpperCase() + toCapitalize.slice(1);
+  // }
   resolveAnswerFinancnaGramotnost(id: string) {
     // financna gramotnost
     var question = this.getQuestionById(id);
@@ -203,6 +258,8 @@ export class ResultComponent implements OnInit {
     if (question && answer) {
       this.pocetBodovMax += question.resultPointsMax;
       this.pocetBodovStratil += answer.resultPointsStratil;
+      this.pocetBodovGramotnostMax += question.resultPointsMax;
+      this.pocetBodovGramotnostStratil += answer.resultPointsStratil;
 
       var choiceString = document.getElementById(question.id + "UserChoice");
       if (choiceString) choiceString.innerHTML = answer.choiceString;
@@ -222,9 +279,6 @@ export class ResultComponent implements OnInit {
         // skusi zobrazit element podla 'id'
         this.showElementsByClass(id);
 
-        // skusi zobrazit div podla 'id'
-        this.showElementsByClass(this.concatCapitalize("div", id));
-
         // skusi najst v 'questionDetails.json' entry pre 'id'
         var question = this.getQuestionById(id);
         if (question) {
@@ -236,13 +290,11 @@ export class ResultComponent implements OnInit {
         if (answer) {
           // bodovanie
           this.pocetBodovStratil += answer.resultPointsStratil;
+          // bola najdena vyplnena odpoved ktorej otazka nema entry v jsone, predpoklada sa preto max pocet bodov za otazku = 1
+          if (!question) this.pocetBodovMax += 1;
 
-          // vygeneruje toggleElement do divu podla 'id' (napr. pre 'id' "misko" musi byt div.id "divMisko")
+          // vygeneruje toggleElement do divu podla 'id'
           this.createToggleElement(answer.id, answer.resultTitle, answer.resultVysvetlenie);
-        } else {
-          // detaily neboli najdene, skus zobrazit div podla IDcka
-          var divId = this.concatCapitalize("div", id);
-          this.showElementsByClass(divId);
         }
       }
     } else {
@@ -251,33 +303,36 @@ export class ResultComponent implements OnInit {
   }
   createToggleElement(id: string, title: string, content: string, divSuffix: string = ""): void {
     // check if div exists
-    var divClass = this.concatCapitalize("div", id) + divSuffix;
+    var divClass = id + divSuffix;
     var divs = document.getElementsByClassName(divClass);
     for (let i = 0; i < divs.length; i++) {
       const div = divs[i];
-      // toggle button
-      var buttonToggle = document.createElement("button");
-      buttonToggle.innerHTML = "+";
-      buttonToggle.setAttribute("name", id);
-      this.renderer.listen(buttonToggle, 'click', (event) => this.toggleElementById(event.currentTarget.getAttribute("name") + "Content"));
+      // check if found node is a div
+      if (div.nodeName == "DIV") {
+        // toggle button
+        var buttonToggle = document.createElement("button");
+        buttonToggle.innerHTML = "+";
+        buttonToggle.setAttribute("name", id);
+        this.renderer.listen(buttonToggle, 'click', (event) => this.toggleElementById(event.currentTarget.getAttribute("name") + "Content"));
 
-      // title
-      var bTitle = document.createElement("b");
-      bTitle.innerHTML = title;
-      var pTitle = document.createElement("p");
-      pTitle.appendChild(buttonToggle);
-      pTitle.appendChild(bTitle);
+        // title
+        var bTitle = document.createElement("b");
+        bTitle.innerHTML = title;
+        var pTitle = document.createElement("p");
+        pTitle.appendChild(buttonToggle);
+        pTitle.appendChild(bTitle);
 
-      // content
-      var pContent = document.createElement("p");
-      pContent.id = id + "Content";
-      pContent.setAttribute("hidden", "true");
-      pContent.innerHTML = content;
+        // content
+        var pContent = document.createElement("p");
+        pContent.id = id + "Content";
+        pContent.setAttribute("hidden", "true");
+        pContent.innerHTML = content;
 
-      // div
-      div.appendChild(pTitle);
-      div.appendChild(pContent);
-      div.removeAttribute("hidden");
+        // div
+        div.appendChild(pTitle);
+        div.appendChild(pContent);
+        div.removeAttribute("hidden");
+      }
     }
   }
 
