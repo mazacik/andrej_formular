@@ -7,6 +7,12 @@
       "resultVysvetlenie": ""
     },
     {
+      "id": "produktyDruhyPilierFondy",
+      "resultPointsMax": 1,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
+    },
+    {
       "id": "financnaGramotnostDlhodobaInvesticia",
       "resultPointsMax": 1,
       "correctChoice": "Vložím tam ďalšie peniaze",
