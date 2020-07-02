@@ -69,10 +69,26 @@ export class SurveyComponent implements OnInit {
         if (currentSection == sections[i]) {
           liEl.classList.add("current");
         }
-        var pageTitle = document.createElement("span");
-        pageTitle.innerText = sections[i];
-        pageTitle.className = "sectionTitle";
-        liEl.appendChild(pageTitle);
+        var sekciaString = document.createElement("span");
+        switch (sections[i]) {
+          case "sekciaUvodneOtazky":
+            sekciaString.innerText = "Úvodné otázky";
+            break;
+          case "sekciaVyberProduktov":
+            sekciaString.innerText = "Výber produktov";
+            break;
+          case "sekciaPracaSPeniazmi":
+            sekciaString.innerText = "Práca s peniazmi";
+            break;
+          case "sekciaFinancnaGramotnost":
+            sekciaString.innerText = "Finančná gramotnosť";
+            break;
+          case "sekciaOkruhyZaujmu":
+            sekciaString.innerText = "Okruhy záujmu";
+            break;
+        }
+        sekciaString.className = "sectionTitle";
+        liEl.appendChild(sekciaString);
         navbarElements.push(liEl);
         navProgBar.appendChild(liEl);
       }
