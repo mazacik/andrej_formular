@@ -6,14 +6,13 @@ import { ResultComponent } from './result/result.component';
 import { IntroComponent } from './intro/intro.component';
 
 const routes: Routes = [
-  {path:'', component: IntroComponent},
+  {path:'', component: ErrorComponent},
 
   {path:'intro', component: IntroComponent},
   {path:'intro/:name/:rank', component: IntroComponent},
   
   {path:'survey', component: SurveyComponent},
   
-  {path:'result', component: ResultComponent},
   {path:'result/:base64data', component: ResultComponent},
   
   {path:'**', component: ErrorComponent}

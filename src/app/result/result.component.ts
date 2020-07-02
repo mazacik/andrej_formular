@@ -38,10 +38,6 @@ export class ResultComponent implements OnInit {
     if (base64data) {
       // URL
       this.data = JSON.parse(atob(base64data));
-    } else {
-      // survey
-      var survey = (<any>window).survey;
-      if (survey) this.data = survey.data;
     }
 
     if (!this.data) {

@@ -310,6 +310,7 @@ export class SurveyComponent implements OnInit {
 
     // window.sessionStorage.removeItem('surveyCookie');
     // window.sessionStorage.setItem('surveyCookie', JSON.stringify(surveyCookie));
-    this.router.navigate(['result']);
+    var navigateTo = 'result/' + btoa(JSON.stringify(survey.data));
+    this.router.navigate([navigateTo]);
   }
 }
