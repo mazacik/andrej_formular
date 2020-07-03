@@ -4,7 +4,6 @@ import * as Survey from 'survey-angular';
 import * as jsonFile from '../json/survey.json';
 import * as $ from "jquery";
 import tippy from 'tippy.js';
-import Velocity from "velocity-animate";
 
 Survey.Serializer.addProperty("page", {
   name: "navigationTitle:string",
@@ -69,10 +68,26 @@ export class SurveyComponent implements OnInit {
         if (currentSection == sections[i]) {
           liEl.classList.add("current");
         }
-        var pageTitle = document.createElement("span");
-        pageTitle.innerText = sections[i];
-        pageTitle.className = "sectionTitle";
-        liEl.appendChild(pageTitle);
+        var sekciaString = document.createElement("span");
+        switch (sections[i]) {
+          case "sekciaUvodneOtazky":
+            sekciaString.innerText = "Úvodné otázky";
+            break;
+          case "sekciaVyberProduktov":
+            sekciaString.innerText = "Výber produktov";
+            break;
+          case "sekciaPracaSPeniazmi":
+            sekciaString.innerText = "Práca s peniazmi";
+            break;
+          case "sekciaFinancnaGramotnost":
+            sekciaString.innerText = "Finančná gramotnosť";
+            break;
+          case "sekciaOkruhyZaujmu":
+            sekciaString.innerText = "Okruhy záujmu";
+            break;
+        }
+        sekciaString.className = "sectionTitle";
+        liEl.appendChild(sekciaString);
         navbarElements.push(liEl);
         navProgBar.appendChild(liEl);
       }
@@ -130,35 +145,6 @@ export class SurveyComponent implements OnInit {
         insertAlternativeNextButton();
       });
     }
-
-    // function animate(animationType, duration) {
-    //   if (!duration) duration = 1000;
-    //   var element = document.getElementById("surveyElement");
-    //   // Velocity(element, { transform: ["translateY(0px)", "translateY(100px)"] }, { duration: 1000 });
-    // }
-    // var doAnimantion = true;
-    // function onCurrentPageChanging(survey: Survey.SurveyModel, options: any) {
-    //   if (!doAnimantion)
-    //     return;
-    //   options.allowChanging = false;
-    //   setTimeout(function () {
-    //     doAnimantion = false;
-    //     survey.currentPage = options.newCurrentPage;
-    //     doAnimantion = true;
-    //   }, 500);
-    //   animate("slideUp", 500);
-    // }
-    // function onCompleting(survey: Survey.SurveyModel, options: any) {
-    //   if (!doAnimantion)
-    //     return;
-    //   options.allowComplete = false;
-    //   setTimeout(function () {
-    //     doAnimantion = false;
-    //     survey.doComplete();
-    //     doAnimantion = true;
-    //   }, 500);
-    //   animate("slideUp", 500);
-    // }
 
     function onCurrentPageChanged(survey: Survey.SurveyModel, options: any) {
       function updateNavBar() {
@@ -249,9 +235,6 @@ export class SurveyComponent implements OnInit {
         }
       }
 
-      // animation
-      // animate("slideDown", 500);
-
       insertAlternativeNextButton();
       updateNavBar();
     }
@@ -287,8 +270,6 @@ export class SurveyComponent implements OnInit {
 
     var survey = new Survey.Model((<any>jsonFile).default);
     survey.onComplete.add(() => this.onSurveyComplete());
-    // survey.onCompleting.add(onCompleting);
-    // survey.onCurrentPageChanging.add(onCurrentPageChanging);
     survey.onCurrentPageChanged.add(onCurrentPageChanged);
     survey.onAfterRenderQuestion.add(doAfterRenderQuestion);
     survey.onUpdateQuestionCssClasses.add(onUpdateQuestionCssClasses);
@@ -298,7 +279,36 @@ export class SurveyComponent implements OnInit {
     Survey.SurveyNG.render("surveyElement", { model: survey });
     (<any>window).survey = survey;
 
-    // animate("slideDown", 1000);
+    let doAnimation = true;
+    const animationSpeed = 400;
+    const $toAnimate = $('.sv_body > div:first-child');
+    let animateNext = false;
+    survey.onCurrentPageChanging.add((sender, options) => {
+      if (!doAnimation) { return; }
+      options.allowChanging = false;
+      animateNext = sender.currentPage.visibleIndex > options.newCurrentPage.visibleIndex
+      setTimeout(() => {
+        doAnimation = false;
+        sender.currentPage = options.newCurrentPage;
+        doAnimation = true;
+        $toAnimate.css('transition', 'none');
+      }, animationSpeed);
+      $toAnimate.css({
+        transform: 'translateY(' + (animateNext ? '+' : '-') + '100vh)',
+      });
+    });
+
+    survey.onCurrentPageChanged.add(sender => {
+      $('.sv_body > div:first-child').css({
+        transform: 'translateY(' + (animateNext ? '-' : '+') + '100vh)',
+      });
+      setTimeout(() => {
+        $toAnimate.css('transition', 'all .4s');
+        $toAnimate.css({
+          transform: 'translateY(0px)',
+        });
+      }, 0);
+    });
   }
 
   onSurveyComplete(): void {
@@ -310,6 +320,7 @@ export class SurveyComponent implements OnInit {
 
     // window.sessionStorage.removeItem('surveyCookie');
     // window.sessionStorage.setItem('surveyCookie', JSON.stringify(surveyCookie));
-    this.router.navigate(['result']);
+    var navigateTo = 'result/' + btoa(JSON.stringify(survey.data));
+    this.router.navigate([navigateTo]);
   }
 }

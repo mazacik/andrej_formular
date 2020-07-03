@@ -38,10 +38,6 @@ export class ResultComponent implements OnInit {
     if (base64data) {
       // URL
       this.data = JSON.parse(atob(base64data));
-    } else {
-      // survey
-      var survey = (<any>window).survey;
-      if (survey) this.data = survey.data;
     }
 
     if (!this.data) {
@@ -60,6 +56,7 @@ export class ResultComponent implements OnInit {
         }
       }
 
+      // pole pre naj3 manualne
       var naj3Extra = [];
 
       // odlozit50percentprijmu
@@ -152,6 +149,47 @@ export class ResultComponent implements OnInit {
         "Marián Markech za poistenia → Bývalý generálny riaditeľ Axa<br>" +
         "Martin Kraus za hypotéky → Bývalý Teamleader v prvej stavebnej sporiteľni<br>" +
         "Andrej Nejedlík za komunikáciu s klientami → autor projektu");
+
+      // dozvies sa viac o
+      var dozviesSaViacO = "Viac o ";
+      var stringy = [];
+      if (this.data.coChcesVediet) {
+        for (let i = 0; i < this.data.coChcesVediet.length; i++) {
+          const entry = this.data.coChcesVediet[i];
+          switch (entry) {
+            case "coChcesVedietInvestovanie":
+              stringy[stringy.length] = "investovaní";
+              break;
+            case "coChcesVedietIdealneRoznozenie":
+              stringy[stringy.length] = "ideálnom rozložení";
+              break;
+            case "coChcesVedietVlastneByvanie":
+              stringy[stringy.length] = "vlastnom bývaní";
+              break;
+            case "coChcesVedietFinancnaNezavislost":
+              stringy[stringy.length] = "finančnej nezávislosti";
+              break;
+            case "coChcesVedietBenefityOdStatu":
+              stringy[stringy.length] = "benefitoch od štátu";
+              break;
+            case "coChcesVedietMenezovanieVydavkov":
+              stringy[stringy.length] = "menežovaní výdavkov";
+              break;
+          }
+        }
+      }
+      for (let i = 0; i < stringy.length; i++) {
+        if (i == stringy.length - 1) {
+          dozviesSaViacO += " a ";
+        } else if (i != 0) {
+          dozviesSaViacO += ", ";
+        }
+        const entry = stringy[i];
+        dozviesSaViacO += entry;
+      }
+      dozviesSaViacO += ".";
+
+      document.getElementById("dozviesSaViacO").innerHTML = dozviesSaViacO;
 
       // challengeLink
       this.challengeLink = window.location.origin + "/intro/" + this.data.meno + "/" + this.calculateHodnost();
