@@ -216,7 +216,7 @@ export class ResultComponent implements OnInit {
 
       var spotreba = this.data.vyskaPrijmu - investicieKratkobe - investicieDlhodobe - pasiva - poistenie;
 
-      new Chart("chart-js", {
+      new Chart("graf-vyplneny", {
         type: 'pie',
         data: {
           labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
@@ -245,7 +245,7 @@ export class ResultComponent implements OnInit {
         }
       });
 // idealne rozlozenie graf
-new Chart("chart-js", {
+new Chart("graf-idealny", {
   type: 'pie',
   data: {
     labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
