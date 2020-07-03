@@ -247,3 +247,12 @@ h5.sv_q_title {
   line-height: 2em;
   color: white;
 }
+
+.sv_body {
+  overflow: hidden;
+}
+
+.sv_body > div:first-child {
+  transition: all .4s;
+  transform: translateY(0px);
+}
