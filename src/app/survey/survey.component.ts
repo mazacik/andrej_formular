@@ -4,7 +4,6 @@ import * as Survey from 'survey-angular';
 import * as jsonFile from '../json/survey.json';
 import * as $ from "jquery";
 import tippy from 'tippy.js';
-import velocity from "velocity-animate";
 
 Survey.Serializer.addProperty("page", {
   name: "navigationTitle:string",
@@ -278,6 +277,7 @@ export class SurveyComponent implements OnInit {
     //tryLoadSurveyDataFromCookie(survey);
 
     Survey.SurveyNG.render("surveyElement", { model: survey });
+    (<any>window).survey = survey;
 
     let doAnimation = true;
     const animationSpeed = 400;
@@ -294,13 +294,13 @@ export class SurveyComponent implements OnInit {
         $toAnimate.css('transition', 'none');
       }, animationSpeed);
       $toAnimate.css({
-        transform: 'translateY(' + (animateNext ? '+' : '-') + '70vh)',
+        transform: 'translateY(' + (animateNext ? '+' : '-') + '100vh)',
       });
     });
 
     survey.onCurrentPageChanged.add(sender => {
       $('.sv_body > div:first-child').css({
-        transform: 'translateY(' + (animateNext ? '-' : '+') + '70vh)',
+        transform: 'translateY(' + (animateNext ? '-' : '+') + '100vh)',
       });
       setTimeout(() => {
         $toAnimate.css('transition', 'all .4s');
