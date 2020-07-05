@@ -1,6 +1,9 @@
+@import "variables";
+
 body {
   margin: 0;
-  color: white;
+  color: $text;
+  font-family: Arial, serif;
 }
 
 * {
@@ -10,11 +13,7 @@ body {
 .sv_body {
   min-height: 100vh;
   position: relative;
-  background-color: transparent!important;
-  background-image: url(https://images.typeform.com/images/iz45LhbEDwwu/background/large);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: $color5!important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,21 +35,26 @@ body {
 
 h5.sv_q_title {
   font-size: 1.4rem!important;
-  color: white;
+  color: $text;
 }
 
 .sv_main .sv_container {
-  color: white;
+  color: $text;
 }
 
 .sv_q_radiogroup, .sv_q_checkbox {
   padding: 6px;
-  background-color: rgba(255, 255, 255, .16);
+  background-color: rgba($text, .16);
   margin: 8px 0;
-  box-shadow: rgba(255, 255, 255, 0.6) 0 0 0 1px inset;
+  box-shadow: rgba($text, 0.1) 0 0 0 1px inset;
   border-radius: 6px;
-  color: white;
+  color: $text;
   font-size: 1.2rem;
+}
+
+.sv_q_radiogroup:hover, .sv_q_checkbox:hover {
+  background-color: rgba($text, .30);
+  box-shadow: rgba($text, 0.2) 0 0 0 1px inset;
 }
 
 .sv_q_radiogroup label, .sv_q_checkbox label {
@@ -58,11 +62,6 @@ h5.sv_q_title {
   display: block;
   min-height: 100%;
   height: auto !important;
-}
-
-.sv_q_radiogroup:hover, .sv_q_checkbox:hover {
-  background-color: rgba(255, 255, 255, .30);
-  box-shadow: rgba(255, 255, 255, 0.6) 0 0 0 2px inset;
 }
 
 .sv_row {
@@ -73,31 +72,31 @@ h5.sv_q_title {
 .sv_q_text_root {
   background-color: transparent!important;
   border: none!important;
-  border-bottom: 2px solid white!important;
+  border-bottom: 2px solid $text!important;
   font-size: 1.6rem!important;
-  color: white!important;
+  color: $text!important;
   padding-left: 8px!important;
   margin-top: 16px!important;
 }
 
 ::-webkit-input-placeholder { /* Edge */
-  color: rgba(255, 255, 255, .5);
+  color: rgba($text, .5);
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: rgba(255, 255, 255, .5);
+  color: rgba($text, .5);
 }
 
 ::placeholder {
-  color: rgba(255, 255, 255, .5);
+  color: rgba($text, .5);
 }
 
 .sv_q_radiogroup_other {
   background-color: transparent!important;
   border: none!important;
-  border-bottom: 2px solid white!important;
+  border-bottom: 2px solid $text!important;
   font-size: 1.6rem!important;
-  color: white!important;
+  color: $text!important;
   margin-left: 0!important;
   padding-left: 8px!important;
 }
@@ -111,6 +110,10 @@ h5.sv_q_title {
 /* Firefox */
 .sv_q_text_root[type=number] {
   -moz-appearance: textfield;
+}
+
+.sv_next_btn, .sv_prev_btn {
+  background-color: $color2!important;
 }
 
 .sv_next_btn, .sv_complete_btn {
@@ -155,7 +158,7 @@ h5.sv_q_title {
   left: 0;
   right: 0;
   z-index: 10;
-  color: white;
+  color: $text;
 }
 
 .navigationProgressbarImage {
@@ -192,7 +195,7 @@ h5.sv_q_title {
 
 .navigationProgressbar .sectionTitle {
   font-weight: bold;
-  color: white;
+  color: $text;
   word-break: break-all;
 }
 
@@ -201,11 +204,11 @@ h5.sv_q_title {
   height: 30px;
   content: '';
   line-height: 30px;
-  border: 3px solid #8dd9ca;
+  border: 3px solid $color2;
   display: block;
   margin: 0 auto 10px;
   border-radius: 50%;
-  background-color: #8dd9ca;
+  background-color: $color2;
   background-image: url(https://picsum.photos/536/354);
   background-size: cover;
   background-position: center;
@@ -215,7 +218,7 @@ h5.sv_q_title {
   height: 3px;
   content: '';
   position: absolute;
-  background-color: #8dd9ca;
+  background-color: $color2;
   top: 15px;
   right: calc(50% + 30px);
   z-index: 11;
@@ -224,19 +227,15 @@ h5.sv_q_title {
   content: none;
 }
 .navigationProgressbar li.completed:before {
-  border-color: #1ab394;
-  background-color: #1ab394;
+  border-color: $color2;
+  background-color: $color2;
 }
 .navigationProgressbar li.completed + li:after {
-  background-color: #8dd9ca;
+  background-color: $color2;
 }
 .navigationProgressbar li.current:before {
-  border-color: #1ab394;
-  box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.3);
-}
-
-.currency {
-  color: pink;
+  border-color: $color2;
+  box-shadow:inset 0 0 0 2000px rgba($text, 0.3);
 }
 
 .text-input-wrapper {
@@ -250,7 +249,7 @@ h5.sv_q_title {
   right: 0;
   font-size: 2em;
   line-height: 2em;
-  color: white;
+  color: $text;
 }
 
 .sv_body {
