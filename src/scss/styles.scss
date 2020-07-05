@@ -1,4 +1,5 @@
 @import "variables";
+@import "illustrations";
 
 body {
   margin: 0;
@@ -122,6 +123,10 @@ h5.sv_q_title {
 
 .sv_next_btn--alternative {
   margin-top: 16px;
+}
+
+.sv_q_radiogroup_label, .sv_q_checkbox_control_label {
+  font-size: .925rem;
 }
 
 @media (max-width: 768px) {
@@ -259,4 +264,5 @@ h5.sv_q_title {
 .sv_body > div:first-child {
   transition: all .4s;
   transform: translateY(0px);
+  z-index: 100;
 }
