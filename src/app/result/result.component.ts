@@ -62,22 +62,25 @@ export class ResultComponent implements OnInit {
       // odlozit50percentprijmu
       if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.5) {
         this.pocetBodovMax += 1;
-        this.pocetBodovStratil += 1;
+        this.pocetBodovStratil += 0;
         naj3Extra[naj3Extra.length] = 'naj_odlozit50percentprijmu';
+        this.showElementsByClass("odlozit50percentprijmu");
       }
 
       // vyskarezervy5nasobokprijmu
       if (this.data.financnaRezervaVyska >= this.data.vyskaPrijmu * 5) {
         this.pocetBodovMax += 1;
-        this.pocetBodovStratil += 1;
+        this.pocetBodovStratil += 0;
         naj3Extra[naj3Extra.length] = 'naj_vyskarezervy5nasobokprijmu';
+        this.showElementsByClass("vyskarezervy5nasobokprijmu");
       }
 
       // mesacnarezerva30percentprijmu
       if (this.data.financnaRezervaMesacne >= this.data.vyskaPrijmu * 0.3) {
         this.pocetBodovMax += 1;
-        this.pocetBodovStratil += 1;
+        this.pocetBodovStratil += 0;
         naj3Extra[naj3Extra.length] = 'naj_mesacnarezerva30percentprijmu';
+        this.showElementsByClass("mesacnarezerva30percentprijmu");
       }
 
       // top 3 najlepsie
@@ -282,35 +285,35 @@ export class ResultComponent implements OnInit {
           maintainAspectRatio: false
         }
       });
-// idealne rozlozenie graf
-new Chart("graf-idealny", {
-  type: 'pie',
-  data: {
-    labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
-    datasets: [{
-      label: '# of Votes',
-      data: [10, 15, 4, 30, 41],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)'
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)'
-      ],
-      borderWidth: 2
-    }]
-  },
-  options: {
-    maintainAspectRatio: false
-  }
-});
+      // idealne rozlozenie graf
+      new Chart("graf-idealny", {
+        type: 'pie',
+        data: {
+          labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
+          datasets: [{
+            label: '# of Votes',
+            data: [10, 15, 4, 30, 41],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 2
+          }]
+        },
+        options: {
+          maintainAspectRatio: false
+        }
+      });
 
     }
   }
