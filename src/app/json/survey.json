@@ -24,7 +24,7 @@
         {
           "type": "radiogroup",
           "name": "vek",
-          "title": "Koľko máš rokov?",
+          "title": "Ahoj {meno}, koľko máš rokov?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
@@ -91,34 +91,38 @@
           "choices": [
             {
               "value": "zdrojPrijmuTPP",
-              "text": "Trvalý pracovný pomer"
+              "text": "trvalý pracovný pomer"
             },
             {
               "value": "zdrojPrijmuBrigada",
-              "text": "Brigáda alebo iná forma pracovnej dohody"
+              "text": "brigáda alebo iná forma pracovnej dohody"
             },
             {
               "value": "zdrojPrijmuZivnost",
-              "text": "Živnosť"
+              "text": "živnosť"
             },
+          {
+            "value": "zdrojPrijmuSRO",
+            "text": "s.r.o."
+          },
             {
               "value": "zdrojPrijmuVreckove",
-              "text": "Vreckové",
+              "text": "vreckové",
               "visibleIf": "{studium} anyof ['studiumStredna', 'studiumVysoka']"
             },
             {
               "value": "zdrojPrijmuSocialneStipendium",
-              "text": "Sociálne štipendium",
+              "text": "sociálne štipendium",
               "visibleIf": "{studium} anyof ['studiumStredna', 'studiumVysoka']"
             },
             {
               "value": "zdrojPrijmuProspechoveStipendium",
-              "text": "Prospechové štipendium",
+              "text": "prospechové štipendium",
               "visibleIf": "{studium} anyof ['studiumStredna', 'studiumVysoka']"
             },
             {
               "value": "zdrojPrijmuNemaPrijem",
-              "text": "Nemám príjem"
+              "text": "nemám príjem"
             }
           ]
         }
@@ -236,23 +240,23 @@
           "choices": [
             {
               "value": "odkladaniePenaziSposobBeznyUcet",
-              "text": "Áno, ostávajú mi priebežne na bežnom účte"
+              "text": "áno, ostávajú mi priebežne na bežnom účte"
             },
             {
               "value": "odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca",
-              "text": "Áno, odložím si ich na konci mesiaca na sporiaci účet"
+              "text": "áno, odložím si ich na konci mesiaca na sporiaci účet"
             },
             {
               "value": "odkladaniePenaziSposobSporiaciUcetPoVyplate",
-              "text": "Áno, odložím si ich hneď po výplate na sporiaci účet"
+              "text": "áno, odložím si ich hneď po výplate na sporiaci účet"
             },
             {
               "value": "odkladaniePenaziSposobSporiaciUcetPriebezne",
-              "text": "Áno, odkladám si ich priebežne počas mesiaca na sporiaci účet"
+              "text": "áno, odkladám si ich priebežne počas mesiaca na sporiaci účet"
             },
             {
               "value": "odkladaniePenaziSposobRazZaCas",
-              "text": "Áno, ale len raz za čas"
+              "text": "áno, ale len raz za čas"
             },
             {
               "value": "odkladaniePenaziSposobNie",
@@ -300,19 +304,19 @@
           "choices": [
             {
               "value": "produktyZivotnePoistenieAno",
-              "text": "Áno"
+              "text": "áno"
             },
             {
               "value": "produktyZivotnePoistenieRodicia",
-              "text": "Platia mi ho rodičia"
+              "text": "platia mi ho rodičia"
             },
             {
               "value": "produktyZivotnePoistenieNiePlanujem",
-              "text": "Nie, ale plánujem"
+              "text": "nie, ale plánujem"
             },
             {
               "value": "produktyZivotnePoistenieNie",
-              "text": "Nie"
+              "text": "nie"
             }
           ]
         }
@@ -346,15 +350,15 @@
           "choices": [
             {
               "value": "produktyZivotnePoistenieInvesticiaAno",
-              "text": "Áno"
+              "text": "áno"
             },
             {
               "value": "produktyZivotnePoistenieInvesticiaNie",
-              "text": "Nie"
+              "text": "nie"
             },
             {
               "value": "produktyZivotnePoistenieInvesticiaNeviem",
-              "text": "Neviem"
+              "text": "neviem"
             }
           ]
         }
@@ -390,19 +394,19 @@
           "choices": [
             {
               "value": "produktyDruhyPilierAno",
-              "text": "Áno"
+              "text": "áno"
             },
             {
               "value": "produktyDruhyPilierNiePlanujem",
-              "text": "Nie, ale plánujem"
+              "text": "nie, ale plánujem"
             },
             {
               "value": "produktyDruhyPilierNie",
-              "text": "Nie"
+              "text": "nie"
             },
             {
               "value": "produktyDruhyPilierNeviemCoToJe",
-              "text": "Neviem, čo to je"
+              "text": "neviem, čo to je"
             }
           ]
         }
@@ -421,19 +425,19 @@
           "choices": [
             {
               "value": "produktyDruhyPilierFondyIndexove",
-              "text": "Indexové negarantované"
+              "text": "indexové negarantované"
             },
             {
               "value": "produktyDruhyPilierFondyAkciove",
-              "text": "Akciové negarantované"
+              "text": "akciové negarantované"
             },
             {
               "value": "produktyDruhyPilierFondyDlhopisove",
-              "text": "Dlhopisové garantované"
+              "text": "dlhopisové garantované"
             },
             {
               "value": "produktyDruhyPilierFondyNeviem",
-              "text": "Neviem"
+              "text": "neviem"
             }
           ]
         }
@@ -452,15 +456,15 @@
           "choices": [
             {
               "value": "produktyTretiPilierAnoZamestnavatelPrispieva",
-              "text": "Áno, prispieva mi aj zamestnávateľ"
+              "text": "áno, prispieva mi aj zamestnávateľ"
             },
             {
               "value": "produktyTretiPilierAnoZamestnavatelNeprispieva",
-              "text": "Áno, zamestnávateľ mi však neprispieva"
+              "text": "áno, zamestnávateľ mi však neprispieva"
             },
             {
               "value": "produktyTretiPilierNieBezPrispevku",
-              "text": "Nie, pretože zamestnávateľ by mi neprispieval"
+              "text": "nie, pretože zamestnávateľ by mi neprispieval"
             },
             {
               "value": "produktyTretiPilierNiePlanuje",
@@ -468,11 +472,11 @@
             },
             {
               "value": "produktyTretiPilierNie",
-              "text": "Nie"
+              "text": "nie"
             },
             {
               "value": "produktyTretiPilierNeviemCoToJe",
-              "text": "Neviem, čo je tretí pilier"
+              "text": "neviem, čo je tretí pilier"
             }
           ]
         }
@@ -492,19 +496,19 @@
           "choices": [
             {
               "value": "produktyTretiPilierFondyIndexove",
-              "text": "Indexové negarantované"
+              "text": "indexové negarantované"
             },
             {
               "value": "produktyTretiPilierFondyAkciove",
-              "text": "Akciové negarantované"
+              "text": "akciové negarantované"
             },
             {
               "value": "produktyTretiPilierFondyDlhopisove",
-              "text": "Dlhopisové garantované"
+              "text": "dlhopisové garantované"
             },
             {
               "value": "produktyTretiPilierFondyNeviem",
-              "text": "Neviem"
+              "text": "neviem"
             }
           ]
         }
@@ -609,11 +613,11 @@
             },
             {
               "value": "produktyHypotekaUrokViacAko2",
-              "text": "Viac ako 2%"
+              "text": "viac ako 2%"
             },
             {
               "value": "produktyHypotekaUrokNeviem",
-              "text": "Neviem"
+              "text": "neviem"
             }
           ]
         }
@@ -631,7 +635,7 @@
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
           "min": "0",
-          "placeHolder": "Mesačná splátka v €"
+          "placeHolder": "mesačná splátka v €"
         }
       ],
       "visibleIf": "{produktyUverHypotekaPozicka} contains 'produktyUverHypotekaPozickaAnoHypoteka'"
@@ -656,11 +660,11 @@
             },
             {
               "value": "produktyUverPozickaUrokViacAko10",
-              "text": "Viac ako 10%"
+              "text": "viac ako 10%"
             },
             {
               "value": "produktyUverPozickaUrokNeviem",
-              "text": "Neviem"
+              "text": "neviem"
             }
           ]
         }
@@ -707,19 +711,19 @@
           "choices": [
             {
               "value": "produktyInvesticieSporeniaAno",
-              "text": "Áno"
+              "text": "áno"
             },
             {
               "value": "produktyInvesticieSporeniaAnoAPlanujemDalsie",
-              "text": "Ano a plánujem ďaľšie"
+              "text": "áno a plánujem ďaľšie"
             },
             {
               "value": "produktyInvesticieSporeniaNiePlanujem",
-              "text": "Nie, ale plánujem"
+              "text": "nie, ale plánujem"
             },
             {
               "value": "produktyInvesticieSporeniaNie",
-              "text": "Nie"
+              "text": "nie"
             }
           ]
         }
@@ -849,35 +853,35 @@
               "choices": [
                 {
                   "value": "ucelProduktuBudovanieRezervy",
-                  "text": "Budovanie rezervy"
+                  "text": "budovanie rezervy"
                 },
                 {
                   "value": "ucelProduktuDochodok",
-                  "text": "Dôchodok"
+                  "text": "dôchodok"
                 },
                 {
                   "value": "ucelProduktuZhodnotenie",
-                  "text": "Zhodnotenie"
+                  "text": "zhodnotenie"
                 },
                 {
                   "value": "ucelProduktuOchranaPredInflaciou",
-                  "text": "Ochrana penazí pred infáciou"
+                  "text": "ochrana penazí pred infáciou"
                 },
                 {
                   "value": "ucelProduktuSetrenieNaByvanie",
-                  "text": "Šetrenie na bývanie"
+                  "text": "šetrenie na bývanie"
                 },
                 {
                   "value": "ucelProduktuPoisteniePredStratouHodnoty",
-                  "text": "Poistenie pred stratou hodnoty"
+                  "text": "poistenie pred stratou hodnoty"
                 },
                 {
                   "value": "ucelProduktuPredcasneSplatenieHypoteky",
-                  "text": "Predčasné splatenie hypotéky"
+                  "text": "predčasné splatenie hypotéky"
                 },
                 {
                   "value": "ucelProduktuNemaUcel",
-                  "text": "Nemá účel"
+                  "text": "nemá účel"
                 }
               ]
             },
@@ -950,7 +954,7 @@
               "choices": [
                 {
                   "value": "dynamickeInvesticieNazovProduktuNeviem",
-                  "text": "Neviem ako sa volá"
+                  "text": "neviem ako sa volá"
                 },
                 {
                   "value": "dynamickeInvesticieNazovProduktuStrategiaZBanky",
@@ -1048,35 +1052,35 @@
               "choices": [
                 {
                   "value": "dynamickeInvesticieUcelProduktuBudovanieRezervy",
-                  "text": "Budovanie rezervy"
+                  "text": "budovanie rezervy"
                 },
                 {
                   "value": "dynamickeInvesticieUcelProduktuDochodok",
-                  "text": "Dôchodok"
+                  "text": "dôchodok"
                 },
                 {
                   "value": "dynamickeInvesticieUcelProduktuZhodnotenie",
-                  "text": "Zhodnotenie"
+                  "text": "zhodnotenie"
                 },
                 {
                   "value": "dynamickeInvesticieUcelProduktuOchranaPredInflaciou",
-                  "text": "Ochrana penazí pred infáciou"
+                  "text": "ochrana penazí pred infáciou"
                 },
                 {
                   "value": "dynamickeInvesticieUcelProduktuSetrenieNaByvanie",
-                  "text": "Šetrenie na bývanie"
+                  "text": "šetrenie na bývanie"
                 },
                 {
                   "value": "dynamickeInvesticieUcelProduktuPoisteniePredStratouHodnoty",
-                  "text": "Poistenie pred stratou hodnoty"
+                  "text": "poistenie pred stratou hodnoty"
                 },
                 {
                   "value": "dynamickeInvesticieUcelProduktuPredcasneSplatenieHypoteky",
-                  "text": "Predčasné splatenie hypotéky"
+                  "text": "predčasné splatenie hypotéky"
                 },
                 {
                   "value": "dynamickeInvesticieUcelProduktuNemaUcel",
-                  "text": "Nemá účel"
+                  "text": "nemá účel"
                 }
               ]
             },
@@ -1165,19 +1169,19 @@
           "choices": [
             {
               "value": "sKymSaRadisInternetAKnihy",
-              "text": "Internet a knihy"
+              "text": "internet a knihy"
             },
             {
               "value": "sKymSaRadisRodinaAKamarati",
-              "text": "Rodina a kamaráti"
+              "text": "rodina a kamaráti"
             },
             {
               "value": "sKymSaRadisFinancnaInstitucia",
-              "text": "Finančná inštitúcia (napr. banka)"
+              "text": "finančná inštitúcia (napr. banka)"
             },
             {
               "value": "sKymSaRadisFinancnyPoradca",
-              "text": "Finančný poradca"
+              "text": "finančný poradca"
             }
           ]
         }
@@ -1248,19 +1252,19 @@
           "choices": [
             {
               "value": "prehladOVydavkochKazdyVydavok",
-              "text": "Zaznamenávam si každý výdavok"
+              "text": "zaznamenávam si každý výdavok"
             },
             {
               "value": "prehladOVydavkochMamDobruPredstavu",
-              "text": "Mám dobrú predstavu"
+              "text": "mám dobrú predstavu"
             },
             {
               "value": "prehladOVydavkochAkoTakViem",
-              "text": "Ako tak viem kde míňam peniaze"
+              "text": "ako tak viem kde míňam peniaze"
             },
             {
               "value": "prehladOVydavkochNesledujem",
-              "text": "Nesledujem si, koľko míňam"
+              "text": "nesledujem si, koľko míňam"
             }
           ]
         }
@@ -1272,25 +1276,25 @@
         {
           "type": "radiogroup",
           "name": "financnaGramotnostDlhodobaInvesticia",
-          "title": "Na dlhodobú investíciu si vložil 1000€. Počas roka hodnota investície klesla na 900€. Čo bude Tvoj ďalší krok?",
+          "title": "Na dlhodobú investíciu vložíš 1000€. Počas roka hodnota investície klesla na 900€. Čo bude Tvoj ďalší krok?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
               "value": "financnaGramotnostDlhodobaInvesticiaPeniazeVyberiem",
-              "text": "Peniaze vyberiem"
+              "text": "peniaze vyberiem"
             },
             {
               "value": "financnaGramotnostDlhodobaInvesticiaPockam",
-              "text": "Počkám"
+              "text": "počkám"
             },
             {
               "value": "financnaGramotnostDlhodobaInvesticiaVlozimViacPenazi",
-              "text": "Vložím viac penazí"
+              "text": "vložím viac penazí"
             },
             {
               "value": "financnaGramotnostDlhodobaInvesticiaNeviem",
-              "text": "Neviem"
+              "text": "neviem"
             }
           ]
         }
@@ -1302,25 +1306,25 @@
         {
           "type": "radiogroup",
           "name": "financnaGramotnostPoisteniePriInvestovani",
-          "title": "Ak chceš byť poistený a zároveň tiež investovať, aký produkt by si si vybral?",
+          "title": "Ak mať poistenie a zároveň tiež investovať, aký produkt si vyberieš?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
               "value": "financnaGramotnostPoisteniePriInvestovaniKapitalove",
-              "text": "Kapitálove životné poistenie"
+              "text": "kapitálove životné poistenie"
             },
             {
               "value": "financnaGramotnostPoisteniePriInvestovaniInvesticne",
-              "text": "Investičné životné poistenie"
+              "text": "investičné životné poistenie"
             },
             {
               "value": "financnaGramotnostPoisteniePriInvestovaniZvlast",
-              "text": "Životné poistenie a sporenie zvlásť"
+              "text": "životné poistenie a sporenie zvlásť"
             },
             {
               "value": "financnaGramotnostPoisteniePriInvestovaniNeviem",
-              "text": "Neviem"
+              "text": "neviem"
             }
           ]
         }
@@ -1338,27 +1342,27 @@
           "choices": [
             {
               "value": "financnaGramotnostDruhyPilierGarantovane",
-              "text": "Garantované dlhopisové fondy"
+              "text": "garantované dlhopisové fondy"
             },
             {
               "value": "financnaGramotnostDruhyPilierZmiesane",
-              "text": "Zmiešané fondy"
+              "text": "zmiešané fondy"
             },
             {
               "value": "financnaGramotnostDruhyPilierAkciove",
-              "text": "Akciové negarantované fondy"
+              "text": "akciové negarantované fondy"
             },
             {
               "value": "financnaGramotnostDruhyPilierIndexove",
-              "text": "Indexové negarantované fondy"
+              "text": "indexové negarantované fondy"
             },
             {
               "value": "financnaGramotnostDruhyPilierNeviemCoJeDruhyPilier",
-              "text": "Neviem, čo je druhý pilier"
+              "text": "neviem, čo je druhý pilier"
             },
             {
               "value": "financnaGramotnostDruhyPilierNeviem",
-              "text": "Neviem"
+              "text": "neviem"
             }
           ]
         }
@@ -1376,19 +1380,19 @@
           "choices": [
             {
               "value": "financnaGramotnostVynosVyssia",
-              "text": "Vyššia"
+              "text": "vyššia"
             },
             {
               "value": "financnaGramotnostVynosRovnaka",
-              "text": "Rovnaká"
+              "text": "rovnaká"
             },
             {
               "value": "financnaGramotnostVynosNizsia",
-              "text": "Nižšia"
+              "text": "nižšia"
             },
             {
               "value": "financnaGramotnostVynosNeviem",
-              "text": "Neviem"
+              "text": "neviem"
             }
           ]
         }
@@ -1406,19 +1410,19 @@
           "choices": [
             {
               "value": "financnaGramotnostBytHotovost",
-              "text": "Použijem 100,000€ na kúpu bytu"
+              "text": "použijem 100,000€ na kúpu bytu"
             },
             {
               "value": "financnaGramotnostByt5050",
-              "text": "Na kúpu bytu použijem vlastných 50,000€ a na ďalších 50,000€ si vezmem hypotéku"
+              "text": "na kúpu bytu použijem vlastných 50,000€ a na ďalších 50,000€ si vezmem hypotéku"
             },
             {
               "value": "financnaGramotnostBytPoziciamSi",
-              "text": "Z banky si požičiam najviac, ako sa dá a zvyšok doplatím"
+              "text": "z banky si požičiam najviac, ako sa dá a zvyšok doplatím"
             },
             {
               "value": "financnaGramotnostBytNeviem",
-              "text": "Neviem"
+              "text": "neviem"
             }
           ]
         }
@@ -1430,34 +1434,30 @@
         {
           "type": "checkbox",
           "name": "coChcesVediet",
-          "title": "O čom by si sa rád dozvedel viac?",
+          "title": "O čom sa chceš dozvedieť viac?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "hasOther": true,
           "choices": [
             {
               "value": "coChcesVedietInvestovanie",
-              "text": "Investovanie - aktívne alebo pasívne; Ako, kedy a do čoho investovať?"
+              "text": "investovanie - aktívne alebo pasívne; Ako, kedy a do čoho investovať?"
             },
             {
               "value": "coChcesVedietIdealneRoznozenie",
-              "text": "Ideálne rozloženie - ako si vyskladať finančné portfólio; Kam by som mal(a) dávať odložené peniaze?"
+              "text": "ideálne rozloženie - ako si vyskladať finančné portfólio; Kam by som mal(a) dávať odložené peniaze?"
             },
             {
               "value": "coChcesVedietVlastneByvanie",
-              "text": "Vlastné bývanie - čo všetko treba vedieť a ako sa na to pripraviť?"
+              "text": "vlastné bývanie - čo všetko treba vedieť a ako sa na to pripraviť?"
             },
             {
               "value": "coChcesVedietFinancnaNezavislost",
-              "text": "Finančná nezávislosť - ako sa dá vytvoriť pasívny príjem, ktorý pokrýva nevyhnutné životné výdavky?"
-            },
-            {
-              "value": "coChcesVedietBenefityOdStatu",
-              "text": "Benefity od štátu - aké finančné prilepšenia mi ponúka štát?"
+              "text": "finančná nezávislosť - ako sa dá vytvoriť pasívny príjem, ktorý pokrýva nevyhnutné životné výdavky?"
             },
             {
               "value": "coChcesVedietMenezovanieVydavkov",
-              "text": "Menežovanie vydávkov - ako sa zamýšľať nad svojimi výdavkami tak, aby som ušetril(a), ale zároveň neživoril"
+              "text": "menežovanie vydávkov - ako sa zamýšľať nad svojimi výdavkami tak, aby som ušetril(a), ale zároveň neživoril"
             }
           ],
           "otherText": "Iné"
