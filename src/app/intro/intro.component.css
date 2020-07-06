@@ -11,3 +11,24 @@
 .section {
   padding: 32px 120px;
 }
+
+.actions {
+  width: 100%;
+  display: flex;
+  margin-top: 64px;
+  align-items:center;
+  align-content:flex-start;
+}
+
+.signature {
+  font-size: 2em;
+  display: flex;
+}
+
+.signature__text {
+  margin-left: 32px;
+}
+
+.actions .button-main {
+  margin-left: auto;
+}
