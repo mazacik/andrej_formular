@@ -14,7 +14,7 @@ h1 {
 }
 
 .section {
-  padding: 32px 240px;
+  padding: 32px 320px;
 }
 
 .section-products {
@@ -23,11 +23,11 @@ h1 {
 }
 
 .section-money-work {
-  background-color: #E5A024;
+  background-color: #EAE2C2;
 }
 
 .section-financial-literacy {
-  background-color: #EAE2C2;
+  background-color: #E5A024;
 }
 
 .section-topics {
@@ -47,4 +47,10 @@ h1 {
 
 .button-wrapper {
   margin: 8px 0;
+}
+
+.email-more {
+  border-bottom: solid 2px #3B301B;
+  padding: 16px;
+  border-radius: 2px;
 }

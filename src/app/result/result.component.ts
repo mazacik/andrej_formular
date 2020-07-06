@@ -262,18 +262,18 @@ export class ResultComponent implements OnInit {
             label: '# of Votes',
             data: [investicieKratkobe, investicieDlhodobe, poistenie, pasiva, spotreba],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)'
+              'rgba(59, 48, 27, 1)',
+              'rgba(207, 67, 39, 1)',
+              'rgba(255, 255, 255, 1)',
+              'rgba(46, 196, 182, 1)',
+              'rgba(255, 206, 86, 1)',
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
+              'rgba(59, 48, 27, 1)',
+              'rgba(207, 67, 39, 1)',
+              'rgba(255, 255, 255, 1)',
+              'rgba(46, 196, 182)',
               'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)'
             ],
             borderWidth: 2
           }]
@@ -291,18 +291,18 @@ new Chart("graf-idealny", {
       label: '# of Votes',
       data: [10, 15, 4, 30, 41],
       backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)'
+        'rgba(59, 48, 27, 1)',
+        'rgba(207, 67, 39, 1)',
+        'rgba(255, 255, 255, 1)',
+        'rgba(46, 196, 182, 1)',
+        'rgba(255, 206, 86, 1)',
       ],
       borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
+        'rgba(59, 48, 27, 1)',
+        'rgba(207, 67, 39, 1)',
+        'rgba(255, 255, 255, 1)',
+        'rgba(46, 196, 182)',
         'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)'
       ],
       borderWidth: 2
     }]

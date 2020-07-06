@@ -3,9 +3,10 @@
     <h1>Vyhodnotenie</h1>
     <p>Gratulujeme {{data.meno}} k vyplneniu testu. Dostal si sa na úroveň - <strong class="level">{{pocetBodovHodnost}}</strong>.</p>
     <p>{{percentil}}% účastníkom testu sa darilo horšie ako tebe.</p>
-    <p>Chceš sa porovnať aj s Tvojimi blízkymi? Pošli im link a zisti, kto získal viac bodov! [{{challengeLink}}]
+    <div>Chceš sa porovnať aj s Tvojimi blízkymi? Pošli im link a zisti, kto získal viac bodov!
+      <div>[{{challengeLink}}]</div>
       <button class="button-main" (click)="copyToClipboard(challengeLink)">SKOPÍROVAŤ</button>
-    </p>
+    </div>
 
     <h4>Tieto 3 veci Ti vyšli najlepšie:</h4>
     <ul class="points">
@@ -96,31 +97,31 @@
     <div class="section section-financial-literacy">
       <h1>Finančná gramotnosť</h1>
       <p>V sekcii finančnej gramotnosti sa ti darilo lepšie ako {{percentilGramotnost}}% účastníkom testu.</p>
-      <div>
+      <div class="my-48">
         <p><b>Na dlhodobú investíciu si vložil 1000€, o rok hodnota tejto investície klesla na 900€. Čo urobíš?</b></p>
         <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostDlhodobaInvesticiaUserChoice"></span></p>
         <p><b>Správna odpoveď:</b> Vložím tam ďalšie peniaze</p>
         <div class="financnaGramotnostDlhodobaInvesticiaVysvetlenie"></div>
       </div>
-      <div>
+      <div class="my-48">
         <p><b>Ak chceš byť poistený a tiež investovať, aký produkt by si si vybral?</b></p>
         <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostPoisteniePriInvestovaniUserChoice"></span></p>
         <p><b>Správna odpoveď:</b> Životné poistenie a sporenie zvlášť</p>
         <div class="financnaGramotnostPoisteniePriInvestovaniVysvetlenie"></div>
       </div>
-      <div>
+      <div class="my-48">
         <p><b>V ktorých fondoch je najlepšie mať založený druhý pilier?</b></p>
         <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostDruhyPilierUserChoice"></span></p>
         <p><b>Správna odpoveď:</b> Indexové negarantované fondy</p>
         <div class="financnaGramotnostDruhyPilierVysvetlenie"></div>
       </div>
-      <div>
+      <div class="my-48">
         <p><b>V banke máš vložených 1000€ s 1%-ným výnosom. Aká bude reálna hodnota Tvojich peňazí o rok?</b></p>
         <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostVynosUserChoice"></span></p>
         <p><b>Správna odpoveď:</b> Nižšia</p>
         <div class="financnaGramotnostVynosVysvetlenie"></div>
       </div>
-      <div>
+      <div class="my-48">
         <p><b>Máš 100 000€ a chceš si kúpiť byt v hodnote 100 000€, čo by si spravil?</b></p>
         <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostBytUserChoice"></span></p>
         <p><b>Správna odpoveď:</b> Z banky si požičiam, čo najviac mi dajú a ostatné si financujem sám.</p>
@@ -150,12 +151,14 @@
 
     <div class="section">
       <h1>S čím ti vieme pomôcť my?</h1>
-      <p>Zistíme za akých podmienok by ti banka poskytla hypotéku a v akej výške.</p>
-      <p>Porovnáme dostupné investičné produkty a odporučíme tie, ktorá by ti najviac vyhovovali.</p>
-      <p>Založíme ti druhý pilier so správne nastavenou investičnou stratégiou.</p>
-      <p>Skontrolujeme ti poistenie a zhodnotíme, či spĺňa tvoje očakávania.</p>
-      <p>Pomôžeme ti nastaviť čo najefektívnejšie rozloženie portfólia vzhľadom na tvoje ciele.</p>
-      <p>Ukážeme ti sporiace účty, ktoré sú zadarmo, a majú aj malé zhodnotenie.</p>
+      <ul>
+        <li>Zistíme za akých podmienok by ti banka poskytla hypotéku a v akej výške.</li>
+        <li>Porovnáme dostupné investičné produkty a odporučíme tie, ktorá by ti najviac vyhovovali.</li>
+        <li>Založíme ti druhý pilier so správne nastavenou investičnou stratégiou.</li>
+        <li>Skontrolujeme ti poistenie a zhodnotíme, či spĺňa tvoje očakávania.</li>
+        <li>Pomôžeme ti nastaviť čo najefektívnejšie rozloženie portfólia vzhľadom na tvoje ciele.</li>
+        <li>Ukážeme ti sporiace účty, ktoré sú zadarmo, a majú aj malé zhodnotenie.</li>
+      </ul>
       <div id="ktoSuNasiOdbornici"></div>
     </div>
 
@@ -163,8 +166,8 @@
       <h2>Využi od nás úvodnú konzultáciu zdarma.</h2>
       <p>Na konkrétnych podmienkach spolupráce sa dohodneme až keď zistime tvoje požiadavky.</p>
       <p><b>Komu: </b>andrej@otestujsa.sk</p>
-      <p><b>Od: </b><input id="emailKlientaZiadost" type="email" placeholder="example@gmail.com"></p>
-      <p id="emailText" contenteditable="true">Na úvodnej bezplatnej konzultácii sa chcem informovať o:<br>
+      <p><b>Od: </b><input class="input-text" id="emailKlientaZiadost" type="email" placeholder="meno@gmail.com"></p>
+      <p class="email-more" id="emailText" contenteditable="true">Na úvodnej bezplatnej konzultácii sa chcem informovať o:<br>
         - Podmienkach za akých mi banka poskytne hypotéku<br>
         - Možnostiach investovania<br>
         - Postupe ako si založiť druhý pilier<br>
@@ -175,8 +178,8 @@
     </div>
     <div class="section">
       <h2>Nemám záujem o konzultáciu, chcem si však uložiť vyhodnotenie.</h2>
-      <p><button class="button-main" (click)="sendDataUrlAsEmail()">POSLAŤ EMAILOM</button><input id="emailKlientaVysledok" type="email"
-                                                                              placeholder="example@gmail.com"></p>
+      <div><input class="input-text" id="emailKlientaVysledok" type="email" placeholder="meno@gmail.com"></div>
+      <p><button class="button-main" (click)="sendDataUrlAsEmail()">POSLAŤ EMAILOM</button></p>
       <p><button class="button-main" (click)="saveDataUrlAsHTML()">ULOŽIŤ</button></p>
       <p><button class="button-main" (click)="copyDataUrlToClipboard()">SKOPÍROVAŤ LINK</button></p>
     </div>

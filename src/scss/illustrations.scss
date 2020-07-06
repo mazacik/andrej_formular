@@ -30,4 +30,15 @@
       width: 30vw;
     }
   }
+
+  &__intro {
+    @include illustration(323px, 474px, "intro.png");
+    &__wrapper {
+      $w: 240px;
+      top: calc(50vh - #{$w / 2});
+      right: 10vw;
+      width: $w;
+      z-index: 1;
+    }
+  }
 }
