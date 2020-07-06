@@ -578,6 +578,23 @@
       ]
     },
     {
+      "name": "pageNajomne",
+      "elements": [
+        {
+          "type": "text",
+          "name": "najomne",
+          "title": "Koľko mesačne platíš za svoje bývanie?",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "description": "(Nájomné, prispievanie rodičom, energie)",
+          "inputType": "number",
+          "min": "0",
+          "placeHolder": "Hodnota v €"
+        }
+      ],
+      "visibleIf": "{produktyUverHypotekaPozicka} anyof ['produktyUverHypotekaPozickaNiePlanujem', 'produktyUverHypotekaPozickaNie']"
+    },
+    {
       "name": "pageProduktyHypotekaVyskaSplatky",
       "elements": [
         {
