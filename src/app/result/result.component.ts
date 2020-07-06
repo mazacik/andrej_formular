@@ -72,7 +72,7 @@ export class ResultComponent implements OnInit {
         this.showElementsByClass("odlozit50percentprijmu");
 
         var spanPoints = document.getElementById("odlozit50percentprijmuPoints");
-        if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil +"b] ";
+        if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil + "b] ";
       }
 
       // vyskarezervy5nasobokprijmu
@@ -88,7 +88,7 @@ export class ResultComponent implements OnInit {
         this.showElementsByClass("vyskarezervy5nasobokprijmu");
 
         var spanPoints = document.getElementById("vyskarezervy5nasobokprijmuPoints");
-        if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil +"b] ";
+        if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil + "b] ";
       }
 
       // mesacnarezerva30percentprijmu
@@ -104,7 +104,7 @@ export class ResultComponent implements OnInit {
         this.showElementsByClass("mesacnarezerva30percentprijmu");
 
         var spanPoints = document.getElementById("mesacnarezerva30percentprijmuPoints");
-        if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil +"b] ";
+        if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil + "b] ";
       }
 
       // top 3 najlepsie
@@ -246,6 +246,8 @@ export class ResultComponent implements OnInit {
       }
 
       // grafy
+      var vyskaPrijmu = this.data.vyskaPrijmu;
+
       var investicieKratkobe = 0;
       if (this.data.konzervativneInvesticie) {
         for (let i = 0; i < this.data.konzervativneInvesticie.length; i++) {
@@ -279,7 +281,7 @@ export class ResultComponent implements OnInit {
       if (this.data.produktyZivotnePoistenieKolkoPlati) pasiva += this.data.produktyZivotnePoistenieKolkoPlati;
       if (this.data.produktyZivotnePoistenieInvesticiaVyska) pasiva -= this.data.produktyZivotnePoistenieInvesticiaVyska;
 
-      var spotreba = this.data.vyskaPrijmu - investicieKratkobe - investicieDlhodobe - pasiva - poistenie;
+      var spotreba = vyskaPrijmu - investicieKratkobe - investicieDlhodobe - pasiva - poistenie;
 
       new Chart("graf-vyplneny", {
         type: 'pie',
@@ -309,6 +311,7 @@ export class ResultComponent implements OnInit {
           maintainAspectRatio: false
         }
       });
+
       // idealne rozlozenie graf
       new Chart("graf-idealny", {
         type: 'pie',
@@ -316,7 +319,13 @@ export class ResultComponent implements OnInit {
           labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
           datasets: [{
             label: '# of Votes',
-            data: [10, 15, 4, 30, 41],
+            data: [
+              10 / 100 * vyskaPrijmu,
+              15 / 100 * vyskaPrijmu,
+              4 / 100 * vyskaPrijmu,
+              30 / 100 * vyskaPrijmu,
+              41 / 100 * vyskaPrijmu
+            ],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
