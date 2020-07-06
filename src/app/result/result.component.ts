@@ -439,8 +439,8 @@ new Chart("graf-idealny", {
       // check if found node is a div
       if (div.nodeName == "DIV") {
         // toggle button
-        var buttonToggle = document.createElement("button");
-        buttonToggle.innerHTML = "+";
+        var buttonToggle = document.createElement("i");
+        buttonToggle.classList.add("arrow", "down");
         buttonToggle.setAttribute("name", id);
         this.renderer.listen(buttonToggle, 'click', (event) => this.toggleElementById(event.currentTarget.getAttribute("name") + "Content"));
 

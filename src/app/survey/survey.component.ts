@@ -97,7 +97,7 @@ export class SurveyComponent implements OnInit {
       function showAlternativeNextButton() {
         $el.append('<input id="surveyNextAlternative" onclick="survey.nextPage();"' +
           ' type="button"' +
-          ' value="Next"' +
+          ' value="Nasledujúca"' +
           ' class="sv_next_btn sv_next_btn--alternative">');
       }
       function hideAlternativeNextButton() {

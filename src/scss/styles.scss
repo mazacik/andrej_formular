@@ -1,10 +1,20 @@
 @import "variables";
 @import "illustrations";
+@import "result";
+
+@font-face {
+  font-family: "Comic Sans MS";
+  src: url(/assets/comic-sans.ttf);
+}
 
 body {
   margin: 0;
   color: $text;
   font-family: Arial, serif;
+}
+
+h1 {
+  font-family: "Comic Sans MS", serif;
 }
 
 * {
@@ -28,10 +38,12 @@ body {
   padding: 24px!important;
   display: flex;
   justify-content: flex-end;
+  z-index: 100;
 }
 
 .sv_qstn {
   margin: 0 160px;
+  max-width: 600px!important;
 }
 
 h5.sv_q_title {
@@ -113,8 +125,17 @@ h5.sv_q_title {
   -moz-appearance: textfield;
 }
 
-.sv_next_btn, .sv_prev_btn {
+.sv_next_btn, .sv_prev_btn, .button-main {
   background-color: $color2!important;
+  font-size: 0.85em;
+  font-weight: bold;
+  line-height: 2em;
+  border: none;
+  min-width: 100px;
+  cursor: pointer;
+  padding: 0 2em;
+  border-radius: 2px;
+  color: white;
 }
 
 .sv_next_btn, .sv_complete_btn {
@@ -265,4 +286,33 @@ h5.sv_q_title {
   transition: all .4s;
   transform: translateY(0px);
   z-index: 100;
+}
+
+.arrow {
+  border: solid;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }

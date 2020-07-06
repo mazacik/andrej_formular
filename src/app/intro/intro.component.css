@@ -1,0 +1,13 @@
+.intro {
+  background-color: #EAE2C2;
+  min-height: 100vh;
+  padding: 32px 120px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section {
+  padding: 32px 120px;
+}
