@@ -486,7 +486,17 @@ export class ResultComponent implements OnInit {
         var buttonToggle = document.createElement("button");
         buttonToggle.innerHTML = "+";
         buttonToggle.setAttribute("name", id);
-        this.renderer.listen(buttonToggle, 'click', (event) => this.toggleElementById(event.currentTarget.getAttribute("name") + "Content"));
+        this.renderer.listen(buttonToggle, 'click', (event) => {
+          // toggle bloku textu
+          this.toggleElementById(event.currentTarget.getAttribute("name") + "Content");
+
+          // zmena znaku buttonu
+          if (buttonToggle.innerHTML == "+") {
+            buttonToggle.innerHTML = "-";
+          } else {
+            buttonToggle.innerHTML = "+";
+          }
+        });
 
         // points
         if (points >= 0) {
