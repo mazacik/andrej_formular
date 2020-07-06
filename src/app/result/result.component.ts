@@ -490,11 +490,13 @@ export class ResultComponent implements OnInit {
           this.toggleElementById(event.currentTarget.getAttribute("name") + "Content");
 
           // zmena znaku buttonu
+          /*
           if (buttonToggle.innerHTML == "+") {
             buttonToggle.innerHTML = "-";
           } else {
             buttonToggle.innerHTML = "+";
           }
+           */
         });
 
         // points
