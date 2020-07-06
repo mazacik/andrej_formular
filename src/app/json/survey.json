@@ -5,6 +5,11 @@
   "focusFirstQuestionAutomatic": false,
   "maxTextLength": 50,
   "maxOthersLength": 50,
+  "startSurveyText": "Začať",
+  "pagePrevText": "Späť",
+  "pageNextText": "Ďalej",
+  "completeText": "Dokončiť",
+  "editText": "Upraviť",
   "pages": [
     {
       "name": "pageMeno",
