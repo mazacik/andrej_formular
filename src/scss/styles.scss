@@ -1,9 +1,20 @@
 @import "variables";
+@import "illustrations";
+@import "result";
+
+@font-face {
+  font-family: "Comic Sans MS";
+  src: url(/assets/comic-sans.ttf);
+}
 
 body {
   margin: 0;
   color: $text;
   font-family: Arial, serif;
+}
+
+h1 {
+  font-family: "Comic Sans MS", serif;
 }
 
 * {
@@ -27,10 +38,12 @@ body {
   padding: 24px!important;
   display: flex;
   justify-content: flex-end;
+  z-index: 100;
 }
 
 .sv_qstn {
   margin: 0 160px;
+  max-width: 600px!important;
 }
 
 h5.sv_q_title {
@@ -69,7 +82,7 @@ h5.sv_q_title {
   background-color: transparent!important;
 }
 
-.sv_q_text_root {
+.sv_q_text_root, .input-text {
   background-color: transparent!important;
   border: none!important;
   border-bottom: 2px solid $text!important;
@@ -112,8 +125,23 @@ h5.sv_q_title {
   -moz-appearance: textfield;
 }
 
-.sv_next_btn, .sv_prev_btn {
+.sv_next_btn, .sv_prev_btn, .button-main {
   background-color: $color2!important;
+  font-size: 0.85em;
+  font-weight: bold;
+  line-height: 2em;
+  border: none;
+  min-width: 100px;
+  cursor: pointer;
+  padding: 0 2em;
+  border-radius: 2px;
+  color: white;
+}
+
+.button-main.big {
+  padding: 8px 32px;
+  border-radius: 100px;
+  font-size: 16px;
 }
 
 .sv_next_btn, .sv_complete_btn {
@@ -122,6 +150,10 @@ h5.sv_q_title {
 
 .sv_next_btn--alternative {
   margin-top: 16px;
+}
+
+.sv_q_radiogroup_label, .sv_q_checkbox_control_label {
+  font-size: .925rem;
 }
 
 @media (max-width: 768px) {
@@ -199,6 +231,26 @@ h5.sv_q_title {
   word-break: break-all;
 }
 
+.navigationProgressbar li:nth-child(1):before {
+  background-image: url(/assets/nav/nav-1.png);
+}
+
+.navigationProgressbar li:nth-child(2):before {
+  background-image: url(/assets/nav/nav-2.png);
+}
+
+.navigationProgressbar li:nth-child(3):before {
+  background-image: url(/assets/nav/nav-3.png);
+}
+
+.navigationProgressbar li:nth-child(4):before {
+  background-image: url(/assets/nav/nav-4.png);
+}
+
+.navigationProgressbar li:nth-child(5):before {
+  background-image: url(/assets/nav/nav-5.png);
+}
+
 .navigationProgressbar li:before {
   width: 30px;
   height: 30px;
@@ -209,7 +261,6 @@ h5.sv_q_title {
   margin: 0 auto 10px;
   border-radius: 50%;
   background-color: $color2;
-  background-image: url(https://picsum.photos/536/354);
   background-size: cover;
   background-position: center;
 }
@@ -233,9 +284,17 @@ h5.sv_q_title {
 .navigationProgressbar li.completed + li:after {
   background-color: $color2;
 }
+.navigationProgressbar li:before {
+  border-color: $color2;
+}
+
+.navigationProgressbar li:not(.current):before {
+  border-color: $color2;
+  background-image: none!important;
+}
+
 .navigationProgressbar li.current:before {
   border-color: $color2;
-  box-shadow:inset 0 0 0 2000px rgba($text, 0.3);
 }
 
 .text-input-wrapper {
@@ -259,4 +318,39 @@ h5.sv_q_title {
 .sv_body > div:first-child {
   transition: all .4s;
   transform: translateY(0px);
+  z-index: 100;
+}
+
+.arrow {
+  border: solid;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.my-48 {
+  margin-top: 48px;
+  margin-bottom: 48px;
 }

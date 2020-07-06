@@ -291,18 +291,18 @@ export class ResultComponent implements OnInit {
             label: '# of Votes',
             data: [investicieKratkobe, investicieDlhodobe, poistenie, pasiva, spotreba],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)'
+              'rgba(59, 48, 27, 1)',
+              'rgba(207, 67, 39, 1)',
+              'rgba(255, 255, 255, 1)',
+              'rgba(46, 196, 182, 1)',
+              'rgba(255, 206, 86, 1)',
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
+              'rgba(59, 48, 27, 1)',
+              'rgba(207, 67, 39, 1)',
+              'rgba(255, 255, 255, 1)',
+              'rgba(46, 196, 182)',
               'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)'
             ],
             borderWidth: 2
           }]
@@ -311,7 +311,42 @@ export class ResultComponent implements OnInit {
           maintainAspectRatio: false
         }
       });
-
+      // idealne rozlozenie graf
+      new Chart("graf-idealny", {
+        type: 'pie',
+        data: {
+          labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
+          datasets: [{
+            label: '# of Votes',
+            data: [
+              10 / 100 * vyskaPrijmu,
+              15 / 100 * vyskaPrijmu,
+              4 / 100 * vyskaPrijmu,
+              30 / 100 * vyskaPrijmu,
+              41 / 100 * vyskaPrijmu
+            ],
+            backgroundColor: [
+              'rgba(59, 48, 27, 1)',
+              'rgba(207, 67, 39, 1)',
+              'rgba(255, 255, 255, 1)',
+              'rgba(46, 196, 182, 1)',
+              'rgba(255, 206, 86, 1)',
+            ],
+            borderColor: [
+              'rgba(59, 48, 27, 1)',
+              'rgba(207, 67, 39, 1)',
+              'rgba(255, 255, 255, 1)',
+              'rgba(46, 196, 182)',
+              'rgba(255, 206, 86, 1)',
+            ],
+            borderWidth: 2
+          }]
+        },
+        options: {
+          maintainAspectRatio: false
+        }
+      });
+      
       // idealne rozlozenie graf
       new Chart("graf-idealny", {
         type: 'pie',
@@ -347,7 +382,6 @@ export class ResultComponent implements OnInit {
           maintainAspectRatio: false
         }
       });
-
     }
   }
 
@@ -483,19 +517,21 @@ export class ResultComponent implements OnInit {
       // check if found node is a div
       if (div.nodeName == "DIV") {
         // toggle button
-        var buttonToggle = document.createElement("button");
-        buttonToggle.innerHTML = "+";
+        var buttonToggle = document.createElement("i");
+        buttonToggle.classList.add("arrow", "down");
         buttonToggle.setAttribute("name", id);
         this.renderer.listen(buttonToggle, 'click', (event) => {
           // toggle bloku textu
           this.toggleElementById(event.currentTarget.getAttribute("name") + "Content");
 
           // zmena znaku buttonu
+          /*
           if (buttonToggle.innerHTML == "+") {
             buttonToggle.innerHTML = "-";
           } else {
             buttonToggle.innerHTML = "+";
           }
+          */
         });
 
         // points
