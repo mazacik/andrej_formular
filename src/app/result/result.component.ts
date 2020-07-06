@@ -346,7 +346,7 @@ export class ResultComponent implements OnInit {
           maintainAspectRatio: false
         }
       });
-      
+
       // idealne rozlozenie graf
       new Chart("graf-idealny", {
         type: 'pie',
