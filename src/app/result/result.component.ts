@@ -346,7 +346,42 @@ export class ResultComponent implements OnInit {
           maintainAspectRatio: false
         }
       });
-
+      
+      // idealne rozlozenie graf
+      new Chart("graf-idealny", {
+        type: 'pie',
+        data: {
+          labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
+          datasets: [{
+            label: '# of Votes',
+            data: [
+              10 / 100 * vyskaPrijmu,
+              15 / 100 * vyskaPrijmu,
+              4 / 100 * vyskaPrijmu,
+              30 / 100 * vyskaPrijmu,
+              41 / 100 * vyskaPrijmu
+            ],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 2
+          }]
+        },
+        options: {
+          maintainAspectRatio: false
+        }
+      });
     }
   }
 
@@ -496,7 +531,7 @@ export class ResultComponent implements OnInit {
           } else {
             buttonToggle.innerHTML = "+";
           }
-           */
+          */
         });
 
         // points
