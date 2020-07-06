@@ -61,23 +61,50 @@ export class ResultComponent implements OnInit {
 
       // odlozit50percentprijmu
       if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.5) {
-        this.pocetBodovMax += 1;
-        this.pocetBodovStratil += 1;
+        const pocetBodovMax = 1;
+        const pocetBodovStratil = 0;
+
+        this.pocetBodovMax += pocetBodovMax;
+        this.pocetBodovStratil += pocetBodovStratil;
+
         naj3Extra[naj3Extra.length] = 'naj_odlozit50percentprijmu';
+
+        this.showElementsByClass("odlozit50percentprijmu");
+
+        var spanPoints = document.getElementById("odlozit50percentprijmuPoints");
+        if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil + "b] ";
       }
 
       // vyskarezervy5nasobokprijmu
       if (this.data.financnaRezervaVyska >= this.data.vyskaPrijmu * 5) {
-        this.pocetBodovMax += 1;
-        this.pocetBodovStratil += 1;
+        const pocetBodovMax = 1;
+        const pocetBodovStratil = 0;
+
+        this.pocetBodovMax += pocetBodovMax;
+        this.pocetBodovStratil += pocetBodovStratil;
+
         naj3Extra[naj3Extra.length] = 'naj_vyskarezervy5nasobokprijmu';
+
+        this.showElementsByClass("vyskarezervy5nasobokprijmu");
+
+        var spanPoints = document.getElementById("vyskarezervy5nasobokprijmuPoints");
+        if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil + "b] ";
       }
 
       // mesacnarezerva30percentprijmu
       if (this.data.financnaRezervaMesacne >= this.data.vyskaPrijmu * 0.3) {
-        this.pocetBodovMax += 1;
-        this.pocetBodovStratil += 1;
+        const pocetBodovMax = 1;
+        const pocetBodovStratil = 0;
+
+        this.pocetBodovMax += pocetBodovMax;
+        this.pocetBodovStratil += pocetBodovStratil;
+
         naj3Extra[naj3Extra.length] = 'naj_mesacnarezerva30percentprijmu';
+
+        this.showElementsByClass("mesacnarezerva30percentprijmu");
+
+        var spanPoints = document.getElementById("mesacnarezerva30percentprijmuPoints");
+        if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil + "b] ";
       }
 
       // top 3 najlepsie
@@ -219,6 +246,8 @@ export class ResultComponent implements OnInit {
       }
 
       // grafy
+      var vyskaPrijmu = this.data.vyskaPrijmu;
+
       var investicieKratkobe = 0;
       if (this.data.konzervativneInvesticie) {
         for (let i = 0; i < this.data.konzervativneInvesticie.length; i++) {
@@ -252,7 +281,7 @@ export class ResultComponent implements OnInit {
       if (this.data.produktyZivotnePoistenieKolkoPlati) pasiva += this.data.produktyZivotnePoistenieKolkoPlati;
       if (this.data.produktyZivotnePoistenieInvesticiaVyska) pasiva -= this.data.produktyZivotnePoistenieInvesticiaVyska;
 
-      var spotreba = this.data.vyskaPrijmu - investicieKratkobe - investicieDlhodobe - pasiva - poistenie;
+      var spotreba = vyskaPrijmu - investicieKratkobe - investicieDlhodobe - pasiva - poistenie;
 
       new Chart("graf-vyplneny", {
         type: 'pie',
@@ -282,35 +311,41 @@ export class ResultComponent implements OnInit {
           maintainAspectRatio: false
         }
       });
-// idealne rozlozenie graf
-new Chart("graf-idealny", {
-  type: 'pie',
-  data: {
-    labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
-    datasets: [{
-      label: '# of Votes',
-      data: [10, 15, 4, 30, 41],
-      backgroundColor: [
-        'rgba(59, 48, 27, 1)',
-        'rgba(207, 67, 39, 1)',
-        'rgba(255, 255, 255, 1)',
-        'rgba(46, 196, 182, 1)',
-        'rgba(255, 206, 86, 1)',
-      ],
-      borderColor: [
-        'rgba(59, 48, 27, 1)',
-        'rgba(207, 67, 39, 1)',
-        'rgba(255, 255, 255, 1)',
-        'rgba(46, 196, 182)',
-        'rgba(255, 206, 86, 1)',
-      ],
-      borderWidth: 2
-    }]
-  },
-  options: {
-    maintainAspectRatio: false
-  }
-});
+      // idealne rozlozenie graf
+      new Chart("graf-idealny", {
+        type: 'pie',
+        data: {
+          labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
+          datasets: [{
+            label: '# of Votes',
+            data: [
+              10 / 100 * vyskaPrijmu,
+              15 / 100 * vyskaPrijmu,
+              4 / 100 * vyskaPrijmu,
+              30 / 100 * vyskaPrijmu,
+              41 / 100 * vyskaPrijmu
+            ],
+            backgroundColor: [
+              'rgba(59, 48, 27, 1)',
+              'rgba(207, 67, 39, 1)',
+              'rgba(255, 255, 255, 1)',
+              'rgba(46, 196, 182, 1)',
+              'rgba(255, 206, 86, 1)',
+            ],
+            borderColor: [
+              'rgba(59, 48, 27, 1)',
+              'rgba(207, 67, 39, 1)',
+              'rgba(255, 255, 255, 1)',
+              'rgba(46, 196, 182)',
+              'rgba(255, 206, 86, 1)',
+            ],
+            borderWidth: 2
+          }]
+        },
+        options: {
+          maintainAspectRatio: false
+        }
+      });
 
     }
   }
@@ -393,7 +428,10 @@ new Chart("graf-idealny", {
       var choiceString = document.getElementById(question.id + "UserChoice");
       if (choiceString) choiceString.innerHTML = answer.choiceString;
 
-      this.createToggleElement(question.id, "Vysvetlenie", question.resultVysvetlenie, "Vysvetlenie");
+      var pointsSpan = document.getElementById(question.id + "Points");
+      if (pointsSpan) pointsSpan.innerHTML = answer.resultPointsStratil.toString();
+
+      this.createToggleElement(question.id, "Vysvetlenie", question.resultVysvetlenie, -1, "Vysvetlenie");
     } else {
       console.log(id + " not found in answer json");
     }
@@ -422,15 +460,20 @@ new Chart("graf-idealny", {
           // bola najdena vyplnena odpoved ktorej otazka nema entry v jsone, predpoklada sa preto max pocet bodov za otazku = 1
           if (!question) this.pocetBodovMax += 1;
 
+          // zobraz kolko bodov clovek stratil
+          var pointsSpan = document.getElementById(answer.id + "Points");
+          if (pointsSpan) pointsSpan.innerHTML = answer.resultPointsStratil.toString();
+
           // vygeneruje toggleElement do divu podla 'id'
-          this.createToggleElement(answer.id, answer.resultTitle, answer.resultVysvetlenie);
+          this.createToggleElement(answer.id, answer.resultTitle, answer.resultVysvetlenie, answer.resultPointsStratil);
         }
       }
     } else {
       // odpoved je objekt (matica)
     }
   }
-  createToggleElement(id: string, title: string, content: string, divSuffix: string = ""): void {
+
+  createToggleElement(id: string, title: string, content: string, points: number = -1, divSuffix: string = ""): void {
     // check if div exists
     var divClass = id + divSuffix;
     var divs = document.getElementsByClassName(divClass);
@@ -442,13 +485,30 @@ new Chart("graf-idealny", {
         var buttonToggle = document.createElement("i");
         buttonToggle.classList.add("arrow", "down");
         buttonToggle.setAttribute("name", id);
-        this.renderer.listen(buttonToggle, 'click', (event) => this.toggleElementById(event.currentTarget.getAttribute("name") + "Content"));
+        this.renderer.listen(buttonToggle, 'click', (event) => {
+          // toggle bloku textu
+          this.toggleElementById(event.currentTarget.getAttribute("name") + "Content");
+
+          // zmena znaku buttonu
+          if (buttonToggle.innerHTML == "+") {
+            buttonToggle.innerHTML = "-";
+          } else {
+            buttonToggle.innerHTML = "+";
+          }
+        });
+
+        // points
+        if (points >= 0) {
+          var spanPoints = document.createElement("span");
+          spanPoints.innerHTML = " [-" + points.toString() + "b] ";
+        }
 
         // title
         var bTitle = document.createElement("b");
         bTitle.innerHTML = title;
         var pTitle = document.createElement("p");
         pTitle.appendChild(buttonToggle);
+        if (spanPoints) pTitle.appendChild(spanPoints);
         pTitle.appendChild(bTitle);
 
         // content
