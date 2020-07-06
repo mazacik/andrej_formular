@@ -47,8 +47,11 @@ h1 {
 }
 
 h5.sv_q_title {
-  font-size: 1.4rem!important;
   color: $text;
+}
+
+h5.sv_q_title span {
+  font-size: 28px!important;
 }
 
 .sv_main .sv_container {
@@ -353,4 +356,12 @@ h5.sv_q_title {
 .my-48 {
   margin-top: 48px;
   margin-bottom: 48px;
+}
+
+.sv_main span {
+  font-size: 16px;
+}
+
+.sv_q_description {
+  margin-top: 16px!important;
 }
