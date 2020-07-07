@@ -558,7 +558,8 @@
         {
           "type": "radiogroup",
           "name": "produktyUverHypotekaPozicka",
-          "title": "Máš požičané peniaze? (hypotéka, úver, pôžička)",
+          "title": "Máš požičané peniaze?",
+          "description": "(hypotéka, úver, pôžička)",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
@@ -1479,7 +1480,7 @@
             },
             {
               "value": "coChcesVedietMenezovanieVydavkov",
-              "text": "menežovanie vydávkov - ako sa zamýšľať nad svojimi výdavkami tak, aby som ušetril(a), ale zároveň neživoril"
+              "text": "menežovanie vydávkov - ako sa zamýšľať nad svojimi výdavkami a nájsť balans medzi šetrením a užívaním si"
             }
           ],
           "otherText": "Iné"
