@@ -42,7 +42,7 @@ export class ResultComponent implements OnInit {
 
     if (!this.data) {
       this.data = '{"meno": ""}'; // prevents console error
-      this.router.navigate(['intro']);
+      this.router.navigate(['otazky']);
     } else {
       // cyklus hlada zhodu ID vybratej odpovede a ID HTML elementu
       for (var value in this.data) {
@@ -219,7 +219,7 @@ export class ResultComponent implements OnInit {
       document.getElementById("dozviesSaViacO").innerHTML = dozviesSaViacO;
 
       // challengeLink
-      this.challengeLink = window.location.origin + "/intro/" + this.data.meno + "/" + this.calculateHodnost();
+      this.challengeLink = window.location.origin + "/uvod/" + this.data.meno + "/" + this.calculateHodnost();
 
       // percentil financnej gramotnosti (vseobecny percentil je rieseny v 'calculateHodnost()' ^^^^^)
       var pocetBodovGramotnost = (this.pocetBodovGramotnostMax - this.pocetBodovGramotnostStratil) / this.pocetBodovGramotnostMax * 100;

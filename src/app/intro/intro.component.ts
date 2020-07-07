@@ -40,12 +40,9 @@ export class IntroComponent implements OnInit {
         this.rank = "Finančný začiatočník";
       } else if (url_rank == "FinancneEmbryo") {
         this.rank = "Finančné embryo";
+      } else {
+        this.rank = "nedefinované";
       }
-    }
-
-    if (this.name && this.rank) {
-      document.getElementById("divStandard").setAttribute("hidden", "true");
-      document.getElementById("divChallenge").removeAttribute("hidden");
     }
   }
 }

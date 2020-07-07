@@ -13,7 +13,7 @@ export class ErrorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.router.navigate(['intro']);
+    this.router.navigate(['otazky']);
   }
 
 }

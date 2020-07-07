@@ -8,12 +8,11 @@ import { IntroComponent } from './intro/intro.component';
 const routes: Routes = [
   {path:'', component: ErrorComponent},
 
-  {path:'intro', component: IntroComponent},
-  {path:'intro/:name/:rank', component: IntroComponent},
+  {path:'uvod/:name/:rank', component: IntroComponent},
   
-  {path:'survey', component: SurveyComponent},
+  {path:'otazky', component: SurveyComponent},
   
-  {path:'result/:base64data', component: ResultComponent},
+  {path:'vyhodnotenie/:base64data', component: ResultComponent},
   
   {path:'**', component: ErrorComponent}
 ];
