@@ -9,6 +9,7 @@
   "pagePrevText": "Späť",
   "pageNextText": "Ďalej",
   "completeText": "Dokončiť",
+  "showQuestionNumbers": "off",
   "editText": "Upraviť",
   "pages": [
     {
@@ -69,15 +70,15 @@
           "choices": [
             {
               "value": "studiumStredna",
-              "text": "Áno, som na strednej škole"
+              "text": "áno, som na strednej škole"
             },
             {
               "value": "studiumVysoka",
-              "text": "Áno, som na vysokej škole"
+              "text": "áno, som na vysokej škole"
             },
             {
               "value": "studiumPraca",
-              "text": "Nie, pracujem"
+              "text": "nie, pracujem"
             }
           ]
         }
@@ -279,7 +280,6 @@
           "name": "odkladaniePenaziVyska",
           "title": "Koľko sa Ti darí priemerne mesačne odložiť?",
           "isRequired": false,
-          "description": "Bez toho, aby sme vedeli tvoj príjem, nedokážeme test vyhodnotiť na mieru. Nezabudni, že po vyhodnotení testu sa všetky tvoje odpovede vrátane príjmu zmažú.",
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
           "min": "0",

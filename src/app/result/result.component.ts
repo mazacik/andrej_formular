@@ -276,6 +276,7 @@ export class ResultComponent implements OnInit {
       var pasiva = 0;
       if (this.data.produktyHypotekaVyskaSplatky) pasiva += this.data.produktyHypotekaVyskaSplatky;
       if (this.data.produktyUverPozickaVyskaSplatky) pasiva += this.data.produktyUverPozickaVyskaSplatky;
+      if (this.data.najomne) pasiva += this.data.najomne;
 
       var poistenie = 0;
       if (this.data.produktyZivotnePoistenieKolkoPlati) pasiva += this.data.produktyZivotnePoistenieKolkoPlati;
@@ -286,7 +287,7 @@ export class ResultComponent implements OnInit {
       new Chart("graf-vyplneny", {
         type: 'pie',
         data: {
-          labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
+          labels: ['Krátkodobé investície a rezerva', 'Dlhodobé investície', 'Poistenie', 'Úvery a bývanie', 'Spotreba'],
           datasets: [{
             label: '# of Votes',
             data: [investicieKratkobe, investicieDlhodobe, poistenie, pasiva, spotreba],
@@ -315,7 +316,7 @@ export class ResultComponent implements OnInit {
       new Chart("graf-idealny", {
         type: 'pie',
         data: {
-          labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
+          labels: ['Krátkodobé investície a rezerva', 'Dlhodobé investície', 'Poistenie', 'Úvery a bývanie', 'Spotreba'],
           datasets: [{
             label: '# of Votes',
             data: [

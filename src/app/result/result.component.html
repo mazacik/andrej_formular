@@ -84,9 +84,11 @@
       <h3>Rozloženie</h3>
       <div class="charts">
         <div class="chart-container" style="position: relative; margin: auto; width: 95vw; height: 400px;">
+          <h2>Tvoje rozloženie</h2>
           <canvas id="graf-vyplneny"></canvas>
         </div>
         <div class="chart-container" style="position: relative; margin: auto; width: 95vw; height: 400px;">
+          <h2>Rozloženie podľa finančných pravidiel</h2>
           <canvas id="graf-idealny"></canvas>
         </div>
       </div>
@@ -98,33 +100,38 @@
 
     <div class="section section-financial-literacy">
       <h1>Finančná gramotnosť</h1>
-      <p>V sekcii finančnej gramotnosti sa ti darilo lepšie ako {{percentilGramotnost}}% účastníkom testu.</p>
+      <p>V sekcii finančnej gramotnosti sa Ti darilo lepšie ako {{percentilGramotnost}}% účastníkom testu.</p>
       <div class="my-48">
-        <p><b>Na dlhodobú investíciu si vložil 1000€, o rok hodnota tejto investície klesla na 900€. Čo urobíš?</b></p>
+        <h3>Otázka 1</h3>
+        <p><b>Na dlhodobú investíciu vložíš 1000€, o rok hodnota tejto investície klesla na 900€. Čo urobíš?</b></p>
         <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostDlhodobaInvesticiaUserChoice"></span></p>
         <p><b>Správna odpoveď:</b> Vložím tam ďalšie peniaze</p>
         <div class="financnaGramotnostDlhodobaInvesticiaVysvetlenie"></div>
       </div>
       <div class="my-48">
-        <p><b>Ak chceš byť poistený a tiež investovať, aký produkt by si si vybral?</b></p>
+        <h3>Otázka 2</h3>
+        <p><b>Ak chceš mať poistenie a tiež investovať, aký produkt si vyberieš?</b></p>
         <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostPoisteniePriInvestovaniUserChoice"></span></p>
         <p><b>Správna odpoveď:</b> Životné poistenie a sporenie zvlášť</p>
         <div class="financnaGramotnostPoisteniePriInvestovaniVysvetlenie"></div>
       </div>
       <div class="my-48">
+        <h3>Otázka 3</h3>
         <p><b>V ktorých fondoch je najlepšie mať založený druhý pilier?</b></p>
         <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostDruhyPilierUserChoice"></span></p>
         <p><b>Správna odpoveď:</b> Indexové negarantované fondy</p>
         <div class="financnaGramotnostDruhyPilierVysvetlenie"></div>
       </div>
       <div class="my-48">
+        <h3>Otázka 4</h3>
         <p><b>V banke máš vložených 1000€ s 1%-ným výnosom. Aká bude reálna hodnota Tvojich peňazí o rok?</b></p>
         <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostVynosUserChoice"></span></p>
         <p><b>Správna odpoveď:</b> Nižšia</p>
         <div class="financnaGramotnostVynosVysvetlenie"></div>
       </div>
       <div class="my-48">
-        <p><b>Máš 100 000€ a chceš si kúpiť byt v hodnote 100 000€, čo by si spravil?</b></p>
+        <h3>Otázka 5</h3>
+        <p><b>Máš 100 000€ a chceš si kúpiť byt v hodnote 100 000€, čo urobíš?</b></p>
         <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostBytUserChoice"></span></p>
         <p><b>Správna odpoveď:</b> Z banky si požičiam, čo najviac mi dajú a ostatné si financujem sám.</p>
         <div class="financnaGramotnostBytVysvetlenie"></div>
@@ -153,7 +160,7 @@
     </div>
 
     <div class="section">
-      <h1>S čím ti vieme pomôcť my?</h1>
+      <h1>S čím Ti vieme pomôcť my?</h1>
       <ul>
         <li>Zistíme za akých podmienok by ti banka poskytla hypotéku a v akej výške.</li>
         <li>Porovnáme dostupné investičné produkty a odporučíme tie, ktorá by ti najviac vyhovovali.</li>
