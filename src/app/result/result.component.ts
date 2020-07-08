@@ -61,18 +61,20 @@ export class ResultComponent implements OnInit {
 
       // odlozit50percentprijmu
       if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.5) {
-        const pocetBodovMax = 1;
-        const pocetBodovStratil = 0;
 
-        this.pocetBodovMax += pocetBodovMax;
-        this.pocetBodovStratil += pocetBodovStratil;
-
+        // top3 najhorsie/najlepsie, ID sa musi zhodovat s tymi v naj3Order.json a result.html
         naj3Extra[naj3Extra.length] = 'naj_odlozit50percentprijmu';
 
-        this.showElementsByClass("odlozit50percentprijmu");
+        // vytvorenie toggle elementu (nadpis a tlacitko, ktore zobrazi text s vysvetlenim)
+        // ID sa musi zhodovat s tym v survey.json a result.html
+        var answerOdlozit50percentprijmu = this.getAnswerById('odlozit50percentprijmu');
+        if (answerOdlozit50percentprijmu) {
+          this.createToggleElementFromAnswer(answerOdlozit50percentprijmu);
 
-        var spanPoints = document.getElementById("odlozit50percentprijmuPoints");
-        if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil + "b] ";
+          // pocet bodov
+          this.pocetBodovMax += 1; // alebo ho nacitas z questionDetails.json, v tom pripade mi napis
+          this.pocetBodovStratil += answerOdlozit50percentprijmu.resultPointsStratil; // alebo jednoducho odcitas cislo
+        }
       }
 
       // vyskarezervy5nasobokprijmu
@@ -509,6 +511,9 @@ export class ResultComponent implements OnInit {
     }
   }
 
+  createToggleElementFromAnswer(answer): void {
+    this.createToggleElement(answer.id, answer.resultTitle, answer.resultVysvetlenie, answer.resultPointsStratil);
+  }
   createToggleElement(id: string, title: string, content: string, points: number = -1, divSuffix: string = ""): void {
     // check if div exists
     var divClass = id + divSuffix;
