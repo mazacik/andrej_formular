@@ -59,6 +59,21 @@ export class ResultComponent implements OnInit {
       // pole pre naj3 manualne
       var naj3Extra = [];
 
+      // kolkoPercentPrijmuJeNajomne -> Toto Je ID
+      if (this.data.najomne > this.data.vyskaPrijmu * 0.3) {
+        const pocetBodovMax = 1; //hodnota otazky
+        const pocetBodovStratil = -1; //kolko strati za odpoved
+
+        this.pocetBodovMax += pocetBodovMax;
+        this.pocetBodovStratil += pocetBodovStratil;
+
+        naj3Extra[naj3Extra.length] = 'naj_kolkoPercentPrijmuJeNajomne'; //nezabudni pridat do naj 3
+
+
+        var answerNajomne = this.getAnswerById("kolkoPercentPrijmuJeNajomne");
+        this.createToggleElement(answerNajomne.id, answerNajomne.resultTitle, answerNajomne.resultVysvetlenie, answerNajomne.resultPointsStratil);
+      }
+
       // odlozit50percentprijmu
       if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.5) {
 

@@ -8,6 +8,13 @@
       "resultPointsStratil": 0.5
     },
     {
+      "id": "kolkoPercentPrijmuJeNajomne",
+      "choiceString": "",
+      "resultTitle": "Nájomné máš vyššie ako 30% príjmu.",
+      "resultVysvetlenie": "To je zlé, zmeň sa.",
+      "resultPointsStratil": -1
+    },
+    {
       "id": "financnaGramotnostPoisteniePriInvestovaniNeviem",
       "choiceString": "Neviem",
       "resultTitle": "",
