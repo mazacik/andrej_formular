@@ -464,6 +464,16 @@ export class ResultComponent implements OnInit {
       }
     }
   }
+  getAnswersStartingWithId(id: string) {
+    var answers = [];
+    for (let i = 0; i < answerDetails.answers.length; i++) {
+      const answer = answerDetails.answers[i];
+      if (answer.id.startsWith(id)) {
+        answers[answers.length] = answer;
+      }
+    }
+    return answers;
+  }
   // concatCapitalize(prefix: string, toCapitalize: string): string {
   //   return prefix + toCapitalize.charAt(0).toUpperCase() + toCapitalize.slice(1);
   // }
@@ -519,6 +529,13 @@ export class ResultComponent implements OnInit {
 
           // vygeneruje toggleElement do divu podla 'id'
           this.createToggleElement(answer.id, answer.resultTitle, answer.resultVysvetlenie, answer.resultPointsStratil);
+        } else {
+          var answers = this.getAnswersStartingWithId(id);
+          for (let i = 0; i < answers.length; i++) {
+            const answer = answers[i];
+            // vygeneruje toggleElement do divu podla 'id'
+            this.createToggleElement(answer.id, answer.resultTitle, answer.resultVysvetlenie);
+          }
         }
       }
     } else {
