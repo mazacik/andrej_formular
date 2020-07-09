@@ -109,17 +109,37 @@
       "id": "coChcesVedietIdealneRozlozenie2",
       "choiceString": "",
       "resultTitle": "Aké využivať produkty?",
-      "resultVysvetlenie": " Investuj pravidelne každý mesiac a ideálne do ETF fondov .Ak si platíš za životné poistenie menej ako 3% z príjmu (tvoj príjem * 0.03), poistenie pravdepodobne nie je dostatočne. Ak viac ako 5% poistenie je zbytočne dráhe. Rezervu si drž na sporiacom úcte mimo banky. Existujú účty, ktoré sú zadarmo a majú dokonca aj malé zhodnotenie.",
+      "resultVysvetlenie": "Investuj pravidelne každý mesiac a ideálne do ETF fondov .Ak si platíš za životné poistenie menej ako 3% z príjmu (tvoj príjem * 0.03), poistenie pravdepodobne nie je dostatočne. Ak viac ako 5% poistenie je zbytočne dráhe. Rezervu si drž na sporiacom úcte mimo banky. Existujú účty, ktoré sú zadarmo a majú dokonca aj malé zhodnotenie.",
       "resultPointsStratil": 1
     },
     {
       "id": "coChcesVedietIdealneRozlozenie3",
       "choiceString": "",
-      "resultTitle": "Jeodporúčaného rozloženia držať?",
-      "resultVysvetlenie": "",
+      "resultTitle": "Mám sa odporúčaného rozloženia držať?",
+      "resultVysvetlenie": "Život nie sú len tabuľkové čísla, ak však nemáš predstavu koľko si máš odkladať, vedia ti pomôcť. Samozrejme, že konkrétne percenta sa môžu líšiť od tvojej životnej situácie. Ak je tvoja priorita vlastne bývanie a potrebuješ si našetriť čo najrýchlejšie 10 000€, tak dlhodobú investíciu môžeš odsunúť na druhú koľaj. To však neznamená, že ju nebudeš riešiť vôbec.",
       "resultPointsStratil": 1
     },
-    
+    {
+      "id": "coChcesVedietFinancnaNezavislost1",
+      "choiceString": "",
+      "resultTitle": "Ako to vyzerá keď je človek finančne nezávislý?",
+      "resultVysvetlenie": "Finančná nezávislosť, alebo aj finančný dôchodok znamená, že Ti pasívny príjem pokryje všetky výdavky. Inými slovami, už nemusíš pracovať kvôli peniazom. Ak niekto dosiahne finančnú nezávislosť, neznamená to, že prestane úplne pracovať. Pracuje sa mu však lepšie, pretože to už nerobí kvôli peniazom, ale jednoducho pretože ho práca napĺňa.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietFinancnaNezavislost2",
+      "choiceString": "",
+      "resultTitle": "Aké sú možnosti nadobudnutia pasívneho príjmu?",
+      "resultVysvetlenie": "Je stovky spôsobov, uvedieme však 3 najčastejšie.     1. Prenájom bytov. Kúpiš si na hypotéku byt, dáš ho do podnájmu, podnájomník ti platí hypotéku + niečo navyše. Tvojou snahou je hypotéku splatiť čo najskôr. Keď sa ti to podarí, proces opakuješ.       2. Dividendový výnos. Ak budeme hovoriť o finančnej nezávislosti, budeme hovoriť práve o tomto spôsobe pretože je najľahší a s jeho pomocou dokáže finančnú nezávislosť dosiahnuť takmer každý. Dividendový výnos znamená, že peniaze ti zarábajú ďalšie peniaze. Funguje to takým spôsobom, že si za život našetríš veľkú sumu peňazí a kúpiš si za ne časti veľkých svetových spoločnosti. Stávaš sa vlastne takým spolumajiteľom za čo ti tieto firmy dávajú výplatu - dividendu. Tieto výplaty vedia zarábať 4-5% ročne z pôvodne našetrenej sumy. Ak si za život našetríš 300 000€, za ktoré si následne nakupis \"miesta vo firmách\", tak ti bude chodiť výplata 12 000€ ročne (12 000€ sú 4% z 300 000€). To znamená, že tvoj financny dôchodok by bol 1000€ mesačne.       3. Podnikanie. Tento spôsob je najnáročnejší. Vytvoríš systém, ktorý vie fungovať aj bez teba. Ak je systém nastavil správne tak, tvoja spoločnosť bude zisková, bude prosperovať a ty budeš profitovať aj bez ďalšej pridanej energie.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietFinancnaNezavislost3",
+      "choiceString": "",
+      "resultTitle": "Koľko to trvá?",
+      "resultVysvetlenie": "Vždy sú samozrejme výnimky, avšak ľudia, ktorí pracujú na trvalý pracovný pomer a odkladaju si 10% z príjmu sa vedia dostať do finančnej nezávislosti do 30rokov. Čiže ak si 20 ročný študent začne odkladať 10% z príjmu už popri prvej práci a neprestane, tak v 50ke môže prestať pracovať.      Ľudia ktorí sa živia sami, čiže živnostníci, si statisticky vedia zarobiť viac, čo znamená, že sa k finančnej nezávislosti vedia dopracovať skôr. U nich to trvá 15 - 20 rokov.      Podnikateľovi to trvá toľko, za koľko sa mu podarí vybudovať systém, ktorí ho bude živiť. Je to zväčša 5 - 10 rokov tvrdej práce. Táto možnosť je pre väčšinu ľudí irelevantná práve kvôli tomu, aké náročné to je.",
+      "resultPointsStratil": 1
+    },
     {
       "id": "financnaGramotnostPoisteniePriInvestovaniNeviem",
       "choiceString": "Neviem",
