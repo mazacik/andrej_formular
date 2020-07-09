@@ -18,14 +18,126 @@
       "id": "coChcesVedietVlastneByvanie1",
       "choiceString": "",
       "resultTitle": "Koľko potrebuješ peňazí? ",
-      "resultVysvetlenie": "Zadlžiť sa môžeš maximálne do 8-násobku Tvojho ročného príjmu. V praxi to znamená, že ak zarábaš, napríklad, 1000€ mesačne, banka Ti požičia maximálne 96 000€. Pracovníci v banke sledujú Tvoj príjem za posledných 3-12 mesiacov, to však záleží od samotnej banky.",
+      "resultVysvetlenie": "Ak si chceš kúpiť byt za 100 000€, banka Ti nepožičia všetky peniaze. Dá Ti maximálne 80% z hodnoty nehnuteľnosti, výnimočne až 90%. Preto musíš mať našetrených vlastných minimálne 10%, čo je v tomto prípade až 10 000€. Vieš to financovať aj spotrebným úverom alebo medziúverom, to však nie sú finančne najlepšie možnosti, pretože majú vysoké úroky a na konci zaplatíš o veľa viac než Ti banka požičala. Preto odporúčame začať s prípravou na vlastné bývanie už niekoľko rokov predtým ako plánuješ jej kúpu.",
       "resultPointsStratil": 1
     },
     {
       "id": "coChcesVedietVlastneByvanie2",
       "choiceString": "",
+      "resultTitle": "Čo ďalšie potrebuješ vedieť?",
+      "resultVysvetlenie": "Zadlžiť sa môžeš maximálne do 8-násobku Tvojho ročného príjmu. V praxi to znamená, že ak zarábaš, napríklad, 1000€ mesačne, banka Ti požičia maximálne 96 000€. Pracovníci v banke sledujú Tvoj príjem za posledných 3-12 mesiacov, to však záleží od samotnej banky.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietVlastneByvanie3",
+      "choiceString": "",
+      "resultTitle": "Na koľko si hypotéku zobrať?",
+      "resultVysvetlenie": "Hoci je riešenie tejto otázky veľmi individuálne, strategicky sa najviac oplatí vziať si hypotéku na najdlhšiu možnú dobu (štandardne na 30 rokov). Týmto krokom sa zmenší Tvoja mesačná splátka. Má to však zmysel len vtedy, ak ušetrené peniaze  investuješ. Tieto peniaze potom nadobudnú vyššiu hodnotu a ak sa to v danom momente oplatí, vieš ich použiť na predčasné splatenie hypotéky. Takto môžeš ušetriť na preplatení až 30%.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietVlastneByvanie4",
+      "choiceString": "",
+      "resultTitle": "Akým spôsobom sa spláca úrok?",
+      "resultVysvetlenie": "1% úrok na hypotéke znamená, že každý rok banke zaplatíš na úrokoch 1% zo sumy, ktorú im ešte dlžíš. Ak si napríklad požičiaš 100 000€, tak prvý rok musíš na úrokoch zaplatiť 1000€. Keď sa to rozráta na mesiace, tak mesačne musíš zaplatiť 83€. Ak máš napríklad mesačnú splátku hypotéky 283€, tak 83€ ide na úrok a 200€ reálne vraciaš požičané peniaze. Po roku sa ti dlh zníži o 2400€, čo znamená, že počas ďalšieho roka platíš už menšie úroky. Už budeš platiť 1% z 97 600€. Suma, ktorú zaplatíš na úrokoch býva okolo 50% z pôvodne požičanej čiastky a keďže platíš za to, že máš požičané peniaze, tak keď hypotéku splatíš skôr, na úrokoch ušetríš.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietVlastneByvanie5",
+      "choiceString": "",
+      "resultTitle": "Ako funguje fixácia a na koľko si ju nastaviť?",
+      "resultVysvetlenie": "Ak si nastavíš 5 ročnú fixáciu, tak to znamená, že budeš mať 5rokov za sebou rovnakú výšku úroku. Nastaviť si fixáciu na 3 roky je aktuálne bezpečné, nakoľko sa nepredpokladá, že sa budú úroky v najbližších rokoch výrazne zvyšovať. Ak by bolo riziko, že by sa úroky zvyšovali, tak je výhodné si dať fixáciu na čo najdlhšie, to však nie je prípad dnešnej doby.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietVlastneByvanie6",
+      "choiceString": "",
       "resultTitle": "Kedy sa oplatí hypotéka refinancovať?",
-      "resultVysvetlenie": "Ak si chceš kúpiť byt za 100 000€, banka Ti nepožičia všetky peniaze. Dá Ti maximálne 80% z hodnoty nehnuteľnosti, výnimočne až 90%. Preto musíš mať našetrených vlastných minimálne 10%, čo je v tomto prípade až 10 000€. Vieš to financovať aj spotrebným úverom alebo medziúverom, to však nie sú finančne najlepšie možnosti, pretože majú vysoké úroky a na konci zaplatíš o veľa viac než Ti banka požičala. Preto odporúčame začať s prípravou na vlastné bývanie už niekoľko rokov predtým ako plánuješ jej kúpu.",
+      "resultVysvetlenie": "Vždy po skončení obdobia fixácie sú 2 mesiace na to, aby sa hypotéka splatila predčasne bez poplatku. Refinancovanie znamená, že iná banka vyplatí úver tvojej aktuálnej banke, pričom následne splácaš úver novej banke, avšak už za lepších podmienok. Pri refinancovaní vlastne vraciaš banke všetky peniaze predčasne a teda je najlepšie to robiť v období 2 mesiacov po refinancovaní. Ak úver refinancuješ mimo tohto obdobia, musíš zaplatiť poplatok vo výške 1% z aktuálne dlžnej sumy. Niektoré banky sú, v prípade, že prejdeš k nim, ochotné poplatok zaplatiť za teba.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietInvestovanie1",
+      "choiceString": "",
+      "resultTitle": "Prečo investovať?",
+      "resultVysvetlenie": "Ak nechceš pracovať do konca života, tak investovanie nie je možnosť, ale nutnosť. Už totiž nežijeme v socializme, takže nemôžeš očakávať, že sa o Teba na dôchodku postará štát. Faktom je, že nastavenie dôchodkového systému spôsobilo, že na dôchodky jednoducho nebude (*1). Preto jediná možnosť ako si vieš udržať dôstojný život aj vo vyššom veku, je sa na dôchodok pripravovať už teraz. Na dosiahnutie dôstojnej budúcnosti potrebuješ za život našetriť naozaj veľkú sumu. Ak by sa peniaze držali v banke bez zhodnotenia, inflácia (2*) ich časom úplne znehodnotí. Na druhú stranu, investovanie nielenže tvoje úspory pred infláciou chráni, dokonca Ti dokáže aj zarobiť.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietInvestovanie2",
+      "choiceString": "",
+      "resultTitle": "Do čoho investovať?",
+      "resultVysvetlenie": "Každá investícia má 3 vlastnosti - čas (doba za ktorú vieš využiť peniaze z investície), výnos (koľko ti investícia zarobí) a riziko (šanca, že o peniaze v investícii prídeš). Dve vlastnosti sú vždy dobré a jedna je zlá. Ktoré budú dobre a ktorá zlá záleží od toho, aký typ investície si vyberieš. Odporúčame vybrať si ten typ investície, ktorý má nulové riziko (nulové riziko je dobré). Inými slovami, nie je šanca, že prídeš o peniaze. Najlepší spôsob ako investovať s nulovým rizikom je cez podielové fondy(*1).                                                                                                 Teraz ti už len ostáva vybrať si ďalšiu dobrú vlastnosť a tú tretiu musíš bohužiaľ obetovať. Ak chceš mať dobrý výnos, musíš obetovať čas. Ak chceš peniaze k dispozícii čo najskôr, musíš obetovať výnos. Z toho vyplýva, že čím chceš na investícii viac zarobiť, tým musíš oddialiť čas kedy peniaze investície vyberieš. Fondy, ktoré majú najmenšie poplatky a najväčší výnos sa volajú ETF fondy, peniaze tam však musíš držať aspoň 15rokov.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietInvestovanie3",
+      "choiceString": "",
+      "resultTitle": "Kedy začať s investovaním?",
+      "resultVysvetlenie": "Na túto otázku sa hodí odpovedať jedinou vetou - už včera bolo neskoro :). Investovanie totiž funguje na princípe zloženého úročenia - čím dlhšie máš peniaze vložené na investičnom úcte, tým väčšiu hodnotu nadobudnú. Zober si príklad, že máš teraz 25 rokov a chceš ísť v 55ke na dôchodok. Založíš si investíciu s 8% úrokom a každý mesiac na ňu budeš posielať 100€. O 30 rokov bude mať Tvoja investícia hodnotu 150 000€. Ak si však povieš, \"to má čas, odložím investovanie o 2 roky neskôr\", a budeš chcieť ísť do dôchodku stále v 55ke, tak peniazom na zhodnotenie nedáš 30 rokov, ale len 28. Tieto dva roky spôsobia, že nebudeš mať 150 000€, ale len 125 000€.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietMenezovanieVydavkov1",
+      "choiceString": "",
+      "resultTitle": "Ako odkladať peniaze.",
+      "resultVysvetlenie": "Spíš si svoje najdôležitejšie finančné ciele a určí si, koľko mesačne si potrebuješ kvôli ním odkladať. Zameraj sa predovšetkým na ciele - tvorba rezervy, vlastné bývanie a príprava na finančný dôchodok. Ak ti napríklad vyjde, že na rezervu potrebuješ 50€ mesačne, na bývanie 120€, na dôchodok 80€ a na dovolenku 50€, tak vieš, že musíš odložiť 300€ mesačne. Najlepšie je, ak si ich odložíš hneď ako dostaneš výplatu. Inak hrozí, že si počas mesiaca kúpiš hlúposti a na konci ti už 300€ neostane. Ak zistíš, že si nedokážeš odložiť 300€, nesnaž sa prispôsobiť ciele svojmu príjmu. Urči si ciele a prispôsobuj príjem svojim cieľom.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietMenezovanieVydavkov2",
+      "choiceString": "",
+      "resultTitle": "Ako míňať peniaze?",
+      "resultVysvetlenie": "Častokrát sa hovorí o tom ako peniaze šetriť a zarábať, nikto nás však neučí ako ich míňať. Nezabudni že peniaze sú prostriedok k šťastnému životu, nie cieľ samotný. Preto sa ich neboj minút na veci, ktoré v tebe vyvolávajú šťastie. Napíš si zoznam aspoň piatich položiek, na ktoré potrebuješ peniaze a robia ti radosť. Tých si dopraj čo najviac, pričom výdavky, ktoré ti radosť nerobia obmedz na minimum.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietMenezovanieVydavkov3",
+      "choiceString": "",
+      "resultTitle": "Ako si spraviť poriadok.",
+      "resultVysvetlenie": "Skús si aspoň na mesiac zaznamenávať svoje výdavky (odporúčame aplikáciu Wallet, alebo poslúži aj Excel). Následne si sprav vyhodnotenie a zamysli sa kde sa dalo minút menej, respektíve viac. Pozri sa na každý pravidelný výdavok a zistí či ho vôbec potrebuješ a ak áno, či za neho nevieš platiť menej. Napríklad môžeš zistiť, že platíš za služby, ktoré už nevyužívaš (HBO, televízia, časopisy, aplikácie, atď..). Taktiež môžeš zistiť, že platíš zbytočne dráhy účet za telefón, poistenie či úvery. Po vyhodnotení máš jedinečnú šancu aplikovať zmeny a nasledujúci mesiac už míňať podľa svojich predstáv.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietIdealneRozlozenie1",
+      "choiceString": "",
+      "resultTitle": "Finančné pravidlá - koľko % z príjmu a kam? ",
+      "resultVysvetlenie": "Podľa finančných pravidiel by sa malo z príjmu odložiť 30%, z čoho 10 - 15% investovať dlhodobo, 3-5% nastaviť poistenie a 10 - 15% na finančnú rezervu.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietIdealneRozlozenie2",
+      "choiceString": "",
+      "resultTitle": "Aké využivať produkty?",
+      "resultVysvetlenie": "Investuj pravidelne každý mesiac a ideálne do ETF fondov .Ak si platíš za životné poistenie menej ako 3% z príjmu (tvoj príjem * 0.03), poistenie pravdepodobne nie je dostatočne. Ak viac ako 5% poistenie je zbytočne dráhe. Rezervu si drž na sporiacom úcte mimo banky. Existujú účty, ktoré sú zadarmo a majú dokonca aj malé zhodnotenie.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietIdealneRozlozenie3",
+      "choiceString": "",
+      "resultTitle": "Mám sa odporúčaného rozloženia držať?",
+      "resultVysvetlenie": "Život nie sú len tabuľkové čísla, ak však nemáš predstavu koľko si máš odkladať, vedia ti pomôcť. Samozrejme, že konkrétne percenta sa môžu líšiť od tvojej životnej situácie. Ak je tvoja priorita vlastne bývanie a potrebuješ si našetriť čo najrýchlejšie 10 000€, tak dlhodobú investíciu môžeš odsunúť na druhú koľaj. To však neznamená, že ju nebudeš riešiť vôbec.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietFinancnaNezavislost1",
+      "choiceString": "",
+      "resultTitle": "Ako to vyzerá keď je človek finančne nezávislý?",
+      "resultVysvetlenie": "Finančná nezávislosť, alebo aj finančný dôchodok znamená, že Ti pasívny príjem pokryje všetky výdavky. Inými slovami, už nemusíš pracovať kvôli peniazom. Ak niekto dosiahne finančnú nezávislosť, neznamená to, že prestane úplne pracovať. Pracuje sa mu však lepšie, pretože to už nerobí kvôli peniazom, ale jednoducho pretože ho práca napĺňa.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietFinancnaNezavislost2",
+      "choiceString": "",
+      "resultTitle": "Aké sú možnosti nadobudnutia pasívneho príjmu?",
+      "resultVysvetlenie": "Je stovky spôsobov, uvedieme však 3 najčastejšie.     1. Prenájom bytov. Kúpiš si na hypotéku byt, dáš ho do podnájmu, podnájomník ti platí hypotéku + niečo navyše. Tvojou snahou je hypotéku splatiť čo najskôr. Keď sa ti to podarí, proces opakuješ.       2. Dividendový výnos. Ak budeme hovoriť o finančnej nezávislosti, budeme hovoriť práve o tomto spôsobe pretože je najľahší a s jeho pomocou dokáže finančnú nezávislosť dosiahnuť takmer každý. Dividendový výnos znamená, že peniaze ti zarábajú ďalšie peniaze. Funguje to takým spôsobom, že si za život našetríš veľkú sumu peňazí a kúpiš si za ne časti veľkých svetových spoločnosti. Stávaš sa vlastne takým spolumajiteľom za čo ti tieto firmy dávajú výplatu - dividendu. Tieto výplaty vedia zarábať 4-5% ročne z pôvodne našetrenej sumy. Ak si za život našetríš 300 000€, za ktoré si následne nakupis \"miesta vo firmách\", tak ti bude chodiť výplata 12 000€ ročne (12 000€ sú 4% z 300 000€). To znamená, že tvoj financny dôchodok by bol 1000€ mesačne.       3. Podnikanie. Tento spôsob je najnáročnejší. Vytvoríš systém, ktorý vie fungovať aj bez teba. Ak je systém nastavil správne tak, tvoja spoločnosť bude zisková, bude prosperovať a ty budeš profitovať aj bez ďalšej pridanej energie.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietFinancnaNezavislost3",
+      "choiceString": "",
+      "resultTitle": "Koľko to trvá?",
+      "resultVysvetlenie": "Vždy sú samozrejme výnimky, avšak ľudia, ktorí pracujú na trvalý pracovný pomer a odkladaju si 10% z príjmu sa vedia dostať do finančnej nezávislosti do 30rokov. Čiže ak si 20 ročný študent začne odkladať 10% z príjmu už popri prvej práci a neprestane, tak v 50ke môže prestať pracovať.      Ľudia ktorí sa živia sami, čiže živnostníci, si statisticky vedia zarobiť viac, čo znamená, že sa k finančnej nezávislosti vedia dopracovať skôr. U nich to trvá 15 - 20 rokov.      Podnikateľovi to trvá toľko, za koľko sa mu podarí vybudovať systém, ktorí ho bude živiť. Je to zväčša 5 - 10 rokov tvrdej práce. Táto možnosť je pre väčšinu ľudí irelevantná práve kvôli tomu, aké náročné to je.",
       "resultPointsStratil": 1
     },
     {
