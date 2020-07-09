@@ -10,7 +10,6 @@ body {
   margin: 0;
   color: $text;
   font-family: Arial, serif;
-  overflow: hidden;
 }
 
 h1 {
@@ -291,6 +290,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 
 .sv_body {
   background: none;
+  overflow: hidden;
 }
 
 body {
