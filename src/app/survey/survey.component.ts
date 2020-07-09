@@ -186,20 +186,20 @@ export class SurveyComponent implements OnInit {
 
         var newSection = getSectionByCurrentPage();
 
-        if (currentSection != newSection) {
-          for (let i = 0; i < sections.length; i++) {
-            if (sections[i] == currentSection) {
-              navbarElements[i].classList.remove("current");
-            }
-          }
+        // set section name as body class name
+        for (let i = 0; i < sections.length; i++) {
+          document.getElementsByTagName("body")[0].classList.remove(sections[i]);
+        }
+        document.getElementsByTagName("body")[0].classList.add(newSection);
 
-          for (let i = 0; i < sections.length; i++) {
-            if (sections[i] == currentSection) {
-              navbarElements[i].classList.add("current");
-            }
-          }
+        // set navigation items current state
+        for (let i = 0; i < navbarElements.length; i++) {
+          navbarElements[i].classList.remove("current");
+        }
 
-          currentSection = newSection;
+        // TODO: sometimes newSection is undefined
+        if (newSection) {
+          navbarElements[sections.indexOf(newSection)].classList.add("current");
         }
       }
 

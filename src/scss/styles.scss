@@ -1,11 +1,10 @@
 @import "variables";
+
+@import "survey";
 @import "illustrations";
 @import "result";
 
-@font-face {
-  font-family: "Comic Sans MS";
-  src: url(/assets/comic-sans.ttf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
   margin: 0;
@@ -14,20 +13,11 @@ body {
 }
 
 h1 {
-  font-family: "Comic Sans MS", serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 * {
   box-sizing: border-box;
-}
-
-.sv_body {
-  min-height: 100vh;
-  position: relative;
-  background-color: $color5!important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .sv_nav {
@@ -43,7 +33,7 @@ h1 {
 
 .sv_qstn {
   margin: 0 160px;
-  max-width: 600px!important;
+  max-width: 700px!important;
 }
 
 h5.sv_q_title {
@@ -51,7 +41,7 @@ h5.sv_q_title {
 }
 
 h5.sv_q_title span {
-  font-size: 28px!important;
+  font-size: 40px!important;
 }
 
 .sv_main .sv_container {
@@ -60,9 +50,9 @@ h5.sv_q_title span {
 
 .sv_q_radiogroup, .sv_q_checkbox {
   padding: 6px;
-  background-color: rgba($text, .16);
+  background-color: rgba($color3, .4);
   margin: 8px 0;
-  box-shadow: rgba($text, 0.1) 0 0 0 1px inset;
+  box-shadow: rgba($color1, .4) 0 0 0 1px inset;
   border-radius: 6px;
   color: $text;
   font-size: 1.2rem;
@@ -78,6 +68,8 @@ h5.sv_q_title span {
   display: block;
   min-height: 100%;
   height: auto !important;
+  font-weight: 500;
+  color: $text;
 }
 
 .sv_row {
@@ -220,7 +212,7 @@ h5.sv_q_title span {
 
 .navigationProgressbar li {
   font-size: 14px;
-  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', sans-serif;
   position: relative;
   display: inline-block;
   margin: 0 8px;
@@ -235,42 +227,19 @@ h5.sv_q_title span {
   word-break: break-all;
 }
 
-.navigationProgressbar li:nth-child(1):before {
-  background-image: url(/assets/nav/nav-1.png);
-}
-
-.navigationProgressbar li:nth-child(2):before {
-  background-image: url(/assets/nav/nav-2.png);
-}
-
-.navigationProgressbar li:nth-child(3):before {
-  background-image: url(/assets/nav/nav-3.png);
-}
-
-.navigationProgressbar li:nth-child(4):before {
-  background-image: url(/assets/nav/nav-4.png);
-}
-
-.navigationProgressbar li:nth-child(5):before {
-  background-image: url(/assets/nav/nav-5.png);
-}
-
 .navigationProgressbar li:before {
   width: 30px;
   height: 30px;
   content: '';
   line-height: 30px;
-  border: 3px solid $color2;
+  border: 5px solid $color2;
   display: block;
   margin: 0 auto 10px;
   border-radius: 50%;
-  background-color: $color2;
-  background-size: cover;
-  background-position: center;
 }
 .navigationProgressbar li:after {
   width: calc(100% - 45px);
-  height: 3px;
+  height: 5px;
   content: '';
   position: absolute;
   background-color: $color2;
@@ -281,24 +250,14 @@ h5.sv_q_title span {
 .navigationProgressbar li:first-of-type:after {
   content: none;
 }
-.navigationProgressbar li.completed:before {
-  border-color: $color2;
-  background-color: $color2;
-}
-.navigationProgressbar li.completed + li:after {
-  background-color: $color2;
-}
+
 .navigationProgressbar li:before {
   border-color: $color2;
 }
 
-.navigationProgressbar li:not(.current):before {
-  border-color: $color2;
-  background-image: none!important;
-}
-
 .navigationProgressbar li.current:before {
   border-color: $color2;
+  background-color: $color2;
 }
 
 .text-input-wrapper {
@@ -317,6 +276,33 @@ h5.sv_q_title span {
 
 .sv_body {
   overflow: hidden;
+  background-color: $bg1;
+  background-position: center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-image:url(/assets/bg/UvodneOtazky.png);
+}
+
+body.sekciaUvodneOtazky .sv_body {
+  background-color: $bg1;
+  background-image:url(/assets/bg/UvodneOtazky.png);
+}
+
+body.sekciaVyberProduktov .sv_body {
+  background-color: $bg2;
+  background-image: url(/assets/bg/Produkty.png);
+}
+body.sekciaPracaSPeniazmi .sv_body {
+  background-color: $bg3;
+  background-image: url(/assets/bg/PracaSPeniazmi.png);
+}
+body.sekciaFinancnaGramotnost .sv_body {
+  background-color: $bg4;
+  background-image: url(/assets/bg/Gramotnost.png);
+}
+body.sekciaOkruhyZaujmu .sv_body {
+  background-color: $bg5;
+  background-image: url(/assets/bg/Zaujmy.png);
 }
 
 .sv_body > div:first-child {
@@ -359,8 +345,16 @@ h5.sv_q_title span {
   margin-bottom: 48px;
 }
 
-.sv_main span, .question-text {
+.question-text {
   font-size: 16px;
+  font-weight: 500;
+}
+
+.sv_q_description span {
+  font-size: 20px;
+  font-weight: 200;
+  text-align: center;
+  color: $text;
 }
 
 .sv_q_description {
