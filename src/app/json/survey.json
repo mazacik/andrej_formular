@@ -177,7 +177,7 @@
           "title": "Aká je výška Tvojho priemerného mesačného príjmu? (v čistom)",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
-          "description": "Bez toho, aby sme vedeli tvoj príjem, nedokážeme test vyhodnotiť na mieru. Nezabudni, že po vyhodnotení testu sa všetky tvoje odpovede vrátane príjmu zmažú.",
+          "description": "Bez toho, aby sme vedeli Tvoj príjem, nedokážeme test vyhodnotiť na mieru. O svoje informácie sa nemusíš obávať nakoľko sa hneď po vyhodnotení zmažú",
           "inputType": "number",
           "min": "0",
           "placeHolder": "Hodnota v €"
