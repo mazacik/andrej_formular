@@ -758,7 +758,7 @@
         {
           "type": "html",
           "name": "zaciatokBodovania",
-          "html": "<p>V tejto časti si prejeme do hĺbky tvoje sporiace a investičné produkty. Vo vyhodnotení dostaneš spätnú väzbu na ich výber a rozloženie vzhľadom na tvoj príjem.</p>"
+          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Dobre {meno}, teraz si prejeme do hĺbky tvoje sporiace a investičné produkty. Vo vyhodnotení dostaneš spätnú väzbu na ich výber a rozloženie vzhľadom na tvoj príjem.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
         }
       ],
       "visibleIf": "{produktyInvesticieSporenia} = 'produktyInvesticieSporeniaAno'"
@@ -1294,12 +1294,22 @@
       ]
     },
     {
+      "name": "pageZaciatokGramotnosti",
+      "elements": [
+        {
+          "type": "html",
+          "name": "zaciatokBodovania",
+          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>{meno}, teraz nasleduje 5 otázok na finančnú gramotnosť, pri ktorých si vieš overiť ako rozumieš peniazom.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
+        }
+      ]
+    },
+    {
       "name": "pageFinancnaGramotnostDlhodobaInvesticia",
       "elements": [
         {
           "type": "radiogroup",
           "name": "financnaGramotnostDlhodobaInvesticia",
-          "title": "Na dlhodobú investíciu vložíš 1000€. Počas roka hodnota investície klesla na 900€. Čo bude Tvoj ďalší krok?",
+          "title": "1 Na dlhodobú investíciu vložíš 1000€. Počas roka hodnota investície klesla na 900€. Čo bude Tvoj ďalší krok?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
@@ -1329,7 +1339,7 @@
         {
           "type": "radiogroup",
           "name": "financnaGramotnostPoisteniePriInvestovani",
-          "title": "Ak mať poistenie a zároveň tiež investovať, aký produkt si vyberieš?",
+          "title": "2 Ak mať poistenie a zároveň tiež investovať, aký produkt si vyberieš?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
@@ -1359,7 +1369,7 @@
         {
           "type": "radiogroup",
           "name": "financnaGramotnostDruhyPilier",
-          "title": "V ktorých fondoch je najlepšie mať založený druhý pilier?",
+          "title": "3 V ktorých fondoch je najlepšie mať založený druhý pilier?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
@@ -1397,7 +1407,7 @@
         {
           "type": "radiogroup",
           "name": "financnaGramotnostVynos",
-          "title": "Máš v banke 1000€ s 1% výnosom. Aká bude reálna hodnota týchto peňazí o rok?",
+          "title": "4 Máš v banke 1000€ s 1% výnosom. Aká bude reálna hodnota týchto peňazí o rok?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
@@ -1427,7 +1437,7 @@
         {
           "type": "radiogroup",
           "name": "financnaGramotnostByt",
-          "title": "Máš 100,000€ a chceš si kúpiť byt v tejto hodnote, čo urobíš?",
+          "title": "5 Máš 100,000€ a chceš si kúpiť byt v tejto hodnote, čo urobíš?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
@@ -1451,13 +1461,15 @@
         }
       ]
     },
+    
     {
       "name": "pageCoChcesVediet",
       "elements": [
         {
           "type": "checkbox",
           "name": "coChcesVediet",
-          "title": "O čom sa chceš dozvedieť viac?",
+          "title": "A posledná otázka - o čom sa chceš dozvedieť viac?",
+          "description": "Vo vyhodnotení zobrazíme krátke články, ktoré Ti pomôžu sa v daných témach zorientovať",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "hasOther": true,
