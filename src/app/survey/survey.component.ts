@@ -147,6 +147,8 @@ export class SurveyComponent implements OnInit {
     }
 
     function onCurrentPageChanged(survey: Survey.SurveyModel, options: any) {
+      $('.sv_qcbc').parent().css('display', 'flex');
+      $('.sv_qcbc').parent().css('justify-content', 'center');
       function updateNavBar() {
         function getSectionByCurrentPage() {
           switch (survey.currentPage.name) {

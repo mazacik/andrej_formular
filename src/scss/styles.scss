@@ -10,6 +10,7 @@ body {
   margin: 0;
   color: $text;
   font-family: Arial, serif;
+  overflow: hidden;
 }
 
 h1 {
@@ -33,7 +34,7 @@ h1 {
 
 .sv_qstn {
   margin: 0 160px;
-  max-width: 700px!important;
+  max-width: 70%!important;
 }
 
 h5.sv_q_title {
@@ -41,7 +42,7 @@ h5.sv_q_title {
 }
 
 h5.sv_q_title span {
-  font-size: 40px!important;
+  font-size: 32px!important;
 }
 
 .sv_main .sv_container {
@@ -75,6 +76,7 @@ h5.sv_q_title span {
 .sv_row {
   border-bottom: none!important;
   background-color: transparent!important;
+  justify-content: center;
 }
 
 .sv_q_text_root, .input-text {
@@ -275,7 +277,10 @@ h5.sv_q_title span {
 }
 
 .sv_body {
-  overflow: hidden;
+  background: none;
+}
+
+body {
   background-color: $bg1;
   background-position: center;
   background-size: auto 100%;
@@ -283,24 +288,24 @@ h5.sv_q_title span {
   background-image:url(/assets/bg/UvodneOtazky.png);
 }
 
-body.sekciaUvodneOtazky .sv_body {
+body.sekciaUvodneOtazky {
   background-color: $bg1;
   background-image:url(/assets/bg/UvodneOtazky.png);
 }
 
-body.sekciaVyberProduktov .sv_body {
+body.sekciaVyberProduktov {
   background-color: $bg2;
   background-image: url(/assets/bg/Produkty.png);
 }
-body.sekciaPracaSPeniazmi .sv_body {
+body.sekciaPracaSPeniazmi {
   background-color: $bg3;
   background-image: url(/assets/bg/PracaSPeniazmi.png);
 }
-body.sekciaFinancnaGramotnost .sv_body {
+body.sekciaFinancnaGramotnost {
   background-color: $bg4;
   background-image: url(/assets/bg/Gramotnost.png);
 }
-body.sekciaOkruhyZaujmu .sv_body {
+body.sekciaOkruhyZaujmu {
   background-color: $bg5;
   background-image: url(/assets/bg/Zaujmy.png);
 }
@@ -359,4 +364,9 @@ body.sekciaOkruhyZaujmu .sv_body {
 
 .sv_q_description {
   margin-top: 16px!important;
+}
+
+.sv_qcbx, .sv_qcbc {
+  display: flex;
+  min-width: 200px;
 }
