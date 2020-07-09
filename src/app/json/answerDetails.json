@@ -18,6 +18,13 @@
       "id": "coChcesVedietVlastneByvanie",
       "choiceString": "",
       "resultTitle": "Koľko potrebuješ peňazí? ",
+      "resultVysvetlenie": "Zadlžiť sa môžeš maximálne do 8-násobku Tvojho ročného príjmu. V praxi to znamená, že ak zarábaš, napríklad, 1000€ mesačne, banka Ti požičia maximálne 96 000€. Pracovníci v banke sledujú Tvoj príjem za posledných 3-12 mesiacov, to však záleží od samotnej banky.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "coChcesVedietVlastneByvanie",
+      "choiceString": "",
+      "resultTitle": "Kedy sa oplatí hypotéka refinancovať?",
       "resultVysvetlenie": "Ak si chceš kúpiť byt za 100 000€, banka Ti nepožičia všetky peniaze. Dá Ti maximálne 80% z hodnoty nehnuteľnosti, výnimočne až 90%. Preto musíš mať našetrených vlastných minimálne 10%, čo je v tomto prípade až 10 000€. Vieš to financovať aj spotrebným úverom alebo medziúverom, to však nie sú finančne najlepšie možnosti, pretože majú vysoké úroky a na konci zaplatíš o veľa viac než Ti banka požičala. Preto odporúčame začať s prípravou na vlastné bývanie už niekoľko rokov predtým ako plánuješ jej kúpu.",
       "resultPointsStratil": 1
     },
