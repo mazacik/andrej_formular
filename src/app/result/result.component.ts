@@ -218,9 +218,6 @@ export class ResultComponent implements OnInit {
             case "coChcesVedietFinancnaNezavislost":
               stringy[stringy.length] = "finančnej nezávislosti";
               break;
-            case "coChcesVedietBenefityOdStatu":
-              stringy[stringy.length] = "benefitoch od štátu";
-              break;
             case "coChcesVedietMenezovanieVydavkov":
               stringy[stringy.length] = "menežovaní výdavkov";
               break;

@@ -18,9 +18,19 @@
         {
           "type": "text",
           "name": "meno",
-          "title": "Ako si želáš, aby sme ťa oslovovali?",
+          "title": "Vítame Ta v Monteste, ako si želáš, aby sme Ťa oslovovali?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná."
+        }
+      ]
+    },
+    {
+      "name": "pageZaciatokUvodnychOtazok",
+      "elements": [
+        {
+          "type": "html",
+          "name": "zaciatokUvodnychOtazok",
+          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Ahoj {meno}, test Ti zaberie okolo 15minút a po jeho vyplneni dostaneš bez nutnosti zadania mailu vyhodnotenie.<br><br>Po vyhodnotení sa všetky Tvoje údaje automaticky zmažú.<br><br>Na úvod sa Ťa spýtame zopár otázok, po ktorých Ti vyberieme najvhodnejšiu verziu testu.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
         }
       ]
     },
@@ -30,7 +40,7 @@
         {
           "type": "radiogroup",
           "name": "vek",
-          "title": "Ahoj {meno}, koľko máš rokov?",
+          "title": "Koľko máš rokov?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
@@ -279,6 +289,7 @@
           "type": "text",
           "name": "odkladaniePenaziVyska",
           "title": "Koľko sa Ti darí priemerne mesačne odložiť?",
+          "description": "(rátaj aj sporenia, investície a rezevu)",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
@@ -293,7 +304,7 @@
         {
           "type": "html",
           "name": "zaciatokBodovania",
-          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Ďakujeme {meno} za vyplnenie otázok, teraz už vieme ktorý test bude pre teba najvhodnejší.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
+          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Ďakujeme {meno} za vyplnenie otázok, teraz už vieme ktorý test bude pre Teba najvhodnejší.<br><br>Ako prvé otestujeme Tvoj výber finančných produktov.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
         }
       ]
     },
@@ -753,11 +764,11 @@
       ]
     },
     {
-      "name": "pageZaciatokBodovania",
+      "name": "pageZaciatokOtazokOInvestovani",
       "elements": [
         {
           "type": "html",
-          "name": "zaciatokBodovania",
+          "name": "zaciatokOtazokOInvestovani",
           "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Dobre {meno}, teraz si prejeme do hĺbky tvoje sporiace a investičné produkty. Vo vyhodnotení dostaneš spätnú väzbu na ich výber a rozloženie vzhľadom na tvoj príjem.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
         }
       ],
@@ -1339,7 +1350,7 @@
         {
           "type": "radiogroup",
           "name": "financnaGramotnostPoisteniePriInvestovani",
-          "title": "2 Ak mať poistenie a zároveň tiež investovať, aký produkt si vyberieš?",
+          "title": "2 Ak chceš mať poistenie a zároveň tiež investovať, aký produkt si vyberieš?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
@@ -1476,23 +1487,23 @@
           "choices": [
             {
               "value": "coChcesVedietInvestovanie",
-              "text": "investovanie - aktívne alebo pasívne; Ako, kedy a do čoho investovať?"
+              "text": "investovanie - preco, kedy a do čoho investovať"
             },
             {
               "value": "coChcesVedietIdealneRozlozenie",
-              "text": "ideálne rozloženie - ako si vyskladať finančné portfólio; Kam by som mal(a) dávať odložené peniaze?"
+              "text": "ideálne rozloženie - do ktorých oblastí smerovať svoje peniaze a koľko"
             },
             {
               "value": "coChcesVedietVlastneByvanie",
-              "text": "vlastné bývanie - čo všetko treba vedieť a ako sa na to pripraviť?"
+              "text": "vlastné bývanie - čo všetko treba vedieť a ako sa na to pripraviť."
             },
             {
               "value": "coChcesVedietFinancnaNezavislost",
-              "text": "finančná nezávislosť - ako sa dá vytvoriť pasívny príjem, ktorý pokrýva nevyhnutné životné výdavky?"
+              "text": "finančná nezávislosť - ako sa dá vytvoriť pasívny príjem, ktorý pokrýva nevyhnutné životné výdavky."
             },
             {
               "value": "coChcesVedietMenezovanieVydavkov",
-              "text": "menežovanie vydávkov - ako sa zamýšľať nad svojimi výdavkami a nájsť balans medzi šetrením a užívaním si"
+              "text": "menežovanie vydávkov - ako sa zamýšľať nad svojimi výdavkami a nájsť balans medzi šetrením a užívaním si."
             }
           ],
           "otherText": "Iné"

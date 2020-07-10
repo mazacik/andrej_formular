@@ -153,28 +153,50 @@ export class SurveyComponent implements OnInit {
         function getSectionByCurrentPage() {
           switch (survey.currentPage.name) {
             case "pageMeno":
+            case "pageZaciatokUvodnychOtazok":
             case "pageVek":
             case "pageStudium":
             case "pageZdrojPrijmu":
             case "pageVyskaPrijmu":
+            case "pageNemaPrijem":
+            case "pageDajteMiVediet":
+            case "pageKdePracujes":
+            case "pageOdkladaniePenazi":
+            case "pageOdkladaniePenaziSposob":
             case "pageKdePracujes":
             case "pageOdkladaniePenazi":
             case "pageOdkladaniePenaziVyska":
-            case "pageKdePracujes":
-            case "pageOdkladaniePenazi":
-            case "pageOdkladaniePenaziVyska":
-            case "pageZaciatokBodovania":
               return sections[0];
+            case "pageZaciatokBodovania":
             case "pageProduktyZivotnePoistenie":
+            case "pageProduktyZivotnePoistenieKolkoPlati":
+            case "pageProduktyZivotnePoistenieInvesticia":
+            case "pageProduktyZivotnePoistenieInvesticiaVyska":
             case "pageProduktyDruhyPilier":
+            case "pageProduktyTretiPilier":
+            case "pageProduktyTretiPilierFondy":
+            case "pageProduktyTretiPilierVyskaPrispevku":
+            case "pageProduktyTretiPilierVyskaPrispevkuZamestnavatela":
             case "pageProduktyUverHypotekaPozicka":
-            case "pageProduktyIneInvesticie":
-            case "pageAkeAkciePlanujes":
+            case "pageNajomne":
+            case "pageProduktyHypotekaVyskaSplatky":
+            case "pageProduktyHypotekaUrok":
+            case "pageProduktyUverPozickaVyskaSplatky":
+            case "pageProduktyUverPozickaUrok":
+            case "pageProduktyBeznyUcet":
+            case "pageProduktyInvesticieSporenia":
+            case "pageZaciatokOtazokOInvestovani":
+            case "pageKratkodobeInvesticie":
+            case "pageDynamickeInvesticie":
+            case "pageAkeInvesticiePlanujes":
               return sections[1];
             case "pageSKymSaRadis":
             case "pageFinancnaRezerva":
+            case "pageFinancnaRezervaVyska":
             case "pagePrehladOVydavkoch":
+            case "pageOmeskanieSplatky":
               return sections[2];
+            case "pageZaciatokGramotnosti":
             case "pageFinancnaGramotnostDlhodobaInvesticia":
             case "pageFinancnaGramotnostPoisteniePriInvestovani":
             case "pageFinancnaGramotnostDruhyPilier":
