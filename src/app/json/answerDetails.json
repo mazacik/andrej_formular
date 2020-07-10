@@ -12,13 +12,13 @@
       "choiceString": "",
       "resultTitle": "Nájomné máš vyššie ako 30% príjmu.",
       "resultVysvetlenie": "To je zlé, zmeň sa.",
-      "resultPointsStratil": -1
+      "resultPointsStratil": 1
     },
     {
       "id": "coChcesVedietVlastneByvanie1",
       "choiceString": "",
       "resultTitle": "Koľko potrebuješ peňazí? ",
-      "resultVysvetlenie": "Ak si chceš kúpiť byt za 100 000€, banka Ti nepožičia všetky peniaze. Dá Ti maximálne 80% z hodnoty nehnuteľnosti, výnimočne až 90%. Preto musíš mať našetrených vlastných minimálne 10%, čo je v tomto prípade až 10 000€. Vieš to financovať aj spotrebným úverom alebo medziúverom, to však nie sú finančne najlepšie možnosti, pretože majú vysoké úroky a na konci zaplatíš o veľa viac než Ti banka požičala. Preto odporúčame začať s prípravou na vlastné bývanie už niekoľko rokov predtým ako plánuješ jej kúpu.",
+      "resultVysvetlenie": "Ak si <span class='chces'>chceš</span> kúpiť byt za 100 000€, banka Ti nepožičia všetky peniaze. Dá Ti maximálne 80% z hodnoty nehnuteľnosti, výnimočne až 90%. Preto musíš mať našetrených vlastných minimálne 10%, čo je v tomto prípade až 10 000€. Vieš to financovať aj spotrebným úverom alebo medziúverom, to však nie sú finančne najlepšie možnosti, pretože majú vysoké úroky a na konci zaplatíš o veľa viac než Ti banka požičala. Preto odporúčame začať s prípravou na vlastné bývanie už niekoľko rokov predtým ako plánuješ jej kúpu.",
       "resultPointsStratil": 1
     },
     {

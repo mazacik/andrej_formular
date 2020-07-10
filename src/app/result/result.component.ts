@@ -2,6 +2,7 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
 import * as Chart from 'chart.js';
+import tippy from 'tippy.js';
 
 import * as questionDetails from '../json/questionDetails.json';
 import * as answerDetails from '../json/answerDetails.json';
@@ -154,6 +155,10 @@ export class ResultComponent implements OnInit {
           }
         }
       }
+      //tooltipy
+      tippy('.chces', {
+        "content": "CHCES TOOLTIP."
+      })
 
       // top 3 najhorsie
       var najhorsiePocet = 0;
