@@ -177,7 +177,7 @@
           "title": "Aká je výška Tvojho priemerného mesačného príjmu? (v čistom)",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
-          "description": "Bez toho, aby sme vedeli tvoj príjem, nedokážeme test vyhodnotiť na mieru. Nezabudni, že po vyhodnotení testu sa všetky tvoje odpovede vrátane príjmu zmažú.",
+          "description": "Bez toho, aby sme vedeli Tvoj príjem, nedokážeme test vyhodnotiť na mieru. O svoje informácie sa nemusíš obávať nakoľko sa hneď po vyhodnotení zmažú",
           "inputType": "number",
           "min": "0",
           "placeHolder": "Hodnota v €"
@@ -296,96 +296,6 @@
           "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Ďakujeme {meno} za vyplnenie otázok, teraz už vieme ktorý test bude pre teba najvhodnejší.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
         }
       ]
-    },
-    {
-      "name": "pageProduktyZivotnePoistenie",
-      "elements": [
-        {
-          "type": "radiogroup",
-          "name": "produktyZivotnePoistenie",
-          "title": "Platíš si životné poistenie?",
-          "isRequired": false,
-          "requiredErrorText": "Otázka je povinná.",
-          "choices": [
-            {
-              "value": "produktyZivotnePoistenieAno",
-              "text": "áno"
-            },
-            {
-              "value": "produktyZivotnePoistenieRodicia",
-              "text": "platia mi ho rodičia"
-            },
-            {
-              "value": "produktyZivotnePoistenieNiePlanujem",
-              "text": "nie, ale plánujem"
-            },
-            {
-              "value": "produktyZivotnePoistenieNie",
-              "text": "nie"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "pageProduktyZivotnePoistenieKolkoPlati",
-      "elements": [
-        {
-          "type": "text",
-          "name": "produktyZivotnePoistenieKolkoPlati",
-          "title": "Koľko priemerne mesačne platíš za svoje poistenie?",
-          "isRequired": false,
-          "requiredErrorText": "Otázka je povinná.",
-          "inputType": "number",
-          "min": "0",
-          "placeHolder": "Mesačná čiastka v €"
-        }
-      ],
-      "visibleIf": "{produktyZivotnePoistenie} = 'produktyZivotnePoistenieAno'"
-    },
-    {
-      "name": "pageProduktyZivotnePoistenieInvesticia",
-      "elements": [
-        {
-          "type": "radiogroup",
-          "name": "produktyZivotnePoistenieInvesticia",
-          "title": "Máš poistenie spojené s investíciou?",
-          "isRequired": false,
-          "requiredErrorText": "Otázka je povinná.",
-          "choices": [
-            {
-              "value": "produktyZivotnePoistenieInvesticiaAno",
-              "text": "áno"
-            },
-            {
-              "value": "produktyZivotnePoistenieInvesticiaNie",
-              "text": "nie"
-            },
-            {
-              "value": "produktyZivotnePoistenieInvesticiaNeviem",
-              "text": "neviem"
-            }
-          ]
-        }
-      ],
-      "visibleIf": "{produktyZivotnePoistenie} = 'produktyZivotnePoistenieAno'"
-    },
-    {
-      "name": "pageProduktyZivotnePoistenieInvesticiaVyska",
-      "elements": [
-        {
-          "type": "text",
-          "name": "produktyZivotnePoistenieInvesticiaVyska",
-          "title": "Koľko z {produktyZivotnePoistenieKolkoPlati}€ je investičná zložka?",
-          "description": "(napíš aspoň približne, ak naozaj nevieš, otázku preskoč)",
-          "isRequired": false,
-          "requiredErrorText": "Otázka je povinná.",
-          "inputType": "number",
-          "min": "0",
-          "placeHolder": "Mesačná čiastka v €"
-        }
-      ],
-      "visibleIf": "{produktyZivotnePoistenieInvesticia} = 'produktyZivotnePoistenieInvesticiaAno'"
     },
     {
       "name": "pageProduktyDruhyPilier",
@@ -551,6 +461,96 @@
         }
       ],
       "visibleIf": "{produktyTretiPilier} = 'produktyTretiPilierAnoZamestnavatelPrispieva'"
+    },
+    {
+      "name": "pageProduktyZivotnePoistenie",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "produktyZivotnePoistenie",
+          "title": "Platíš si životné poistenie?",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "choices": [
+            {
+              "value": "produktyZivotnePoistenieAno",
+              "text": "áno"
+            },
+            {
+              "value": "produktyZivotnePoistenieRodicia",
+              "text": "platia mi ho rodičia"
+            },
+            {
+              "value": "produktyZivotnePoistenieNiePlanujem",
+              "text": "nie, ale plánujem"
+            },
+            {
+              "value": "produktyZivotnePoistenieNie",
+              "text": "nie"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pageProduktyZivotnePoistenieKolkoPlati",
+      "elements": [
+        {
+          "type": "text",
+          "name": "produktyZivotnePoistenieKolkoPlati",
+          "title": "Koľko priemerne mesačne platíš za svoje poistenie?",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "inputType": "number",
+          "min": "0",
+          "placeHolder": "Mesačná čiastka v €"
+        }
+      ],
+      "visibleIf": "{produktyZivotnePoistenie} = 'produktyZivotnePoistenieAno'"
+    },
+    {
+      "name": "pageProduktyZivotnePoistenieInvesticia",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "produktyZivotnePoistenieInvesticia",
+          "title": "Máš poistenie spojené s investíciou?",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "choices": [
+            {
+              "value": "produktyZivotnePoistenieInvesticiaAno",
+              "text": "áno"
+            },
+            {
+              "value": "produktyZivotnePoistenieInvesticiaNie",
+              "text": "nie"
+            },
+            {
+              "value": "produktyZivotnePoistenieInvesticiaNeviem",
+              "text": "neviem"
+            }
+          ]
+        }
+      ],
+      "visibleIf": "{produktyZivotnePoistenie} = 'produktyZivotnePoistenieAno'"
+    },
+    {
+      "name": "pageProduktyZivotnePoistenieInvesticiaVyska",
+      "elements": [
+        {
+          "type": "text",
+          "name": "produktyZivotnePoistenieInvesticiaVyska",
+          "title": "Koľko z {produktyZivotnePoistenieKolkoPlati}€ je investičná zložka?",
+          "description": "(napíš aspoň približne, ak naozaj nevieš, otázku preskoč)",
+          "isRequired": false,
+          "requiredErrorText": "Otázka je povinná.",
+          "inputType": "number",
+          "min": "0",
+          "placeHolder": "Mesačná čiastka v €"
+        }
+      ],
+      "visibleIf": "{produktyZivotnePoistenieInvesticia} = 'produktyZivotnePoistenieInvesticiaAno'"
     },
     {
       "name": "pageProduktyUverHypotekaPozicka",
