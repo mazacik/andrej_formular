@@ -536,7 +536,7 @@ export class ResultComponent implements OnInit {
           for (let i = 0; i < answers.length; i++) {
             const answer = answers[i];
             // vygeneruje toggleElement do divu podla 'id'
-            this.createToggleElement(answer.id, answer.resultTitle, answer.resultVysvetlenie);
+            this.createToggleElement(answer.id, answer.resultTitle, answer.resultVysvetlenie, answer.resultPointsStratil);
           }
         }
       }

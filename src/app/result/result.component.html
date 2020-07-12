@@ -75,7 +75,7 @@
         obe vlastnosti zvládnuté.</p>-->
 
 
-      <h3>Na toto si daj pozor</h3>
+      <h3 class="prehladOVydavkochMamDobruPredstavu divPrehladOVydavkochAkoTakViem divPrehladOVydavkochNesledujem" hidden>Na toto si daj pozor</h3>
       <div class="prehladOVydavkochMamDobruPredstavu divPrehladOVydavkochAkoTakViem divPrehladOVydavkochNesledujem">
       </div>
 
@@ -94,9 +94,9 @@
           <canvas id="graf-idealny"></canvas>
         </div>
       </div>
-      <p class="mesacnarezerva30percentprijmu" hidden><b>Mesačne si odkladáš 30% z Tvojho príjmu na rezervu.</b> Podľa
+      <p class="mesacnarezerva30percentprijmu" hidden><span id="mesacnarezerva30percentprijmuPoints"></span><b>Mesačne si odkladáš 30% z Tvojho príjmu na rezervu.</b> Podľa
         finančných pravidiel by si si mal odkladať minimálne 10%, ty však zvládaš oveľa viac!</p>
-      <p class="odlozit50percentprijmu" hidden><b>Vieš si odložiť 50% z Tvojho príjmu.</b> Na študenta je táto suma
+      <p class="odlozit50percentprijmu" hidden><span id="odlozit50percentprijmuPoints"></span><b>Vieš si odložiť 50% z Tvojho príjmu.</b> Na študenta je táto suma
         veľmi úctyhodná, len tak ďalej!</p>
       <div class="kolkoPercentPrijmuJeNajomne"></div>
     </div>
@@ -107,36 +107,36 @@
       <div class="my-48">
         <h3>Otázka 1</h3>
         <p><b>Na dlhodobú investíciu vložíš 1000€, o rok hodnota tejto investície klesla na 900€. Čo urobíš?</b></p>
-        <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostDlhodobaInvesticiaUserChoice"></span></p>
-        <p><b>Správna odpoveď:</b> Vložím tam ďalšie peniaze</p>
+        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostDlhodobaInvesticiaUserChoice"></span> [-<span id="financnaGramotnostDlhodobaInvesticiaPoints"></span>b]</p>
+        <p><b>Správna odpoveď: </b>Vložím tam ďalšie peniaze</p>
         <div class="financnaGramotnostDlhodobaInvesticiaVysvetlenie"></div>
       </div>
       <div class="my-48">
         <h3>Otázka 2</h3>
         <p><b>Ak chceš mať poistenie a tiež investovať, aký produkt si vyberieš?</b></p>
-        <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostPoisteniePriInvestovaniUserChoice"></span></p>
-        <p><b>Správna odpoveď:</b> Životné poistenie a sporenie zvlášť</p>
+        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostPoisteniePriInvestovaniUserChoice"></span> [-<span id="financnaGramotnostPoisteniePriInvestovaniPoints"></span>b]</p>
+        <p><b>Správna odpoveď: </b>Životné poistenie a sporenie zvlášť</p>
         <div class="financnaGramotnostPoisteniePriInvestovaniVysvetlenie"></div>
       </div>
       <div class="my-48">
         <h3>Otázka 3</h3>
         <p><b>V ktorých fondoch je najlepšie mať založený druhý pilier?</b></p>
-        <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostDruhyPilierUserChoice"></span></p>
-        <p><b>Správna odpoveď:</b> Indexové negarantované fondy</p>
+        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostDruhyPilierUserChoice"></span> [-<span id="financnaGramotnostDruhyPilierPoints"></span>b]</p>
+        <p><b>Správna odpoveď: </b>Indexové negarantované fondy</p>
         <div class="financnaGramotnostDruhyPilierVysvetlenie"></div>
       </div>
       <div class="my-48">
         <h3>Otázka 4</h3>
         <p><b>V banke máš vložených 1000€ s 1%-ným výnosom. Aká bude reálna hodnota Tvojich peňazí o rok?</b></p>
-        <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostVynosUserChoice"></span></p>
-        <p><b>Správna odpoveď:</b> Nižšia</p>
+        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostVynosUserChoice"></span> [-<span id="financnaGramotnostVynosPoints"></span>b]</p>
+        <p><b>Správna odpoveď: </b>Nižšia</p>
         <div class="financnaGramotnostVynosVysvetlenie"></div>
       </div>
       <div class="my-48">
         <h3>Otázka 5</h3>
         <p><b>Máš 100 000€ a chceš si kúpiť byt v hodnote 100 000€, čo urobíš?</b></p>
-        <p><b>Tvoja odpoveď:</b> <span id="financnaGramotnostBytUserChoice"></span></p>
-        <p><b>Správna odpoveď:</b> Z banky si požičiam, čo najviac mi dajú a ostatné si financujem sám.</p>
+        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostBytUserChoice"></span> [-<span id="financnaGramotnostBytPoints"></span>b]</p>
+        <p><b>Správna odpoveď: </b>Z banky si požičiam, čo najviac mi dajú a ostatné si financujem sám.</p>
         <div class="financnaGramotnostBytVysvetlenie"></div>
       </div>
     </div>
@@ -204,9 +204,7 @@
     <div class="section">
       <h2>Nemám záujem o konzultáciu, chcem si však uložiť vyhodnotenie.</h2>
       <div><input class="input-text" id="emailKlientaVysledok" type="email" placeholder="meno@gmail.com"></div>
-      <p><button class="button-main" (click)="sendDataUrlAsEmail()">POSLAŤ EMAILOM</button></p>
-      <p><button class="button-main" (click)="saveDataUrlAsHTML()">ULOŽIŤ</button></p>
-      <p><button class="button-main" (click)="copyDataUrlToClipboard()">SKOPÍROVAŤ LINK</button></p>
+      <p><button class="button-main" (click)="sendDataUrlAsEmail()">Poslať vyhodnotenie emailom</button></p>
     </div>
   </div>
 </div>
