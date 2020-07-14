@@ -75,24 +75,59 @@ export class ResultComponent implements OnInit {
         this.createToggleElement(answerNajomne.id, answerNajomne.resultTitle, answerNajomne.resultVysvetlenie, answerNajomne.resultPointsStratil);
       }
 
+    
       // odlozitViacAko20percentprijmu
-      if (this.data.odkladaniePenaziVyska > this.data.vyskaPrijmu * 0.2) {
+      if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.2) {
+        const pocetBodovMax = 1;
+        const pocetBodovStratil = 0;
 
-        // top3 najhorsie/najlepsie, ID sa musi zhodovat s tymi v naj3Order.json a result.html
+        this.pocetBodovMax += pocetBodovMax;
+        this.pocetBodovStratil += pocetBodovStratil;
+
         naj3Extra[naj3Extra.length] = 'naj_odlozitViacAko20percentprijmu';
 
-        // vytvorenie toggle elementu (nadpis a tlacitko, ktore zobrazi text s vysvetlenim)
-        // ID sa musi zhodovat s tym v survey.json a result.html
-        var odlozitViacAko20percentprijmu = this.getAnswerById('odlozitViacAko20percentprijmu');
-        if (odlozitViacAko20percentprijmu) {
-          this.createToggleElementFromAnswer("odlozitViacAko20percentprijmu");
+        this.showElementsByClass("odlozitViacAko20percentprijmu");
 
-          // pocet bodov
-          this.pocetBodovMax += 1; // alebo ho nacitas z questionDetails.json, v tom pripade mi napis
-          this.pocetBodovStratil += odlozitViacAko20percentprijmu.resultPointsStratil; // alebo jednoducho odcitas cislo
+        var spanPoints = document.getElementById("odlozitViacAko20percentprijmuPoints");
+        if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil + "b] ";
         }
-      } 
 
+        // odlozitViacAko10percentprijmu
+        if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.1 && this.data.odkladaniePenaziVyska < this.data.vyskaPrijmu * 0.2) {
+
+          // top3 najhorsie/najlepsie, ID sa musi zhodovat s tymi v naj3Order.json a result.html
+          naj3Extra[naj3Extra.length] = 'naj_odlozitViacAko10percentprijmu';
+  
+          // vytvorenie toggle elementu (nadpis a tlacitko, ktore zobrazi text s vysvetlenim)
+          // ID sa musi zhodovat s tym v survey.json a result.html
+          var answerOdlozitViacAko10percentprijmu = this.getAnswerById('odlozitViacAko10percentprijmu');
+          if (answerOdlozitViacAko10percentprijmu) {
+            this.createToggleElementFromAnswer(answerOdlozitViacAko10percentprijmu);
+  
+            // pocet bodov
+            this.pocetBodovMax += 1; // alebo ho nacitas z questionDetails.json, v tom pripade mi napis
+            this.pocetBodovStratil += answerOdlozitViacAko10percentprijmu.resultPointsStratil; // alebo jednoducho odcitas cislo
+          }
+        }
+      
+         // odlozitMenejAko10percentprijmu
+         if (this.data.odkladaniePenaziVyska < this.data.vyskaPrijmu * 0.1) {
+
+          // top3 najhorsie/najlepsie, ID sa musi zhodovat s tymi v naj3Order.json a result.html
+          naj3Extra[naj3Extra.length] = 'naj_odlozitMenejAko10percentprijmu';
+  
+          // vytvorenie toggle elementu (nadpis a tlacitko, ktore zobrazi text s vysvetlenim)
+          // ID sa musi zhodovat s tym v survey.json a result.html
+          var answerOdlozitMenejAko10percentprijmu = this.getAnswerById('odlozitMenejAko10percentprijmu');
+          if (answerOdlozitMenejAko10percentprijmu) {
+            this.createToggleElementFromAnswer(answerOdlozitMenejAko10percentprijmu);
+  
+            // pocet bodov
+            this.pocetBodovMax += 1; // alebo ho nacitas z questionDetails.json, v tom pripade mi napis
+            this.pocetBodovStratil += answerOdlozitMenejAko10percentprijmu.resultPointsStratil; // alebo jednoducho odcitas cislo
+          }
+        }
+        
       // vyskarezervy5nasobokprijmu
       if (this.data.financnaRezervaVyska >= this.data.vyskaPrijmu * 5) {
         const pocetBodovMax = 1;

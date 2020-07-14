@@ -13,6 +13,12 @@
       "resultVysvetlenie": ""
     },
     {
+      "id": "produktyTretiPilier",
+      "resultPointsMax": 0.5,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
+    },
+    {
       "id": "najomne",
       "resultPointsMax": 1,
       "correctChoice": "",

@@ -141,25 +141,56 @@
       "resultPointsStratil": 1
     },
     {
+      "id": "produktyDruhyPilierFondyDlhopisove",
+      "choiceString": "",
+      "resultTitle": "V druhom pilieri nemáš indexové podielové fondy.",
+      "resultVysvetlenie": "Je extrémne dôležité ako máš nastavený druhý pilier. Rozdiel je síce len v jednom poličku na zmluve, reálny rozdiel medzi správnym a nesprávnym nastavením sú však desaťtisíce eur na dôchodku. Dlhopisové fondy zarábajú 2% ročne, indexové 6%. Ak pôjdeš do dôchodku o 30 rokov a na druhý pilier mesačne vkladáš 50€ (býva to viac, je to 5% z hrubého príjmu), tak dlhopisové fondy ti vytvoria finančný majetok 25 000€ a indexové 50 000€.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "produktyDruhyPilierFondyAkciove",
+      "choiceString": "",
+      "resultTitle": "V druhom pilieri nemáš indexové podielové fondy.",
+      "resultVysvetlenie": "Je extrémne dôležité ako máš nastavený druhý pilier. Rozdiel je síce len v jednom poličku na zmluve, reálny rozdiel medzi správnym a nesprávnym nastavením sú však desaťtisíce eur na dôchodku. Dlhopisové fondy zarábajú 2% ročne, indexové 6%. Ak pôjdeš do dôchodku o 30 rokov a na druhý pilier mesačne vkladáš 50€ (býva to viac, je to 5% z hrubého príjmu), tak dlhopisové fondy ti vytvoria finančný majetok 25 000€ a indexové 50 000€.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "produktyDruhyPilierFondyNeviem",
+      "choiceString": "",
+      "resultTitle": "V druhom pilieri nemáš indexové podielové fondy.",
+      "resultVysvetlenie": "Je extrémne dôležité ako máš nastavený druhý pilier. Rozdiel je síce len v jednom poličku na zmluve, reálny rozdiel medzi správnym a nesprávnym nastavením sú však desaťtisíce eur na dôchodku. Dlhopisové fondy zarábajú 2% ročne, indexové 6%. Ak pôjdeš do dôchodku o 30 rokov a na druhý pilier mesačne vkladáš 50€ (býva to viac, je to 5% z hrubého príjmu), tak dlhopisové fondy ti vytvoria finančný majetok 25 000€ a indexové 50 000€.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "produktyTretiPilierNie",
+      "choiceString": "",
+      "resultTitle": "Nemáš tretí pilier.",
+      "resultVysvetlenie": "Tretí pilier je účet, na ktorý si vieš sporiť na dôchodok. Jeho založenie je pre Teba výhodné iba vtedy, ak by Ti naň prispieval aj zamestnávateľ. V tom prípade dostaneš na dôchodok zadarmo peniaze. Nie každý zamestnávateľ však tento benefit poskytuje, preto sa určite v práci spýtaj, ako je to u vás.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "produktyTretiPilierNeviemCoToJe",
+      "choiceString": "",
+      "resultTitle": "Nevieš, čo znamená tretí pilier.",
+      "resultVysvetlenie": "Tretí pilier je účet, na ktorý si vieš sporiť na dôchodok. Jeho založenie je pre Teba výhodné iba vtedy, ak by Ti naň prispieval aj zamestnávateľ. V tom prípade dostaneš na dôchodok zadarmo peniaze. Nie každý zamestnávateľ však tento benefit poskytuje, preto sa určite v práci spýtaj, ako je to u vás.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "produktyTretiPilierNiePlanuje",
+      "choiceString": "",
+      "resultTitle": "Nemáš ešte tretí pilier.",
+      "resultVysvetlenie": "Tretí pilier by mal mať založený každý kto odvádza odvody a jeho zamestnávateľ mu ako pracovný benefit poskytuje príspevky. O treťom pilieri sme slabo informovaní a preto je pochopiteľné, že ho nemáš a o to chvályhodnejšie, že ho chceš máš. Tretí pilier si však zakladaj iba v prípade, že by Ti naň prispieval aj zamestnávateľ. Ak by Ti neprispieval, tak sa tretí pilier neoplatí.",
+      "resultPointsStratil": 0.5
+    },
+    
+
+
+    {
       "id": "financnaGramotnostPoisteniePriInvestovaniNeviem",
       "choiceString": "Neviem",
       "resultTitle": "",
       "resultVysvetlenie": "",
       "resultPointsStratil": 0.5
-    },
-    {
-      "id": "produktyDruhyPilierFondyIndexove",
-      "choiceString": "",
-      "resultTitle": "Máš druhý pilier správne uložený v indexových negarantovaných fondoch.",
-      "resultVysvetlenie": "Iba 60% Slovákov je v druhom pilieri a z toho 70% ho má nastavených nesprávne. To však nie je tvoj prípad, za čo úprimne blahoželáme.",
-      "resultPointsStratil": 0
-    },
-    {
-      "id": "produktyDruhyPilierFondyDlhopisove",
-      "choiceString": "",
-      "resultTitle": "Mas dlhopisove fondy",
-      "resultVysvetlenie": "Je to fakt zle lebo je to zle a to je fakt zle.",
-      "resultPointsStratil": 1
     },
     {
       "id": "financnaGramotnostDruhyPilierNeviem",
@@ -252,6 +283,35 @@
       "resultVysvetlenie": "Ak nerátame ľudí v náročnej sociálnej situácii, každý by si mal byť schopný odložiť aspoň 10% príjmu. Ak sa Ti to nedarí, je to pravdepodobne kvôli tvojej vysokej spotrebe. Väčšinou stačí, ak si vždy po výplate odložíš 10% príjmu bokom, a zvyšok mesiaca skúšaš vyžiť bez danej sumy. Ak by Ti to predsa nevychádzalo, odložené peniaze vieš kedykoľvek znova použiť. Odporúčame to skúsiť aspoň na jeden mesiac.",
       "resultPointsStratil": 1
     },
+    {
+      "id": "odlozitViacAko10percentprijmu",
+      "choiceString": "",
+      "resultTitle": "Odkladáš si menej ako 20% z príjmu.",
+      "resultVysvetlenie": "Svoje finančné ciele si nedokážeš plniť dostatočne efektívne, ak si neodkladáš aspoň 20% z tvojho príjmu. Odporúčame sa pozrieť na svoje výdavky a hľadať spôsoby ako míňať menej.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "naj_produktyDruhyPilierNie",
+      "choiceString": "",
+      "resultTitle": "Nemáš druhý pilier.",
+      "resultVysvetlenie": "Druhý pilier sú jediné peniaze, ktoré vieš od štátu získať zadarmo navyše len tak. Funguje to tak, že časť z Tvojich odvodov nesmerujú na vyplácanie aktuálnych dôchodcov, ale idú priamo Tebe na účet, z ktorého si vieš nasporené peniaze vytiahnuť na dôchodku. Založenie druhého piliera by malo byť jeden z prvých úkonov, ktoré spravíš po získaní prvého pracovného miesta, aj brigády.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "produktyDruhyPilierNiePlanujem",
+      "choiceString": "",
+      "resultTitle": "Nemáš ešte druhý pilier.",
+      "resultVysvetlenie": "Druhý pilier by mal mať založený každý okamžite ako začne odvádzať odvody, čiže hneď po tom ako začne pracovať. O druhom pilieri sme slabo informovaní a preto je pochopiteľne, že ho nemáš a o to chvályhodnejšie, že ho chceš máš. Pri jeho nastavovaní si daj pozor na investičnú stratégiu. Určite trvaj na tom, aby Ti ho nastavili na takzvanú indexovú stratégiu.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "odlozitMenejAko10percentprijmu",
+      "choiceString": "",
+      "resultTitle": "Odkladáš si menej ako 10% z príjmu.",
+      "resultVysvetlenie": "Ak nerátame ľudí v náročnej sociálnej situácii, každý by si mal byť schopný odložiť aspoň 10% príjmu. Ak sa Ti to nedarí, je to pravdepodobne kvôli tvojej vysokej spotrebe. Väčšinou stačí, ak si vždy po výplate odložíš 10% príjmu bokom, a zvyšok mesiaca skúšaš vyžiť bez danej sumy. Ak by Ti to predsa nevychádzalo, odložené peniaze vieš kedykoľvek znova použiť. Odporúčame to skúsiť aspoň na jeden mesiac.",
+      "resultPointsStratil": 1
+    },
+    
     {
       "id": "sKymSaRadisInternetAKnihy",
       "choiceString": "",

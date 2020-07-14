@@ -9,13 +9,18 @@
       <button class="button-main" (click)="copyToClipboard(challengeLink)">SKOPÍROVAŤ</button>
     </div>
 
+    <h2>Zhrnutie</h2>
     <h4>Tieto 3 veci Ti vyšli najlepšie:</h4>
     <ul class="points">
-      <li class="naj_produktyDruhyPilierFondyIndexove" hidden>Mas indexove fondy</li>
+      <li class="naj_produktyDruhyPilierFondyIndexove" hidden>Druhý pilier máš správne nastavený v indexových negarantovaných fondoch. </li>
       <li class="naj_odlozitViacAko20percentprijmu" hidden>Vieš si odložiť viac ako 20% z príjmu.</li>
       <li class="naj_vyskarezervy5nasobokprijmu" hidden>Rezervu máš vybudovanú vo výške 5-násobného príjmu.</li>
       <li class="naj_mesacnarezerva30percentprijmu" hidden>Mesačne si odkladáš 30% z Tvojho príjmu na rezervu.</li>
       <li class="naj_odkladaniePenaziSposobSporiaciUcetPoVyplate" hidden>Peniaze si odkladáš okamžite po výplate.</li>
+      <li class="naj_produktyTretiPilierNieBezPrispevku" hidden>Nemáš tretí pilier pretože by ti zamestnávateľ neprispieval.</li>
+      <li class="naj_produktyTretiPilierFondyIndexove" hidden>Tretí pilier máš správne nastavený v indexových negarantovaných fondoch.</li>
+      
+      
     </ul>
 
     <h4>Tvoje 3 najväčšie problémy:</h4>
@@ -23,12 +28,22 @@
       <!--Sem dat ID z r.ts ak je custom, ak auto survey.jsn-->
       <li class="naj_produktyInvesticieSporeniaNiePlanujem" hidden>Neinvestuješ.</li>
       <li class="naj_odkladaniePenaziSposobNie" hidden>Neodkladáš si peniaze.</li>
+      <li class="naj_odlozitMenejAko10percentprijmu" hidden>Odkladáš si menej ako 10% z príjmu.</li>
       <li class="naj_odkladaniePenaziSposobRazZaCas" hidden>Odkladáš si peniaze len raz za čas.</li>
-      <li class="naj_produktyDruhyPilierNeviemCoToJe" hidden>Nemáš druhý pilier.</li>
+      <li class="naj_produktyDruhyPilierNeviemCoToJe" hidden>Nevieš, čo znamená druhý pilier.</li>
+      <li class="naj_produktyDruhyPilierNie" hidden>Nemáš druhý pilier.</li>
+      <li class="naj_produktyDruhyPilierFondyDlhopisove" hidden>V druhom pilieri nemáš indexové podielové fondy.</li>
       <li class="naj_odkladaniePenaziSposobBeznyUcet" hidden>Držíš si všetky peniaze na jednom účte.</li>
       <li class="naj_odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca" hidden>Neodkladáš si peniaze okamžite po výplate.</li>
+      <li class="naj_odlozitViacAko10percentprijmu" hidden>Odkladáš si menej ako 20% z príjmu.</li>
       <li class="naj_odkladaniePenaziSposobSporiaciUcetPriebezne" hidden>Neodkladáš si peniaze okamžite po výplate.</li>
       <li class="naj_kolkoPercentPrijmuJeNajomne" hidden>Podnájom máš vyšší ako 30% príjmu.</li>
+      <li class="naj_produktyDruhyPilierFondyAkciove" hidden>V druhom pilieri nemáš indexové podielové fondy.</li>
+      <li class="naj_produktyDruhyPilierFondyNeviem" hidden>Nevieš aké máš fondy v druhom pilieri.</li>
+      <li class="naj_produktyDruhyPilierNiePlanujem" hidden>Nemáš ešte druhý pilier.</li>
+      <li class="naj_produktyTretiPilierNie" hidden>Nemáš tretí pilier.</li>
+      <li class="naj_produktyTretiPilierNiePlanuje" hidden>Nemáš ešte tretí pilier.</li>   
+      <li class="naj_produktyTretiPilierNeviemCoToJe" hidden>Nevieš, čo znamená tretí pilier.</li>   
     </ul>
 
     <h4>3 najväčšie pomoci od nás:</h4>
@@ -56,14 +71,24 @@
     <div class="section section-products">
       <h1>Výber produktov</h1>
       <h3>Tieto sféry máš zvládnuté excelentne</h3>
-      <p class="produktyDruhyPilierFondyIndexove" hidden>Indexové fondy sú tou najlepšou možnostou, gratulujem Ti.</p>
+      <p class="produktyDruhyPilierFondyIndexove" hidden><b>Druhý pilier máš správne nastavený v indexových negarantovaných fondoch. </b>Iba 60% Slovákov je v druhom pilieri a z toho 70% ho má nastavených nesprávne. To však nie je Tvoj prípad, za čo úprimne blahoželáme.</p>
+      <p class="produktyTretiPilierFondyIndexove" hidden><b>Tretí pilier máš správne nastavený v indexových negarantovaných fondoch. </b> Sú to fondy, ktoré majú najvyšší výnos a teda sú najvýhodnejšie.</p>
 
+      
+      <p class="produktyTretiPilierNieBezPrispevku" hidden><b>Nemáš tretí pilier pretože by ti zamestnávateľ neprispieval.</b>Je to dobré rozhodnutie pretože ak Ti zamestnávateľ neprispieva, tak sa tretí pilier neoplatí.</p>
       <h3>Na tieto oblasti ti odporúčame sa pozrieť</h3>
+      <div class="produktyDruhyPilierNiePlanujem"></div>
       <div class="produktyDruhyPilierNeviemCoToJe"></div>
+      <div class="produktyDruhyPilierFondyAkciove"></div>
       <div class="produktyZivotnePoistenieRodicia"></div>
       <div class="produktyInvesticieSporeniaNiePlanujem"></div>
-
+      <div class="produktyDruhyPilierFondyNeviem"></div>
+      <div class="produktyTretiPilierNie"></div>
+      <div class="produktyTretiPilierNiePlanuje"></div>
+      <div class="produktyTretiPilierNeviemCoToJe"></div>
+    
       <h3>Tvoje vážne nedostatky</h3>
+      <div class="produktyDruhyPilierNie"></div>
       <div class="produktyDruhyPilierFondyDlhopisove"></div>
       <div class="produktyUverHypotekaPozickaNie"></div>
     </div>
@@ -73,15 +98,16 @@
       <h1>Práca s peniazmi</h1>
       <h3>Tieto sféry máš zvládnuté excelentne</h3>
 
- <p class="odkladaniePenaziSposobSporiaciUcetPoVyplate" hidden>Tento spôsob odkladania je ten najlepší spôsob odkladania vôbec. Týmto spôsobom pracuje s peniazmi iba 12% účastníkov testu.</p>
+      <p class="odkladaniePenaziSposobSporiaciUcetPoVyplate" hidden>Tento spôsob odkladania je ten najlepší spôsob
+        odkladania vôbec. Týmto spôsobom pracuje s peniazmi iba 12% účastníkov testu.</p>
       <p class="vyskarezervy5nasobokprijmu" hidden><b>Rezervu máš vybudovanú vo výške 5-násobného príjmu.</b> Je vidno,
         že k peniazom pristupuješ zodpovedne. Až 80% Slovákov nemá dostatočnú rezervu alebo si ju dokonca ani netvorí.
         Ty medzi nich nepatríš, čo je veľmi chvályhodné.</p>
 
       <h3 class="prehladOVydavkochMamDobruPredstavu divPrehladOVydavkochAkoTakViem divPrehladOVydavkochNesledujem"
         hidden>Na toto si daj pozor</h3>
-        <div class="odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca"></div>
-        <div class="odkladaniePenaziSposobSporiaciUcetPriebezne"></div>
+      <div class="odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca"></div>
+      <div class="odkladaniePenaziSposobSporiaciUcetPriebezne"></div>
 
 
       <h3>Tvoje vážne nedostatky</h3>
@@ -104,17 +130,22 @@
           <canvas id="graf-idealny"></canvas>
         </div>
       </div>
-      <div class="odlozitViacAko20percentprijmu" hidden><b>Vieš si odložiť viac ako 20% z
-        Tvojho príjmu.</b>Podľa finančných pravidiel je 20% hranica kedy sa už môžeš považovať za človeka, ktorý si vie zodpovedne odkladať.</div>
-    <div class="kolkoPercentPrijmuJeNajomne"></div>
-
+      <h3>Tu si v dobrých číslach.</h3>
+      <p class="odlozitViacAko20percentprijmu" hidden><span id="odlozitViacAko20percentprijmuPoints"></span><b>Vieš si
+          odložiť viac ako 20% z Tvojho príjmu.</b> Podľa finančných pravidiel je 20% hranica kedy sa už môžeš považovať
+        za človeka, ktorý si vie zodpovedne odkladať.</p>
       <p class="mesacnarezerva30percentprijmu" hidden><span id="mesacnarezerva30percentprijmuPoints"></span><b>Mesačne
-          si odkladáš 30% z Tvojho príjmu na rezervu.</b> Podľa
-        finančných pravidiel by si si mal odkladať minimálne 10%, ty však zvládaš oveľa viac!</p>
-      
+          si odkladáš 30% z Tvojho príjmu na rezervu.</b> Podľa finančných pravidiel by si si mal odkladať minimálne
+        10%, ty však zvládaš oveľa viac!</p>
+
+      <div class="kolkoPercentPrijmuJeNajomne"></div>
+      <h3>Tvoje nedostatky</h3>
+      <div class="odlozitMenejAko10percentprijmu"></div>
+      <div class="odlozitViacAko10percentprijmu"></div>
+
     </div>
 
-<!--GRAMOTNOST-->
+    <!--GRAMOTNOST-->
     <div class="section section-financial-literacy">
       <h1>Finančná gramotnosť</h1>
       <p>V sekcii finančnej gramotnosti sa Ti darilo lepšie ako {{percentilGramotnost}}% účastníkom testu.</p>

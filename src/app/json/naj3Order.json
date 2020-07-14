@@ -4,16 +4,28 @@
     "naj_odlozitViacAko20percentprijmu",
     "naj_odlozit50percentprijmu",
     "naj_mesacnarezerva30percentprijmu",
-    "naj_odkladaniePenaziSposobSporiaciUcetPoVyplate"
+    "naj_odkladaniePenaziSposobSporiaciUcetPoVyplate",
+    "naj_produktyTretiPilierNieBezPrispevku",
+    "naj_produktyTretiPilierFondyIndexove"
   ],
   "najhorsie": [
     "naj_odkladaniePenaziSposobNie",
+    "naj_odlozitMenejAko10percentprijmu",
     "naj_odkladaniePenaziSposobRazZaCas",
+    "naj_produktyDruhyPilierNie",
+    "naj_produktyDruhyPilierFondyDlhopisove",
     "naj_produktyInvesticieSporeniaNiePlanujem",
     "naj_produktyDruhyPilierNeviemCoToJe",
     "naj_odkladaniePenaziSposobBeznyUcet",
     "naj_kolkoPercentPrijmuJeNajomne",
+    "naj_odlozitViacAko10percentprijmu",
     "naj_odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca",
-    "naj_odkladaniePenaziSposobSporiaciUcetPriebezne"
+    "naj_odkladaniePenaziSposobSporiaciUcetPriebezne",
+    "naj_produktyDruhyPilierFondyAkciove",
+    "naj_produktyDruhyPilierFondyNeviem",
+    "naj_produktyDruhyPilierNiePlanujem",
+    "naj_produktyTretiPilierNiePlanuje",
+    "naj_produktyTretiPilierNeviemCoToJe",    
+    "naj_produktyTretiPilierNie"    
   ]
 }

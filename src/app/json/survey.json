@@ -251,6 +251,7 @@
           "type": "radiogroup",
           "name": "odkladaniePenaziSposob",
           "title": "Vies si odložiť z Tvojho prijímu peniaze?",
+          "descrition": "(rátaj aj pravidelné sporenia a investície)",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
@@ -296,7 +297,8 @@
           "min": "0",
           "placeHolder": "Hodnota v €"
         }
-      ]
+      ],
+      "visibleIf": "{odkladaniePenaziSposob} <> 'odkladaniePenaziSposobNie'"
     },
     {
       "name": "pageZaciatokBodovania",
