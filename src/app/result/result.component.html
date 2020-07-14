@@ -1,7 +1,7 @@
 <div class="result">
   <div class="section" id="resultSummary">
     <h1>Tvoje vyhodnotenie</h1>
-    <p>Gratulujeme {{data.meno}} k vyplneniu testu. Dostal si sa na úroveň - <strong
+    <p>Gratulujeme {{data.meno}} k vyplneniu testu. Podarilo sa Ťi dostať na úroveň - <strong
         class="level">{{pocetBodovHodnost}}</strong>.</p>
     <p>{{percentil}}% účastníkom testu sa darilo horšie ako tebe.</p>
     <div>Chceš sa porovnať aj s Tvojimi blízkymi? Pošli im link a zisti, kto získal viac bodov!
@@ -12,17 +12,22 @@
     <h4>Tieto 3 veci Ti vyšli najlepšie:</h4>
     <ul class="points">
       <li class="naj_produktyDruhyPilierFondyIndexove" hidden>Mas indexove fondy</li>
-      <li class="naj_odlozit50percentprijmu" hidden>Vieš si odložiť 50% z Tvojho príjmu.</li>
+      <li class="naj_odlozitViacAko20percentprijmu" hidden>Vieš si odložiť viac ako 20% z príjmu.</li>
       <li class="naj_vyskarezervy5nasobokprijmu" hidden>Rezervu máš vybudovanú vo výške 5-násobného príjmu.</li>
       <li class="naj_mesacnarezerva30percentprijmu" hidden>Mesačne si odkladáš 30% z Tvojho príjmu na rezervu.</li>
+      <li class="naj_odkladaniePenaziSposobSporiaciUcetPoVyplate" hidden>Peniaze si odkladáš okamžite po výplate.</li>
     </ul>
 
     <h4>Tvoje 3 najväčšie problémy:</h4>
     <ul class="points">
-      <li class="naj_produktyInvesticieSporeniaNiePlanujem" hidden>Neinvestuješ.</li>
       <!--Sem dat ID z r.ts ak je custom, ak auto survey.jsn-->
+      <li class="naj_produktyInvesticieSporeniaNiePlanujem" hidden>Neinvestuješ.</li>
+      <li class="naj_odkladaniePenaziSposobNie" hidden>Neodkladáš si peniaze.</li>
+      <li class="naj_odkladaniePenaziSposobRazZaCas" hidden>Odkladáš si peniaze len raz za čas.</li>
       <li class="naj_produktyDruhyPilierNeviemCoToJe" hidden>Nemáš druhý pilier.</li>
       <li class="naj_odkladaniePenaziSposobBeznyUcet" hidden>Držíš si všetky peniaze na jednom účte.</li>
+      <li class="naj_odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca" hidden>Neodkladáš si peniaze okamžite po výplate.</li>
+      <li class="naj_odkladaniePenaziSposobSporiaciUcetPriebezne" hidden>Neodkladáš si peniaze okamžite po výplate.</li>
       <li class="naj_kolkoPercentPrijmuJeNajomne" hidden>Podnájom máš vyšší ako 30% príjmu.</li>
     </ul>
 
@@ -46,11 +51,12 @@
     </div>
   </div>
 
+  <!--PRACA S PRODUKTAMI-->
   <div id="resultContent" hidden>
     <div class="section section-products">
       <h1>Výber produktov</h1>
       <h3>Tieto sféry máš zvládnuté excelentne</h3>
-      <p class="produktyDruhyPilierFondyIndexove" hidden>Indexové fondy sú tou najlepšou možnostou, gratulujem ti.</p>
+      <p class="produktyDruhyPilierFondyIndexove" hidden>Indexové fondy sú tou najlepšou možnostou, gratulujem Ti.</p>
 
       <h3>Na tieto oblasti ti odporúčame sa pozrieť</h3>
       <div class="produktyDruhyPilierNeviemCoToJe"></div>
@@ -62,28 +68,32 @@
       <div class="produktyUverHypotekaPozickaNie"></div>
     </div>
 
+    <!--PRACA S PENIAZMI-->
     <div class="section section-money-work">
       <h1>Práca s peniazmi</h1>
       <h3>Tieto sféry máš zvládnuté excelentne</h3>
 
+ <p class="odkladaniePenaziSposobSporiaciUcetPoVyplate" hidden>Tento spôsob odkladania je ten najlepší spôsob odkladania vôbec. Týmto spôsobom pracuje s peniazmi iba 12% účastníkov testu.</p>
       <p class="vyskarezervy5nasobokprijmu" hidden><b>Rezervu máš vybudovanú vo výške 5-násobného príjmu.</b> Je vidno,
         že k peniazom pristupuješ zodpovedne. Až 80% Slovákov nemá dostatočnú rezervu alebo si ju dokonca ani netvorí.
         Ty medzi nich nepatríš, čo je veľmi chvályhodné.</p>
 
-      <!--<p class="odkladaniePenaziSposobBeznyUcet odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca odkladaniePenaziSposobSporiaciUcetPoVyplate odkladaniePenaziSposobSporiaciUcetPriebezne"
-        hidden><b>Odkladáš si pravidelne.</b> Pri peniazoch sú konzistentnosť a disciplína kľúčové. Vyzerá to, že máš
-        obe vlastnosti zvládnuté.</p>-->
+      <h3 class="prehladOVydavkochMamDobruPredstavu divPrehladOVydavkochAkoTakViem divPrehladOVydavkochNesledujem"
+        hidden>Na toto si daj pozor</h3>
+        <div class="odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca"></div>
+        <div class="odkladaniePenaziSposobSporiaciUcetPriebezne"></div>
 
-
-      <h3 class="prehladOVydavkochMamDobruPredstavu divPrehladOVydavkochAkoTakViem divPrehladOVydavkochNesledujem" hidden>Na toto si daj pozor</h3>
-      <div class="prehladOVydavkochMamDobruPredstavu divPrehladOVydavkochAkoTakViem divPrehladOVydavkochNesledujem">
-      </div>
 
       <h3>Tvoje vážne nedostatky</h3>
+      <div class="odkladaniePenaziSposobNie"></div>
       <div class="odkladaniePenaziSposobBeznyUcet"></div>
+      <div class="odkladaniePenaziSposobRazZaCas"></div>
       <div class="sKymSaRadisInternetAKnihy"></div>
+    </div>
 
-      <h3>Rozloženie</h3>
+    <!--ROZLOZENIE-->
+    <div class="section">
+      <h1>Rozloženie</h1>
       <div class="charts">
         <div class="chart-container" style="position: relative; margin: auto; width: 95vw; height: 400px;">
           <h2>Tvoje rozloženie</h2>
@@ -94,56 +104,67 @@
           <canvas id="graf-idealny"></canvas>
         </div>
       </div>
-      <p class="mesacnarezerva30percentprijmu" hidden><span id="mesacnarezerva30percentprijmuPoints"></span><b>Mesačne si odkladáš 30% z Tvojho príjmu na rezervu.</b> Podľa
+      <div class="odlozitViacAko20percentprijmu" hidden><b>Vieš si odložiť viac ako 20% z
+        Tvojho príjmu.</b>Podľa finančných pravidiel je 20% hranica kedy sa už môžeš považovať za človeka, ktorý si vie zodpovedne odkladať.</div>
+    <div class="kolkoPercentPrijmuJeNajomne"></div>
+
+      <p class="mesacnarezerva30percentprijmu" hidden><span id="mesacnarezerva30percentprijmuPoints"></span><b>Mesačne
+          si odkladáš 30% z Tvojho príjmu na rezervu.</b> Podľa
         finančných pravidiel by si si mal odkladať minimálne 10%, ty však zvládaš oveľa viac!</p>
-      <p class="odlozit50percentprijmu" hidden><span id="odlozit50percentprijmuPoints"></span><b>Vieš si odložiť 50% z Tvojho príjmu.</b> Na študenta je táto suma
-        veľmi úctyhodná, len tak ďalej!</p>
-      <div class="kolkoPercentPrijmuJeNajomne"></div>
+      
     </div>
 
+<!--GRAMOTNOST-->
     <div class="section section-financial-literacy">
       <h1>Finančná gramotnosť</h1>
       <p>V sekcii finančnej gramotnosti sa Ti darilo lepšie ako {{percentilGramotnost}}% účastníkom testu.</p>
       <div class="my-48">
         <h3>Otázka 1</h3>
         <p><b>Na dlhodobú investíciu vložíš 1000€, o rok hodnota tejto investície klesla na 900€. Čo urobíš?</b></p>
-        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostDlhodobaInvesticiaUserChoice"></span> [-<span id="financnaGramotnostDlhodobaInvesticiaPoints"></span>b]</p>
+        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostDlhodobaInvesticiaUserChoice"></span> [-<span
+            id="financnaGramotnostDlhodobaInvesticiaPoints"></span>b]</p>
         <p><b>Správna odpoveď: </b>Vložím tam ďalšie peniaze</p>
         <div class="financnaGramotnostDlhodobaInvesticiaVysvetlenie"></div>
       </div>
       <div class="my-48">
         <h3>Otázka 2</h3>
         <p><b>Ak chceš mať poistenie a tiež investovať, aký produkt si vyberieš?</b></p>
-        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostPoisteniePriInvestovaniUserChoice"></span> [-<span id="financnaGramotnostPoisteniePriInvestovaniPoints"></span>b]</p>
+        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostPoisteniePriInvestovaniUserChoice"></span> [-<span
+            id="financnaGramotnostPoisteniePriInvestovaniPoints"></span>b]</p>
         <p><b>Správna odpoveď: </b>Životné poistenie a sporenie zvlášť</p>
         <div class="financnaGramotnostPoisteniePriInvestovaniVysvetlenie"></div>
       </div>
       <div class="my-48">
         <h3>Otázka 3</h3>
         <p><b>V ktorých fondoch je najlepšie mať založený druhý pilier?</b></p>
-        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostDruhyPilierUserChoice"></span> [-<span id="financnaGramotnostDruhyPilierPoints"></span>b]</p>
+        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostDruhyPilierUserChoice"></span> [-<span
+            id="financnaGramotnostDruhyPilierPoints"></span>b]</p>
         <p><b>Správna odpoveď: </b>Indexové negarantované fondy</p>
         <div class="financnaGramotnostDruhyPilierVysvetlenie"></div>
       </div>
       <div class="my-48">
         <h3>Otázka 4</h3>
         <p><b>V banke máš vložených 1000€ s 1%-ným výnosom. Aká bude reálna hodnota Tvojich peňazí o rok?</b></p>
-        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostVynosUserChoice"></span> [-<span id="financnaGramotnostVynosPoints"></span>b]</p>
+        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostVynosUserChoice"></span> [-<span
+            id="financnaGramotnostVynosPoints"></span>b]</p>
         <p><b>Správna odpoveď: </b>Nižšia</p>
         <div class="financnaGramotnostVynosVysvetlenie"></div>
       </div>
       <div class="my-48">
         <h3>Otázka 5</h3>
         <p><b>Máš 100 000€ a chceš si kúpiť byt v hodnote 100 000€, čo urobíš?</b></p>
-        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostBytUserChoice"></span> [-<span id="financnaGramotnostBytPoints"></span>b]</p>
+        <p><b>Tvoja odpoveď: </b><span id="financnaGramotnostBytUserChoice"></span> [-<span
+            id="financnaGramotnostBytPoints"></span>b]</p>
         <p><b>Správna odpoveď: </b>Z banky si požičiam, čo najviac mi dajú a ostatné si financujem sám.</p>
         <div class="financnaGramotnostBytVysvetlenie"></div>
       </div>
     </div>
 
+    <!--ZAUJMOVE OBLASTI-->
     <div class="section section-topics">
       <h1>Niečo málo o témach, ktoré ťa zaujímali.</h1>
-      <p class="coChcesVedietVlastneByvanie" hidden>Vlastné bývanie - čo všetko treba vedieť pred kúpou prvej nehnuteľnosti a ako sa na to pripraviť.</p>
+      <p class="coChcesVedietVlastneByvanie" hidden>Vlastné bývanie - čo všetko treba vedieť pred kúpou prvej
+        nehnuteľnosti a ako sa na to pripraviť.</p>
       <div class="coChcesVedietVlastneByvanie1" hidden></div>
       <div class="coChcesVedietVlastneByvanie2" hidden></div>
       <div class="coChcesVedietVlastneByvanie3" hidden></div>
@@ -156,17 +177,20 @@
       <div class="coChcesVedietInvestovanie2" hidden></div>
       <div class="coChcesVedietInvestovanie3" hidden></div>
 
-      <p class="coChcesVedietIdealneRozlozenie" hidden>ideálne rozloženie - do ktorých oblastí smerovať svoje peniaze a koľko</p>
+      <p class="coChcesVedietIdealneRozlozenie" hidden>ideálne rozloženie - do ktorých oblastí smerovať svoje peniaze a
+        koľko</p>
       <div class="coChcesVedietIdealneRozlozenie1" hidden></div>
       <div class="coChcesVedietIdealneRozlozenie2" hidden></div>
       <div class="coChcesVedietIdealneRozlozenie3" hidden></div>
-        
-      <p class="coChcesVedietFinancnaNezavislost" hidden>Finančná nezávislosť - ako sa dá vytvoriť pasívny príjem, ktorý pokrýva nevyhnutné životné výdavky.</p>
+
+      <p class="coChcesVedietFinancnaNezavislost" hidden>Finančná nezávislosť - ako sa dá vytvoriť pasívny príjem, ktorý
+        pokrýva nevyhnutné životné výdavky.</p>
       <div class="coChcesVedietFinancnaNezavislost1" hidden></div>
       <div class="coChcesVedietFinancnaNezavislost2" hidden></div>
       <div class="coChcesVedietFinancnaNezavislost3" hidden></div>
-      
-      <p class="coChcesVedietMenezovanieVydavkov" hidden>Menežovanie vydávkov - ako sa zamýšľať nad svojimi výdavkami a nájsť balans medzi šetrením a užívaním si.</p>
+
+      <p class="coChcesVedietMenezovanieVydavkov" hidden>Menežovanie vydávkov - ako sa zamýšľať nad svojimi výdavkami a
+        nájsť balans medzi šetrením a užívaním si.</p>
       <div class="coChcesVedietMenezovanieVydavkov1" hidden></div>
       <div class="coChcesVedietMenezovanieVydavkov2" hidden></div>
       <div class="coChcesVedietMenezovanieVydavkov3" hidden></div>

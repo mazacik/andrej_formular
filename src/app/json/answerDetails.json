@@ -159,7 +159,7 @@
       "choiceString": "",
       "resultTitle": "Mas dlhopisove fondy",
       "resultVysvetlenie": "Je to fakt zle lebo je to zle a to je fakt zle.",
-      "resultPointsStratil": -1
+      "resultPointsStratil": 1
     },
     {
       "id": "financnaGramotnostDruhyPilierNeviem",
@@ -235,7 +235,21 @@
       "id": "odkladaniePenaziSposobBeznyUcet",
       "choiceString": "",
       "resultTitle": "Držíš si všetky peniaze na jednom účte.",
-      "resultVysvetlenie": "Takýmto štýlom odkladania peňazí budeš mať v tom stále neporiadok. Založ si sporiaci účet a vždy po výplate si naň pošli vopred určenú sumu podľa Tvojich finančných cieľov. Odloženým peniazom vždy priraď jasný účel a výber si účet, ktorý má aj nejaké zhodnotenie.",
+      "resultVysvetlenie": "Takýmto štýlom odkladania peňazí v tom budeš mať stále neporiadok. Založ si sporiaci účet a vždy po výplate si naň pošli vopred určenú sumu podľa Tvojich finančných cieľov. Odloženým peniazom vždy priraď jasný účel a výber si účet, ktorý má aj nejaké zhodnotenie.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "odkladaniePenaziSposobRazZaCas",
+      "choiceString": "",
+      "resultTitle": "Odkladáš si peniaze len raz za čas.",
+      "resultVysvetlenie": "Pri peniazoch sú konzistentnosť a disciplína kľúčové. Urči si sumu, ktorú si potrebuješ každý mesiac odložiť a vždy keď Ti príde výplata, pošli peniaze na sporiaci účet.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "odkladaniePenaziSposobNie",
+      "choiceString": "",
+      "resultTitle": "Neodkladáš si peniaze.",
+      "resultVysvetlenie": "Ak nerátame ľudí v náročnej sociálnej situácii, každý by si mal byť schopný odložiť aspoň 10% príjmu. Ak sa Ti to nedarí, je to pravdepodobne kvôli tvojej vysokej spotrebe. Väčšinou stačí, ak si vždy po výplate odložíš 10% príjmu bokom, a zvyšok mesiaca skúšaš vyžiť bez danej sumy. Ak by Ti to predsa nevychádzalo, odložené peniaze vieš kedykoľvek znova použiť. Odporúčame to skúsiť aspoň na jeden mesiac.",
       "resultPointsStratil": 1
     },
     {

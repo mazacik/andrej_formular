@@ -1,14 +1,19 @@
 {
   "najlepsie": [
     "naj_produktyDruhyPilierFondyIndexove",
+    "naj_odlozitViacAko20percentprijmu",
     "naj_odlozit50percentprijmu",
-    "naj_vyskarezervy5nasobokprijmu",
-    "naj_mesacnarezerva30percentprijmu"
+    "naj_mesacnarezerva30percentprijmu",
+    "naj_odkladaniePenaziSposobSporiaciUcetPoVyplate"
   ],
   "najhorsie": [
+    "naj_odkladaniePenaziSposobNie",
+    "naj_odkladaniePenaziSposobRazZaCas",
     "naj_produktyInvesticieSporeniaNiePlanujem",
     "naj_produktyDruhyPilierNeviemCoToJe",
     "naj_odkladaniePenaziSposobBeznyUcet",
-    "naj_kolkoPercentPrijmuJeNajomne"
+    "naj_kolkoPercentPrijmuJeNajomne",
+    "naj_odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca",
+    "naj_odkladaniePenaziSposobSporiaciUcetPriebezne"
   ]
 }
