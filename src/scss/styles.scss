@@ -40,10 +40,6 @@ h5.sv_q_title {
   color: $text;
 }
 
-h5.sv_q_title span {
-  font-size: 32px!important;
-}
-
 .sv_main .sv_container {
   color: $text;
 }
@@ -296,7 +292,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 body {
   background-color: $bg1;
   background-position: center;
-  background-size: auto 100%;
+  background-size: contain;
   background-repeat: no-repeat;
   background-image:url(/assets/bg/UvodneOtazky.png);
 }

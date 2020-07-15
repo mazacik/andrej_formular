@@ -147,6 +147,8 @@ export class SurveyComponent implements OnInit {
     }
 
     function onCurrentPageChanged(survey: Survey.SurveyModel, options: any) {
+      // hacky ugly stuff
+      // couldn't select it via css
       $('.sv_qcbc').parent().css('display', 'flex');
       $('.sv_qcbc').parent().css('justify-content', 'center');
       function updateNavBar() {
@@ -326,10 +328,12 @@ export class SurveyComponent implements OnInit {
       $('.sv_body > div:first-child').css({
         transform: 'translateY(' + (animateNext ? '-' : '+') + '100vh)',
       });
+      let presahuje = $('#surveyNavBar').height() - (window.innerHeight / 2) + ($(".sv_row").height() / 2);
+      let posun = presahuje > 0 ? presahuje : 0
       setTimeout(() => {
         $toAnimate.css('transition', 'all .4s');
         $toAnimate.css({
-          transform: 'translateY(0px)',
+          transform: 'translateY('+posun+'px)',
         });
       }, 0);
     });
