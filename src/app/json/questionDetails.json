@@ -55,6 +55,36 @@
       "resultVysvetlenie": ""
     },
     {
+      "id": "produktyHypotekaUrok",
+      "resultPointsMax": 1,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
+    },
+    {
+      "id": "produktyBeznyUcet",
+      "resultPointsMax": 0.5,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
+    },
+    {
+      "id": "produktyUverPozickaUrok",
+      "resultPointsMax": 1,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
+    },
+    {
+      "id": "produktyInvesticieSporenia",
+      "resultPointsMax": 1,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
+    },
+    {
+      "id": "sKymSaRadis",
+      "resultPointsMax": 1,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
+    },
+    {
       "id": "financnaGramotnostDlhodobaInvesticia",
       "resultPointsMax": 1,
       "correctChoice": "Vložím tam ďalšie peniaze",
@@ -83,6 +113,18 @@
       "resultPointsMax": 1,
       "correctChoice": "Z banky si požičiam najviac, ako sa dá a zvyšok doplatím",
       "resultVysvetlenie": "Momentálne je to pre Teba najvýhodnejší krok, pretože banky ponúkajú extrémne nízke úroky a peniaze, ktoré Ti ostanú vieš výhodne investovať."
+    },
+    {
+      "id": "omeskanieSplatky",
+      "resultPointsMax": 1,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
+    },
+    {
+      "id": "pagePrehladOVydavkoch",
+      "resultPointsMax": 1,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
     }
   ]
 }

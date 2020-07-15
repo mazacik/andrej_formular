@@ -62,20 +62,48 @@ export class ResultComponent implements OnInit {
 
      
 
-      // kolkoPercentPrijmuJeNajomne -> Toto Je ID
-      if (this.data.najomne > this.data.vyskaPrijmu * 0.3) {
-        const pocetBodovMax = 1; //hodnota otazky
-        const pocetBodovStratil = -1; //kolko strati za odpoved
+     
 
-        this.pocetBodovMax += pocetBodovMax;
-        this.pocetBodovStratil += pocetBodovStratil;
+//najomneVyssieAko30
+if (this.data.najomne > this.data.vyskaPrijmu * 0.3) {
 
-        naj3Extra[naj3Extra.length] = 'naj_kolkoPercentPrijmuJeNajomne'; //nezabudni pridat do naj 3
+  // top3 najhorsie/najlepsie, ID sa musi zhodovat s tymi v naj3Order.json a result.html
+  naj3Extra[naj3Extra.length] = 'naj_najomneVyssieAko30';
+
+  // vytvorenie toggle elementu (nadpis a tlacitko, ktore zobrazi text s vysvetlenim)
+  // ID sa musi zhodovat s tym v survey.json a result.html
+  var answerNajomneVyssieAko30 = this.getAnswerById('najomneVyssieAko30');
+  if (answerNajomneVyssieAko30) {
+    this.createToggleElementFromAnswer(answerNajomneVyssieAko30);
+
+    // pocet bodov
+    this.pocetBodovMax += 1; // alebo ho nacitas z questionDetails.json, v tom pripade mi napis
+    this.pocetBodovStratil += answerNajomneVyssieAko30.resultPointsStratil; // alebo jednoducho odcitas cislo
+  }
+}
+
+//najomneMenejAko30
+if (this.data.najomne <= this.data.vyskaPrijmu * 0.3) {
+
+  // top3 najhorsie/najlepsie, ID sa musi zhodovat s tymi v naj3Order.json a result.html
+  naj3Extra[naj3Extra.length] = 'naj_najomneMenejAko30';
+
+  // vytvorenie toggle elementu (nadpis a tlacitko, ktore zobrazi text s vysvetlenim)
+  // ID sa musi zhodovat s tym v survey.json a result.html
+  var answerNajomneMenejAko30 = this.getAnswerById('najomneMenejAko30');
+  if (answerNajomneMenejAko30) {
+    this.createToggleElementFromAnswer(answerNajomneMenejAko30);
+
+    // pocet bodov
+    this.pocetBodovMax += 1; // alebo ho nacitas z questionDetails.json, v tom pripade mi napis
+    this.pocetBodovStratil += answerNajomneMenejAko30.resultPointsStratil; // alebo jednoducho odcitas cislo
+  }
+}
 
 
-        var answerNajomne = this.getAnswerById("kolkoPercentPrijmuJeNajomne");
-        this.createToggleElement(answerNajomne.id, answerNajomne.resultTitle, answerNajomne.resultVysvetlenie, answerNajomne.resultPointsStratil);
-      }
+
+
+
 
       //zivotnePoistenieVyskaSplatkyNad4
       if (this.data.pageProduktyZivotnePoistenieKolkoPlati > this.data.vyskaPrijmu * 0.04) {
@@ -181,21 +209,59 @@ if (this.data.pageProduktyZivotnePoistenieKolkoPlati < this.data.vyskaPrijmu * 0
         }
       }
 
-      // vyskarezervy5nasobokprijmu
-      if (this.data.financnaRezervaVyska >= this.data.vyskaPrijmu * 5) {
+      //vyskarezervy3az6nasobokPrijmu vyska rezervy 3 az 6 nasobok
+      if (this.data.financnaRezervaVyska >= this.data.vyskaPrijmu * 3 && this.data.financnaRezervaVyska <= this.data.vyskaPrijmu * 6) {
         const pocetBodovMax = 1;
         const pocetBodovStratil = 0;
 
         this.pocetBodovMax += pocetBodovMax;
         this.pocetBodovStratil += pocetBodovStratil;
 
-        naj3Extra[naj3Extra.length] = 'naj_vyskarezervy5nasobokprijmu';
+        naj3Extra[naj3Extra.length] = 'naj_vyskarezervy3az6nasobokPrijmu';
 
-        this.showElementsByClass("vyskarezervy5nasobokprijmu");
+        this.showElementsByClass("vyskarezervy3az6nasobokPrijmu");
 
-        var spanPoints = document.getElementById("vyskarezervy5nasobokprijmuPoints");
+        var spanPoints = document.getElementById("vyskarezervy3az6nasobokPrijmuPoints");
         if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil + "b] ";
       }
+       //vyskarezervyDo1nasobokPrijmu vyska rezervy do 1 nasobok prijmu
+       if (this.data.financnaRezervaVyska < this.data.vyskaPrijmu) {
+        naj3Extra[naj3Extra.length] = 'naj_vyskarezervyDo1nasobokPrijmu';
+        
+        var answerVyskarezervyDo1nasobokPrijmu = this.getAnswerById('vyskarezervyDo1nasobokPrijmu');
+        if (answerVyskarezervyDo1nasobokPrijmu) {
+          this.createToggleElementFromAnswer(answerVyskarezervyDo1nasobokPrijmu);
+
+          this.pocetBodovMax += 1; 
+          this.pocetBodovStratil += answerVyskarezervyDo1nasobokPrijmu.resultPointsStratil; 
+        }
+      }
+
+ //vyskarezervyDo3nasobokPrijmu vyska rezervy do 3 nasobok prijmu
+ if (this.data.financnaRezervaVyska >= this.data.vyskaPrijmu && this.data.financnaRezervaVyska < this.data.vyskaPrijmu * 3) {
+  naj3Extra[naj3Extra.length] = 'naj_vyskarezervyDo3nasobokPrijmu';
+  
+  var answerVyskarezervyDo3nasobokPrijmu = this.getAnswerById('vyskarezervyDo3nasobokPrijmu');
+  if (answerVyskarezervyDo3nasobokPrijmu) {
+    this.createToggleElementFromAnswer(answerVyskarezervyDo3nasobokPrijmu);
+
+    this.pocetBodovMax += 1; 
+    this.pocetBodovStratil += answerVyskarezervyDo3nasobokPrijmu.resultPointsStratil; 
+  }
+}
+
+//vyskarezervyNad6nasobokPrijmu vyska rezervy nad 6 nasobok prijmu
+if (this.data.financnaRezervaVyska > this.data.vyskaPrijmu * 6) {
+  naj3Extra[naj3Extra.length] = 'naj_vyskarezervyNad6nasobokPrijmu';
+  
+  var answerVyskarezervyNad6nasobokPrijmu = this.getAnswerById('vyskarezervyNad6nasobokPrijmu');
+  if (answerVyskarezervyNad6nasobokPrijmu) {
+    this.createToggleElementFromAnswer(answerVyskarezervyNad6nasobokPrijmu);
+
+    this.pocetBodovMax += 1; 
+    this.pocetBodovStratil += answerVyskarezervyNad6nasobokPrijmu.resultPointsStratil; 
+  }
+}
 
       // mesacnarezerva30percentprijmu
       if (this.data.financnaRezervaMesacne >= this.data.vyskaPrijmu * 0.3) {

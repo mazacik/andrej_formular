@@ -302,12 +302,83 @@
       "resultPointsStratil": 0.5
     },
     {
-      "id": "produktyInvesticieSporeniaNiePlanujem",
+      "id": "najomneVyssieAko30",
       "choiceString": "",
-      "resultTitle": "Plánuješ investovať.",
-      "resultVysvetlenie": "S investovaním by sa malo začať hneď s prvým príjmom, hoci by to malo znamenať, že investuješ len 10€ mesačne. O investovaní nás však nikde neučia, preto je pochopiteľné, že stále neinvestuješ. Teší nás, že to plánuješ zmeniť a odporúčame to spraviť čo najskôr, keďže platí, že čím dlhšie investuješ, tým viac zarobíš. Najefektívnejší spôsob investovania je cez takzvané podielové ETF fondy.",
+      "resultTitle": "Za bývanie platíš viac ako 30% svojho príjmu.",
+      "resultVysvetlenie": "Za svoje bývanie platíš príliš veľkú čiastku zo svojho príjmu, čo znamená, že si nedokážeš efektívne plniť iné finančné ciele. Odporúčame sa buď pozrieť po lacnejšom bývaní alebo spôsoboch ako si príjem zvýšiť.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "produktyHypotekaUrokDo2",
+      "choiceString": "",
+      "resultTitle": "Na hypotéke máš viac ako 1% úrok.",
+      "resultVysvetlenie": "V dnešnej dobe banky poskytujú najnižšie úroky aké kedy boli. Preto ak máš na hypotéke úrok viac ako 1%, daj si ju refinancovať. Ušetríš na mesačnej splátke a aj preplatení. Keďže sa banky bijú o klientov, neváhaj navštíviť aj inú banku, možno Ti dajú výhodnejšie podmienky.",
+      "resultPointsStratil": 0.5
+    },    
+    {
+      "id": "produktyHypotekaUrokViacAko2",
+      "choiceString": "",
+      "resultTitle": "Na hypotéke máš viac ako 2% úrok. ",
+      "resultVysvetlenie": "V dnešnej dobe banky poskytujú najnižšie úroky aké kedy boli. Preto ak máš na hypotéke úrok viac ako 2%, daj si ju refinancovať. Ušetríš na mesačnej splátke a aj preplatení. Keďže sa banky bijú o klientov, neváhaj navštíviť aj inú banku, možno Ti dajú výhodnejšie podmienky.",
+      "resultPointsStratil": 1
+    },   
+    {
+      "id": "produktyHypotekaUrokNeviem",
+      "choiceString": "",
+      "resultTitle": "Nevieš aký máš úrok na hypotéke.",
+      "resultVysvetlenie": "V dnešnej dobe banky poskytujú najnižšie úroky aké kedy boli. Pozri si aký máš úrok a ak je vyšší ako 1%, tak Ti hypotéku odporúčame refinancovať. Ušetríš na mesačnej splátke a aj na celkovom preplatení.",
       "resultPointsStratil": 0.5
     },
+    {
+      "id": "produktyUverPozickaUrokDo10",
+      "choiceString": "",
+      "resultTitle": "Na úvere máš väčší úrok ako 5%.",
+      "resultVysvetlenie": "V dnešnej dobe banky poskytujú veľmi výhodné úvery, odporúčame sa pozrieť na možnosť refinancovania. Môžeš tak ušetriť na mesačnej splátke a aj celkovom preplatení.",
+      "resultPointsStratil": 0.5
+    }, 
+    {
+      "id": "produktyUverPozickaUrokViacAko10",
+      "choiceString": "",
+      "resultTitle": "Na úvere máš väčší úrok ako 10%.",
+      "resultVysvetlenie": "V dnešnej dobe banky poskytujú veľmi výhodné úvery, odporúčame sa pozrieť na možnosť refinancovania. Môžeš tak ušetriť na mesačnej splátke a aj celkovom preplatení.",
+      "resultPointsStratil": 1
+    }, 
+    {
+      "id": "produktyUverPozickaUrokNeviem",
+      "choiceString": "",
+      "resultTitle": "Nevieš aký máš úrok na úvere.",
+      "resultVysvetlenie": "V dnešnej dobe banky poskytujú veľmi výhodné úvery a bijú sa o klientov. Preto Ti odporúčame pozrieť si výšku tvojho aktuálneho úroku a aj je vyšší ako 5% zvážiť refinancovanie. Je veľká pravdepodobnosť, že budeš môcť ušetriť na mesačnej splátke a aj celkovom preplatení.",
+      "resultPointsStratil": 0.5
+    }, 
+    {
+      "id": "produktyBeznyUcetAno",
+      "choiceString": "",
+      "resultTitle": "Platíš si za bežný účet.",
+      "resultVysvetlenie": "V dnešnej dobe veľa bánk ponúka bežné účty úplne zadarmo.",
+      "resultPointsStratil": 0.5
+    },   
+    {
+      "id": "produktyInvesticieSporeniaNie",
+      "choiceString": "",
+      "resultTitle": "Neinvestuješ.",
+      "resultVysvetlenie": "S investovaním je najlepšie začať čo najskôr, hoci by to malo znamenať, že investuješ len 10€ mesačne. Týmto spôsobom si buduješ návyk na mesačné odkladanie peňazí a, navyše, aj malá čiastka sa vie pekne zhodnotiť. Ak vezmeme do úvahy riziko, výnos a energiu, investovanie je ten najefektívnejší spôsob, ako nadobudnúť peniaze bez práce.",
+      "resultPointsStratil": 1
+    },      
+    {
+      "id": "produktyInvesticieSporeniaNiePlanujem",
+      "choiceString": "",
+      "resultTitle": "Nemáš ešte žiadne investície.",
+      "resultVysvetlenie": "Investovať by mal každý okamžite ako dostane prvú výplatu. O investovaní sme slabo informovaní a preto je pochopiteľne, že ešte neinvestuješ a o to chvályhodnejšie, že investovať plánuješ. Aktuálne je najvýhodnejšia forma investovania cez takzvané ETF fondy.",
+      "resultPointsStratil": 0.5
+    },      
+    
+    {
+      "id": "produktyInvesticieSporeniaAnoPlatiaRodicia",
+      "choiceString": "",
+      "resultTitle": "Sporenia majú pod kontrolou Tvoji rodičia.",
+      "resultVysvetlenie": "Častokrát sa stáva, že rodičia založia sporenie a dlhé roky sa tomu nevenujú, pričom je vysoko pravdepodobné, že medzičasom na trh prišli výhodnejšie produkty. Nasporené peniaze sú Tvoje, preto si radšej zisti, či neexistuje niečo výhodnejšie, napriek tomu, že rodičom veríš, že sa oň dobre starajú.",
+      "resultPointsStratil": 0.5
+    }, 
     {
       "id": "produktyUverHypotekaPozickaNie",
       "choiceString": "",
@@ -377,6 +448,64 @@
       "resultTitle": "Svoje financie nekonzultuješ s odborníkom.",
       "resultVysvetlenie": "Finančných produktov každým rokom pribúda a tým je väčšia šanca, že si zvolíš ten nesprávny. Práve od toho sú tu odborníci zameraní na financie, ktorí tieto produkty sledujú a budú ti vedieť poradiť. Daj si však pozor, s kým sa o financiách rozprávaš. Informácie, ktoré Ti poskytne si radšej over a never každému.",
       "resultPointsStratil": 1
-    }
+    },
+    {
+      "id": "vyskarezervyDo1nasobokPrijmu",
+      "choiceString": "",
+      "resultTitle": "Nemáš dostatočnú finančnú rezervu.",
+      "resultVysvetlenie": "Stres zabíja častejšie ako rakovina. Ak nemáš vybudovanú dostatočnú rezervu a dostaneš sa do finančných problémov, stresu zažiješ veľa. Preto ak chceš žiť dlhý šťastný život, odporúčame vybudovať rezervu aspoň na 3násobok Tvojho príjmu.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "vyskarezervyDo3nasobokPrijmu",
+      "choiceString": "",
+      "resultTitle": "Nemáš dostatočnú finančnú rezervu.",
+      "resultVysvetlenie": "Stres zabíja častejšie ako rakovina. Ak nemáš vybudovanú dostatočnú rezervu a dostaneš sa do finančných problémov, stresu zažiješ veľa. Preto ak chceš žiť dlhý šťastný život, odporúčame vybudovať rezervu aspoň na 3násobok Tvojho príjmu.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "vyskarezervyNad6nasobokPrijmu",
+      "choiceString": "",
+      "resultTitle": "Máš zbytočne veľkú rezervu.",
+      "resultVysvetlenie": "Rezerva na pol roka bohaté stačí. Je naozaj úctyhodné, že sa Ti poradilo nasporiť takúto sumu peňazí. Teraz je však dôležité ostatné peniaze smerovať na iné finančné ciele, ideálne investovať.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "prehladOVydavkochMamDobruPredstavu",
+      "choiceString": "",
+      "resultTitle": "Nezaznamenávaš si výdavky.",
+      "resultVysvetlenie": "Zaznamenávanie všetkých príjmov a výdavkov Ti pomôže v mnohých ohľadoch. Presne budeš vedieť, kam smerujú Tvoje peniaze, a ak sa Ti to nebude páčiť, vieš na tom pracovať. Navyše, ak si bežne kupuješ veci narýchlo a podľa nálady, tak pri evidencii každého výdavku Ťa to bude na konci bolieť a poučíš sa. Na tento účel odporúčame aplikáciu Wallet, 1Money alebo poslúži aj Excel.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "prehladOVydavkochAkoTakViem",
+      "choiceString": "",
+      "resultTitle": "Nezaznamenávaš si výdavky.",
+      "resultVysvetlenie": "Zaznamenávanie všetkých príjmov a výdavkov Ti pomôže v mnohých ohľadoch. Presne budeš vedieť, kam smerujú Tvoje peniaze, a ak sa Ti to nebude páčiť, vieš na tom pracovať. Navyše, ak si bežne kupuješ veci narýchlo a podľa nálady, tak pri evidencii každého výdavku Ťa to bude na konci bolieť a poučíš sa. Na tento účel odporúčame aplikáciu Wallet, 1Money alebo poslúži aj Excel.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "sKymSaRadisRodinaAKamarati",
+      "choiceString": "",
+      "resultTitle": "Svoje financie nekonzultuješ s odborníkom.",
+      "resultVysvetlenie": "Finančných produktov každým rokom pribúda a tým je väčšia šanca, že si zvolíš ten nesprávny. Práve od toho sú tu odborníci zameraní na financie, ktorí tieto produkty sledujú a budú ti vedieť poradiť. Daj si však pozor, s kým sa o financiách rozprávaš. Informácie, ktoré Ti poskytne si radšej over a never každému.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "sKymSaRadisFinancnaInstitucia",
+      "choiceString": "",
+      "resultTitle": "Svoje financie nekonzultuješ s odborníkom.",
+      "resultVysvetlenie": "Na finančnom trhu je viac ako 4000 produktov, z ktorých ja väčšina výhodnejšia pre banku ako pre teba. Keďže ich za život využiješ okolo 70, šanca, že sa 70krát za sebou bez odbornej pomoci rozhodneš správne je nízka. Na Slovensku sú finančné služby bezplatné, preto nie je dôvod ich nevyužiť. Daj si však pozor, s kým sa o financiách rozprávaš. Informácie si radšej overuj a never každému.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "omeskanieSplatkyÁno",
+      "choiceString": "",
+      "resultTitle": "Nebola u Teba splátka splatená načas.",
+      "resultVysvetlenie": "Chápeme, môže sa stať, nemalo by sa to však stavať. Banky sprísnili pravidlá a pri vybavovaní nového úveru môžeš mať problém. Miesto manuálneho platenia platieb, odporúčame nastavenie trvalého príkazu. Tak by sa nemalo stať, že by Ti niekedy splátka neodišla.",
+      "resultPointsStratil": 1
+    }   
+    
+    
   ]
 }

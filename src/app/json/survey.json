@@ -290,7 +290,7 @@
           "type": "text",
           "name": "odkladaniePenaziVyska",
           "title": "Koľko sa Ti darí priemerne mesačne odložiť?",
-          "description": "(rátaj aj sporenia, investície a rezevu)",
+          "description": "(rátaj aj sporenia, investície a rezervu)",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
@@ -569,7 +569,7 @@
       "name": "pageProduktyUverHypotekaPozicka",
       "elements": [
         {
-          "type": "radiogroup",
+          "type": "checkbox",
           "name": "produktyUverHypotekaPozicka",
           "title": "Máš požičané peniaze?",
           "description": "(hypotéka, úver, pôžička)",
@@ -688,15 +688,15 @@
           "choices": [
             {
               "value": "produktyUverPozickaUrokDo5",
-              "text": "do 5%"
+              "text": "1 až 5%"
             },
             {
               "value": "produktyUverPozickaUrokDo10",
-              "text": "do 10%"
+              "text": "6 až 10%"
             },
             {
               "value": "produktyUverPozickaUrokViacAko10",
-              "text": "viac ako 10%"
+              "text": "11% a viac"
             },
             {
               "value": "produktyUverPozickaUrokNeviem",
@@ -748,6 +748,11 @@
             {
               "value": "produktyInvesticieSporeniaAno",
               "text": "áno"
+            },
+            {
+              "value": "produktyInvesticieSporeniaAnoPlatiaRodicia",
+              "text": "áno, platia mi ho však rodičia",
+              "visibleIf": "{studium} anyof ['studiumStredna', 'studiumVysoka']"
             },
             {
               "value": "produktyInvesticieSporeniaAnoAPlanujemDalsie",
@@ -1297,10 +1302,6 @@
             {
               "value": "prehladOVydavkochAkoTakViem",
               "text": "ako tak viem kde míňam peniaze"
-            },
-            {
-              "value": "prehladOVydavkochNesledujem",
-              "text": "nesledujem si, koľko míňam"
             }
           ]
         }
