@@ -312,7 +312,8 @@ export class SurveyComponent implements OnInit {
     survey.onCurrentPageChanging.add((sender, options) => {
       if (!doAnimation) { return; }
       options.allowChanging = false;
-      animateNext = sender.currentPage.visibleIndex > options.newCurrentPage.visibleIndex
+      animateNext = sender.currentPage.visibleIndex > options.newCurrentPage.visibleIndex;
+      $('.sv_body').css('overflow', 'hidden');
       setTimeout(() => {
         doAnimation = false;
         sender.currentPage = options.newCurrentPage;
@@ -328,14 +329,31 @@ export class SurveyComponent implements OnInit {
       $('.sv_body > div:first-child').css({
         transform: 'translateY(' + (animateNext ? '-' : '+') + '100vh)',
       });
-      let presahuje = $('#surveyNavBar').height() - (window.innerHeight / 2) + ($(".sv_row").height() / 2);
-      let posun = presahuje > 0 ? presahuje : 0
+      const overflows = $('#surveyNavBar').height() - (window.innerHeight / 2) + ($('.sv_row').height() / 2);
+      const shift = overflows > 0 ? overflows : 0;
       setTimeout(() => {
         $toAnimate.css('transition', 'all .4s');
         $toAnimate.css({
-          transform: 'translateY('+posun+'px)',
+          transform: 'translateY(' + shift + 'px)',
         });
+
+        // hacky way to position bottom navigation
+        const contentHeight = $('.sv_body > div:first-child').height() + $('#surveyNavBar').height();
+        if (contentHeight > window.innerHeight) {
+          $('.sv_nav').css({
+            top: $('.sv_body > div:first-child').height() + $('#surveyNavBar').height(),
+            bottom: 'auto',
+          });
+        } else {
+          $('.sv_nav').css({
+            top: 'auto',
+            bottom: 0,
+          });
+        }
       }, 0);
+      setTimeout(() => {
+        $('.sv_body').css('overflow', 'auto');
+      }, animationSpeed);
     });
   }
 
