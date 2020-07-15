@@ -7,6 +7,7 @@ import tippy from 'tippy.js';
 import * as questionDetails from '../json/questionDetails.json';
 import * as answerDetails from '../json/answerDetails.json';
 import * as naj3Order from '../json/naj3Order.json';
+import * as sCimTiViemePomoctOrder from '../json/sCimViemePomoctOrder.json';
 
 @Component({
   selector: 'app-result',
@@ -302,7 +303,6 @@ if (this.data.financnaRezervaVyska > this.data.vyskaPrijmu * 6) {
             if (typeof answer == 'string') {
               if (entry.endsWith(answer)) {
                 this.showElementsByClass(entry);
-                found = true;
                 najlepsiePocet++;
                 break;
               }
@@ -337,8 +337,37 @@ if (this.data.financnaRezervaVyska > this.data.vyskaPrijmu * 6) {
             if (typeof answer == 'string') {
               if (entry.endsWith(answer)) {
                 this.showElementsByClass(entry);
-                found = true;
                 najhorsiePocet++;
+                break;
+              }
+            }
+          }
+        }
+      }
+
+      // top 3 s cim ti vieme pomoct
+      var sCimTiViemePomoctPocet = 0;
+      for (let i = 0; i < sCimTiViemePomoctOrder.priority.length; i++) {
+        if (sCimTiViemePomoctPocet == 3) break;
+        const entry = sCimTiViemePomoctOrder.priority[i];
+        var found = false;
+        // for (let j = 0; j < naj3Extra.length; j++) {
+        //   const extra = naj3Extra[j];
+        //   if (entry == extra) {
+        //     this.showElementsByClass(entry);
+        //     found = true;
+        //     sCimTiViemePomoctPocet++;
+        //     break;
+        //   }
+        // }
+
+        if (!found) {
+          for (var value in this.data) {
+            var answer = this.data[value];
+            if (typeof answer == 'string') {
+              if (entry.endsWith(answer)) {
+                this.showElementsByClass(entry);
+                sCimTiViemePomoctPocet++;
                 break;
               }
             }

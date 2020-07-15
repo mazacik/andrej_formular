@@ -2,7 +2,7 @@
   "showTitle": false,
   "goNextPageAutomatic": true,
   "textUpdateMode": "onTyping",
-  "focusFirstQuestionAutomatic": false,
+  "focusFirstQuestionAutomatic": true,
   "maxTextLength": 50,
   "maxOthersLength": 50,
   "startSurveyText": "Začať",
