@@ -1,8 +1,9 @@
 <div class="result">
   <div class="section" id="resultSummary">
     <h1>Tvoje vyhodnotenie</h1>
-    <p>Gratulujeme {{data.meno}} k vyplneniu testu. Podarilo sa Ťi dostať na úroveň - <strong
-        class="level">{{pocetBodovHodnost}}</strong>.</p>
+    <p>Gratulujeme {{data.meno}} k vyplneniu testu.</p>
+    <p>Podarilo sa Ťi získať {{pocetBodovMax - pocetBodovStratil}} z
+      {{pocetBodovMax}} bodov, teda {{pocetBodovPercent}}%, a to ťa dostáva na úroveň <strong class="level">{{pocetBodovHodnost}}</strong>.</p>
     <p>{{percentil}}% účastníkom testu sa darilo horšie ako tebe.</p>
     <div>Chceš sa porovnať aj s Tvojimi blízkymi? Pošli im link a zisti, kto získal viac bodov!
       <div>[{{challengeLink}}]</div>
@@ -34,7 +35,7 @@
       <li class="naj_omeskanieSplatkyNie" hidden>Vždy boli u Teba splátky splácané načas.</li>
       <li class="naj_prehladOVydavkochKazdyVydavok" hidden>Zaznamenávaš si výdavky.</li>
 
-      
+
 
 
     </ul>
@@ -91,7 +92,7 @@
       <li class="naj_produktyInvesticieSporeniaAnoPlatiaRodicia" hidden>Sporenia majú pod kontrolou Tvoji rodičia.</li>
       <li class="naj_prehladOVydavkochMamDobruPredstavu" hidden>Nezaznamenávaš si výdavky.</li>
       <li class="naj_prehladOVydavkochAkoTakViem" hidden>Nezaznamenávaš si výdavky.</li>
-      
+
     </ul>
 
     <h4>3 najväčšie pomoci od nás:</h4>
@@ -185,8 +186,9 @@
       <p class="vyskarezervy3az6nasobokPrijmu" hidden><b>Rezervu máš vybudovanú vo výške 3 až 6-násobku príjmu.</b> Až
         80% Slovákov nemá dostatočnú rezervu alebo si ju dokonca ani netvorí. Ty medzi nich nepatríš, čo je veľmi
         chvályhodné.</p>
-        <p class="prehladOVydavkochKazdyVydavok" hidden><b>Zaznamenávaš si výdavky.</b>Môžeš sa cítiť hrdo, nakoľko si výdavky poctivo zaznamenávaš, čo robí iba 11% účastníkov testu.</p>
-        
+      <p class="prehladOVydavkochKazdyVydavok" hidden><b>Zaznamenávaš si výdavky.</b>Môžeš sa cítiť hrdo, nakoľko si
+        výdavky poctivo zaznamenávaš, čo robí iba 11% účastníkov testu.</p>
+
 
       <h3>Na toto si daj pozor</h3>
       <div class="odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca"></div>
@@ -194,7 +196,7 @@
       <div class="vyskarezervyDo3nasobokPrijmu"></div>
       <div class="vyskarezervyNad6nasobokPrijmu"></div>
       <div class="prehladOVydavkochMamDobruPredstavu"></div>
-      
+
       <h3>Tvoje vážne nedostatky</h3>
       <div class="odkladaniePenaziSposobNie"></div>
       <div class="vyskarezervyDo1nasobokPrijmu"></div>

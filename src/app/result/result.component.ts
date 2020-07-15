@@ -18,6 +18,7 @@ export class ResultComponent implements OnInit {
 
   pocetBodovMax: number = 0;
   pocetBodovStratil: number = 0;
+  pocetBodovPercent: number = 0;
   pocetBodovGramotnostMax: number = 0;
   pocetBodovGramotnostStratil: number = 0;
   pocetBodovHodnost: string = "nedefinované";
@@ -563,44 +564,44 @@ if (this.data.financnaRezervaVyska > this.data.vyskaPrijmu * 6) {
   }
 
   calculateHodnost(): string {
-    var pocetBodovPercent = (this.pocetBodovMax - this.pocetBodovStratil) / this.pocetBodovMax * 100;
-    if (pocetBodovPercent > 90) {
+    this.pocetBodovPercent = Math.round((this.pocetBodovMax - this.pocetBodovStratil) / this.pocetBodovMax * 100);
+    if (this.pocetBodovPercent > 90) {
       this.pocetBodovHodnost = "Finančná legenda";
       this.percentil = 100;
       return "FinancnaLegenda";
-    } else if (pocetBodovPercent > 80) {
+    } else if (this.pocetBodovPercent > 80) {
       this.pocetBodovHodnost = "Finančná hviezda";
       this.percentil = 95;
       return "FinancnaHviezda";
-    } else if (pocetBodovPercent > 70) {
+    } else if (this.pocetBodovPercent > 70) {
       this.pocetBodovHodnost = "Finančný kúzelník";
       this.percentil = 88;
       return "FinancnyKuzelnik";
-    } else if (pocetBodovPercent > 60) {
+    } else if (this.pocetBodovPercent > 60) {
       this.pocetBodovHodnost = "Finančný profesor";
       this.percentil = 77;
       return "FinancnyProfesor";
-    } else if (pocetBodovPercent > 50) {
+    } else if (this.pocetBodovPercent > 50) {
       this.pocetBodovHodnost = "Finančný majster";
       this.percentil = 67;
       return "FinancnyMajster";
-    } else if (pocetBodovPercent > 40) {
+    } else if (this.pocetBodovPercent > 40) {
       this.pocetBodovHodnost = "Finančný uceň";
       this.percentil = 53;
       return "FinancnyUcen";
-    } else if (pocetBodovPercent > 30) {
+    } else if (this.pocetBodovPercent > 30) {
       this.pocetBodovHodnost = "Finančný junior";
       this.percentil = 43;
       return "FinancnyJunior";
-    } else if (pocetBodovPercent > 20) {
+    } else if (this.pocetBodovPercent > 20) {
       this.pocetBodovHodnost = "Finančný nováčik";
       this.percentil = 28;
       return "FinancnyNovacik";
-    } else if (pocetBodovPercent > 10) {
+    } else if (this.pocetBodovPercent > 10) {
       this.pocetBodovHodnost = "Finančný začiatočník";
       this.percentil = 12;
       return "FinancnyZaciatocnik";
-    } else if (pocetBodovPercent > 0) {
+    } else if (this.pocetBodovPercent > 0) {
       this.pocetBodovHodnost = "Finančné embryo";
       this.percentil = 5;
       return "FinancneEmbryo";
