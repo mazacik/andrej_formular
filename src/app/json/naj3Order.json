@@ -6,13 +6,17 @@
     "naj_mesacnarezerva30percentprijmu",
     "naj_odkladaniePenaziSposobSporiaciUcetPoVyplate",
     "naj_produktyTretiPilierNieBezPrispevku",
-    "naj_produktyTretiPilierFondyIndexove"
+    "naj_produktyTretiPilierFondyIndexove",
+    "naj_zivotnePoistenieVyskaSplatky3az4",
+    "naj_produktyZivotnePoistenieInvesticiaNie"
   ],
   "najhorsie": [
     "naj_odkladaniePenaziSposobNie",
     "naj_odlozitMenejAko10percentprijmu",
     "naj_odkladaniePenaziSposobRazZaCas",
     "naj_produktyDruhyPilierNie",
+    "naj_produktyZivotnePoistenieNie",
+    "naj_produktyZivotnePoistenieInvesticiaAno",
     "naj_produktyDruhyPilierFondyDlhopisove",
     "naj_produktyInvesticieSporeniaNiePlanujem",
     "naj_produktyDruhyPilierNeviemCoToJe",
@@ -22,10 +26,17 @@
     "naj_odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca",
     "naj_odkladaniePenaziSposobSporiaciUcetPriebezne",
     "naj_produktyDruhyPilierFondyAkciove",
+    "naj_produktyTretiPilierFondyAkciove",    
     "naj_produktyDruhyPilierFondyNeviem",
     "naj_produktyDruhyPilierNiePlanujem",
+    "naj_zivotnePoistenieVyskaSplatkyNad4",
+    "naj_zivotnePoistenieVyskaSplatkyPod3",
+    "naj_produktyZivotnePoistenieInvesticiaNeviem",
     "naj_produktyTretiPilierNiePlanuje",
     "naj_produktyTretiPilierNeviemCoToJe",    
-    "naj_produktyTretiPilierNie"    
+    "naj_produktyTretiPilierNie",
+    "naj_produktyTretiPilierFondyNeviem",
+    "naj_produktyUverHypotekaPozickaNie",
+    "naj_produktyZivotnePoistenieNiePlanujem"
   ]
 }

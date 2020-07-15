@@ -157,8 +157,22 @@
     {
       "id": "produktyDruhyPilierFondyNeviem",
       "choiceString": "",
-      "resultTitle": "V druhom pilieri nemáš indexové podielové fondy.",
+      "resultTitle": "Nevieš aké máš fondy v druhom pilieri.",
       "resultVysvetlenie": "Je extrémne dôležité ako máš nastavený druhý pilier. Rozdiel je síce len v jednom poličku na zmluve, reálny rozdiel medzi správnym a nesprávnym nastavením sú však desaťtisíce eur na dôchodku. Dlhopisové fondy zarábajú 2% ročne, indexové 6%. Ak pôjdeš do dôchodku o 30 rokov a na druhý pilier mesačne vkladáš 50€ (býva to viac, je to 5% z hrubého príjmu), tak dlhopisové fondy ti vytvoria finančný majetok 25 000€ a indexové 50 000€.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "produktyTretiPilierFondyNeviem",
+      "choiceString": "",
+      "resultTitle": "Nevieš aké máš fondy v tretom pilieri.",
+      "resultVysvetlenie": "Je extrémne dôležité ako máš nastavený druhý pilier. Rozdiel je síce len v jednom poličku na zmluve, reálny rozdiel medzi správnym a nesprávnym nastavením sú však desaťtisíce eur na dôchodku. Dlhopisové fondy zarábajú 2% ročne, indexové 6%. Ak pôjdeš do dôchodku o 30 rokov a na druhý pilier mesačne vkladáš 50€ (býva to viac, je to 5% z hrubého príjmu), tak dlhopisové fondy ti vytvoria finančný majetok 25 000€ a indexové 50 000€.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "produktyTretiPilierFondyAkciove",
+      "choiceString": "",
+      "resultTitle": "V druhom pilieri nemáš indexové podielové fondy.",
+      "resultVysvetlenie": "Je extrémne dôležité ako máš nastavený tretí pilier. Rozdiel je síce len v jednom poličku na zmluve, reálny rozdiel medzi správnym a nesprávnym nastavením sú však desaťtisíce eur na dôchodku. Dlhopisové fondy zarábajú 2% ročne, indexové 6%. Ak pôjdeš do dôchodku o 30 rokov a na druhý pilier mesačne vkladáš 50€ (býva to viac, je to 5% z hrubého príjmu), tak dlhopisové fondy ti vytvoria finančný majetok 25 000€ a indexové 50 000€.",
       "resultPointsStratil": 0.5
     },
     {
@@ -182,9 +196,6 @@
       "resultVysvetlenie": "Tretí pilier by mal mať založený každý kto odvádza odvody a jeho zamestnávateľ mu ako pracovný benefit poskytuje príspevky. O treťom pilieri sme slabo informovaní a preto je pochopiteľné, že ho nemáš a o to chvályhodnejšie, že ho chceš máš. Tretí pilier si však zakladaj iba v prípade, že by Ti naň prispieval aj zamestnávateľ. Ak by Ti neprispieval, tak sa tretí pilier neoplatí.",
       "resultPointsStratil": 0.5
     },
-    
-
-
     {
       "id": "financnaGramotnostPoisteniePriInvestovaniNeviem",
       "choiceString": "Neviem",
@@ -239,6 +250,55 @@
       "choiceString": "",
       "resultTitle": "Životné poistenie Ti platia rodičia.",
       "resultVysvetlenie": "Keď už máš pravidelný mesačný príjem, odporúčame prevziať zodpovednosť v poistení na seba. Jeden z dôvodov, prečo tak spraviť je, že je pravdepodobné, že rodičia platia Tvoje poistenie už dlhšie - môže byť neaktuálne a platia teda zbytočné peniaze. Je preto dobré, si to nechať skontrolovať poverenou osobou.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "zivotnePoistenieVyskaSplatkyNad4",
+      "choiceString": "",
+      "resultTitle": "Mesačnú splátku životného poistenia máš nad 4% z Tvojho príjmu.",
+      "resultVysvetlenie": "Odporúčame si nechať životné poistenie skontrolovať, nakoľko hrozí, že platíš zbytočne veľa.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "zivotnePoistenieVyskaSplatkyPod3",
+      "choiceString": "",
+      "resultTitle": "Mesačnú splátku životného poistenia máš pod 3% z Tvojho príjmu.",
+      "resultVysvetlenie": "Odporúčame si nechať životné poistenie skontrolovať. Nie je totiž možné, aby si niekto platil za poistné menej ako 3% z príjmu a bol poistený kvalitne. Pravdepodobne ti buď chýbajú dôležité pripoistenia alebo máš veľmi nízke poistné sumy. To znamená, že v prípade, že by ti zdravie neslúžilo podľa predstáv, poisťovňa  by Ti nevyplatila očakávanú sumu.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "produktyZivotnePoistenieInvesticiaAno",
+      "choiceString": "",
+      "resultTitle": "Máš investičné životné poistenie (IŽP).",
+      "resultVysvetlenie": "Poistenie je bežne u ľudí, ktorí prevzali za samých seba zodpovednosť. Fakt, že ho máš zriadené naznačuje, že patríš medzi nich. Je však extrémne dôležité, aby životné poistenie bolo oddelené od investičnej zložky. IŽP je totiž produkt, kde platíš zbytočne poplatky a živíš skôr poisťovňu alebo sprostredkovateľa. Ak chceš investovať, určite to nerob cez poistenie.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "produktyZivotnePoistenieInvesticiaNeviem",
+      "choiceString": "",
+      "resultTitle": "Nevieš či máš poistenie spojené s investíciou.",
+      "resultVysvetlenie": "Poistenie si častokrát zakladáme bez toho, aby sme o ňom veľa vedeli. Potom sa častokrát stáva, že platíme zbytočné poplatky alebo ho máme nastavené nesprávne. Určite Ti odporúčame sa na svoje poistenie znova pozrieť, nakoľko poistenie a investovanie v jednom produkte sa v dnešnej dobe už viac neoplatí a na trhu existujú výhodnejšie alternatívy.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "produktyZivotnePoistenieNie",
+      "choiceString": "",
+      "resultTitle": "Nemáš životné poistenie.",
+      "resultVysvetlenie": "Životné poistenie by malo slúžiť ako zabezpečenie príjmu. Je to akási forma zodpovednosti, aby ťa neočakávane udalosti spojené so zdravým nedostali do finančných problémov. Čím menej peňazí máš, tým ho potrebuješ viac. Zober si, že kvalitná Liečba vážnejšej choroby stojí v priemere 12 000€, PNka ťa vie vyradiť z práce aj na pár mesiacov, a v prípade invalidity, Ti dá štát len malú čiastku z príjmu. Preto odporúčame sa na všetky negatívne situácie pripraviť.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "produktyZivotnePoistenieNiePlanujem",
+      "choiceString": "",
+      "resultTitle": "Nemáš životné poistenie.",
+      "resultVysvetlenie": "Životné poistenie by malo slúžiť ako zabezpečenie príjmu. Je to akási forma zodpovednosti, aby ťa neočakávane udalosti spojené so zdravým nedostali do finančných problémov. Čím menej peňazí máš, tým ho potrebuješ viac. Zober si, že kvalitná Liečba vážnejšej choroby stojí v priemere 12 000€, PNka ťa vie vyradiť z práce aj na pár mesiacov, a v prípade invalidity, Ti dá štát len malú čiastku z príjmu. Preto odporúčame sa na všetky negatívne situácie pripraviť.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "produktyUverHypotekaPozickaNie",
+      "choiceString": "",
+      "resultTitle": "Nemáš a ani neplánuješ hypotéku.",
+      "resultVysvetlenie": "Rozumieme, že nie každý sa chce zadlžovať. V dnešnej dobe sú však tak nízke úroky, že sa hypotéka stala finančne výhodným rozhodnutím a odporúčame to každému, kto má dostatočný príjem na jej splácanie. Ak  chceš niekedy bývať vo svojom, musíš vedieť, že banka ti nepožičia 100% z hodnoty nehnuteľnosti. Potrebuješ minimálne 10%, čo pri byte za 120 000€, znamená, že potrebuješ vlastných 12 000€. Najlepšie, čo môžeš spraviť je si tieto peniaze začať postupne šetriť. Môže to síce trvať niekoľko rokov, je to však rozumnejšie riešenie ako dofinancovať úver nevýhodným spotrebným úverom.",
       "resultPointsStratil": 0.5
     },
     {
@@ -311,7 +371,6 @@
       "resultVysvetlenie": "Ak nerátame ľudí v náročnej sociálnej situácii, každý by si mal byť schopný odložiť aspoň 10% príjmu. Ak sa Ti to nedarí, je to pravdepodobne kvôli tvojej vysokej spotrebe. Väčšinou stačí, ak si vždy po výplate odložíš 10% príjmu bokom, a zvyšok mesiaca skúšaš vyžiť bez danej sumy. Ak by Ti to predsa nevychádzalo, odložené peniaze vieš kedykoľvek znova použiť. Odporúčame to skúsiť aspoň na jeden mesiac.",
       "resultPointsStratil": 1
     },
-    
     {
       "id": "sKymSaRadisInternetAKnihy",
       "choiceString": "",

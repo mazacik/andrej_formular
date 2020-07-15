@@ -60,6 +60,8 @@ export class ResultComponent implements OnInit {
       // pole pre naj3 manualne
       var naj3Extra = [];
 
+     
+
       // kolkoPercentPrijmuJeNajomne -> Toto Je ID
       if (this.data.najomne > this.data.vyskaPrijmu * 0.3) {
         const pocetBodovMax = 1; //hodnota otazky
@@ -75,7 +77,58 @@ export class ResultComponent implements OnInit {
         this.createToggleElement(answerNajomne.id, answerNajomne.resultTitle, answerNajomne.resultVysvetlenie, answerNajomne.resultPointsStratil);
       }
 
-    
+      //zivotnePoistenieVyskaSplatkyNad4
+      if (this.data.pageProduktyZivotnePoistenieKolkoPlati > this.data.vyskaPrijmu * 0.04) {
+
+        // top3 najhorsie/najlepsie, ID sa musi zhodovat s tymi v naj3Order.json a result.html
+        naj3Extra[naj3Extra.length] = 'naj_zivotnePoistenieVyskaSplatkyNad4';
+
+        // vytvorenie toggle elementu (nadpis a tlacitko, ktore zobrazi text s vysvetlenim)
+        // ID sa musi zhodovat s tym v survey.json a result.html
+        var answerZivotnePoistenieVyskaSplatkyNad4 = this.getAnswerById('zivotnePoistenieVyskaSplatkyNad4');
+        if (answerZivotnePoistenieVyskaSplatkyNad4) {
+          this.createToggleElementFromAnswer(answerZivotnePoistenieVyskaSplatkyNad4);
+
+          // pocet bodov
+          this.pocetBodovMax += 1; // alebo ho nacitas z questionDetails.json, v tom pripade mi napis
+          this.pocetBodovStratil += answerZivotnePoistenieVyskaSplatkyNad4.resultPointsStratil; // alebo jednoducho odcitas cislo
+        }
+      }
+      
+//zivotnePoistenieVyskaSplatkyPod3
+if (this.data.pageProduktyZivotnePoistenieKolkoPlati < this.data.vyskaPrijmu * 0.03) {
+
+  // top3 najhorsie/najlepsie, ID sa musi zhodovat s tymi v naj3Order.json a result.html
+  naj3Extra[naj3Extra.length] = 'naj_zivotnePoistenieVyskaSplatkyPod3';
+
+  // vytvorenie toggle elementu (nadpis a tlacitko, ktore zobrazi text s vysvetlenim)
+  // ID sa musi zhodovat s tym v survey.json a result.html
+  var answerZivotnePoistenieVyskaSplatkyPod3 = this.getAnswerById('zivotnePoistenieVyskaSplatkyPod3');
+  if (answerZivotnePoistenieVyskaSplatkyPod3) {
+    this.createToggleElementFromAnswer(answerZivotnePoistenieVyskaSplatkyPod3);
+
+    // pocet bodov
+    this.pocetBodovMax += 1; // alebo ho nacitas z questionDetails.json, v tom pripade mi napis
+    this.pocetBodovStratil += answerZivotnePoistenieVyskaSplatkyPod3.resultPointsStratil; // alebo jednoducho odcitas cislo
+  }
+}
+      
+      //pageProduktyZivotnePoistenieKolkoPlati 3 az 4% zivotnePoistenieVyskaSplatky3az4
+      if (this.data.pageProduktyZivotnePoistenieKolkoPlati >= this.data.vyskaPrijmu * 0.03 && this.data.pageProduktyZivotnePoistenieKolkoPlati <= this.data.vyskaPrijmu * 0.04) {
+        const pocetBodovMax = 1;
+        const pocetBodovStratil = 0;
+
+        this.pocetBodovMax += pocetBodovMax;
+        this.pocetBodovStratil += pocetBodovStratil;
+
+        naj3Extra[naj3Extra.length] = 'naj_zivotnePoistenieVyskaSplatky3az4';
+
+        this.showElementsByClass("zivotnePoistenieVyskaSplatky3az4");
+
+        var spanPoints = document.getElementById("zivotnePoistenieVyskaSplatky3az4Points");
+        if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil + "b] ";
+      }
+
       // odlozitViacAko20percentprijmu
       if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.2) {
         const pocetBodovMax = 1;
@@ -90,44 +143,44 @@ export class ResultComponent implements OnInit {
 
         var spanPoints = document.getElementById("odlozitViacAko20percentprijmuPoints");
         if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil + "b] ";
-        }
+      }
 
-        // odlozitViacAko10percentprijmu
-        if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.1 && this.data.odkladaniePenaziVyska < this.data.vyskaPrijmu * 0.2) {
+      // odlozitViacAko10percentprijmu
+      if (this.data.odkladaniePenaziVyska >= this.data.vyskaPrijmu * 0.1 && this.data.odkladaniePenaziVyska < this.data.vyskaPrijmu * 0.2) {
 
-          // top3 najhorsie/najlepsie, ID sa musi zhodovat s tymi v naj3Order.json a result.html
-          naj3Extra[naj3Extra.length] = 'naj_odlozitViacAko10percentprijmu';
-  
-          // vytvorenie toggle elementu (nadpis a tlacitko, ktore zobrazi text s vysvetlenim)
-          // ID sa musi zhodovat s tym v survey.json a result.html
-          var answerOdlozitViacAko10percentprijmu = this.getAnswerById('odlozitViacAko10percentprijmu');
-          if (answerOdlozitViacAko10percentprijmu) {
-            this.createToggleElementFromAnswer(answerOdlozitViacAko10percentprijmu);
-  
-            // pocet bodov
-            this.pocetBodovMax += 1; // alebo ho nacitas z questionDetails.json, v tom pripade mi napis
-            this.pocetBodovStratil += answerOdlozitViacAko10percentprijmu.resultPointsStratil; // alebo jednoducho odcitas cislo
-          }
-        }
-      
-         // odlozitMenejAko10percentprijmu
-         if (this.data.odkladaniePenaziVyska < this.data.vyskaPrijmu * 0.1) {
+        // top3 najhorsie/najlepsie, ID sa musi zhodovat s tymi v naj3Order.json a result.html
+        naj3Extra[naj3Extra.length] = 'naj_odlozitViacAko10percentprijmu';
 
-          // top3 najhorsie/najlepsie, ID sa musi zhodovat s tymi v naj3Order.json a result.html
-          naj3Extra[naj3Extra.length] = 'naj_odlozitMenejAko10percentprijmu';
-  
-          // vytvorenie toggle elementu (nadpis a tlacitko, ktore zobrazi text s vysvetlenim)
-          // ID sa musi zhodovat s tym v survey.json a result.html
-          var answerOdlozitMenejAko10percentprijmu = this.getAnswerById('odlozitMenejAko10percentprijmu');
-          if (answerOdlozitMenejAko10percentprijmu) {
-            this.createToggleElementFromAnswer(answerOdlozitMenejAko10percentprijmu);
-  
-            // pocet bodov
-            this.pocetBodovMax += 1; // alebo ho nacitas z questionDetails.json, v tom pripade mi napis
-            this.pocetBodovStratil += answerOdlozitMenejAko10percentprijmu.resultPointsStratil; // alebo jednoducho odcitas cislo
-          }
+        // vytvorenie toggle elementu (nadpis a tlacitko, ktore zobrazi text s vysvetlenim)
+        // ID sa musi zhodovat s tym v survey.json a result.html
+        var answerOdlozitViacAko10percentprijmu = this.getAnswerById('odlozitViacAko10percentprijmu');
+        if (answerOdlozitViacAko10percentprijmu) {
+          this.createToggleElementFromAnswer(answerOdlozitViacAko10percentprijmu);
+
+          // pocet bodov
+          this.pocetBodovMax += 1; // alebo ho nacitas z questionDetails.json, v tom pripade mi napis
+          this.pocetBodovStratil += answerOdlozitViacAko10percentprijmu.resultPointsStratil; // alebo jednoducho odcitas cislo
         }
-        
+      }
+
+      // odlozitMenejAko10percentprijmu
+      if (this.data.odkladaniePenaziVyska < this.data.vyskaPrijmu * 0.1) {
+
+        // top3 najhorsie/najlepsie, ID sa musi zhodovat s tymi v naj3Order.json a result.html
+        naj3Extra[naj3Extra.length] = 'naj_odlozitMenejAko10percentprijmu';
+
+        // vytvorenie toggle elementu (nadpis a tlacitko, ktore zobrazi text s vysvetlenim)
+        // ID sa musi zhodovat s tym v survey.json a result.html
+        var answerOdlozitMenejAko10percentprijmu = this.getAnswerById('odlozitMenejAko10percentprijmu');
+        if (answerOdlozitMenejAko10percentprijmu) {
+          this.createToggleElementFromAnswer(answerOdlozitMenejAko10percentprijmu);
+
+          // pocet bodov
+          this.pocetBodovMax += 1; // alebo ho nacitas z questionDetails.json, v tom pripade mi napis
+          this.pocetBodovStratil += answerOdlozitMenejAko10percentprijmu.resultPointsStratil; // alebo jednoducho odcitas cislo
+        }
+      }
+
       // vyskarezervy5nasobokprijmu
       if (this.data.financnaRezervaVyska >= this.data.vyskaPrijmu * 5) {
         const pocetBodovMax = 1;
@@ -326,6 +379,9 @@ export class ResultComponent implements OnInit {
           }
         }
       }
+      
+      if (this.data.pageProduktyTretiPilierVyskaPrispevku) investicieDlhodobe += this.data.pageProduktyTretiPilierVyskaPrispevku;
+      if (this.data.pageProduktyZivotnePoistenieInvesticiaVyska) investicieDlhodobe += this.data.pageProduktyZivotnePoistenieInvesticiaVyska;
 
       var pasiva = 0;
       if (this.data.produktyHypotekaVyskaSplatky) pasiva += this.data.produktyHypotekaVyskaSplatky;

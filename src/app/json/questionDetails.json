@@ -13,8 +13,38 @@
       "resultVysvetlenie": ""
     },
     {
+      "id": "pageProduktyDruhyPilier",
+      "resultPointsMax": 1,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
+    },
+    {
+      "id": "produktyTretiPilierFondy",
+      "resultPointsMax": 1,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
+    },
+    {
       "id": "produktyTretiPilier",
       "resultPointsMax": 0.5,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
+    },
+    {
+      "id": "produktyZivotnePoistenie",
+      "resultPointsMax": 1,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
+    },
+    {
+      "id": "produktyUverHypotekaPozicka",
+      "resultPointsMax": 0.5,
+      "correctChoice": "",
+      "resultVysvetlenie": ""
+    },
+    {
+      "id": "produktyZivotnePoistenieInvesticia",
+      "resultPointsMax": 1,
       "correctChoice": "",
       "resultVysvetlenie": ""
     },
