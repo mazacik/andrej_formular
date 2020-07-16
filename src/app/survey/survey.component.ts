@@ -1,9 +1,13 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import * as Survey from 'survey-angular';
-import * as jsonFile from '../json/survey.json';
 import * as $ from "jquery";
-import tippy from 'tippy.js';
+
+import { SurveyNavBar } from './surveynavbar';
+import { SurveyAnimation } from './surveyanimation';
+import { SurveyKeyboardEvent } from './surveykeyboardevent';
+
+import * as jsonFile from '../json/survey.json';
 
 Survey.Serializer.addProperty("page", {
   name: "navigationTitle:string",
@@ -21,330 +25,128 @@ Survey.Serializer.addProperty("page", {
 })
 
 export class SurveyComponent implements OnInit {
+  surveyNavBar: SurveyNavBar;
+  surveyAnimation: SurveyAnimation;
+  surveyKeyboardEvent: SurveyKeyboardEvent;
+
+  survey: any = null;
+
   constructor(
     public router: Router
   ) { }
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    var survey = (<any>window).survey;
-    var key = event.key;
-
-    if (survey != null) {
-      if (survey.currentPage.questions[0].getType() == "text" && survey.currentPage.questions[0].inputType != "text") {
-        // question is a text input that only allows numbers
-        if (key == "Enter" || key == "ArrowRight" || key == "ArrowDown") {
-          var element = document.getElementById("surveyNextAlternative");
-          if (element) element.focus;
-        } else if (key == "ArrowUp" || key == "ArrowLeft") {
-          event.preventDefault();
-          survey.prevPage();
-        }
-      } else {
-        if (key == "Enter" || key == "ArrowRight" || key == "ArrowDown") {
-          event.preventDefault();
-          survey.nextPage();
-        } else if (key == "ArrowUp" || key == "ArrowLeft") {
-          event.preventDefault();
-          survey.prevPage();
-        }
-      }
-    }
+    this.surveyKeyboardEvent.handle(event);
   }
 
   ngOnInit(): void {
-    function createNavBar() {
-      var navTopEl = document.querySelector("#surveyNavBar");
-      navTopEl.className = "navigationContainer";
-      var navProgBarDiv = document.createElement("div");
-      navProgBarDiv.className = "navigationProgressbarDiv";
-      navTopEl.appendChild(navProgBarDiv);
-      var navProgBar = document.createElement("ul");
-      navProgBar.className = "navigationProgressbar";
-      navProgBarDiv.appendChild(navProgBar);
+    this.surveyNavBar = new SurveyNavBar();
 
-      for (var i = 0; i < sections.length; i++) {
-        var liEl = document.createElement("li");
-        if (currentSection == sections[i]) {
-          liEl.classList.add("current");
-        }
-        var sekciaString = document.createElement("span");
-        switch (sections[i]) {
-          case "sekciaUvodneOtazky":
-            sekciaString.innerText = "Úvodné otázky";
-            break;
-          case "sekciaVyberProduktov":
-            sekciaString.innerText = "Výber produktov";
-            break;
-          case "sekciaPracaSPeniazmi":
-            sekciaString.innerText = "Práca s peniazmi";
-            break;
-          case "sekciaFinancnaGramotnost":
-            sekciaString.innerText = "Finančná gramotnosť";
-            break;
-          case "sekciaOkruhyZaujmu":
-            sekciaString.innerText = "Okruhy záujmu";
-            break;
-        }
-        sekciaString.className = "sectionTitle";
-        liEl.appendChild(sekciaString);
-        navbarElements.push(liEl);
-        navProgBar.appendChild(liEl);
+    this.survey = new Survey.Model((<any>jsonFile).default);
+    this.survey.onComplete.add(() => this.onSurveyComplete());
+    this.survey.onCurrentPageChanged.add(() => this.onCurrentPageChanged());
+    this.survey.onAfterRenderQuestion.add(() => this.doAfterRenderQuestion());
+    this.survey.onUpdateQuestionCssClasses.add((survey: Survey.SurveyModel, options: any) => this.onUpdateQuestionCssClasses(survey, options));
+
+    Survey.SurveyNG.render("surveyElement", { model: this.survey });
+
+    (<any>window).survey = this.survey; // need for 'onclick="survey.nextPage()"'
+
+    this.surveyAnimation = new SurveyAnimation(this.survey);
+    this.surveyKeyboardEvent = new SurveyKeyboardEvent(this.survey);
+  }
+
+  insertAlternativeNextButton(): void {
+    function showAlternativeNextButton() {
+      $el.append('<input id="surveyNextAlternative" onclick="survey.nextPage()"' +
+        ' type="button"' +
+        ' value="Ok"' +
+        ' class="sv_next_btn sv_next_btn--alternative">');
+    }
+    function hideAlternativeNextButton() {
+      $("#surveyNextAlternative").remove();
+    }
+    function checkCheckboxes() {
+      var isAnyChecked = $(".sv_q_checkbox_control_item:checked").length > 0;
+      nextButtonAlreadyExists = $("#surveyNextAlternative").length > 0;
+      if (isAnyChecked && !nextButtonAlreadyExists) {
+        showAlternativeNextButton();
+      }
+      if (!isAnyChecked) {
+        hideAlternativeNextButton();
       }
     }
 
-    function insertAlternativeNextButton() {
-      function showAlternativeNextButton() {
-        $el.append('<input id="surveyNextAlternative" onclick="survey.nextPage();"' +
-          ' type="button"' +
-          ' value="Ok"' +
-          ' class="sv_next_btn sv_next_btn--alternative">');
+    var $el = $(".sv_q.sv_qstn");
+    if ($el.length > 0) {
+      var nextButtonAlreadyExists = $("#surveyNextAlternative").length > 0;
+
+      // check if there are checkboxes
+      var checkboxExists = $(".sv_q_checkbox_label").length > 0;
+      if (checkboxExists) {
+        checkCheckboxes();
+        $(".sv_q_checkbox_control_item").on("change", function () {
+          checkCheckboxes();
+        });
       }
-      function hideAlternativeNextButton() {
-        $("#surveyNextAlternative").remove();
-      }
-      function checkCheckboxes() {
-        var isAnyChecked = $(".sv_q_checkbox_control_item:checked").length > 0;
-        nextButtonAlreadyExists = $("#surveyNextAlternative").length > 0;
-        if (isAnyChecked && !nextButtonAlreadyExists) {
+
+      // check if there is text input
+      var inputTextExists = $(".sv_q_text_root").length > 0;
+      var value = $(".sv_q_text_root").val();
+      if (inputTextExists) {
+        if (value !== "" && !nextButtonAlreadyExists) {
           showAlternativeNextButton();
-        }
-        if (!isAnyChecked) {
+        } else if (value === "") {
           hideAlternativeNextButton();
         }
       }
-
-      var $el = $(".sv_q.sv_qstn");
-      if ($el.length > 0) {
-        var nextButtonAlreadyExists = $("#surveyNextAlternative").length > 0;
-
-        // check if there are checkboxes
-        var checkboxExists = $(".sv_q_checkbox_label").length > 0;
-        if (checkboxExists) {
-          checkCheckboxes();
-          $(".sv_q_checkbox_control_item").on("change", function () {
-            checkCheckboxes();
-          });
-        }
-
-        // check if there is text input
-        var inputTextExists = $(".sv_q_text_root").length > 0;
-        var value = $(".sv_q_text_root").val();
-        if (inputTextExists) {
-          if (value !== "" && !nextButtonAlreadyExists) {
-            showAlternativeNextButton();
-          } else if (value === "") {
-            hideAlternativeNextButton();
-          }
-        }
-      }
     }
+  }
 
-    function doAfterRenderQuestion() {
-      $(".sv_q_text_root").on("keyup", function (event) {
-        insertAlternativeNextButton();
-      });
-    }
-
-    function onCurrentPageChanged(survey: Survey.SurveyModel, options: any) {
-      $('.sv_qcbc').parent().css('display', 'flex');
-      $('.sv_qcbc').parent().css('justify-content', 'center');
-      function updateNavBar() {
-        function getSectionByCurrentPage() {
-          switch (survey.currentPage.name) {
-            case "pageMeno":
-            case "pageZaciatokUvodnychOtazok":
-            case "pageVek":
-            case "pageStudium":
-            case "pageZdrojPrijmu":
-            case "pageVyskaPrijmu":
-            case "pageNemaPrijem":
-            case "pageDajteMiVediet":
-            case "pageKdePracujes":
-            case "pageOdkladaniePenazi":
-            case "pageOdkladaniePenaziSposob":
-            case "pageKdePracujes":
-            case "pageOdkladaniePenazi":
-            case "pageOdkladaniePenaziVyska":
-              return sections[0];
-            case "pageZaciatokBodovania":
-            case "pageProduktyZivotnePoistenie":
-            case "pageProduktyZivotnePoistenieKolkoPlati":
-            case "pageProduktyZivotnePoistenieInvesticia":
-            case "pageProduktyZivotnePoistenieInvesticiaVyska":
-            case "pageProduktyDruhyPilier":
-            case "pageProduktyTretiPilier":
-            case "pageProduktyTretiPilierFondy":
-            case "pageProduktyTretiPilierVyskaPrispevku":
-            case "pageProduktyTretiPilierVyskaPrispevkuZamestnavatela":
-            case "pageProduktyUverHypotekaPozicka":
-            case "pageNajomne":
-            case "pageProduktyHypotekaVyskaSplatky":
-            case "pageProduktyHypotekaUrok":
-            case "pageProduktyUverPozickaVyskaSplatky":
-            case "pageProduktyUverPozickaUrok":
-            case "pageProduktyBeznyUcet":
-            case "pageProduktyInvesticieSporenia":
-            case "pageZaciatokOtazokOInvestovani":
-            case "pageKratkodobeInvesticie":
-            case "pageDynamickeInvesticie":
-            case "pageAkeInvesticiePlanujes":
-              return sections[1];
-            case "pageSKymSaRadis":
-            case "pageFinancnaRezerva":
-            case "pageFinancnaRezervaVyska":
-            case "pagePrehladOVydavkoch":
-            case "pageOmeskanieSplatky":
-              return sections[2];
-            case "pageZaciatokGramotnosti":
-            case "pageFinancnaGramotnostDlhodobaInvesticia":
-            case "pageFinancnaGramotnostPoisteniePriInvestovani":
-            case "pageFinancnaGramotnostDruhyPilier":
-            case "pageFinancnaGramotnostVynos":
-            case "pageFinancnaGramotnostByt":
-              return sections[3];
-            case "pageCoChcesVediet":
-              return sections[4];
-          }
-        }
-
-        var newSection = getSectionByCurrentPage();
-
-        // set section name as body class name
-        for (let i = 0; i < sections.length; i++) {
-          document.getElementsByTagName("body")[0].classList.remove(sections[i]);
-        }
-        document.getElementsByTagName("body")[0].classList.add(newSection);
-
-        // set navigation items current state
-        for (let i = 0; i < navbarElements.length; i++) {
-          navbarElements[i].classList.remove("current");
-        }
-
-        // TODO: sometimes newSection is undefined
-        if (newSection) {
-          navbarElements[sections.indexOf(newSection)].classList.add("current");
-        }
-      }
-
-      function createTooltip() {
-
-      }
-
-      if (survey) {
-        var surveyCookie = {
-          currentPageNo: survey.currentPageNo,
-          data: survey.data
-        };
-        //window.sessionStorage.setItem('surveyCookie', JSON.stringify(surveyCookie));
-      }
-
-      // tooltip proof of concept
-      var titleElement = document.getElementsByClassName("sv_q_title").item(0);
-      if (titleElement) {
-        var innerHTML = titleElement.innerHTML;
-
-        var indexFirst = innerHTML.indexOf("priemerného");
-        var indexLast = indexFirst + "priemerného".length;
-
-        if (indexFirst >= 0) {
-          innerHTML = innerHTML.slice(0, indexLast) + "</span>" + innerHTML.slice(indexLast);
-          innerHTML = innerHTML.slice(0, indexFirst) + "<span class='priemerneho'>" + innerHTML.slice(indexFirst);
-
-          titleElement.innerHTML = innerHTML;
-
-          tippy('.priemerneho', {
-            "content": "Mesačný príjem môže občas klesať alebo stúpať, preto si ho neváhaj vyrátať."
-          })
-        }
-      }
-
-      insertAlternativeNextButton();
-      updateNavBar();
-    }
-
-    function onUpdateQuestionCssClasses(survey: Survey.SurveyModel, options: any) {
-      var classes = options.cssClasses;
-
-      if (options.question.name === "odkladaniePenaziVyska") {
-        classes.content += " text-input-wrapper";
-        classes.root += " currency";
-      }
-    }
-
-    function tryLoadSurveyDataFromCookie(survey: Survey.Survey) {
-      var surveyCookie = window.sessionStorage.getItem("surveyCookie");
-      if (surveyCookie) {
-        var jsonCookie = JSON.parse(surveyCookie);
-        if (jsonCookie.currentPageNo) {
-          survey.currentPageNo = jsonCookie.currentPageNo;
-        }
-        if (jsonCookie.data) {
-          survey.data = jsonCookie.data;
-        }
-      }
-    }
-
-    var sections = ["sekciaUvodneOtazky", "sekciaVyberProduktov", "sekciaPracaSPeniazmi", "sekciaFinancnaGramotnost", "sekciaOkruhyZaujmu"];
-    var currentSection = sections[0];
-
-    var navbarElements = [];
-
-    createNavBar();
-
-    var survey = new Survey.Model((<any>jsonFile).default);
-    survey.onComplete.add(() => this.onSurveyComplete());
-    survey.onCurrentPageChanged.add(onCurrentPageChanged);
-    survey.onAfterRenderQuestion.add(doAfterRenderQuestion);
-    survey.onUpdateQuestionCssClasses.add(onUpdateQuestionCssClasses);
-
-    //tryLoadSurveyDataFromCookie(survey);
-
-    Survey.SurveyNG.render("surveyElement", { model: survey });
-    (<any>window).survey = survey;
-
-    let doAnimation = true;
-    const animationSpeed = 400;
-    const $toAnimate = $('.sv_body > div:first-child');
-    let animateNext = false;
-    survey.onCurrentPageChanging.add((sender, options) => {
-      if (!doAnimation) { return; }
-      options.allowChanging = false;
-      animateNext = sender.currentPage.visibleIndex > options.newCurrentPage.visibleIndex
-      setTimeout(() => {
-        doAnimation = false;
-        sender.currentPage = options.newCurrentPage;
-        doAnimation = true;
-        $toAnimate.css('transition', 'none');
-      }, animationSpeed);
-      $toAnimate.css({
-        transform: 'translateY(' + (animateNext ? '+' : '-') + '100vh)',
-      });
-    });
-
-    survey.onCurrentPageChanged.add(sender => {
-      $('.sv_body > div:first-child').css({
-        transform: 'translateY(' + (animateNext ? '-' : '+') + '100vh)',
-      });
-      setTimeout(() => {
-        $toAnimate.css('transition', 'all .4s');
-        $toAnimate.css({
-          transform: 'translateY(0px)',
-        });
-      }, 0);
+  doAfterRenderQuestion() {
+    var _this = this;
+    $(".sv_q_text_root").on("keyup", function (event) {
+      _this.insertAlternativeNextButton();
     });
   }
 
-  onSurveyComplete(): void {
-    var survey = (<any>window).survey;
-    var surveyCookie = {
-      currentPageNo: survey.currentPageNo,
-      data: survey.data
-    };
+  onCurrentPageChanged() {
+    $('.sv_qcbc').parent().css('display', 'flex');
+    $('.sv_qcbc').parent().css('justify-content', 'center');
 
-    // window.sessionStorage.removeItem('surveyCookie');
-    // window.sessionStorage.setItem('surveyCookie', JSON.stringify(surveyCookie));
-    var navigateTo = 'vyhodnotenie/' + btoa(JSON.stringify(survey.data));
-    this.router.navigate([navigateTo]);
+    this.insertAlternativeNextButton();
+    this.surveyNavBar.updateNavBar(this.survey);
+
+    // tooltip proof of concept
+    // var titleElement = document.getElementsByClassName("sv_q_title").item(0);
+    // if (titleElement) {
+    //   var innerHTML = titleElement.innerHTML;
+
+    //   var indexFirst = innerHTML.indexOf("priemerného");
+    //   var indexLast = indexFirst + "priemerného".length;
+
+    //   if (indexFirst >= 0) {
+    //     innerHTML = innerHTML.slice(0, indexLast) + "</span>" + innerHTML.slice(indexLast);
+    //     innerHTML = innerHTML.slice(0, indexFirst) + "<span class='priemerneho'>" + innerHTML.slice(indexFirst);
+
+    //     titleElement.innerHTML = innerHTML;
+
+    //     tippy('.priemerneho', {
+    //       "content": "Mesačný príjem môže občas klesať alebo stúpať, preto si ho neváhaj vyrátať."
+    //     })
+    //   }
+    // }
+  }
+
+  onUpdateQuestionCssClasses(survey: Survey.SurveyModel, options: any): void {
+    if (options.question.name === "odkladaniePenaziVyska") {
+      options.cssClasses.content += " text-input-wrapper";
+      options.cssClasses.root += " currency";
+    }
+  }
+
+  onSurveyComplete(): void {
+    this.router.navigate(['vyhodnotenie/' + btoa(JSON.stringify(this.survey.data))]);
   }
 }
