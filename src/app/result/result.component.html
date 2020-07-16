@@ -3,7 +3,12 @@
     <h1>Tvoje vyhodnotenie</h1>
     <p>Gratulujeme {{data.meno}} k vyplneniu testu. Podarilo sa Ťi dostať na úroveň - <strong
         class="level">{{pocetBodovHodnost}}</strong>.</p>
-    <p>{{percentil}}% účastníkom testu sa darilo horšie ako tebe.</p>
+<!--Podarilo sa Ti získať 7 z 16 bodov. Máš 45% z maxima čo Ťa dostalo na úroveň finančný junior.-->
+
+    <p>{{percentil}}% účastníkov testu dosiahlo nižšiu úroveň ako ty.</p>
+    
+    <div class="pozrietSystemBodovania"></div>
+
     <div>Chceš sa porovnať aj s Tvojimi blízkymi? Pošli im link a zisti, kto získal viac bodov!
       <div>[{{challengeLink}}]</div>
       <button class="button-main" (click)="copyToClipboard(challengeLink)">SKOPÍROVAŤ</button>

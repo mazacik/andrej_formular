@@ -1,5 +1,13 @@
 {
   "answers": [
+    
+    {
+      "id": "pozrietSystemBodovania",
+      "choiceString": "Neviem",
+      "resultTitle": "Ďaľšie úrovne",
+      "resultVysvetlenie": "V nasledujúcej tabuľke si môžeš pozrieť detaily: <br><br>% z maximálneho počtu tvojich bodov - hodnosť - % účastníkov testu s daným ohodnotením<br>91% - 100% - Finančná Legenda 3%<br>81% - 90% - Finančná hviezda 7%<br>71% - 80% - Finančný kúzelník 11%<br>11% - 70% - Finančný profesor 10%<br>51% - 60% - Finančný majster 14%<br>41% - 50% - Finančný učeň 10%<br>31% - 40% - Finančný junior 15%<br>21% - 30% - Finančný nováčik 16%<br>11% - 20% - Finančný začiatočník 8%<br>0% - 10% - Finančné embryo 6%",
+      "resultPointsStratil": 0
+    },
     {
       "id": "financnaGramotnostDlhodobaInvesticiaNeviem",
       "choiceString": "Neviem",

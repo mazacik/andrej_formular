@@ -249,6 +249,8 @@ if (this.data.pageProduktyZivotnePoistenieKolkoPlati < this.data.vyskaPrijmu * 0
     this.pocetBodovStratil += answerVyskarezervyDo3nasobokPrijmu.resultPointsStratil; 
   }
 }
+var pozrietSystemBodovania = this.getAnswerById('pozrietSystemBodovania');
+this.createToggleElementFromAnswer(pozrietSystemBodovania);
 
 //vyskarezervyNad6nasobokPrijmu vyska rezervy nad 6 nasobok prijmu
 if (this.data.financnaRezervaVyska > this.data.vyskaPrijmu * 6) {
