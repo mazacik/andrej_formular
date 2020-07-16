@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import * as Survey from 'survey-angular';
 import * as $ from "jquery";
 
-import { SurveyNavBar } from './surveynavbar';
-import { SurveyAnimation } from './surveyanimation';
-import { SurveyKeyboardEvent } from './surveykeyboardevent';
+import { SurveyNavBar } from './funct/navbar';
+import { SurveyAnimation } from './funct/animation';
+import { SurveyKeyboardEvent } from './funct/keyevent';
 
 import * as jsonFile from '../json/survey.json';
 
