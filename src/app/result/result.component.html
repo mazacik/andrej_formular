@@ -1,14 +1,10 @@
 <div class="result">
   <div class="section" id="resultSummary">
     <h1>Tvoje vyhodnotenie</h1>
-    <p>Gratulujeme {{data.meno}} k vyplneniu testu. Podarilo sa Ťi dostať na úroveň - <strong
-        class="level">{{pocetBodovHodnost}}</strong>.</p>
-<!--Podarilo sa Ti získať 7 z 16 bodov. Máš 45% z maxima čo Ťa dostalo na úroveň finančný junior.-->
-
-    <p>{{percentil}}% účastníkov testu dosiahlo nižšiu úroveň ako ty.</p>
-    
-    <div class="pozrietSystemBodovania"></div>
-
+    <p>Gratulujeme {{data.meno}} k vyplneniu testu.</p>
+    <p>Podarilo sa Ťi získať {{pocetBodovMax - pocetBodovStratil}} z
+      {{pocetBodovMax}} bodov, teda {{pocetBodovPercent}}%, a to ťa dostáva na úroveň <strong class="level">{{pocetBodovHodnost}}</strong>.</p>
+    <p>{{percentil}}% účastníkom testu sa darilo horšie ako tebe.</p>
     <div>Chceš sa porovnať aj s Tvojimi blízkymi? Pošli im link a zisti, kto získal viac bodov!
       <div>[{{challengeLink}}]</div>
       <button class="button-main" (click)="copyToClipboard(challengeLink)">SKOPÍROVAŤ</button>
@@ -39,7 +35,7 @@
       <li class="naj_omeskanieSplatkyNie" hidden>Vždy boli u Teba splátky splácané načas.</li>
       <li class="naj_prehladOVydavkochKazdyVydavok" hidden>Zaznamenávaš si výdavky.</li>
 
-      
+
 
 
     </ul>
@@ -96,14 +92,14 @@
       <li class="naj_produktyInvesticieSporeniaAnoPlatiaRodicia" hidden>Sporenia majú pod kontrolou Tvoji rodičia.</li>
       <li class="naj_prehladOVydavkochMamDobruPredstavu" hidden>Nezaznamenávaš si výdavky.</li>
       <li class="naj_prehladOVydavkochAkoTakViem" hidden>Nezaznamenávaš si výdavky.</li>
-      
+
     </ul>
 
     <h4>3 najväčšie pomoci od nás:</h4>
     <ul class="points">
-      <li>Zistíme za akých podmienok by ti banka poskytla hypotéku a v akej výške.</li>
-      <li>Porovnáme dostupné investičné produkty a odporučíme tie, ktorá by ti najviac vyhovovali.</li>
-      <li>Založíme ti druhý pilier so správne nastavenou investičnou stratégiou.</li>
+      <li class="naj_produktyUverHypotekaPozickaNiePlanujem" hidden>Zistíme za akých podmienok by ti banka poskytla hypotéku a v akej výške.</li>
+      <li class="naj_produktyInvesticieSporeniaNiePlanujem" hidden>Porovnáme dostupné investičné produkty a odporučíme tie, ktorá by ti najviac vyhovovali.</li>
+      <li class="naj_produktyDruhyPilierNiePlanujem" hidden>Založíme ti druhý pilier so správne nastavenou investičnou stratégiou.</li>
     </ul>
 
     <h4>V ďalšej časti sa dozvieš:</h4>
@@ -190,8 +186,9 @@
       <p class="vyskarezervy3az6nasobokPrijmu" hidden><b>Rezervu máš vybudovanú vo výške 3 až 6-násobku príjmu.</b> Až
         80% Slovákov nemá dostatočnú rezervu alebo si ju dokonca ani netvorí. Ty medzi nich nepatríš, čo je veľmi
         chvályhodné.</p>
-        <p class="prehladOVydavkochKazdyVydavok" hidden><b>Zaznamenávaš si výdavky.</b>Môžeš sa cítiť hrdo, nakoľko si výdavky poctivo zaznamenávaš, čo robí iba 11% účastníkov testu.</p>
-        
+      <p class="prehladOVydavkochKazdyVydavok" hidden><b>Zaznamenávaš si výdavky.</b>Môžeš sa cítiť hrdo, nakoľko si
+        výdavky poctivo zaznamenávaš, čo robí iba 11% účastníkov testu.</p>
+
 
       <h3>Na toto si daj pozor</h3>
       <div class="odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca"></div>
@@ -199,7 +196,7 @@
       <div class="vyskarezervyDo3nasobokPrijmu"></div>
       <div class="vyskarezervyNad6nasobokPrijmu"></div>
       <div class="prehladOVydavkochMamDobruPredstavu"></div>
-      
+
       <h3>Tvoje vážne nedostatky</h3>
       <div class="odkladaniePenaziSposobNie"></div>
       <div class="vyskarezervyDo1nasobokPrijmu"></div>
@@ -338,14 +335,14 @@
     <div class="section">
       <h1>S čím Ti vieme pomôcť my?</h1>
       <ul>
-        <li>Zistíme za akých podmienok by ti banka poskytla hypotéku a v akej výške.</li>
-        <li>Porovnáme dostupné investičné produkty a odporučíme tie, ktorá by ti najviac vyhovovali.</li>
-        <li>Založíme ti druhý pilier so správne nastavenou investičnou stratégiou.</li>
-        <li>Skontrolujeme ti poistenie a zhodnotíme, či spĺňa tvoje očakávania.</li>
-        <li>Pomôžeme ti nastaviť čo najefektívnejšie rozloženie portfólia vzhľadom na tvoje ciele.</li>
-        <li>Ukážeme ti sporiace účty, ktoré sú zadarmo, a majú aj malé zhodnotenie.</li>
+        <li class="produktyUverHypotekaPozickaNiePlanujem" hidden>Zistíme za akých podmienok by ti banka poskytla hypotéku a v akej výške.</li>
+        <li class="produktyInvesticieSporeniaNiePlanujem" hidden>Porovnáme dostupné investičné produkty a odporučíme tie, ktorá by ti najviac vyhovovali.</li>
+        <li class="produktyDruhyPilierNiePlanujem" hidden>Založíme ti druhý pilier so správne nastavenou investičnou stratégiou.</li>
+        <li class="" hidden>Skontrolujeme ti poistenie a zhodnotíme, či spĺňa tvoje očakávania.</li>
+        <li class="" hidden>Pomôžeme ti nastaviť čo najefektívnejšie rozloženie portfólia vzhľadom na tvoje ciele.</li>
+        <li class="" hidden>Ukážeme ti sporiace účty, ktoré sú zadarmo, a majú aj malé zhodnotenie.</li>
       </ul>
-      <div id="ktoSuNasiOdbornici"></div>
+      <div class="ktoSuNasiOdbornici"></div>
     </div>
 
     <div class="section">
