@@ -5,6 +5,8 @@
     <p>Podarilo sa Ťi získať {{pocetBodovMax - pocetBodovStratil}} z
       {{pocetBodovMax}} bodov, teda {{pocetBodovPercent}}%, a to ťa dostáva na úroveň <strong class="level">{{pocetBodovHodnost}}</strong>.</p>
     <p>{{percentil}}% účastníkom testu sa darilo horšie ako tebe.</p>
+
+    <div class="pozrietSystemBodovania"></div>
     <div>Chceš sa porovnať aj s Tvojimi blízkymi? Pošli im link a zisti, kto získal viac bodov!
       <div>[{{challengeLink}}]</div>
       <button class="button-main" (click)="copyToClipboard(challengeLink)">SKOPÍROVAŤ</button>

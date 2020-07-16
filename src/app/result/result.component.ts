@@ -487,8 +487,8 @@ if (this.data.financnaRezervaVyska > this.data.vyskaPrijmu * 6) {
       if (this.data.najomne) pasiva += this.data.najomne;
 
       var poistenie = 0;
-      if (this.data.produktyZivotnePoistenieKolkoPlati) pasiva += this.data.produktyZivotnePoistenieKolkoPlati;
-      if (this.data.produktyZivotnePoistenieInvesticiaVyska) pasiva -= this.data.produktyZivotnePoistenieInvesticiaVyska;
+      if (this.data.produktyZivotnePoistenieKolkoPlati) poistenie += this.data.produktyZivotnePoistenieKolkoPlati;
+      if (this.data.produktyZivotnePoistenieInvesticiaVyska) poistenie -= this.data.produktyZivotnePoistenieInvesticiaVyska;
 
       var spotreba = vyskaPrijmu - investicieKratkobe - investicieDlhodobe - pasiva - poistenie;
 
