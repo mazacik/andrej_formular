@@ -2,14 +2,15 @@
   <div class="section" id="resultSummary">
     <h1>Tvoje vyhodnotenie</h1>
     <p>Gratulujeme {{data.meno}} k vyplneniu testu.</p>
-    <p>Podarilo sa Ťi získať {{pocetBodovMax - pocetBodovStratil}} z
-      {{pocetBodovMax}} bodov, teda {{pocetBodovPercent}}%, a to ťa dostáva na úroveň <strong class="level">{{pocetBodovHodnost}}</strong>.</p>
-    <p>{{percentil}}% účastníkom testu sa darilo horšie ako tebe.</p>
+    <p>Podarilo sa Ťi získať {{resultBodovanie.pocetBodovMax - resultBodovanie.pocetBodovStratil}} z
+      {{resultBodovanie.pocetBodovMax}} bodov, teda {{resultBodovanie.percent}}%, a to ťa dostáva na úroveň <strong
+        class="level">{{resultBodovanie.hodnostPretty}}</strong>.</p>
+    <p>{{resultBodovanie.percentil}}% účastníkom testu sa darilo horšie ako tebe.</p>
 
     <div class="pozrietSystemBodovania"></div>
     <div>Chceš sa porovnať aj s Tvojimi blízkymi? Pošli im link a zisti, kto získal viac bodov!
-      <div>[{{challengeLink}}]</div>
-      <button class="button-main" (click)="copyToClipboard(challengeLink)">SKOPÍROVAŤ</button>
+      <div>[{{resultBodovanie.challengeLink}}]</div>
+      <button class="button-main" (click)="clipboard(resultBodovanie.challengeLink)">SKOPÍROVAŤ</button>
     </div>
 
     <h2>Zhrnutie</h2>
@@ -36,10 +37,6 @@
       <li class="naj_sKymSaRadisFinancnyPoradca" hidden>Využívaš služby finančného odborníka.</li>
       <li class="naj_omeskanieSplatkyNie" hidden>Vždy boli u Teba splátky splácané načas.</li>
       <li class="naj_prehladOVydavkochKazdyVydavok" hidden>Zaznamenávaš si výdavky.</li>
-
-
-
-
     </ul>
 
     <h4>Na tieto 3 veci Ti odporúčame sa pozrieť ako prvé:</h4>
@@ -94,14 +91,16 @@
       <li class="naj_produktyInvesticieSporeniaAnoPlatiaRodicia" hidden>Sporenia majú pod kontrolou Tvoji rodičia.</li>
       <li class="naj_prehladOVydavkochMamDobruPredstavu" hidden>Nezaznamenávaš si výdavky.</li>
       <li class="naj_prehladOVydavkochAkoTakViem" hidden>Nezaznamenávaš si výdavky.</li>
-
     </ul>
 
     <h4>3 najväčšie pomoci od nás:</h4>
     <ul class="points">
-      <li class="naj_produktyUverHypotekaPozickaNiePlanujem" hidden>Zistíme za akých podmienok by ti banka poskytla hypotéku a v akej výške.</li>
-      <li class="naj_produktyInvesticieSporeniaNiePlanujem" hidden>Porovnáme dostupné investičné produkty a odporučíme tie, ktorá by ti najviac vyhovovali.</li>
-      <li class="naj_produktyDruhyPilierNiePlanujem" hidden>Založíme ti druhý pilier so správne nastavenou investičnou stratégiou.</li>
+      <li class="naj_produktyUverHypotekaPozickaNiePlanujem" hidden>Zistíme za akých podmienok by ti banka poskytla
+        hypotéku a v akej výške.</li>
+      <li class="naj_produktyInvesticieSporeniaNiePlanujem" hidden>Porovnáme dostupné investičné produkty a odporučíme
+        tie, ktorá by ti najviac vyhovovali.</li>
+      <li class="naj_produktyDruhyPilierNiePlanujem" hidden>Založíme ti druhý pilier so správne nastavenou investičnou
+        stratégiou.</li>
     </ul>
 
     <h4>V ďalšej časti sa dozvieš:</h4>
@@ -162,7 +161,6 @@
       <div class="produktyInvesticieSporeniaNiePlanujem"></div>
       <div class="produktyInvesticieSporeniaAnoPlatiaRodicia"></div>
 
-
       <h3>Tvoje vážne nedostatky</h3>
       <div class="produktyInvesticieSporeniaNie"></div>
       <div class="produktyUverPozickaUrokViacAko10"></div>
@@ -191,7 +189,6 @@
       <p class="prehladOVydavkochKazdyVydavok" hidden><b>Zaznamenávaš si výdavky.</b>Môžeš sa cítiť hrdo, nakoľko si
         výdavky poctivo zaznamenávaš, čo robí iba 11% účastníkov testu.</p>
 
-
       <h3>Na toto si daj pozor</h3>
       <div class="odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca"></div>
       <div class="odkladaniePenaziSposobSporiaciUcetPriebezne"></div>
@@ -209,7 +206,6 @@
       <div class="sKymSaRadisFinancnaInstitucia"></div>
       <div class="omeskanieSplatkyÁno"></div>
       <div class="prehladOVydavkochAkoTakViem"></div>
-
     </div>
 
     <!--ROZLOZENIE-->
@@ -239,7 +235,6 @@
       <p class="najomneMenejAko30" hidden><span id="najomneMenejAko30Points"></span><b>Za bývanie platíš menej ako 30%
           svojho príjmu. </b> Nepresahuješ kritickú hranicu 30%, len tak ďalej!</p>
 
-
       <div class="kolkoPercentPrijmuJeNajomne"></div>
       <h3>Tvoje nedostatky</h3>
       <div class="zivotnePoistenieVyskaSplatkyPod3"></div>
@@ -247,14 +242,13 @@
       <div class="odlozitMenejAko10percentprijmu"></div>
       <div class="odlozitViacAko10percentprijmu"></div>
       <div class="najomneVyssieAko30"></div>
-
-
     </div>
 
     <!--GRAMOTNOST-->
     <div class="section section-financial-literacy">
       <h1>Finančná gramotnosť</h1>
-      <p>V sekcii finančnej gramotnosti sa Ti darilo lepšie ako {{percentilGramotnost}}% účastníkom testu.</p>
+      <p>V sekcii finančnej gramotnosti sa Ti darilo lepšie ako {{resultBodovanie.percentilGramotnost}}% účastníkom
+        testu.</p>
       <div class="my-48">
         <h3>Otázka 1</h3>
         <p><b>Na dlhodobú investíciu vložíš 1000€, o rok hodnota tejto investície klesla na 900€. Čo urobíš?</b></p>
@@ -331,15 +325,17 @@
       <div class="coChcesVedietMenezovanieVydavkov1" hidden></div>
       <div class="coChcesVedietMenezovanieVydavkov2" hidden></div>
       <div class="coChcesVedietMenezovanieVydavkov3" hidden></div>
-
     </div>
 
     <div class="section">
       <h1>S čím Ti vieme pomôcť my?</h1>
       <ul>
-        <li class="produktyUverHypotekaPozickaNiePlanujem" hidden>Zistíme za akých podmienok by ti banka poskytla hypotéku a v akej výške.</li>
-        <li class="produktyInvesticieSporeniaNiePlanujem" hidden>Porovnáme dostupné investičné produkty a odporučíme tie, ktorá by ti najviac vyhovovali.</li>
-        <li class="produktyDruhyPilierNiePlanujem" hidden>Založíme ti druhý pilier so správne nastavenou investičnou stratégiou.</li>
+        <li class="produktyUverHypotekaPozickaNiePlanujem" hidden>Zistíme za akých podmienok by ti banka poskytla
+          hypotéku a v akej výške.</li>
+        <li class="produktyInvesticieSporeniaNiePlanujem" hidden>Porovnáme dostupné investičné produkty a odporučíme
+          tie, ktorá by ti najviac vyhovovali.</li>
+        <li class="produktyDruhyPilierNiePlanujem" hidden>Založíme ti druhý pilier so správne nastavenou investičnou
+          stratégiou.</li>
         <li class="" hidden>Skontrolujeme ti poistenie a zhodnotíme, či spĺňa tvoje očakávania.</li>
         <li class="" hidden>Pomôžeme ti nastaviť čo najefektívnejšie rozloženie portfólia vzhľadom na tvoje ciele.</li>
         <li class="" hidden>Ukážeme ti sporiace účty, ktoré sú zadarmo, a majú aj malé zhodnotenie.</li>
@@ -360,12 +356,14 @@
         - Aktuálnom nastavení môjho životného poistenia<br>
         - Ideálnom rozložení kam smerovať moje peniaze<br>
         - Alternatívach oproti bežnému účtu v banke</p>
-      <button class="button-main" (click)="emailSendToAndrej()">ODOSLAŤ</button>
+      <button class="button-main" (click)="email_ziadost()">ODOSLAŤ</button>
+      <!--TODO tu vnorenu funkciu treba vyskusat ci funguje, ak nie, treba to urobit v .ts manualne-->
     </div>
     <div class="section">
       <h2>Nemám záujem o konzultáciu, chcem si však uložiť vyhodnotenie.</h2>
       <div><input class="input-text" id="emailKlientaVysledok" type="email" placeholder="meno@gmail.com"></div>
-      <p><button class="button-main" (click)="sendDataUrlAsEmail()">Poslať vyhodnotenie emailom</button></p>
+      <p><button class="button-main" (click)="email_dataURL()">Poslať vyhodnotenie emailom</button></p>
+      <!--TODO tu vnorenu funkciu treba vyskusat ci funguje, ak nie, treba to urobit v .ts manualne-->
     </div>
   </div>
 </div>
