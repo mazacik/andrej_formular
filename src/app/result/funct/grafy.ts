@@ -80,7 +80,7 @@ export class ResultGraphs {
     });
   }
 
-  private static calcInvesticieKratkodobe(data: any): number {
+  static calcInvesticieKratkodobe(data: any): number {
     var value = 0;
     if (data.konzervativneInvesticie) {
       for (let i = 0; i < data.konzervativneInvesticie.length; i++) {
@@ -97,7 +97,7 @@ export class ResultGraphs {
     return value;
   }
 
-  private static calcInvesticieDlhodobe(data: any): number {
+  static calcInvesticieDlhodobe(data: any): number {
     var value = 0;
     if (data.dynamickeInvesticie) {
       for (let i = 0; i < data.dynamickeInvesticie.length; i++) {
@@ -116,7 +116,7 @@ export class ResultGraphs {
     return value;
   }
 
-  private static calcPasiva(data: any): number {
+  static calcPasiva(data: any): number {
     var value = 0;
     if (data.produktyHypotekaVyskaSplatky) value += data.produktyHypotekaVyskaSplatky;
     if (data.produktyUverPozickaVyskaSplatky) value += data.produktyUverPozickaVyskaSplatky;

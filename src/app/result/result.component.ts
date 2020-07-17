@@ -57,7 +57,14 @@ export class ResultComponent implements OnInit {
       var pozrietSystemBodovania = this.getAnswerById('pozrietSystemBodovania');
       ToggleElement.createFromAnswer(pozrietSystemBodovania);
 
+      // tooltip
       tippy('[data-tippy-content]');
+      // tippy('.pasiva', {
+      //   "content": "Pasívum je výdavok, ktorého splácaním prichádzaš o ďaľsie peniaze. Patrí sem úver alebo hypotéka a my sem rátame aj podnájom.'."
+      // })
+      // tippy('.aktiva', {
+      //   "content": "Aktíva sú peniaze, ktoré odkladáš a vedia Ti zarobiť ďaľšie peniaze. Patria sem rôzne sporenia a investície.'."
+      // })
 
       // manualne veci podla podmienok
       this.resultPodmienky.evaluate(this.resultBodovanie, this.data);

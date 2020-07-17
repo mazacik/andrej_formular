@@ -157,26 +157,12 @@
             {
               "value": "nemaPrijemAnoChcemPokracovat",
               "text": "Áno, chcem aj tak pokračovať"
-            },
-            {
-              "value": "nemaPrijemNieDajteMiVediet",
-              "text": "Nie, dajte mi prosím vedieť keď vyrobíte test užitočný aj pre mňa"
             }
+           
           ]
         }
       ],
       "visibleIf": "{zdrojPrijmu} = ['zdrojPrijmuNemaPrijem']"
-    },
-    {
-      "name": "pageDajteMiVediet",
-      "elements": [
-        {
-          "type": "html",
-          "name": "dajteMiVediet",
-          "html": "<p>DAJTE MI VEDIET</p>"
-        }
-      ],
-      "visibleIf": "{nemaPrijem} = 'nemaPrijemNieDajteMiVediet'"
     },
     {
       "name": "pageVyskaPrijmu",
