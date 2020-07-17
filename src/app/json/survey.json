@@ -776,7 +776,7 @@
         {
           "type": "html",
           "name": "zaciatokOtazokOInvestovani",
-          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Dobre {meno}, teraz si prejeme do hĺbky tvoje sporiace a investičné produkty. Vo vyhodnotení dostaneš spätnú väzbu na ich výber a rozloženie vzhľadom na tvoj príjem.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
+          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Dobre {meno}, teraz si prejdeme do hĺbky tvoje sporiace a investičné produkty. Vo vyhodnotení dostaneš spätnú väzbu na ich výber a rozloženie vzhľadom na tvoj príjem.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
         }
       ],
       "visibleIf": "{produktyInvesticieSporenia} = 'produktyInvesticieSporeniaAno'"
@@ -788,7 +788,7 @@
           "type": "matrixdynamic",
           "name": "konzervativneInvesticie",
           "title": "Pozrime sa najprv na tvoje konzervatívne produkty",
-          "description": "(zarabaju menej, ale vieš si z nich bez rizika vybrať peniaze v kratšej dobre)",
+          "description": "(zarabaju menej, ale vieš si z nich bez rizika vybrať peniaze v kratšej dobre - ak nemáš žiaden, otázku preskoč)",
           "columns": [
             {
               "name": "konzervativneInvesticieNazovProduktu",
@@ -936,23 +936,23 @@
               "choices": [
                 {
                   "value": "oKolkoRokovVyberieDo1",
-                  "text": "do 1 roka"
+                  "text": "do roka"
                 },
                 {
                   "value": "oKolkoRokovVyberieDo5",
-                  "text": "do 5 rokov"
+                  "text": "1 až 5 rokov"
                 },
                 {
                   "value": "oKolkoRokovVyberieDo10",
-                  "text": "do 10 rokov"
+                  "text": "6 až 10 rokov"
                 },
                 {
                   "value": "oKolkoRokovVyberieDo15",
-                  "text": "do 15 rokov"
+                  "text": "11 až 15 rokov"
                 },
                 {
                   "value": "oKolkoRokovVyberieViacAko15",
-                  "text": "viac ako 15 rokov"
+                  "text": "16 rokov a viac"
                 },
                 {
                   "value": "oKolkoRokovVyberieNemamPlan",
@@ -982,8 +982,8 @@
         {
           "type": "matrixdynamic",
           "name": "dynamickeInvesticie",
-          "title": "Teraz tvoje dynamické investičné produkty?",
-          "description": "(zarábajú viac, ale vieš si z nich peniaze vybrať bez rizika až po dlhšej dobe)",
+          "title": "Teraz Tvoje dynamické investičné produkty.",
+          "description": "(zarábajú viac, ale vieš si z nich peniaze vybrať bez rizika až po dlhšej dobe - ak nemáš žiaden, otázku preskoč)",
           "columns": [
             {
               "name": "dynamickeInvesticieNazovProduktu",
@@ -1135,23 +1135,23 @@
               "choices": [
                 {
                   "value": "dynamickeInvesticieOKolkoRokovVyberieDo1",
-                  "text": "do 1 roka"
+                  "text": "do roka"
                 },
                 {
                   "value": "dynamickeInvesticieOKolkoRokovVyberieDo5",
-                  "text": "do 5 rokov"
+                  "text": "1 až 5 rokov"
                 },
                 {
                   "value": "dynamickeInvesticieOKolkoRokovVyberieDo10",
-                  "text": "do 10 rokov"
+                  "text": "6 až 10 rokov"
                 },
                 {
                   "value": "dynamickeInvesticieOKolkoRokovVyberieDo15",
-                  "text": "do 15 rokov"
+                  "text": "11 až 15 rokov"
                 },
                 {
                   "value": "dynamickeInvesticieoKOlkoRokovVyberieViacAko15",
-                  "text": "viac ako 15 rokov"
+                  "text": "16 rokov a viac"
                 },
                 {
                   "value": "dynamickeInvesticieOKolkoRokovVyberieNemamPlan",

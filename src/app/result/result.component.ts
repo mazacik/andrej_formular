@@ -76,14 +76,6 @@ export class ResultComponent implements OnInit {
 
       // dozvies sa viac o...
       this.createDozviesSaViac();
-
-      // nasi odbornici
-      ToggleElement.create("ktoSuNasiOdbornici", "Kto sú naši odborníci?",
-        "Karolína Lehocká za dôchodky → Učiteľka dôchodkového systému<br>" +
-        "Ondrej Broska za investície → Riaditeľ spoločnosti TowerFinance<br>" +
-        "Marián Markech za poistenia → Bývalý generálny riaditeľ Axa<br>" +
-        "Martin Kraus za hypotéky → Bývalý Teamleader v prvej stavebnej sporiteľni<br>" +
-        "Andrej Nejedlík za komunikáciu s klientami → autor projektu");
     }
   }
 
