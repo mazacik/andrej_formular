@@ -9,7 +9,6 @@ import { SurveyKeyboardEvent } from './funct/keyevent';
 
 import * as jsonFile from '../json/survey.json';
 import { SurveyTooltip } from './funct/tooltip';
-import tippy from 'tippy.js';
 
 Survey.Serializer.addProperty("page", {
   name: "navigationTitle:string",
