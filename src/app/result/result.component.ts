@@ -57,10 +57,7 @@ export class ResultComponent implements OnInit {
       var pozrietSystemBodovania = this.getAnswerById('pozrietSystemBodovania');
       ToggleElement.createFromAnswer(pozrietSystemBodovania);
 
-      // tooltip
-      tippy('.chces', {
-        "content": "Tooltip nad slovom 'chces'."
-      })
+      tippy('[data-tippy-content]');
 
       // manualne veci podla podmienok
       this.resultPodmienky.evaluate(this.resultBodovanie, this.data);
