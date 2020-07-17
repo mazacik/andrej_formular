@@ -8,6 +8,8 @@ import { SurveyAnimation } from './funct/animation';
 import { SurveyKeyboardEvent } from './funct/keyevent';
 
 import * as jsonFile from '../json/survey.json';
+import { SurveyTooltip } from './funct/tooltip';
+import tippy from 'tippy.js';
 
 Survey.Serializer.addProperty("page", {
   name: "navigationTitle:string",
@@ -55,6 +57,8 @@ export class SurveyComponent implements OnInit {
 
     this.surveyAnimation = new SurveyAnimation(this.survey);
     this.surveyKeyboardEvent = new SurveyKeyboardEvent(this.survey);
+
+    this.onCurrentPageChanged();
   }
 
   insertAlternativeNextButton(): void {
@@ -118,25 +122,7 @@ export class SurveyComponent implements OnInit {
     this.insertAlternativeNextButton();
     this.surveyNavBar.updateNavBar(this.survey);
 
-    // tooltip proof of concept
-    // var titleElement = document.getElementsByClassName("sv_q_title").item(0);
-    // if (titleElement) {
-    //   var innerHTML = titleElement.innerHTML;
-
-    //   var indexFirst = innerHTML.indexOf("priemerného");
-    //   var indexLast = indexFirst + "priemerného".length;
-
-    //   if (indexFirst >= 0) {
-    //     innerHTML = innerHTML.slice(0, indexLast) + "</span>" + innerHTML.slice(indexLast);
-    //     innerHTML = innerHTML.slice(0, indexFirst) + "<span class='priemerneho'>" + innerHTML.slice(indexFirst);
-
-    //     titleElement.innerHTML = innerHTML;
-
-    //     tippy('.priemerneho', {
-    //       "content": "Mesačný príjem môže občas klesať alebo stúpať, preto si ho neváhaj vyrátať."
-    //     })
-    //   }
-    // }
+    SurveyTooltip.createTooltips(this.survey);
   }
 
   onUpdateQuestionCssClasses(survey: Survey.SurveyModel, options: any): void {
