@@ -24,7 +24,7 @@
     {
       "id": "dlhodobeInvesticieMenejAko10",
       "choiceString": "",
-      "resultTitle": "Mesačné dlhodobé <span class = 'aktiva'>aktíva</span>  máš nižšie ako 10% z príjmu",
+      "resultTitle": "Mesačné dlhodobé <span data-tippy-content='ktíva sú peniaze, ktoré odkladáš a vedia Ti zarobiť ďaľšie peniaze. Patria sem rôzne sporenia a investície.'>aktíva</span> máš nižšie ako 10% z príjmu",
       "resultVysvetlenie": "Je známym faktom, že na dôchodky jednoducho nebude. Preto ak chceš mať dôstojný dôchodok a prestať pracovať skôr ako v 70ke, tak si potrebuješ odkladať peniaze už teraz. Minimum je 10% z Tvojho príjmu. Aktuálne najvýhodnejšia forma sporenia na dôchodok je cez takzvané ETF fondy.",
       "resultPointsStratil": 1
     },
@@ -318,7 +318,7 @@
     {
       "id": "byvanieVyssieAko30",
       "choiceString": "",
-      "resultTitle": "Pasíva máš vyššie ako 30% svojho príjmu.",
+      "resultTitle": "<span data-tippy-content='Pasívum je výdavok, ktorého splácaním prichádzaš o ďaľsie peniaze. Patrí sem úver alebo hypotéka a my sem rátame aj podnájom.'>Pasíva</span> máš vyššie ako 30% svojho príjmu.",
       "resultVysvetlenie": "Za svoje bývanie alebo úvery platíš príliš veľa, čo môže spôsobovať, že si nedokážeš efektívne plniť iné finančné ciele. Odporúčame sa buď pozrieť po lacnejšom bývaní, možnostiach ako sa úveru zbaviť alebo spôsoboch ako si zvýšiť príjem.",
       "resultPointsStratil": 1
     },

@@ -8,11 +8,11 @@
     <p>{{resultBodovanie.percentil}}% účastníkom testu sa darilo horšie ako tebe.</p>
 
     <div class="pozrietSystemBodovania"></div>
-    <div>Chceš sa porovnať aj s Tvojimi <span data-tippy-content="Rodina, kamaráti a podobne.">blízkymi</span>? Pošli im link a zisti, kto získal viac bodov!
+    <div>Chceš sa porovnať aj s Tvojimi blízkymi? Pošli im link a zisti, kto získal viac bodov!
       <div>[{{resultBodovanie.challengeLink}}]</div>
       <button class="button-main" (click)="clipboard(resultBodovanie.challengeLink)">SKOPÍROVAŤ</button>
     </div>
-
+    
     <h2>Zhrnutie</h2>
     <h4>Tieto 3 veci Ti vyšli najlepšie:</h4>
     <ul class="points">
@@ -29,10 +29,10 @@
         negarantovaných fondoch.</li>
       <li class="naj_zivotnePoistenieVyskaSplatky3az4" hidden>Mesačnú splátku životného poistenia máš vo výške medzi 3
         až 4% z Tvojho príjmu.</li>
-      <li class="naj_kratkodobeInvesticieViacAko10" hidden>Mesačné kratkodobé aktíva máš vyššie ako 10% z príjmu</li>
-      <li class="naj_dlhodobeInvesticieViacAko10" hidden>Mesačné dlhodobé aktíva máš vyššie ako 10% z príjmu</li>
+      <li class="naj_kratkodobeInvesticieViacAko10" hidden>Mesačné kratkodobé <span data-tippy-content="ktíva sú peniaze, ktoré odkladáš a vedia Ti zarobiť ďaľšie peniaze. Patria sem rôzne sporenia a investície.">aktíva</span> máš vyššie ako 10% z príjmu</li>
+      <li class="naj_dlhodobeInvesticieViacAko10" hidden>Mesačné dlhodobé <span data-tippy-content="ktíva sú peniaze, ktoré odkladáš a vedia Ti zarobiť ďaľšie peniaze. Patria sem rôzne sporenia a investície.">aktíva</span> máš vyššie ako 10% z príjmu</li>
       <li class="naj_produktyZivotnePoistenieInvesticiaNie" hidden>Nemáš životné poistenie spojené s investíciou.</li>
-      <li class="naj_byvanieMensieAko30" hidden>Pasíva máš menšie ako 30% svojho príjmu.</li>
+      <li class="naj_byvanieMensieAko30" hidden><span data-tippy-content="Pasívum je výdavok, ktorého splácaním prichádzaš o ďaľsie peniaze. Patrí sem úver alebo hypotéka a my sem rátame aj podnájom.">Pasíva</span> máš menšie ako 30% svojho príjmu.</li>
       <li class="naj_produktyUverPozickaUrokDo5" hidden>Na úvere máš menší úrok ako 5%.</li>
       <li class="naj_produktyBeznyUcetNie" hidden> Za bežný účet si neplatíš.</li>
       <li class="naj_sKymSaRadisFinancnyPoradca" hidden>Využívaš služby finančného odborníka.</li>
@@ -65,8 +65,8 @@
       <li class="naj_odkladaniePenaziSposobBeznyUcet" hidden>Držíš si všetky peniaze na jednom účte.</li>
       <li class="naj_odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca" hidden>Neodkladáš si peniaze okamžite po výplate.
       </li>
-      <li class="naj_kratkodobeInvesticieMenejAko10" hidden>Mesačné kratkodobé aktíva máš nižšie ako 10% z príjmu.</li>
-      <li class="naj_dlhodobeInvesticieMenejAko10" hidden>Mesačné dlhodobé aktíva máš nižšie ako 10% z príjmu.</li>
+      <li class="naj_kratkodobeInvesticieMenejAko10" hidden>Mesačné kratkodobé <span data-tippy-content="ktíva sú peniaze, ktoré odkladáš a vedia Ti zarobiť ďaľšie peniaze. Patria sem rôzne sporenia a investície.">aktíva</span> máš nižšie ako 10% z príjmu.</li>
+      <li class="naj_dlhodobeInvesticieMenejAko10" hidden>Mesačné dlhodobé <span data-tippy-content="ktíva sú peniaze, ktoré odkladáš a vedia Ti zarobiť ďaľšie peniaze. Patria sem rôzne sporenia a investície.">aktíva</span> máš nižšie ako 10% z príjmu.</li>
       <li class="naj_zivotnePoistenieVyskaSplatkyNad4" hidden>Mesačnú splátku životného poistenia máš nad 4% z Tvojho
         príjmu.</li>
       <li class="naj_zivotnePoistenieVyskaSplatkyPod3" hidden>Mesačnú splátku životného poistenia máš pod 3% z Tvojho
@@ -77,7 +77,7 @@
       </li>
       <li class="naj_produktyDruhyPilierFondyAkciove" hidden>V druhom pilieri nemáš indexové podielové fondy.</li>
       <li class="naj_produktyTretiPilierFondyAkciove" hidden>V tretom pilieri nemáš indexové podielové fondy.</li>
-      <li class="naj_byvanieVyssieAko30" hidden>Pasíva máš vyššie ako 30% svojho príjmu.</li>
+      <li class="naj_byvanieVyssieAko30" hidden><span data-tippy-content="Pasívum je výdavok, ktorého splácaním prichádzaš o ďaľsie peniaze. Patrí sem úver alebo hypotéka a my sem rátame aj podnájom.">Pasíva</span> máš vyššie ako 30% svojho príjmu.</li>
       <li class="naj_produktyDruhyPilierFondyNeviem" hidden>Nevieš aké máš fondy v druhom pilieri.</li>
       <li class="naj_produktyDruhyPilierNiePlanujem" hidden>Nemáš ešte druhý pilier.</li>
       <li class="naj_produktyTretiPilierNie" hidden>Nemáš tretí pilier.</li>
@@ -247,7 +247,7 @@
           id="zivotnePoistenieVyskaSplatky3az4Points"></span><b>Mesačnú splátku životného poistenia máš vo výške medzi 3
           až 4% z Tvojho príjmu.</b> Kvalita poistenia sa samozrejme nedá určiť iba podľa mesačnej splátky, tu máš však
         v rozumnej výške.</p>
-      <p class="byvanieMensieAko30" hidden><span id="byvanieMensieAko30Points"></span><b>Pasíva máš menšie ako 30%
+      <p class="byvanieMensieAko30" hidden><span id="byvanieMensieAko30Points"></span><b><span data-tippy-content="Pasívum je výdavok, ktorého splácaním prichádzaš o ďaľsie peniaze. Patrí sem úver alebo hypotéka a my sem rátame aj podnájom.">Pasíva</span> máš menšie ako 30%
           svojho príjmu. </b> Nepresahuješ kritickú hranicu 30%, len tak ďalej!</p>
       <p class="kratkodobeInvesticieMenejAko10AleUzMaRezervu" hidden><span
           id="kratkodobeInvesticieMenejAko10AleUzMaRezervuPoints"></span><b>Chápeš, že si už nepotrebuješ dotvárať
