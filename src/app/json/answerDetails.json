@@ -15,17 +15,24 @@
       "resultPointsStratil": 0.5
     },
     {
-      "id": "kolkoPercentPrijmuJeNajomne",
-      "choiceString": "",
-      "resultTitle": "Nájomné máš vyššie ako 30% príjmu.",
-      "resultVysvetlenie": "To je zlé, zmeň sa.",
-      "resultPointsStratil": 1
-    },
-    {
       "id": "coChcesVedietVlastneByvanie1",
       "choiceString": "",
       "resultTitle": "Koľko potrebuješ peňazí? ",
       "resultVysvetlenie": "Ak si <span class='chces'>chceš</span> kúpiť byt za 100 000€, banka Ti nepožičia všetky peniaze. Dá Ti maximálne 80% z hodnoty nehnuteľnosti, výnimočne až 90%. Preto musíš mať našetrených vlastných minimálne 10%, čo je v tomto prípade až 10 000€. Vieš to financovať aj spotrebným úverom alebo medziúverom, to však nie sú finančne najlepšie možnosti, pretože majú vysoké úroky a na konci zaplatíš o veľa viac než Ti banka požičala. Preto odporúčame začať s prípravou na vlastné bývanie už niekoľko rokov predtým ako plánuješ jej kúpu.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "dlhodobeInvesticieMenejAko10",
+      "choiceString": "",
+      "resultTitle": "Mesačné dlhodobé <span class = 'aktiva'>aktíva</span>  máš nižšie ako 10% z príjmu",
+      "resultVysvetlenie": "Je známym faktom, že na dôchodky jednoducho nebude. Preto ak chceš mať dôstojný dôchodok a prestať pracovať skôr ako v 70ke, tak si potrebuješ odkladať peniaze už teraz. Minimum je 10% z Tvojho príjmu. Aktuálne najvýhodnejšia forma sporenia na dôchodok je cez takzvané ETF fondy.",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "kratkodobeInvesticieMenejAko10",
+      "choiceString": "",
+      "resultTitle": "Mesačné kratkodobé aktíva máš nižšie ako 10% z príjmu.",
+      "resultVysvetlenie": "Krátkodobé finančné zdroje si môžeš prestať tvoriť až keď máš vybudovanú rezervu vo výške 6násobku tvojho mesačného príjmu. Dovtedy odporúčame na tento účel odkladať aspoň 10% príjmu. Ak ešte nemáš vybudovanú rezervu, hrozí Ti, že Ťa neočakávané negatívne udalosti môžu dostať do finančných problémov.",
       "resultPointsStratil": 1
     },
     {
@@ -309,10 +316,10 @@
       "resultPointsStratil": 0.5
     },
     {
-      "id": "najomneVyssieAko30",
+      "id": "byvanieVyssieAko30",
       "choiceString": "",
-      "resultTitle": "Za bývanie platíš viac ako 30% svojho príjmu.",
-      "resultVysvetlenie": "Za svoje bývanie platíš príliš veľkú čiastku zo svojho príjmu, čo znamená, že si nedokážeš efektívne plniť iné finančné ciele. Odporúčame sa buď pozrieť po lacnejšom bývaní alebo spôsoboch ako si príjem zvýšiť.",
+      "resultTitle": "Pasíva máš vyššie ako 30% svojho príjmu.",
+      "resultVysvetlenie": "Za svoje bývanie alebo úvery platíš príliš veľa, čo môže spôsobovať, že si nedokážeš efektívne plniť iné finančné ciele. Odporúčame sa buď pozrieť po lacnejšom bývaní, možnostiach ako sa úveru zbaviť alebo spôsoboch ako si zvýšiť príjem.",
       "resultPointsStratil": 1
     },
     {
