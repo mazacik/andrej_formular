@@ -59,13 +59,7 @@ export class ResultComponent implements OnInit {
 
       // tooltip
       tippy('[data-tippy-content]');
-      // tippy('.pasiva', {
-      //   "content": "Pasívum je výdavok, ktorého splácaním prichádzaš o ďaľsie peniaze. Patrí sem úver alebo hypotéka a my sem rátame aj podnájom.'."
-      // })
-      // tippy('.aktiva', {
-      //   "content": "Aktíva sú peniaze, ktoré odkladáš a vedia Ti zarobiť ďaľšie peniaze. Patria sem rôzne sporenia a investície.'."
-      // })
-
+    
       // manualne veci podla podmienok
       this.resultPodmienky.evaluate(this.resultBodovanie, this.data);
 
@@ -79,7 +73,7 @@ export class ResultComponent implements OnInit {
       ResultGraphs.draw(this.data);
 
       // dozvies sa viac o...
-      this.createDozviesSaViac();
+      //this.createDozviesSaViac();
     }
   }
 
@@ -183,9 +177,7 @@ export class ResultComponent implements OnInit {
 
         // skusi najst v 'questionDetails.json' entry pre 'id'
         var question = this.getQuestionById(id);
-        if (question) {
-          this.resultBodovanie.pocetBodovMax += question.resultPointsMax;
-        }
+        if (question) this.resultBodovanie.pocetBodovMax += question.resultPointsMax;
 
         // skusi najst v 'answerDetails.json' entry pre 'id'
         var answer = this.getAnswerById(id);
