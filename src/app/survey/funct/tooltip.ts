@@ -2,7 +2,8 @@ import tippy from 'tippy.js';
 
 export class SurveyTooltip {
   static createTooltips(survey: any) {
-    SurveyTooltip.create(survey, "meno", "Monteste", "Tooltip, ktorý vysvetlí, ako vznikol názov prieskumu.");
+    SurveyTooltip.create(survey, "financnaRezervaMesacne", "rezervu", "Peniaze, ktoré si odkladáš tzv. \"na horšie časy\".");
+
     // SurveyTooltip.create(survey, "id_otazky_2", "slovo_2", "tooltip_2");
     // SurveyTooltip.create(survey, "id_otazky_3", "slovo_3", "tooltip_3");
     tippy('[data-tippy-content]');

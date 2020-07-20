@@ -18,7 +18,11 @@
     "naj_prehladOVydavkochKazdyVydavok",
     "naj_produktyTretiPilierNieBezPrispevku",
     "naj_sKymSaRadisFinancnyPoradca",
+    "naj_produktyUverHypotekaPozickaNemaUver",
+    "naj_naj_produktyDruhyPilierAno",
     "naj_kratkodobeInvesticieMenejAko10AleUzMaRezervu"
+
+
   ],
   "najhorsie": [
     "naj_produktyInvesticieSporeniaNie",
@@ -36,7 +40,6 @@
     "naj_produktyUverPozickaUrokDo10",
     "naj_produktyZivotnePoistenieInvesticiaAno",
     "naj_produktyDruhyPilierFondyDlhopisove",
-    "naj_produktyDruhyPilierNeviemCoToJe",
     "naj_omeskanieSplatkyÁno",
     "naj_odkladaniePenaziSposobBeznyUcet",
     "naj_odlozitViacAko10percentprijmu",
@@ -60,6 +63,7 @@
     "naj_produktyUverHypotekaPozickaNie",
     "naj_byvanieVyssieAko30",
     "naj_produktyHypotekaUrokNeviem",
+    "naj_produktyDruhyPilierNeviemCoToJe",
     "naj_produktyZivotnePoistenieNiePlanujem",
     "naj_produktyUverPozickaUrokNeviem",
     "naj_produktyInvesticieSporeniaNiePlanujem",

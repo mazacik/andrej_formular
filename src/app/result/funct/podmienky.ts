@@ -13,6 +13,11 @@ export class ResultPodmienky {
   evaluate(bodovanie: ResultBodovanie, data: any): void {
     this.bodovanie = bodovanie;
 
+    //produktyUverHypotekaPozickaNemaUver
+    if (!data.produktyUverHypotekaPozickaNemaUver) {
+      this.create("produktyUverHypotekaPozickaNemaUver");
+    }
+
     //dlhodobeInvesticieMenejAko10
     if (ResultGraphs.calcInvesticieDlhodobe(data) < data.vyskaPrijmu * 0.1) {
       this.create("dlhodobeInvesticieMenejAko10");
@@ -24,17 +29,17 @@ export class ResultPodmienky {
     }
 
     //kratkodobeInvesticieViacAko10
-    if (ResultGraphs.calcInvesticieKratkodobe(data) < data.vyskaPrijmu * 0.1) {
+    if (ResultGraphs.calcInvesticieKratkodobe(data) >= data.vyskaPrijmu * 0.1) {
       this.create("kratkodobeInvesticieViacAko10");
     }
 
     //kratkodobeInvesticieMenejAko10 ak este nema rezervu
-    if (ResultGraphs.calcInvesticieKratkodobe(data) >= data.vyskaPrijmu * 0.1 && data.financnaRezervaVyska <= data.vyskaPrijmu * 6) {
+    if ((data.financnaRezervaVyska >= data.vyskaPrijmu * 0.1 && data.financnaRezervaVyska <= data.vyskaPrijmu * 6) && ResultGraphs.calcInvesticieKratkodobe(data) < data.vyskaPrijmu * 0.1) {
       this.create("kratkodobeInvesticieMenejAko10");
     }
 
     //kratkodobeInvesticieMenejAko10AleUzMaRezervu ak uz nema rezervu
-    if (ResultGraphs.calcInvesticieKratkodobe(data) >= data.vyskaPrijmu * 0.1 && data.financnaRezervaVyska > data.vyskaPrijmu * 6) {
+    if ((data.financnaRezervaVyska >= data.vyskaPrijmu * 0.1 && data.financnaRezervaVyska > data.vyskaPrijmu * 6) && ResultGraphs.calcInvesticieKratkodobe(data) < data.vyskaPrijmu * 0.1) {
       this.create("kratkodobeInvesticieMenejAko10AleUzMaRezervu");
     }
 
@@ -49,17 +54,17 @@ export class ResultPodmienky {
     }
 
     //zivotnePoistenieVyskaSplatkyNad4
-    if (data.pageProduktyZivotnePoistenieKolkoPlati > data.vyskaPrijmu * 0.04) {
+    if ((data.pageProduktyZivotnePoistenieKolkoPlati - data.produktyZivotnePoistenieInvesticiaVyska) > data.vyskaPrijmu * 0.04) {
       this.create("zivotnePoistenieVyskaSplatkyNad4");
     }
 
     //zivotnePoistenieVyskaSplatkyPod3
-    if (data.pageProduktyZivotnePoistenieKolkoPlati < data.vyskaPrijmu * 0.03) {
+    if ((data.pageProduktyZivotnePoistenieKolkoPlati - data.produktyZivotnePoistenieInvesticiaVyska) < data.vyskaPrijmu * 0.03) {
       this.create("zivotnePoistenieVyskaSplatkyPod3");
     }
 
     //zivotnePoistenieVyskaSplatky3az4 3 az 4%
-    if (data.pageProduktyZivotnePoistenieKolkoPlati >= data.vyskaPrijmu * 0.03 && data.pageProduktyZivotnePoistenieKolkoPlati <= data.vyskaPrijmu * 0.04) {
+    if ((data.pageProduktyZivotnePoistenieKolkoPlati - data.produktyZivotnePoistenieInvesticiaVyska) >= data.vyskaPrijmu * 0.03 && data.pageProduktyZivotnePoistenieKolkoPlati <= data.vyskaPrijmu * 0.04) {
       this.create("zivotnePoistenieVyskaSplatky3az4", 1, 0);
     }
 

@@ -4,8 +4,8 @@
     {
       "id": "pozrietSystemBodovania",
       "choiceString": "Neviem",
-      "resultTitle": "Ďaľšie úrovne",
-      "resultVysvetlenie": "V nasledujúcej tabuľke si môžeš pozrieť detaily: <br><br>% z maximálneho počtu tvojich bodov - hodnosť - % účastníkov testu s daným ohodnotením<br>91% - 100% - Finančná Legenda 3%<br>81% - 90% - Finančná hviezda 7%<br>71% - 80% - Finančný kúzelník 11%<br>11% - 70% - Finančný profesor 10%<br>51% - 60% - Finančný majster 14%<br>41% - 50% - Finančný učeň 10%<br>31% - 40% - Finančný junior 15%<br>21% - 30% - Finančný nováčik 16%<br>11% - 20% - Finančný začiatočník 8%<br>0% - 10% - Finančné embryo 6%"
+      "resultTitle": "Viac o bodovaní",
+      "resultVysvetlenie": "Úspešnosť Úroveň<br><br>91% - 100%        Finančná Legenda<br>81% - 90% Finančná hviezda<br>71% - 80% Finančný kúzelník <br>11% - 70% Finančný profesor<br>51% - 60% Finančný majster<br>41% - 50% Finančný učeň<br>31% - 40% Finančný junior <br>21% - 30% Finančný nováčik<br>11% - 20% Finančný začiatočník<br>0% - 10% Finančné embryo"
     },
     {
       "id": "financnaGramotnostDlhodobaInvesticiaNeviem",
@@ -25,7 +25,7 @@
       "id": "dlhodobeInvesticieMenejAko10",
       "choiceString": "",
       "resultTitle": "Mesačné dlhodobé <span data-tippy-content='ktíva sú peniaze, ktoré odkladáš a vedia Ti zarobiť ďaľšie peniaze. Patria sem rôzne sporenia a investície.'>aktíva</span> máš nižšie ako 10% z príjmu",
-      "resultVysvetlenie": "Je známym faktom, že na dôchodky jednoducho nebude. Preto ak chceš mať dôstojný dôchodok a prestať pracovať skôr ako v 70ke, tak si potrebuješ odkladať peniaze už teraz. Minimum je 10% z Tvojho príjmu. Aktuálne najvýhodnejšia forma sporenia na dôchodok je cez takzvané ETF fondy.",
+      "resultVysvetlenie": "Ak neprídeš na spôsob ako zarábať peniaze bez práce, budeš pracovať do konca života. Tento stav by mal zabezpečiť štát vo forme dôchodku. Na ten sa však nedá spoľahnúť a aj keby sa dalo, môžeš ho poberať až v oficiálnom dôchodkovom veku, čo môže byť vek veľmi pokročilý. Ak chceš mať raz možnosť prestať pracovať, investovanie nie je možnosť, ale nutnosť. Investovať by sme mali pravidelne každý mesiac, aspoň 10% z príjmu.",
       "resultPointsStratil": 1
     },
     {
@@ -401,19 +401,27 @@
       "resultPointsStratil": 0.5
     },
     {
-      "id": "prehladOVydavkochMamDobruPredstavu",
-      "choiceString": "",
-      "resultTitle": "Nezaznamenávaš si výdavky.",
-      "resultVysvetlenie": "Zaznamenávanie všetkých príjmov a výdavkov Ti pomôže v mnohých ohľadoch. Presne budeš vedieť, kam smerujú Tvoje peniaze, a ak sa Ti to nebude páčiť, vieš na tom pracovať. Navyše, ak si bežne kupuješ veci narýchlo a podľa nálady, tak pri evidencii každého výdavku Ťa to bude na konci bolieť a poučíš sa. Na tento účel odporúčame aplikáciu Wallet, 1Money alebo poslúži aj Excel.",
-      "resultPointsStratil": 0.5
-    },
-    {
       "id": "odkladaniePenaziSposobBeznyUcet",
       "choiceString": "",
       "resultTitle": "Držíš si všetky peniaze na jednom účte.",
       "resultVysvetlenie": "Takýmto štýlom odkladania peňazí v tom budeš mať stále neporiadok. Založ si sporiaci účet a vždy po výplate si naň pošli vopred určenú sumu podľa Tvojich finančných cieľov. Odloženým peniazom vždy priraď jasný účel a výber si účet, ktorý má aj nejaké zhodnotenie.",
       "resultPointsStratil": 1
     },
+    {
+      "id": "odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca",
+      "choiceString": "",
+      "resultTitle": "Neodkladáš si peniaze okamžite po výplate.",
+      "resultVysvetlenie": "Takýmto štýlom odkladania peňazí budeš mať v tom stále neporiadok. Založ si sporiaci účet a vždy po výplate si naň pošli vopred určenú sumu podľa Tvojich finančných cieľov. Odloženým peniazom vždy priraď jasný účel a vyber si účet, ktorý ma aj nejaké zhodnotenie.",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "odkladaniePenaziSposobSporiaciUcetPriebezne",
+      "choiceString": "",
+      "resultTitle": "Neodkladáš si peniaze okamžite po výplate.",
+      "resultVysvetlenie": "Takýmto štýlom odkladania peňazí budeš mať v tom stále neporiadok. Založ si sporiaci účet a vždy po výplate si naň pošli vopred určenú sumu podľa Tvojich finančných cieľov. Odloženým peniazom vždy priraď jasný účel a vyber si účet, ktorý ma aj nejaké zhodnotenie.",
+      "resultPointsStratil": 0.5
+    },
+    
     {
       "id": "odkladaniePenaziSposobRazZaCas",
       "choiceString": "",

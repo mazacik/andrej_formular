@@ -11,30 +11,19 @@ h1 {
 .charts {
   display: flex;
   padding: 100px 0;
+  background-color: white;
 }
 
 .section {
-  padding: 32px 320px;
+  padding: 32px 200 px;
 }
 
-.section-products {
-  background-color: #CF4327;
-  color: white;
-}
+
 
 .section-money-work {
   background-color: #EAE2C2;
 }
 
-.section-financial-literacy {
-  background-color: #E5A024;
-}
-
-.section-topics {
-  background-color: #CF4327;
-  color: white;
-  padding-bottom: 32px;
-}
 
 .points li {
   margin: 8px 0;

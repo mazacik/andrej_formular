@@ -627,11 +627,11 @@
           "choices": [
             {
               "value": "produktyHypotekaUrokDo1",
-              "text": "do 1%"
+              "text": "menej ako 1%"
             },
             {
               "value": "produktyHypotekaUrokDo2",
-              "text": "do 2%"
+              "text": "1 až 2%"
             },
             {
               "value": "produktyHypotekaUrokViacAko2",
@@ -660,7 +660,7 @@
           "placeHolder": "mesačná splátka v €"
         }
       ],
-      "visibleIf": "{produktyUverHypotekaPozicka} contains 'produktyUverHypotekaPozickaAnoHypoteka'"
+      "visibleIf": "{produktyUverHypotekaPozicka} contains 'produktyUverHypotekaPozickaAnoUverPozicka'"
     },
     {
       "name": "pageProduktyUverPozickaUrok",
@@ -774,7 +774,7 @@
           "type": "matrixdynamic",
           "name": "konzervativneInvesticie",
           "title": "Pozrime sa najprv na tvoje konzervatívne produkty",
-          "description": "(zarabaju menej, ale vieš si z nich bez rizika vybrať peniaze v kratšej dobre - ak nemáš žiaden, otázku preskoč)",
+          "description": "(zarabaju menej, ale vieš si z nich bez rizika vybrať peniaze v kratšej dobre - ak máš iba dlhodobé produkty, otázku preskoč)",
           "columns": [
             {
               "name": "konzervativneInvesticieNazovProduktu",
@@ -871,7 +871,7 @@
             },
             {
               "name": "ucelProduktu",
-              "title": "Aký je účel?",
+              "title": "Aký je hlavný účel?",
               "requiredErrorText": "Otázka je povinná.",
               "cellType": "dropdown",
               "optionsCaption": "Zadaj účel..",
@@ -914,7 +914,7 @@
             },
             {
               "name": "oKolkoRokovVyberie",
-              "title": "Približne o koľko rokov plánuješ peniaze vybrať?",
+              "title": "Kedy chceš mať peniaze k dispozicii?",
               "cellType": "dropdown",
               "requiredErrorText": "Otázka je povinná.",
               "optionsCaption": "Vyber obdobie..",
@@ -922,7 +922,7 @@
               "choices": [
                 {
                   "value": "oKolkoRokovVyberieDo1",
-                  "text": "do roka"
+                  "text": "kedykoľvek"
                 },
                 {
                   "value": "oKolkoRokovVyberieDo5",
@@ -1070,7 +1070,7 @@
             },
             {
               "name": "dynamickeInvesticieUcelProduktu",
-              "title": "Aký je účel?",
+              "title": "Aký je hlavný účel?",
               "requiredErrorText": "Otázka je povinná.",
               "cellType": "dropdown",
               "optionsCaption": "Zadaj účel..",
@@ -1243,10 +1243,10 @@
         {
           "type": "text",
           "name": "financnaRezervaMesacne",
-          "title": "Mesačne si odkľadáš {odkladaniePenaziVyska}€. Koľko z toho vnímaš ako finančnú rezervu?",
+          "title": "Za mesiac si v priemere odložíš {odkladaniePenaziVyska}€, koľko z toho vnímaš ako finančnú rezervu?", 
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
-          "description": "Peniaze, ktoré si odkladáš tzv. \"na horšie časy\".",
+          "description": "(nerátaj peniaze, ktoré dávaš do sporiacich produktov mimo banky)",
           "inputType": "number",
           "min": "0",
           "placeHolder": "Hodnota v €"

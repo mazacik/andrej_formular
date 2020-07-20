@@ -17,22 +17,22 @@ export class ResultGraphs {
     new Chart("graf-vyplneny", {
       type: 'pie',
       data: {
-        labels: ['Krátkodobé investície a rezerva', 'Dlhodobé investície', 'Poistenie', 'Úvery a bývanie', 'Spotreba'],
+        labels: ['Krátkodobé investície a rezerva [10%]', 'Dlhodobé investície [10-15%]', 'Poistenie [3-4%]', 'Úvery a bývanie [max 30%]', 'Spotreba [40%]'],
         datasets: [{
           label: '# of Votes',
           data: [investicieKratkobe, investicieDlhodobe, poistenie, pasiva, spotreba],
           backgroundColor: [
             'rgba(59, 48, 27, 1)',
             'rgba(207, 67, 39, 1)',
-            'rgba(255, 255, 255, 1)',
+            'rgb(193,124,0,1)',
             'rgba(46, 196, 182, 1)',
             'rgba(255, 206, 86, 1)',
           ],
           borderColor: [
             'rgba(59, 48, 27, 1)',
             'rgba(207, 67, 39, 1)',
-            'rgba(255, 255, 255, 1)',
-            'rgba(46, 196, 182)',
+            'rgb(193,124,0,1)',
+            'rgba(46, 196, 182,1)',
             'rgba(255, 206, 86, 1)',
           ],
           borderWidth: 2
@@ -47,7 +47,7 @@ export class ResultGraphs {
     new Chart("graf-idealny", {
       type: 'pie',
       data: {
-        labels: ['Krátkodobé investície', 'Dlhodobé investície', 'Poistenie', 'Pasíva', 'Spotreba'],
+        labels: ['Krátkodobé investície a rezerva [10%]', 'Dlhodobé investície [10-15%]', 'Poistenie [3-4%]', 'Úvery a bývanie [max 30%]', 'Spotreba [40%]'],
         datasets: [{
           label: '# of Votes',
           data: [
@@ -60,14 +60,14 @@ export class ResultGraphs {
           backgroundColor: [
             'rgba(59, 48, 27, 1)',
             'rgba(207, 67, 39, 1)',
-            'rgba(255, 255, 255, 1)',
+            'rgb(193,124,0,1)',
             'rgba(46, 196, 182, 1)',
             'rgba(255, 206, 86, 1)',
           ],
           borderColor: [
             'rgba(59, 48, 27, 1)',
             'rgba(207, 67, 39, 1)',
-            'rgba(255, 255, 255, 1)',
+            'rgb(193,124,0,1)',
             'rgba(46, 196, 182)',
             'rgba(255, 206, 86, 1)',
           ],
