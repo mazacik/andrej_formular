@@ -3,14 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { SurveyComponent } from './survey/survey.component';
 import { ErrorComponent } from './error/error.component';
 import { ResultComponent } from './result/result.component';
-import { IntroComponent } from './intro/intro.component';
 
 const routes: Routes = [
   {path:'', component: ErrorComponent},
 
-  {path:'uvod/:name/:rank', component: IntroComponent},
-  
   {path:'otazky', component: SurveyComponent},
+  {path:'otazky/:name/:rank', component: SurveyComponent},
   
   {path:'vyhodnotenie/:base64data', component: ResultComponent},
   

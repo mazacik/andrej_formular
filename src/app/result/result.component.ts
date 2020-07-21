@@ -59,7 +59,7 @@ export class ResultComponent implements OnInit {
 
       // tooltip
       tippy('[data-tippy-content]');
-    
+
       // manualne veci podla podmienok
       this.resultPodmienky.evaluate(this.resultBodovanie, this.data);
 
@@ -171,6 +171,13 @@ export class ResultComponent implements OnInit {
       // odpoved je string
       if (id.startsWith("financnaGramotnost")) {
         this.resolveAnswerFinancnaGramotnost(id);
+      } else if (id.startsWith("coChcesVediet")) {
+        var answers = this.getAnswersStartingWithId(id);
+        for (let i = 0; i < answers.length; i++) {
+          const answer = answers[i];
+          // vygeneruje toggleElement do divu podla 'id'
+          ToggleElement.create(answer.id, answer.resultTitle, answer.resultVysvetlenie, answer.resultPointsStratil);
+        }
       } else {
         // skusi zobrazit element podla 'id'
         this.showElementsByClass(id);
@@ -193,13 +200,6 @@ export class ResultComponent implements OnInit {
 
           // vygeneruje toggleElement do divu podla 'id'
           ToggleElement.create(answer.id, answer.resultTitle, answer.resultVysvetlenie, answer.resultPointsStratil);
-        } else {
-          var answers = this.getAnswersStartingWithId(id);
-          for (let i = 0; i < answers.length; i++) {
-            const answer = answers[i];
-            // vygeneruje toggleElement do divu podla 'id'
-            ToggleElement.create(answer.id, answer.resultTitle, answer.resultVysvetlenie, answer.resultPointsStratil);
-          }
         }
       }
     } else {

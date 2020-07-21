@@ -102,8 +102,8 @@ export class ResultGraphs {
     if (data.dynamickeInvesticie) {
       for (let i = 0; i < data.dynamickeInvesticie.length; i++) {
         const entry = data.dynamickeInvesticie[i];
-        if (entry.dynamickeInvesticiefrekvenciaMesacneHodnota) {
-          value += entry.dynamickeInvesticiefrekvenciaMesacneHodnota;
+        if (entry.dynamickeInvesticieFrekvenciaMesacneHodnota) {
+          value += entry.dynamickeInvesticieFrekvenciaMesacneHodnota;
         } else if (entry.dynamickeInvesticiefrekvenciaNepravidelneHodnota) {
           value += entry.dynamickeInvesticiefrekvenciaNepravidelneHodnota / 6;
         }

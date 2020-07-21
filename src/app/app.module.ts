@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SurveyComponent } from './survey/survey.component';
 import { ErrorComponent } from './error/error.component';
 import { ResultComponent } from './result/result.component';
-import { IntroComponent } from './intro/intro.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import { IntroComponent } from './intro/intro.component';
     SurveyComponent,
     ErrorComponent,
     ResultComponent,
-    IntroComponent,
   ],
   imports: [
     BrowserModule,

@@ -54,17 +54,17 @@ export class ResultPodmienky {
     }
 
     //zivotnePoistenieVyskaSplatkyNad4
-    if ((data.pageProduktyZivotnePoistenieKolkoPlati - data.produktyZivotnePoistenieInvesticiaVyska) > data.vyskaPrijmu * 0.04) {
+    if ((data.produktyZivotnePoistenieKolkoPlati - data.produktyZivotnePoistenieInvesticiaVyska) > data.vyskaPrijmu * 0.04) {
       this.create("zivotnePoistenieVyskaSplatkyNad4");
     }
 
     //zivotnePoistenieVyskaSplatkyPod3
-    if ((data.pageProduktyZivotnePoistenieKolkoPlati - data.produktyZivotnePoistenieInvesticiaVyska) < data.vyskaPrijmu * 0.03) {
+    if ((data.produktyZivotnePoistenieKolkoPlati - data.produktyZivotnePoistenieInvesticiaVyska) < data.vyskaPrijmu * 0.03) {
       this.create("zivotnePoistenieVyskaSplatkyPod3");
     }
 
     //zivotnePoistenieVyskaSplatky3az4 3 az 4%
-    if ((data.pageProduktyZivotnePoistenieKolkoPlati - data.produktyZivotnePoistenieInvesticiaVyska) >= data.vyskaPrijmu * 0.03 && data.pageProduktyZivotnePoistenieKolkoPlati <= data.vyskaPrijmu * 0.04) {
+    if ((data.produktyZivotnePoistenieKolkoPlati - data.produktyZivotnePoistenieInvesticiaVyska) >= data.vyskaPrijmu * 0.03 && data.produktyZivotnePoistenieKolkoPlati <= data.vyskaPrijmu * 0.04) {
       this.create("zivotnePoistenieVyskaSplatky3az4", 1, 0);
     }
 

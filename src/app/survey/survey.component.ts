@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import * as Survey from 'survey-angular';
 import * as $ from "jquery";
 
@@ -33,7 +33,8 @@ export class SurveyComponent implements OnInit {
   survey: any = null;
 
   constructor(
-    public router: Router
+    public router: Router,
+    private route: ActivatedRoute
   ) { }
 
   @HostListener('document:keydown', ['$event'])
@@ -58,6 +59,8 @@ export class SurveyComponent implements OnInit {
     this.surveyKeyboardEvent = new SurveyKeyboardEvent(this.survey);
 
     this.onCurrentPageChanged();
+
+    this.checkChallengeLink();
   }
 
   insertAlternativeNextButton(): void {
@@ -133,5 +136,50 @@ export class SurveyComponent implements OnInit {
 
   onSurveyComplete(): void {
     this.router.navigate(['vyhodnotenie/' + btoa(JSON.stringify(this.survey.data))]);
+  }
+
+  checkChallengeLink(): void {
+    var name = this.route.snapshot.params['name'];
+    var rankSimple = this.route.snapshot.params['rank'];
+
+    if (name && rankSimple) {
+      var rankPretty: string;
+
+      if (rankSimple) {
+        if (rankSimple == "FinancnaLegenda") {
+          rankPretty = "Finančná legenda";
+        } else if (rankSimple == "FinancnaHviezda") {
+          rankPretty = "Finančná hviezda";
+        } else if (rankSimple == "FinancnyKuzelnik") {
+          rankPretty = "Finančný kúzelník";
+        } else if (rankSimple == "FinancnyProfesor") {
+          rankPretty = "Finančný profesor";
+        } else if (rankSimple == "FinancnyMajster") {
+          rankPretty = "Finančný majster";
+        } else if (rankSimple == "FinancnyUcen") {
+          rankPretty = "Finančný učeň";
+        } else if (rankSimple == "FinancnyJunior") {
+          rankPretty = "Finančný junior";
+        } else if (rankSimple == "FinancnyNovacik") {
+          rankPretty = "Finančný nováčik";
+        } else if (rankSimple == "FinancnyZaciatocnik") {
+          rankPretty = "Finančný začiatočník";
+        } else if (rankSimple == "FinancneEmbryo") {
+          rankPretty = "Finančné embryo";
+        } else {
+          rankPretty = "nedefinované";
+        }
+      }
+
+      var titleElement = document.getElementsByClassName("sv_q_title").item(0);
+      if (titleElement) {
+        const challengeText = "<p>Vyzíva ťa " + name + " s hodnosťou " + rankPretty + ".</p>";
+        var innerHTML = titleElement.innerHTML;
+        var indexFirst = innerHTML.indexOf("</span>");
+        if (indexFirst >= 0) {
+          titleElement.innerHTML = innerHTML.slice(0, indexFirst) + challengeText + innerHTML.slice(indexFirst);
+        }
+      }
+    }
   }
 }
