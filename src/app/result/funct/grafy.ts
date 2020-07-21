@@ -110,8 +110,8 @@ export class ResultGraphs {
       }
     }
 
-    if (data.pageProduktyTretiPilierVyskaPrispevku) value += data.pageProduktyTretiPilierVyskaPrispevku;
-    if (data.pageProduktyZivotnePoistenieInvesticiaVyska) value += data.pageProduktyZivotnePoistenieInvesticiaVyska;
+    if (data.produktyTretiPilierVyskaPrispevku) value += data.produktyTretiPilierVyskaPrispevku;
+    if (data.produktyZivotnePoistenieInvesticiaVyska) value += data.produktyZivotnePoistenieInvesticiaVyska;
 
     return value;
   }
