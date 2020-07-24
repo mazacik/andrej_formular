@@ -173,10 +173,12 @@ export class ResultComponent implements OnInit {
         this.resolveAnswerFinancnaGramotnost(id);
       } else if (id.startsWith("coChcesVediet")) {
         var answers = this.getAnswersStartingWithId(id);
+        // zobrazi "nadpis"
+        this.showElementsByClass(id);
         for (let i = 0; i < answers.length; i++) {
           const answer = answers[i];
           // vygeneruje toggleElement do divu podla 'id'
-          ToggleElement.create(answer.id, answer.resultTitle, answer.resultVysvetlenie, answer.resultPointsStratil);
+          ToggleElement.create(answer.id, answer.resultTitle, answer.resultVysvetlenie);
         }
       } else {
         // skusi zobrazit element podla 'id'
