@@ -1,20 +1,20 @@
 <div class="result">
   <div class="section" id="resultSummary">
     <h1>Tvoje vyhodnotenie</h1>
-    <p>Gratulujeme {{data.meno}} k vyplneniu testu.</p>
-    <p>{{resultBodovanie.pocetBodovMax - resultBodovanie.pocetBodovStratil}} z
+    <p>Gratulujeme {{data.meno}}!</p>
+    <p>Podarilo sa Ti získať {{resultBodovanie.pocetBodovMax - resultBodovanie.pocetBodovStratil}} z
       {{resultBodovanie.pocetBodovMax}} bodov, teda {{resultBodovanie.percent}}%, a to Ťa dostáva na úroveň <strong
         class="level">{{resultBodovanie.hodnostPretty}}</strong>.</p>
     <p>Máš vyššiu finančnú inteligenciu ako {{resultBodovanie.percentil}}% ľudí.</p>
 
     <div class="pozrietSystemBodovania"></div>
-    <div>Chceš sa porovnať s kamarátmi? Pošli im link a zisti, kto získal viac bodov!
+    <div>Chceš sa porovnať s kamarátmi? Pošli im link s výzvou
       <!--<div>[{{resultBodovanie.challengeLink}}]</div>-->
       <button class="button-main" (click)="clipboard(resultBodovanie.challengeLink)">SKOPÍROVAŤ</button>
     </div>
     
     <h2>Krátke vyhodnotenie Tvojich odpovedí</h2>
-    <h4>Tieto 3 veci Ti vyšli najlepšie:</h4>
+    <h4>Vyšlo Ti najlepšie:</h4>
     <ul class="points">
 
       <li class="naj_produktyHypotekaUrokDo1" hidden>Úrok na hypotéke máš pod 1%.</li>
@@ -44,7 +44,7 @@
         <li class="naj_produktyUverHypotekaPozickaNemaUver" hidden>Nemáš zlé úvery.</li>
     </ul>
 
-    <h4>Na tieto 3 veci sa Ti odporúčame pozrieť:</h4>
+    <h4>Odporúčame vylepšiť:</h4>
     <ul class="points">
       <!--Sem dat ID z r.ts ak je custom, ak auto survey.jsn-->
       <li class="naj_produktyInvesticieSporeniaNie" hidden>Neinvestuješ.</li>
