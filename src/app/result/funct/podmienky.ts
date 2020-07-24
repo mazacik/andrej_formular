@@ -112,6 +112,8 @@ export class ResultPodmienky {
     ResultNaj3.naj3_manualne[ResultNaj3.naj3_manualne.length] = 'naj_' + id;
 
     var answer = this.getAnswerById(id);
+    this.showElementsByClass(id);
+
     if (answer) {
       // answer details sa zobrazia do toggle elementu
       ToggleElement.createFromAnswer(answer);
@@ -119,9 +121,6 @@ export class ResultPodmienky {
       this.bodovanie.pocetBodovMax += pocetBodovMax;
       this.bodovanie.pocetBodovStratil += answer.resultPointsStratil;
     } else {
-      // zobrazi sa paragraf s classou
-      this.showElementsByClass(id);
-
       if (pocetBodovStratil >= 0) {
         var spanPoints = document.getElementById(id + "Points");
         if (spanPoints) spanPoints.innerHTML = "[-" + pocetBodovStratil + "b] ";

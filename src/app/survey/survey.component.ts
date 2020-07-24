@@ -58,9 +58,8 @@ export class SurveyComponent implements OnInit {
     this.surveyAnimation = new SurveyAnimation(this.survey);
     this.surveyKeyboardEvent = new SurveyKeyboardEvent(this.survey);
 
-    this.onCurrentPageChanged();
-
     this.checkChallengeLink();
+    this.onCurrentPageChanged();
   }
 
   insertAlternativeNextButton(): void {
@@ -173,11 +172,21 @@ export class SurveyComponent implements OnInit {
 
       var titleElement = document.getElementsByClassName("sv_q_title").item(0);
       if (titleElement) {
-        const challengeText = "<p>vyzíva ťa " + name + " s hodnosťou " + rankPretty + "</p>";
+        const challengeText = "<p>vyzíva ťa " + name + " s hodnosťou <span data-tippy-content='test123'>" + rankPretty + "</span>, </p>";
         var innerHTML = titleElement.innerHTML;
-        var indexFirst = innerHTML.indexOf("</span>");
+        var indexFirst = innerHTML.indexOf("ako si želáš, aby sme Ťa oslovovali?");
         if (indexFirst >= 0) {
           titleElement.innerHTML = innerHTML.slice(0, indexFirst) + challengeText + innerHTML.slice(indexFirst);
+        }
+      }
+    } else {
+      // aj za predpokladu, ze neni challengelink, text sa rozdeli na dva riadky, vyzera to tak lepsie
+      var titleElement = document.getElementsByClassName("sv_q_title").item(0);
+      if (titleElement) {
+        var innerHTML = titleElement.innerHTML;
+        var indexFirst = innerHTML.indexOf("ako si želáš, aby sme Ťa oslovovali?");
+        if (indexFirst >= 0) {
+          titleElement.innerHTML = innerHTML.slice(0, indexFirst) + "<p></p>" + innerHTML.slice(indexFirst);
         }
       }
     }
