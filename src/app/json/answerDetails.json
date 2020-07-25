@@ -15,10 +15,26 @@
       "resultPointsStratil": 0.5
     },
     {
+      "id": "financnaGramotnostDlhodobaInvesticiaPockam",
+      "choiceString": "počkám",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 1
+    },
+ 
+    {
       "id": "financnaGramotnostDlhodobaInvesticiaVlozimViacPenazi",
       "choiceString": "vložím viac penazí",
       "resultTitle": "",
-      "resultVysvetlenie": ""
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "financnaGramotnostDlhodobaInvesticiaPeniazeVyberiem",
+      "choiceString": "peniaze vyberiem",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 1
     },
     {
       "id": "financnaGramotnostDlhodobaInvesticiaPockam",

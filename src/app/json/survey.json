@@ -30,7 +30,7 @@
         {
           "type": "html",
           "name": "zaciatokUvodnychOtazok",
-          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Ahoj {meno}, po vyplnení testu dostaneš bez nutnosti zadania emailu alebo platobnej karty vyhodnotenie.<br>Po vyhodnotení sa všetky Tvoje údaje automaticky zmažú. Na úvod sa Ťa spýtame zopár otázok, po ktorých Ti vyberieme najvhodnejšiu verziu testu.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
+          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Ahoj <strong>{meno}</strong>, na úvod 3 veci.<br><br> 1. Vyhodnotenie testu dostaneš <strong>bez</strong> nutnosti zadania <strong>emailu</strong> alebo platobnej <strong>karty</strong>.<br><br>2. O svoje <strong>údaje sa</strong> nemusíš báť, nakoľko sa  po Tvojom odchode z testu všetky <strong>zmažú</strong>.           <br><br>3. Ako prvé sa Ťa spýtame zopár otázok, po ktorých Ti vyberieme najvhodnejšiu verziu testu.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Začať test' class='sv_next_btn sv_next_btn--alternative'>"
         }
       ]
     },
@@ -762,7 +762,7 @@
         {
           "type": "html",
           "name": "zaciatokOtazokOInvestovani",
-          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Dobre {meno}, teraz si prejdeme do hĺbky tvoje sporiace a investičné produkty. Vo vyhodnotení dostaneš spätnú väzbu na ich výber a rozloženie vzhľadom na tvoj príjem.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
+          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Dobre {meno}, teraz si prejdeme do hĺbky Tvoje sporiace a investičné produkty. Vo vyhodnotení dostaneš spätnú väzbu na ich výber a rozloženie vzhľadom na Tvoj príjem.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
         }
       ],
       "visibleIf": "{produktyInvesticieSporenia} = 'produktyInvesticieSporeniaAno'"
@@ -773,7 +773,7 @@
         {
           "type": "matrixdynamic",
           "name": "konzervativneInvesticie",
-          "title": "Pozrime sa najprv na tvoje konzervatívne produkty",
+          "title": "Pozrime sa najprv na Tvoje konzervatívne produkty",
           "description": "(zarabaju menej, ale vieš si z nich bez rizika vybrať peniaze v kratšej dobre - ak máš iba dlhodobé produkty, otázku preskoč)",
           "columns": [
             {
