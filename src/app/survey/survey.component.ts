@@ -75,7 +75,8 @@ export class SurveyComponent implements OnInit {
     function checkCheckboxes() {
       var isAnyChecked = $(".sv_q_checkbox_control_item:checked").length > 0;
       nextButtonAlreadyExists = $("#surveyNextAlternative").length > 0;
-      if (isAnyChecked && !nextButtonAlreadyExists) {
+      const completeButtonExists = $('.sv_complete_btn').css('display') !== 'none';
+      if (isAnyChecked && !nextButtonAlreadyExists && !completeButtonExists) {
         showAlternativeNextButton();
       }
       if (!isAnyChecked) {
