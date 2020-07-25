@@ -58,22 +58,36 @@ h5.sv_q_title span {
   font-size: 1.2rem;
 }
 
+body.sekciaUvodneOtazky .sv_q_radiogroup, .sv_q_checkbox {
+  &:hover, &.checked {
+    background-color: rgba(#EA9D13, 1);
+  }
+  background-color: rgba(#EA9D13, .4);
+}
+
 body.sekciaVyberProduktov .sv_q_radiogroup, .sv_q_checkbox {
+  &:hover, &.checked {
+    background-color: rgba(#EA9D13, 1);
+  }
   background-color: rgba(#EA9D13, .4);
 }
 body.sekciaPracaSPeniazmi .sv_q_radiogroup, .sv_q_checkbox {
+  &:hover, &.checked {
+    background-color: rgba(#BDB720, 1);
+  }
   background-color: rgba(#BDB720, .4);
 }
 body.sekciaFinancnaGramotnost .sv_q_radiogroup, .sv_q_checkbox {
+  &:hover, &.checked {
+    background-color: rgba(#AE1D00, 1);
+  }
   background-color: rgba(#AE1D00, .4);
 }
 body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
+  &:hover, &.checked {
+    background-color: rgba(#BDB720, 1);
+  }
   background-color: rgba(#BDB720, .4);
-}
-
-.sv_q_radiogroup:hover, .sv_q_checkbox:hover, .sv_q_checkbox.checked {
-  background-color: rgba($text, .30);
-  box-shadow: rgba($text, 0.2) 0 0 0 1px inset;
 }
 
 .sv_q_radiogroup label, .sv_q_checkbox label {
