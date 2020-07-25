@@ -159,7 +159,8 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 }
 
 .sv_next_btn--alternative {
-  margin-top: 16px;
+  margin: 16px auto 0 auto;
+  display: block;
 }
 
 .sv_q_radiogroup_label, .sv_q_checkbox_control_label {
