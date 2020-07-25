@@ -245,17 +245,18 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 .navigationProgressbar li:before {
   width: 30px;
   height: 30px;
-  content: '';
   line-height: 30px;
   border: 5px solid $color2;
   display: block;
   margin: 0 auto 10px;
   border-radius: 50%;
+  font-weight: 900;
+  counter-reset: count var(--count);
+  content: counter(count);
 }
 .navigationProgressbar li:after {
   width: calc(100% - 45px);
   height: 5px;
-  content: '';
   position: absolute;
   background-color: $color2;
   top: 15px;
@@ -273,6 +274,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 .navigationProgressbar li.current:before {
   border-color: $color2;
   background-color: $color2;
+  color: white;
 }
 
 .text-input-wrapper {
