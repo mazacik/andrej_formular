@@ -30,7 +30,7 @@
         {
           "type": "html",
           "name": "zaciatokUvodnychOtazok",
-          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Ahoj {meno}, po vyplnení testu dostaneš bez nutnosti zadania emailu alebo platobnej karty vyhodnotenie.<br>Po vyhodnotení sa všetky Tvoje údaje automaticky zmažú.<b>Na úvod sa Ťa spýtame zopár otázok, po ktorých Ti vyberieme najvhodnejšiu verziu testu.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
+          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Ahoj {meno}, po vyplnení testu dostaneš bez nutnosti zadania emailu alebo platobnej karty vyhodnotenie.<br>Po vyhodnotení sa všetky Tvoje údaje automaticky zmažú. Na úvod sa Ťa spýtame zopár otázok, po ktorých Ti vyberieme najvhodnejšiu verziu testu.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
         }
       ]
     },
