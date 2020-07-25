@@ -71,7 +71,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
   background-color: rgba(#BDB720, .4);
 }
 
-.sv_q_radiogroup:hover, .sv_q_checkbox:hover {
+.sv_q_radiogroup:hover, .sv_q_checkbox:hover, .sv_q_checkbox.checked {
   background-color: rgba($text, .30);
   box-shadow: rgba($text, 0.2) 0 0 0 1px inset;
 }
