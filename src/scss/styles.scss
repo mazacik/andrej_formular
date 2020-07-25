@@ -305,21 +305,17 @@ body {
 }
 
 body.sekciaUvodneOtazky {
-  background-color: #FFF7EA;
-  background-image:url(/assets/bg/UvodneOtazky.png);
+  background-image:url(/assets/bg/UvodneOtazky.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
 }
 
 body.sekciaVyberProduktov {
-  background-color: #FFF7EA;
-  background-image: url(/assets/bg/Produkty.png);
+  background-image: url(/assets/bg/Produkty.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
 }
 body.sekciaPracaSPeniazmi {
-  background-color: #FFF7EA;
-  background-image: url(/assets/bg/PracaSPeniazmi.png);
+  background-image: url(/assets/bg/PracaSPeniazmi.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
 }
 body.sekciaFinancnaGramotnost {
-  background-color: #FFF7EA;
-  background-image: url(/assets/bg/Gramotnost.png);
+  background-image: url(/assets/bg/Gramotnost.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
 }
 body.sekciaOkruhyZaujmu {
   background-color: $bg5;
