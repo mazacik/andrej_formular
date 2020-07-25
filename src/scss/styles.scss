@@ -276,6 +276,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
   top: 15px;
   right: calc(50% + 30px);
   z-index: 11;
+  content: '';
 }
 .navigationProgressbar li:first-of-type:after {
   content: none;

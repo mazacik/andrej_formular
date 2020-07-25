@@ -30,7 +30,7 @@ export class SurveyNavBar {
     for (var i = 0; i < this.sections.length; i++) {
       var liEl = document.createElement("li");
       // TODO to michal: give it variable value
-      // liEl.setAttribute("style", "--count:10");
+      liEl.setAttribute("style", "--count:10");
       if (this.currentSection == this.sections[i]) {
         liEl.classList.add("current");
       }
