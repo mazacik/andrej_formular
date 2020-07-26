@@ -58,22 +58,36 @@ h5.sv_q_title span {
   font-size: 1.2rem;
 }
 
+body.sekciaUvodneOtazky .sv_q_radiogroup, .sv_q_checkbox {
+  &:hover, &.checked {
+    background-color: rgba(#EA9D13, 1);
+  }
+  background-color: rgba(#EA9D13, .4);
+}
+
 body.sekciaVyberProduktov .sv_q_radiogroup, .sv_q_checkbox {
+  &:hover, &.checked {
+    background-color: rgba(#EA9D13, 1);
+  }
   background-color: rgba(#EA9D13, .4);
 }
 body.sekciaPracaSPeniazmi .sv_q_radiogroup, .sv_q_checkbox {
+  &:hover, &.checked {
+    background-color: rgba(#BDB720, 1);
+  }
   background-color: rgba(#BDB720, .4);
 }
 body.sekciaFinancnaGramotnost .sv_q_radiogroup, .sv_q_checkbox {
+  &:hover, &.checked {
+    background-color: rgba(#AE1D00, 1);
+  }
   background-color: rgba(#AE1D00, .4);
 }
 body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
+  &:hover, &.checked {
+    background-color: rgba(#BDB720, 1);
+  }
   background-color: rgba(#BDB720, .4);
-}
-
-.sv_q_radiogroup:hover, .sv_q_checkbox:hover {
-  background-color: rgba($text, .30);
-  box-shadow: rgba($text, 0.2) 0 0 0 1px inset;
 }
 
 .sv_q_radiogroup label, .sv_q_checkbox label {
@@ -159,11 +173,12 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 }
 
 .sv_next_btn--alternative {
-  margin-top: 16px;
+  margin: 16px auto 0 auto;
+  display: block;
 }
 
 .sv_q_radiogroup_label, .sv_q_checkbox_control_label {
-  font-size: .925rem;
+  font-size: 1.2rem;
 }
 
 @media (max-width: 768px) {
@@ -244,22 +259,24 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 .navigationProgressbar li:before {
   width: 30px;
   height: 30px;
-  content: '';
   line-height: 30px;
   border: 5px solid $color2;
   display: block;
   margin: 0 auto 10px;
   border-radius: 50%;
+  font-weight: 900;
+  counter-reset: count var(--count);
+  content: counter(count);
 }
 .navigationProgressbar li:after {
   width: calc(100% - 45px);
   height: 5px;
-  content: '';
   position: absolute;
   background-color: $color2;
   top: 15px;
   right: calc(50% + 30px);
   z-index: 11;
+  content: '';
 }
 .navigationProgressbar li:first-of-type:after {
   content: none;
@@ -272,6 +289,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 .navigationProgressbar li.current:before {
   border-color: $color2;
   background-color: $color2;
+  color: white;
 }
 
 .text-input-wrapper {
@@ -302,21 +320,17 @@ body {
 }
 
 body.sekciaUvodneOtazky {
-  background-color: $bg1;
-  background-image:url(/assets/bg/UvodneOtazky.png);
+  background-image:url(/assets/bg/UvodneOtazky.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
 }
 
 body.sekciaVyberProduktov {
-  background-color: $bg2;
-  background-image: url(/assets/bg/Produkty.png);
+  background-image: url(/assets/bg/Produkty.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
 }
 body.sekciaPracaSPeniazmi {
-  background-color: $bg3;
-  background-image: url(/assets/bg/PracaSPeniazmi.png);
+  background-image: url(/assets/bg/PracaSPeniazmi.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
 }
 body.sekciaFinancnaGramotnost {
-  background-color: $bg4;
-  background-image: url(/assets/bg/Gramotnost.png);
+  background-image: url(/assets/bg/Gramotnost.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
 }
 body.sekciaOkruhyZaujmu {
   background-color: $bg5;
@@ -370,9 +384,9 @@ body.sekciaOkruhyZaujmu {
 
 .sv_q_description span {
   font-size: 20px;
-  font-weight: 200;
+  font-weight: 400;
   text-align: center;
-  color: $text;
+  color: #000;
 }
 
 .sv_q_description {
@@ -381,5 +395,20 @@ body.sekciaOkruhyZaujmu {
 
 .sv_qcbx, .sv_qcbc {
   display: flex;
-  min-width: 200px;
+  min-width: 360px;
+}
+
+$tippyColor: #962913;
+
+.tippy-box {
+  background-color: $tippyColor;
+  font-weight: 600;
+}
+
+.tippy-content {
+  padding: 16px;
+}
+
+.tippy-arrow {
+  color: $tippyColor;
 }
