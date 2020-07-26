@@ -1,6 +1,15 @@
 <div class="result">
   <div class="section" id="resultSummary">
-    <h1>Tvoje vyhodnotenie</h1>
+    <a href="mailto:andrej.nejedlik@montest.sk"><i class="fa fa-envelope"></i> andrej.nejedlik@montest.sk</a>
+    <a href="tel:+421948873051"><i class="fa fa-phone"></i> 0948 873 051</a>
+    <button class="button-main" (click)="clipboard(resultBodovanie.challengeLink)">Vyzvať kamaráta</button>
+
+    <h3> Vyhodnotenie Ti zašleme na email</h3>
+    <p>Nakoľko sa uloží aj u nás, budeš si ho môcť kedykoľvek vyžiadať znovu.</p>
+    <div><input class="input-text" id="emailKlientaVysledok" type="email" placeholder="tvojemail@mail.sk"></div>
+      <p><button class="button-main" (click)="email_dataURL()">Odoslať</button></p>
+     
+
     <p>Gratulujeme {{data.meno}}!</p>
     <p>Podarilo sa Ti získať {{resultBodovanie.pocetBodovMax - resultBodovanie.pocetBodovStratil}} z
       {{resultBodovanie.pocetBodovMax}} bodov, teda {{resultBodovanie.percent}}%, a to Ťa dostáva na úroveň <strong
@@ -13,7 +22,9 @@
       <button class="button-main" (click)="clipboard(resultBodovanie.challengeLink)">SKOPÍROVAŤ</button>
     </div>
 
-    <h2>Krátke vyhodnotenie Tvojich odpovedí</h2>
+    <h2>Krátke vyhodnotenie</h2>
+    <h2>Tvojich odpovedí</h2>
+    
     <h4>Vyšlo Ti najlepšie:</h4>
     <ul class="points">
 
@@ -111,7 +122,7 @@
       <li class="naj_prehladOVydavkochAkoTakViem" hidden>Nezaznamenávaš si výdavky.</li>
     </ul>
 
-    <h4>Najviac vieme pomôcť:</h4>
+   
     <ul class="points">
       <li class="naj_produktyUverHypotekaPozickaNiePlanujem" hidden>Zistíme za akých podmienok by Ti banka poskytla
         hypotéku a v akej výške.</li>
@@ -152,26 +163,24 @@
       <li class="produktyZivotnePoistenieNiePlanujem produktyZivotnePoistenieNie" hidden>Navrhneme Ti životné poistenie
         tak, aby spĺnalo všetky Tvoje potreby.</li>
 
-
-
+        <a href="#kontakt">Kontaktovať</a>
     </ul>
   </div>
 
-  <div class="section">
-    <h2>Využi od nás úvodnú konzultáciu zdarma.</h2>
-    <p>Na konkrétnych podmienkach spolupráce sa dohodneme až keď zistime Tvoje požiadavky.</p>
-    <h3>Ako Ťa máme kontaktovať?</h3>
-    <p><b>Mailom</b><input class="input-text" id="emailKlientaZiadost" type="email" placeholder="meno@gmail.com"></p>
-    <p class="email-more" id="emailText" contenteditable="true">Na úvodnej bezplatnej konzultácii sa chcem informovať
-      o:<br>
-      - Podmienkach za akých mi banka poskytne hypotéku<br>
-      - Možnostiach investovania<br>
-      - Postupe ako si založiť druhý pilier<br>
-      - Aktuálnom nastavení môjho životného poistenia<br>
-      - Ideálnom rozložení kam smerovať moje peniaze<br>
-      - Alternatívach oproti bežnému účtu v banke</p>
-    <button class="button-main" (click)="email_ziadost()">ODOSLAŤ</button>
+  <h1>Podrobné vyhodnotenie</h1>
+  <p>Ulož si vyhodnotenie a naštuduj si naše odporúčania aj neskôr.</p> 
+  <a href="">Uložiť</a>
 
+  <a href="#resultContent">Výber produktov</a>
+  <a href="#">Práca s peniazmi</a>
+  <a href="#">Rozloženie</a>
+  <a href="#">Gramotnosť</a>
+  <a href="#">Okruhy záujmu</a>
+
+  
+
+
+  <div class="section">
     <!--PRACA S PRODUKTAMI-->
     <div id="resultContent">
       <div class="section section-products">
@@ -179,7 +188,7 @@
 
         <h3
           class="produktyHypotekaUrokDo1 produktyDruhyPilierFondyIndexove produktyTretiPilierFondyIndexove produktyZivotnePoistenieInvesticiaNie produktyUverPozickaUrokDo5 produktyTretiPilierNieBezPrispevku"
-          hidden>Tieto sféry máš zvládnuté excelentne</h3>
+          hidden>Excelentne zvládnuté</h3>
         <p class="produktyHypotekaUrokDo1" hidden><b> Úrok na hypotéke máš pod 1%.</b> V dnešnej dobe sú úroky na
           historicky najnižšej úrovni a mať
           hypotéku sa finančne vyplatí.Je skvelé, že túto príležitosť využívaš vo svoj prospech.</p>
@@ -202,7 +211,7 @@
         <p class="produktyUverHypotekaPozickaNemaUver" hidden><b>Nemáš zlé úvery.</b> Žiadne zbytočné spotrebné úvery,
           ani nakúpená elektronika na splátky. Toto si drž! </p>
 
-        <h3>Na tieto oblasti ti odporúčame sa pozrieť</h3>
+        <h3>Priestor na zlepšenie</h3>
         <div class="produktyDruhyPilierNiePlanujem"></div>
         <div class="produktyHypotekaUrokDo2"></div>
         <div class="produktyHypotekaUrokNeviem"></div>
@@ -226,7 +235,7 @@
 
         <h3
           class="produktyInvesticieSporeniaNie produktyUverPozickaUrokViacAko10 produktyHypotekaUrokViacAko2 produktyDruhyPilierNie produktyZivotnePoistenieInvesticiaAno produktyZivotnePoistenieNie produktyDruhyPilierFondyDlhopisove produktyUverHypotekaPozickaNie"
-          hidden>Tieto oblasti odporúčame vylepšiť</h3>
+          hidden>Odporúčame vylepšiť</h3>
         <div class="produktyInvesticieSporeniaNie"></div>
         <div class="produktyUverPozickaUrokViacAko10"></div>
         <div class="produktyHypotekaUrokViacAko2"></div>
@@ -237,11 +246,14 @@
         <div class="produktyUverHypotekaPozickaNie"></div>
       </div>
 
+
+
+
       <!--PRACA S PENIAZMI-->
       <div class="section section-money-work">
         <h1>Práca s peniazmi</h1>
 
-        <h3>Tieto sféry máš zvládnuté excelentne</h3>
+        <h3>Excelentne zvládnuté</h3>
         <p class="omeskanieSplatkyNie" hidden><b>Vždy boli u Teba splátky splácané načas.</b> Splácanie načas je
           prejavom
           zodpovedného správania, len tak ďalej.</p>
@@ -256,14 +268,14 @@
         <p class="prehladOVydavkochKazdyVydavok" hidden><b>Zaznamenávaš si výdavky.</b>Môžeš sa cítiť hrdo, nakoľko si
           výdavky poctivo zaznamenávaš, čo robí iba 11% účastníkov testu.</p>
 
-        <h3>Na toto si daj pozor</h3>
+        <h3 class="odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca odkladaniePenaziSposobSporiaciUcetPriebezne vyskarezervyDo3nasobokPrijmu vyskarezervyNad6nasobokPrijmu prehladOVydavkochMamDobruPredstavu" hidden >Priestor na zlepšenie</h3>
         <div class="odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca"></div>
         <div class="odkladaniePenaziSposobSporiaciUcetPriebezne"></div>
         <div class="vyskarezervyDo3nasobokPrijmu"></div>
         <div class="vyskarezervyNad6nasobokPrijmu"></div>
         <div class="prehladOVydavkochMamDobruPredstavu"></div>
 
-        <h3>Tieto oblasti odporúčame vylepšiť</h3>
+        <h3>Odporúčame vylepšiť</h3>
         <div class="odkladaniePenaziSposobNie"></div>
         <div class="vyskarezervyDo1nasobokPrijmu"></div>
         <div class="odkladaniePenaziSposobBeznyUcet"></div>
@@ -320,7 +332,7 @@
 
         <h3
           class="zivotnePoistenieVyskaSplatkyPod3 zivotnePoistenieVyskaSplatkyNad4 odlozitMenejAko10percentprijmu odlozitViacAko10percentprijmu byvanieVyssieAko30 dlhodobeInvesticieMenejAko10 kratkodobeInvesticieMenejAko10"
-          hidden>Tieto oblasti odporúčame vylepšiť</h3>
+          hidden>Odporúčame vylepšiť</h3>
         <div class="zivotnePoistenieVyskaSplatkyPod3"></div>
         <div class="zivotnePoistenieVyskaSplatkyNad4"></div>
         <div class="odlozitMenejAko10percentprijmu"></div>
@@ -334,9 +346,9 @@
       <!--GRAMOTNOST-->
       <div class="section section-financial-literacy">
         <h1>Finančná gramotnosť</h1>
-        <p>V sekcii finančnej gramotnosti sa Ti darilo lepšie ako {{resultBodovanie.percentilGramotnost}}% účastníkom
-          testu, získal si {{resultBodovanie.pocetBodovGramotnostStratil}} z {{resultBodovanie.pocetBodovGramotnostMax}}
-          bodov.</p>
+         <p>Získané body: <strong>{{resultBodovanie.pocetBodovGramotnostStratil}}</strong> z {{resultBodovanie.pocetBodovGramotnostMax}}</p> 
+          <p>V sekcii finančnej gramotnosti sa Ti darilo lepšie ako {{resultBodovanie.percentilGramotnost}}% účastníkom testu.</p>
+
         <div class="my-48">
           <h3>Otázka 1</h3>
           <p><b>Na dlhodobú investíciu vložíš 1000€, o rok hodnota tejto investície klesla na 900€. Čo urobíš?</b></p>
@@ -381,9 +393,10 @@
 
       <!--ZAUJMOVE OBLASTI-->
       <div class="section section-topics">
-        <h1>Niečo málo o témach, ktoré ťa zaujímali.</h1>
-        <p class="coChcesVedietVlastneByvanie" hidden>Vlastné bývanie - čo všetko treba vedieť pred kúpou prvej
-          nehnuteľnosti a ako sa na to pripraviť.</p>
+        <h1>Témy, ktoré Ťa zaujímali</h1>
+        <h3 class="coChcesVedietVlastneByvanie" hidden>Vlastné bývanie <p>čo všetko treba vedieť pred kúpou prvej
+          nehnuteľnosti a ako sa na to pripraviť</p></h3>
+
         <div class="coChcesVedietVlastneByvanie1" hidden></div>
         <div class="coChcesVedietVlastneByvanie2" hidden></div>
         <div class="coChcesVedietVlastneByvanie3" hidden></div>
@@ -391,40 +404,47 @@
         <div class="coChcesVedietVlastneByvanie5" hidden></div>
         <div class="coChcesVedietVlastneByvanie6" hidden></div>
 
-        <p class="coChcesVedietInvestovanie" hidden>Investovanie - prečo, ako, kedy, a do čoho investovať.</p>
+        <h3 class="coChcesVedietInvestovanie" hidden>Investovanie prečo, ako, kedy, a do čoho investovať.</h3>
         <div class="coChcesVedietInvestovanie1" hidden></div>
         <div class="coChcesVedietInvestovanie2" hidden></div>
         <div class="coChcesVedietInvestovanie3" hidden></div>
 
-        <p class="coChcesVedietIdealneRozlozenie" hidden>ideálne rozloženie - do ktorých oblastí smerovať svoje peniaze
-          a
-          koľko</p>
+        <p class="coChcesVedietIdealneRozlozenie" hidden>Ideálne rozloženie do ktorých oblastí smerovať svoje peniaze
+          a koľko</p>
         <div class="coChcesVedietIdealneRozlozenie1" hidden></div>
         <div class="coChcesVedietIdealneRozlozenie2" hidden></div>
         <div class="coChcesVedietIdealneRozlozenie3" hidden></div>
 
-        <p class="coChcesVedietFinancnaNezavislost" hidden>Finančná nezávislosť - ako sa dá vytvoriť pasívny príjem,
-          ktorý
-          pokrýva nevyhnutné životné výdavky.</p>
+        <p class="coChcesVedietFinancnaNezavislost" hidden>Finančná nezávislosť ako sa dá vytvoriť pasívny príjem,
+          ktorý pokrýva nevyhnutné životné výdavky.</p>
         <div class="coChcesVedietFinancnaNezavislost1" hidden></div>
         <div class="coChcesVedietFinancnaNezavislost2" hidden></div>
         <div class="coChcesVedietFinancnaNezavislost3" hidden></div>
 
         <p class="coChcesVedietMenezovanieVydavkov" hidden>Menežovanie vydávkov - ako sa zamýšľať nad svojimi výdavkami
-          a
-          nájsť balans medzi šetrením a užívaním si.</p>
+          a nájsť balans medzi šetrením a užívaním si.</p>
         <div class="coChcesVedietMenezovanieVydavkov1" hidden></div>
         <div class="coChcesVedietMenezovanieVydavkov2" hidden></div>
         <div class="coChcesVedietMenezovanieVydavkov3" hidden></div>
       </div>
 
+      <div id="kontakt">
+        <h2>Využi od nás úvodnú konzultáciu zdarma.</h2>
+        <p>Na konkrétnych podmienkach spolupráce sa dohodneme až keď zistime Tvoje požiadavky.</p>
+        <h3>Ako Ťa máme kontaktovať?</h3>
+        <p class="email-more" id="emailText" contenteditable="true">Na úvodnej bezplatnej konzultácii sa chcem informovať
+          o:<br>
+          - Podmienkach za akých mi banka poskytne hypotéku<br>
+          - Možnostiach investovania<br>
+          - Postupe ako si založiť druhý pilier<br>
+          - Aktuálnom nastavení môjho životného poistenia<br>
+          - Ideálnom rozložení kam smerovať moje peniaze<br>
+          - Alternatívach oproti bežnému účtu v banke</p>
+          <p><b>Mailom</b><input class="input-text" id="emailKlientaZiadost" type="email" placeholder="meno@gmail.com"></p>
+        <button class="button-main" (click)="email_ziadost()">ODOSLAŤ</button>
+      </div>
       <!--TODO tu vnorenu funkciu treba vyskusat ci funguje, ak nie, treba to urobit v .ts manualne-->
     </div>
-    <div class="section">
-      <h2>Nemám záujem o konzultáciu, chcem si však uložiť vyhodnotenie.</h2>
-      <div><input class="input-text" id="emailKlientaVysledok" type="email" placeholder="meno@gmail.com"></div>
-      <p><button class="button-main" (click)="email_dataURL()">Poslať vyhodnotenie emailom</button></p>
-      <!--TODO tu vnorenu funkciu treba vyskusat ci funguje, ak nie, treba to urobit v .ts manualne-->
-    </div>
+  
   </div>
 </div>
