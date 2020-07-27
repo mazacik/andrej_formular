@@ -7,8 +7,8 @@
     <h3> Vyhodnotenie Ti zašleme na email</h3>
     <p>Nakoľko sa uloží aj u nás, budeš si ho môcť kedykoľvek vyžiadať znovu.</p>
     <div><input class="input-text" id="emailKlientaVysledok" type="email" placeholder="tvojemail@mail.sk"></div>
-      <p><button class="button-main" (click)="email_dataURL()">Odoslať</button></p>
-     
+    <p><button class="button-main" (click)="email_dataURL()">Odoslať</button></p>
+
 
     <p>Gratulujeme {{data.meno}}!</p>
     <p>Podarilo sa Ti získať {{resultBodovanie.pocetBodovMax - resultBodovanie.pocetBodovStratil}} z
@@ -24,7 +24,7 @@
 
     <h2>Krátke vyhodnotenie</h2>
     <h2>Tvojich odpovedí</h2>
-    
+
     <h4>Vyšlo Ti najlepšie:</h4>
     <ul class="points">
 
@@ -122,7 +122,6 @@
       <li class="naj_prehladOVydavkochAkoTakViem" hidden>Nezaznamenávaš si výdavky.</li>
     </ul>
 
-   
     <ul class="points">
       <li class="naj_produktyUverHypotekaPozickaNiePlanujem" hidden>Zistíme za akých podmienok by Ti banka poskytla
         hypotéku a v akej výške.</li>
@@ -163,12 +162,12 @@
       <li class="produktyZivotnePoistenieNiePlanujem produktyZivotnePoistenieNie" hidden>Navrhneme Ti životné poistenie
         tak, aby spĺnalo všetky Tvoje potreby.</li>
 
-        <a href="#kontakt">Kontaktovať</a>
+      <a href="#kontakt">Kontaktovať</a>
     </ul>
   </div>
 
   <h1>Podrobné vyhodnotenie</h1>
-  <p>Ulož si vyhodnotenie a naštuduj si naše odporúčania aj neskôr.</p> 
+  <p>Ulož si vyhodnotenie a naštuduj si naše odporúčania aj neskôr.</p>
   <a href="">Uložiť</a>
 
   <a href="#resultContent">Výber produktov</a>
@@ -177,7 +176,7 @@
   <a href="#">Gramotnosť</a>
   <a href="#">Okruhy záujmu</a>
 
-  
+
 
 
   <div class="section">
@@ -268,7 +267,9 @@
         <p class="prehladOVydavkochKazdyVydavok" hidden><b>Zaznamenávaš si výdavky.</b>Môžeš sa cítiť hrdo, nakoľko si
           výdavky poctivo zaznamenávaš, čo robí iba 11% účastníkov testu.</p>
 
-        <h3 class="odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca odkladaniePenaziSposobSporiaciUcetPriebezne vyskarezervyDo3nasobokPrijmu vyskarezervyNad6nasobokPrijmu prehladOVydavkochMamDobruPredstavu" hidden >Priestor na zlepšenie</h3>
+        <h3
+          class="odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca odkladaniePenaziSposobSporiaciUcetPriebezne vyskarezervyDo3nasobokPrijmu vyskarezervyNad6nasobokPrijmu prehladOVydavkochMamDobruPredstavu"
+          hidden>Priestor na zlepšenie</h3>
         <div class="odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca"></div>
         <div class="odkladaniePenaziSposobSporiaciUcetPriebezne"></div>
         <div class="vyskarezervyDo3nasobokPrijmu"></div>
@@ -346,8 +347,10 @@
       <!--GRAMOTNOST-->
       <div class="section section-financial-literacy">
         <h1>Finančná gramotnosť</h1>
-         <p>Získané body: <strong>{{resultBodovanie.pocetBodovGramotnostStratil}}</strong> z {{resultBodovanie.pocetBodovGramotnostMax}}</p> 
-          <p>V sekcii finančnej gramotnosti sa Ti darilo lepšie ako {{resultBodovanie.percentilGramotnost}}% účastníkom testu.</p>
+        <p>Získané body: <strong>{{resultBodovanie.pocetBodovGramotnostStratil}}</strong> z
+          {{resultBodovanie.pocetBodovGramotnostMax}}</p>
+        <p>V sekcii finančnej gramotnosti sa Ti darilo lepšie ako {{resultBodovanie.percentilGramotnost}}% účastníkom
+          testu.</p>
 
         <div class="my-48">
           <h3>Otázka 1</h3>
@@ -395,7 +398,8 @@
       <div class="section section-topics">
         <h1>Témy, ktoré Ťa zaujímali</h1>
         <h3 class="coChcesVedietVlastneByvanie" hidden>Vlastné bývanie <p>čo všetko treba vedieť pred kúpou prvej
-          nehnuteľnosti a ako sa na to pripraviť</p></h3>
+            nehnuteľnosti a ako sa na to pripraviť</p>
+        </h3>
 
         <div class="coChcesVedietVlastneByvanie1" hidden></div>
         <div class="coChcesVedietVlastneByvanie2" hidden></div>
@@ -432,7 +436,8 @@
         <h2>Využi od nás úvodnú konzultáciu zdarma.</h2>
         <p>Na konkrétnych podmienkach spolupráce sa dohodneme až keď zistime Tvoje požiadavky.</p>
         <h3>Ako Ťa máme kontaktovať?</h3>
-        <p class="email-more" id="emailText" contenteditable="true">Na úvodnej bezplatnej konzultácii sa chcem informovať
+        <p class="email-more" id="emailText" contenteditable="true">Na úvodnej bezplatnej konzultácii sa chcem
+          informovať
           o:<br>
           - Podmienkach za akých mi banka poskytne hypotéku<br>
           - Možnostiach investovania<br>
@@ -440,11 +445,12 @@
           - Aktuálnom nastavení môjho životného poistenia<br>
           - Ideálnom rozložení kam smerovať moje peniaze<br>
           - Alternatívach oproti bežnému účtu v banke</p>
-          <p><b>Mailom</b><input class="input-text" id="emailKlientaZiadost" type="email" placeholder="meno@gmail.com"></p>
+        <p><b>Mailom</b><input class="input-text" id="emailKlientaZiadost" type="email" placeholder="meno@gmail.com">
+        </p>
         <button class="button-main" (click)="email_ziadost()">ODOSLAŤ</button>
       </div>
       <!--TODO tu vnorenu funkciu treba vyskusat ci funguje, ak nie, treba to urobit v .ts manualne-->
     </div>
-  
+
   </div>
 </div>

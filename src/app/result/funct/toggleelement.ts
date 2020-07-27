@@ -14,11 +14,22 @@ export class ToggleElement {
         buttonToggle.classList.add("arrow", "down");
         buttonToggle.setAttribute("name", id);
         buttonToggle.onclick = () => {
-          var element = document.getElementById(id + "Content");
-          if (element) if (element.hasAttribute("hidden")) {
-            element.removeAttribute("hidden");
+          // spracovanie sipky
+          if (buttonToggle.classList.contains("down")) {
+            buttonToggle.classList.replace("down", "up");
           } else {
-            element.hidden = true;
+            buttonToggle.classList.replace("up", "down");
+          }
+
+          // zobrazenie contentu
+          var contentElements = document.getElementsByClassName(id + "Content");
+          for (let i = 0; i < contentElements.length; i++) {
+            const element = contentElements[i];
+            if (element) if (element.hasAttribute("hidden")) {
+              element.removeAttribute("hidden");
+            } else {
+              (<any>element).hidden = true;
+            }
           }
         }
 
@@ -38,7 +49,7 @@ export class ToggleElement {
 
         // content
         var pContent = document.createElement("p");
-        pContent.id = id + "Content";
+        pContent.classList.add(id + "Content");
         pContent.setAttribute("hidden", "true");
         pContent.innerHTML = content;
 
