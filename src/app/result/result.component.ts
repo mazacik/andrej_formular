@@ -154,12 +154,19 @@ export class ResultComponent implements OnInit {
       this.resultBodovanie.pocetBodovGramotnostMax += question.resultPointsMax;
       this.resultBodovanie.pocetBodovGramotnostStratil += answer.resultPointsStratil;
 
-      var choiceString = document.getElementById(question.id + "UserChoice");
-      if (choiceString) choiceString.innerHTML = answer.choiceString;
+      var userChoiceElements = document.getElementsByClassName(question.id + "UserChoice");
+      for (let i = 0; i < userChoiceElements.length; i++) {
+        const element = userChoiceElements[i];
+        element.innerHTML = answer.choiceString;
+      }
 
-     // var pointsSpan = document.getElementById(question.id + "Points");
-      //if (pointsSpan) pointsSpan.innerHTML = answer.resultPointsStratil.toString();
+      var pointsElements = document.getElementsByClassName(question.id + "Points");
+      for (let i = 0; i < pointsElements.length; i++) {
+        const element = pointsElements[i];
+        element.innerHTML = answer.resultPointsStratil.toString();
+      }
 
+      this.showElementsByClass(answer.id);
       ToggleElement.create(question.id, "Vysvetlenie", question.resultVysvetlenie, -1, "Vysvetlenie");
     } else {
       console.log(id + " not found in answer json");
@@ -169,6 +176,7 @@ export class ResultComponent implements OnInit {
     // je to sekcia financnej gramotnosti?
     if (typeof id == "string") {
       // odpoved je string
+      console.log(id);
       if (id.startsWith("financnaGramotnost")) {
         this.resolveAnswerFinancnaGramotnost(id);
       } else if (id.startsWith("coChcesVediet")) {
