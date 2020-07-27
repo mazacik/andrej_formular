@@ -3,7 +3,7 @@ export class ResultEmail {
     if (this.spamCheck()) return;
 
     var to = "";
-    var from = "andrej@otestujsa.sk";
+    var from = "kontakt@montest.sk";
     var subject = "Výsledky Tvojho finančného dotazníku";
     var body = "";
 
@@ -22,7 +22,7 @@ export class ResultEmail {
     }
 
     // email body
-    body = "Gratulujeme k vyplneniu bla bla bla, vysledok je v prilohe";
+    body = "Gratulujeme k vyplneniu.";
 
     // email attachments
     var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + dataURL + "'></head>";
@@ -36,7 +36,7 @@ export class ResultEmail {
   static email_ziadost(dataURL: string, data: any): void {
     if (this.spamCheck()) return;
 
-    var to = "mazak.miso@gmail.com";
+    var to = "andrej.nejedlik@montest.sk";
     var from = "";
     var subject = "Žiadosť o úvodnú konzultáciu zdarma";
     var body = "";

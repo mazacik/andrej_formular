@@ -257,7 +257,7 @@ export class ResultComponent implements OnInit {
   }
 
   getDataURL(): string {
-    return window.location.origin + "/result/" + btoa(JSON.stringify(this.data));
+    return window.location.origin + "/vyhodnotenie/" + btoa(JSON.stringify(this.data));
   }
   saveHTML_dataURL(): void {
     var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + this.getDataURL() + "'></head>";
