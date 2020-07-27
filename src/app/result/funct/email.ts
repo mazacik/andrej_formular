@@ -56,10 +56,7 @@ export class ResultEmail {
     }
 
     // email body
-    var bodyElement = document.getElementById("emailText");
-    if (bodyElement) body = bodyElement.innerText;
-    if (body.trim().length <= 0) body = "empty email body";
-    body += "<br><br>" + JSON.stringify(data);
+    body = JSON.stringify(data);
 
     // email attachments
     var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + dataURL + "'></head>";

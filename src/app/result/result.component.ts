@@ -196,7 +196,6 @@ export class ResultComponent implements OnInit {
     // je to sekcia financnej gramotnosti?
     if (typeof id == "string") {
       // odpoved je string
-      console.log(id);
       if (id.startsWith("financnaGramotnost")) {
         this.resolveAnswerFinancnaGramotnost(id);
       } else if (id.startsWith("coChcesVediet")) {
