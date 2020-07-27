@@ -157,8 +157,8 @@ export class ResultComponent implements OnInit {
       var choiceString = document.getElementById(question.id + "UserChoice");
       if (choiceString) choiceString.innerHTML = answer.choiceString;
 
-      var pointsSpan = document.getElementById(question.id + "Points");
-      if (pointsSpan) pointsSpan.innerHTML = answer.resultPointsStratil.toString();
+     // var pointsSpan = document.getElementById(question.id + "Points");
+      //if (pointsSpan) pointsSpan.innerHTML = answer.resultPointsStratil.toString();
 
       ToggleElement.create(question.id, "Vysvetlenie", question.resultVysvetlenie, -1, "Vysvetlenie");
     } else {
