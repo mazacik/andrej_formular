@@ -1,0 +1,37 @@
+.navigation {
+  padding: 4px;
+  display: flex;
+  height: 58px;
+  vertical-align: center;
+
+  &__logo {
+    margin-right: auto;
+  }
+
+  &__actions {
+    display: flex;
+    margin-left: auto;
+  }
+
+  &__phone, &__mail {
+    a {
+      color: #000;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 100;
+    }
+    margin: 0 8px;
+  }
+
+  &__phone, &__mail, &__buttons {
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+  }
+
+  &__buttons {
+    button {
+      margin: 0 8px;
+    }
+  }
+}

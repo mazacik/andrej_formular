@@ -1,4 +1,9 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 @import "variables";
+@import "navigation";
 
 @import "survey";
 @import "illustrations";
@@ -16,8 +21,12 @@ h1 {
   font-family: 'Raleway', sans-serif;
 }
 
-* {
+*, ::before, ::after {
   box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
 }
 
 .sv_nav {
@@ -152,13 +161,13 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
   background-color: $color2!important;
   font-size: 0.85em;
   font-weight: bold;
-  line-height: 2em;
   border: none;
   min-width: 100px;
   cursor: pointer;
-  padding: 0 2em;
+  padding: 8px 32px;
   border-radius: 2px;
   color: white;
+  box-shadow: 3px 3px 3px $tippyColor;
 }
 
 .button-main.big {
@@ -267,6 +276,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
   font-weight: 900;
   counter-reset: count var(--count);
   content: counter(count);
+  box-sizing: content-box;
 }
 .navigationProgressbar li:after {
   width: calc(100% - 45px);
@@ -277,6 +287,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
   right: calc(50% + 30px);
   z-index: 11;
   content: '';
+  box-sizing: content-box;
 }
 .navigationProgressbar li:first-of-type:after {
   content: none;
@@ -398,8 +409,6 @@ body.sekciaOkruhyZaujmu {
   min-width: 360px;
 }
 
-$tippyColor: #962913;
-
 .tippy-box {
   background-color: $tippyColor;
   font-weight: 600;
@@ -411,4 +420,34 @@ $tippyColor: #962913;
 
 .tippy-arrow {
   color: $tippyColor;
+}
+
+@mixin ticks ($iconName) {
+  $tickSize: 20px;
+  li {
+    position: relative;
+    margin-left: 8px + $tickSize;
+  }
+  li:before {
+    position: absolute;
+    top: 0;
+    left: -$tickSize - 8px;
+    content: "";
+    background: url(/assets/icons/#{$iconName}.svg);
+    width: $tickSize;
+    height: $tickSize;
+    background-size: cover;
+  }
+}
+
+.ticks-list {
+  @include ticks("tick");
+}
+
+.questions-list {
+  @include ticks("question");
+}
+
+.crosses-list {
+  @include ticks("cross");
 }
