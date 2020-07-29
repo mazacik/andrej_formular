@@ -174,11 +174,25 @@ export class ResultComponent implements OnInit {
       this.resultBodovanie.pocetBodovGramotnostMax += question.resultPointsMax;
       this.resultBodovanie.pocetBodovGramotnostStratil += answer.resultPointsStratil;
 
-      var choiceString = document.getElementById(question.id + "UserChoice");
-      if (choiceString) choiceString.innerHTML = answer.choiceString;
+      if (answer.resultPointsStratil == 0) {
+        this.showElementById(question.id + "Dobre");
+      } else if (answer.resultPointsStratil == 0.5) {
+        this.showElementById(question.id + "Neutralne");
+      } else if (answer.resultPointsStratil == 1) {
+        this.showElementById(question.id + "Zle");
+      }
 
-      var pointsSpan = document.getElementById(question.id + "Points");
-      if (pointsSpan) pointsSpan.innerHTML = answer.resultPointsStratil.toString();
+      var userChoiceElements = document.getElementsByClassName(question.id + "UserChoice");
+      for (let i = 0; i < userChoiceElements.length; i++) {
+        const element = userChoiceElements[i];
+        element.innerHTML = answer.choiceString;
+      }
+
+      var userChoiceElements = document.getElementsByClassName(question.id + "Points");
+      for (let i = 0; i < userChoiceElements.length; i++) {
+        const element = userChoiceElements[i];
+        element.innerHTML = "-" + answer.resultPointsStratil.toString() + "b";
+      }
 
       ToggleElement.create(question.id, "Vysvetlenie", question.resultVysvetlenie, -1, "Vysvetlenie");
     } else {
