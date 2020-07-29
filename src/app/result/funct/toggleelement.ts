@@ -1,5 +1,3 @@
-import { ResultComponent } from '../result.component';
-
 export class ToggleElement {
   static create(id: string, title: string, content: string, points: number = -1, divSuffix: string = "") {
     // check if div exists
@@ -8,7 +6,7 @@ export class ToggleElement {
     for (let i = 0; i < divs.length; i++) {
       const div = divs[i];
       // check if found node is a div
-      if (div.nodeName == "DIV") {
+      if (div.innerHTML == "") {
         // toggle button
         var buttonToggle = document.createElement("i");
         buttonToggle.classList.add("arrow", "down");
