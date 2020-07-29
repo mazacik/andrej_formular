@@ -30,7 +30,7 @@ export class ToggleElement {
         // points
         if (points >= 0) {
           var spanPoints = document.createElement("span");
-          spanPoints.innerHTML = " [-" + points.toString() + "b] ";
+          spanPoints.innerHTML = "<span class='points'>-" + points.toString() + "b</span> ";
         }
 
         // title
