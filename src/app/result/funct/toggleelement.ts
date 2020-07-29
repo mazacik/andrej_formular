@@ -13,17 +13,21 @@ export class ToggleElement {
         buttonToggle.setAttribute("name", id);
         buttonToggle.onclick = (event) => {
           let $button = $(event.target);
-          var element = document.getElementById(id + "Content");
-          if (element) if (element.hasAttribute("hidden")) {
-            element.removeAttribute('hidden');
 
-            $button.removeClass('fa-arrow-right');
-            $button.addClass('fa-arrow-down');
-          } else {
-            element.hidden = true;
-
-            $button.addClass('fa-arrow-right');
-            $button.removeClass('fa-arrow-down');
+          var contentElements = document.getElementsByClassName(id + "Content");
+          for (let i = 0; i < contentElements.length; i++) {
+            const element = contentElements[i];
+            if (element.hasAttribute("hidden")) {
+              element.removeAttribute('hidden');
+  
+              $button.removeClass('fa-arrow-right');
+              $button.addClass('fa-arrow-down');
+            } else {
+              (<any>element).hidden = true;
+  
+              $button.addClass('fa-arrow-right');
+              $button.removeClass('fa-arrow-down');
+            }
           }
         }
 

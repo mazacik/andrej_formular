@@ -194,33 +194,6 @@ export class ResultComponent implements OnInit {
         element.innerHTML = "-" + answer.resultPointsStratil.toString() + "b";
       }
 
-      // var userChoiceElements = document.getElementsByClassName(question.id + "UserChoice");
-      // for (let i = 0; i < userChoiceElements.length; i++) {
-      //   const element = userChoiceElements[i];
-      //   element.innerHTML = answer.choiceString;
-      // }
-
-      // var pointsElements = document.getElementsByClassName(question.id + "Points");
-      // for (let i = 0; i < pointsElements.length; i++) {
-      //   const element = pointsElements[i];
-      //   element.innerHTML = answer.resultPointsStratil.toString();
-      // }
-
-      var divs = document.getElementsByClassName(question.id);
-      for (let i = 0; i < divs.length; i++) {
-        const div = divs[i];
-        if (answer.resultPointsStratil == 0) {
-          div.classList.add("gramotnost-dobre");
-          // div.setAttribute("style", "background-color: green;");
-        } else if (answer.resultPointsStratil == 0.5) {
-          div.classList.add("gramotnost-neutral");
-          // div.setAttribute("style", "background-color: orange;");
-        } else if (answer.resultPointsStratil == 1) {
-          div.classList.add("gramotnost-zle");
-          // div.setAttribute("style", "background-color: red;");
-        }
-      }
-
       ToggleElement.create(question.id, "Vysvetlenie", question.resultVysvetlenie, -1, "Vysvetlenie");
     } else {
       console.log(id + " not found in answer json");
