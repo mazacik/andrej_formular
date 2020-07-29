@@ -9,14 +9,21 @@ export class ToggleElement {
       if (div.innerHTML == "") {
         // toggle button
         var buttonToggle = document.createElement("i");
-        buttonToggle.classList.add("arrow", "down");
+        buttonToggle.classList.add("arrow-more", "fa", "fa-arrow-right");
         buttonToggle.setAttribute("name", id);
-        buttonToggle.onclick = () => {
+        buttonToggle.onclick = (event) => {
+          let $button = $(event.target);
           var element = document.getElementById(id + "Content");
           if (element) if (element.hasAttribute("hidden")) {
-            element.removeAttribute("hidden");
+            element.removeAttribute('hidden');
+
+            $button.removeClass('fa-arrow-right');
+            $button.addClass('fa-arrow-down');
           } else {
             element.hidden = true;
+
+            $button.addClass('fa-arrow-right');
+            $button.removeClass('fa-arrow-down');
           }
         }
 
@@ -30,9 +37,9 @@ export class ToggleElement {
         var bTitle = document.createElement("b");
         bTitle.innerHTML = title;
         var pTitle = document.createElement("p");
-        pTitle.appendChild(buttonToggle);
         if (spanPoints) pTitle.appendChild(spanPoints);
         pTitle.appendChild(bTitle);
+        pTitle.appendChild(buttonToggle);
 
         // content
         var pContent = document.createElement("p");

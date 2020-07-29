@@ -451,3 +451,13 @@ body.sekciaOkruhyZaujmu {
 .crosses-list {
   @include ticks("cross");
 }
+
+.arrow-more {
+  color: #CF4327;
+  border-radius: 100px;
+  border: solid 4px #CF4327;
+  padding: 4px;
+  font-size: 12px;
+  margin: 0 8px;
+  cursor: pointer;
+}
