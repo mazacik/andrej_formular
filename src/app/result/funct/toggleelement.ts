@@ -1,5 +1,3 @@
-import { ResultComponent } from '../result.component';
-
 export class ToggleElement {
   static create(id: string, title: string, content: string, points: number = -1, divSuffix: string = "") {
     // check if div exists
@@ -8,44 +6,40 @@ export class ToggleElement {
     for (let i = 0; i < divs.length; i++) {
       const div = divs[i];
       // check if found node is a div
-      if (div.nodeName == "DIV") {
+      if (div.innerHTML == "") {
         // toggle button
         var buttonToggle = document.createElement("i");
-        buttonToggle.classList.add("arrow", "down");
+        buttonToggle.classList.add("arrow-more", "fa", "fa-arrow-right");
         buttonToggle.setAttribute("name", id);
-        buttonToggle.onclick = () => {
-          // spracovanie sipky
-          if (buttonToggle.classList.contains("down")) {
-            buttonToggle.classList.replace("down", "up");
-          } else {
-            buttonToggle.classList.replace("up", "down");
-          }
+        buttonToggle.onclick = (event) => {
+          let $button = $(event.target);
+          var element = document.getElementById(id + "Content");
+          if (element) if (element.hasAttribute("hidden")) {
+            element.removeAttribute('hidden');
 
-          // zobrazenie contentu
-          var contentElements = document.getElementsByClassName(id + "Content");
-          for (let i = 0; i < contentElements.length; i++) {
-            const element = contentElements[i];
-            if (element) if (element.hasAttribute("hidden")) {
-              element.removeAttribute("hidden");
-            } else {
-              (<any>element).hidden = true;
-            }
+            $button.removeClass('fa-arrow-right');
+            $button.addClass('fa-arrow-down');
+          } else {
+            element.hidden = true;
+
+            $button.addClass('fa-arrow-right');
+            $button.removeClass('fa-arrow-down');
           }
         }
 
         // points
         if (points >= 0) {
           var spanPoints = document.createElement("span");
-          spanPoints.innerHTML = " [-" + points.toString() + "b] ";
+          spanPoints.innerHTML = "<span class='points'>-" + points.toString() + "b</span> ";
         }
 
         // title
         var bTitle = document.createElement("b");
         bTitle.innerHTML = title;
         var pTitle = document.createElement("p");
-        pTitle.appendChild(buttonToggle);
         if (spanPoints) pTitle.appendChild(spanPoints);
         pTitle.appendChild(bTitle);
+        pTitle.appendChild(buttonToggle);
 
         // content
         var pContent = document.createElement("p");

@@ -1,17 +1,10 @@
 .result {
   min-height: 100vh;
-  background-color: #EAE2C2;
 }
 
 h1 {
   margin-top: 0;
   font-size: 3em;
-}
-
-.charts {
-  display: flex;
-  padding: 100px 0;
-  background-color: white;
 }
 
 .section {

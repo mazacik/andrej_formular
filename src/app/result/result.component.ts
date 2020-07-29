@@ -30,6 +30,26 @@ export class ResultComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    // navigation
+    $('.navigation__burger').on('click', event => {
+      const $el = $('.navigation');
+      if ($el.hasClass('open')) {
+        $el.removeClass('open');
+      } else {
+        $el.addClass('open');
+      }
+    });
+
+    // anchor navigation
+    $(document).on('click', 'a[href^="#"]', function (event) {
+      event.preventDefault();
+
+      $('html, body').animate({
+        scrollTop: $($(this).attr('href')).offset().top
+      }, 500);
+    });
+
     // nacitaj data
     var base64data = this.route.snapshot.params['base64data'];
     if (base64data) {
@@ -154,11 +174,25 @@ export class ResultComponent implements OnInit {
       this.resultBodovanie.pocetBodovGramotnostMax += question.resultPointsMax;
       this.resultBodovanie.pocetBodovGramotnostStratil += answer.resultPointsStratil;
 
-      var choiceString = document.getElementById(question.id + "UserChoice");
-      if (choiceString) choiceString.innerHTML = answer.choiceString;
+      if (answer.resultPointsStratil == 0) {
+        this.showElementById(question.id + "Dobre");
+      } else if (answer.resultPointsStratil == 0.5) {
+        this.showElementById(question.id + "Neutralne");
+      } else if (answer.resultPointsStratil == 1) {
+        this.showElementById(question.id + "Zle");
+      }
 
-      var pointsSpan = document.getElementById(question.id + "Points");
-      if (pointsSpan) pointsSpan.innerHTML = answer.resultPointsStratil.toString();
+      var userChoiceElements = document.getElementsByClassName(question.id + "UserChoice");
+      for (let i = 0; i < userChoiceElements.length; i++) {
+        const element = userChoiceElements[i];
+        element.innerHTML = answer.choiceString;
+      }
+
+      var userChoiceElements = document.getElementsByClassName(question.id + "Points");
+      for (let i = 0; i < userChoiceElements.length; i++) {
+        const element = userChoiceElements[i];
+        element.innerHTML = "-" + answer.resultPointsStratil.toString() + "b";
+      }
 
       // var userChoiceElements = document.getElementsByClassName(question.id + "UserChoice");
       // for (let i = 0; i < userChoiceElements.length; i++) {

@@ -1,0 +1,122 @@
+.navigation {
+  padding: 4px;
+  display: flex;
+  vertical-align: center;
+
+  &.open {
+    .navigation__actions {
+      display: flex!important;
+    }
+  }
+
+  @media(max-width: 768px) {
+    flex-flow: column;
+  }
+
+  &__logo {
+    @media(min-width: 769px) {
+      margin-right: auto;
+    }
+    @media(max-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    margin-left: auto;
+
+    @media(max-width: 768px) {
+      display: none;
+      flex-flow: column;
+      margin: auto;
+      text-align: center;
+    }
+  }
+
+  &__phone, &__mail {
+    a {
+      color: #000;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 100;
+    }
+
+    margin: 0 8px;
+  }
+
+  &__phone, &__mail, &__buttons {
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media(max-width:768px) {
+    &__mail {
+      order: 2;
+    }
+    &__phone {
+      order: 3;
+    }
+    &__buttons {
+      order: 1;
+      flex-flow: column-reverse;
+
+      button {
+        margin: 8px auto!important;
+      }
+    }
+  }
+
+  &__buttons {
+    button {
+      margin: 0 8px;
+    }
+  }
+}
+
+.navigation__burger {
+  display: block;
+  position: relative;
+  padding: 0;
+  outline: none;
+  border: 0;
+  width: 39px;
+  height: 39px;
+  background: none;
+  transition: color .2s;
+  margin-left: auto;
+}
+
+.navigation__burger__icon {
+  @media(min-width: 769px) {
+    display: none;
+  }
+  position: absolute;
+  width: 21px;
+  height: 2px;
+  background: #000;
+  top: 50%;
+  margin-top: -1px;
+  left: 50%;
+  margin-left: -11px;
+  overflow: visible;
+  transition: background-color .01s .15s;
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    left: 0;
+    background: #000;
+    top: -6px;
+    transition: transform .15s, top .2s .15s;
+  }
+
+  &:after {
+    top: 6px;
+  }
+}
