@@ -38,6 +38,12 @@
           <strong class="level">{{resultBodovanie.hodnostPretty}}</strong>.
         </div>
         <div class="mt-4 text-grey">Máš vyššiu finančnú inteligenciu ako 67% ľudí.</div>
+        <div class="mt-2">Viac o bodovaní</div>
+        <div class="mt-4">Chceš sa porovnať s kamarátmi?</div>
+        <div class="mt-2">
+          Pošli im link s výzvou
+          <button class="button-main ml-2" (click)="clipboard(resultBodovanie.challengeLink)">kopírovať link</button>
+        </div>
       </div>
       <div class="hero__right">
         <img src="assets/illustrations/student.svg" alt="student">
