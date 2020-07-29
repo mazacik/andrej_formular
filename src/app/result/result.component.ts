@@ -30,6 +30,17 @@ export class ResultComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    // navigation
+    $('.navigation__burger').on('click', event => {
+      const $el = $('.navigation');
+      if ($el.hasClass('open')) {
+        $el.removeClass('open');
+      } else {
+        $el.addClass('open');
+      }
+    });
+
     // nacitaj data
     var base64data = this.route.snapshot.params['base64data'];
     if (base64data) {
