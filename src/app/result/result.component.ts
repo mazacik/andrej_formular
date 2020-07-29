@@ -40,6 +40,15 @@ export class ResultComponent implements OnInit {
         $el.addClass('open');
       }
     });
+    
+    // anchor navigation
+    $(document).on('click', 'a[href^="#"]', function (event) {
+      event.preventDefault();
+
+      $('html, body').animate({
+        scrollTop: $($(this).attr('href')).offset().top
+      }, 500);
+    });
 
     // nacitaj data
     var base64data = this.route.snapshot.params['base64data'];
