@@ -1,7 +1,31 @@
 {
   "priority": [
     "naj_produktyUverHypotekaPozickaNiePlanujem",
+    "naj_coChcesVedietVlastneByvanie",
+    "naj_produktyHypotekaUrokDo2",
+    "naj_produktyHypotekaUrokViacAko2",
+    "naj_produktyHypotekaUrokNeviem",
     "naj_produktyInvesticieSporeniaNiePlanujem",
-    "naj_produktyDruhyPilierNiePlanujem"
+    "naj_produktyInvesticieSporeniaAno",
+    "naj_produktyInvesticieSporeniaAnoAPlanujemDalsie",
+    "naj_produktyDruhyPilierNiePlanujem",
+    "naj_produktyDruhyPilierFondyAkciove",
+    "naj_produktyDruhyPilierFondyDlhopisove",
+    "naj_produktyZivotnePoistenieAno",
+    "naj_produktyZivotnePoistenieRodicia",
+    "naj_coChcesVedietIdealneRozlozenie",
+    "naj_produktyInvesticieSporeniaNiePlanujem",
+    "naj_produktyInvesticieSporeniaAnoAPlanujemDalsie",
+    "naj_odkladaniePenaziSposobBeznyUcet",
+    "naj_odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca",
+    "naj_odkladaniePenaziSposobNie",
+    "naj_odkladaniePenaziSposobSporiaciUcetPriebezne",
+    "naj_odkladaniePenaziSposobRazZaCas",
+    "naj_produktyDruhyPilierFondyNeviem",
+    "naj_produktyZivotnePoistenieInvesticiaAno",
+    "naj_produktyTretiPilierNiePlanuje",
+    "naj_produktyTretiPilierFondyNeviem",
+    "naj_produktyZivotnePoistenieNiePlanujem",
+    "naj_produktyZivotnePoistenieNie"
   ]
 }

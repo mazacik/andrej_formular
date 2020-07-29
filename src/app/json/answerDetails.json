@@ -15,19 +15,11 @@
       "resultPointsStratil": 0.5
     },
     {
-      "id": "financnaGramotnostDlhodobaInvesticiaPockam",
-      "choiceString": "počkám",
-      "resultTitle": "",
-      "resultVysvetlenie": "",
-      "resultPointsStratil": 1
-    },
- 
-    {
       "id": "financnaGramotnostDlhodobaInvesticiaVlozimViacPenazi",
       "choiceString": "vložím viac penazí",
       "resultTitle": "",
       "resultVysvetlenie": "",
-      "resultPointsStratil": 1
+      "resultPointsStratil": 0
     },
     {
       "id": "financnaGramotnostDlhodobaInvesticiaPeniazeVyberiem",
@@ -44,11 +36,102 @@
       "resultPointsStratil": 0.5
     },
     {
-      "id": "financnaGramotnostDlhodobaInvesticiaPeniazeVyberiem",
-      "choiceString": "peniaze vyberiem",
+      "id": "financnaGramotnostPoisteniePriInvestovaniKapitalove",
+      "choiceString": "kapitálove životné poistenie",
       "resultTitle": "",
       "resultVysvetlenie": "",
       "resultPointsStratil": 1
+    },
+    {
+      "id": "financnaGramotnostPoisteniePriInvestovaniInvesticne",
+      "choiceString": "investičné životné poistenie",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 0
+    },
+    {
+      "id": "financnaGramotnostPoisteniePriInvestovaniZvlast",
+      "choiceString": "životné poistenie a sporenie zvlásť",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "financnaGramotnostDruhyPilierGarantovane",
+      "choiceString": "garantované dlhopisové fondy",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "financnaGramotnostDruhyPilierZmiesane",
+      "choiceString": "zmiešané fondy",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "financnaGramotnostDruhyPilierAkciove",
+      "choiceString": "akciové negarantované fondy",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "financnaGramotnostDruhyPilierIndexove",
+      "choiceString": "indexové negarantované fondy",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 0
+    },
+    {
+      "id": "financnaGramotnostDruhyPilierNeviemCoJeDruhyPilier",
+      "choiceString": "neviem, čo je druhý pilier",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 0.5
+    },
+    {
+      "id": "financnaGramotnostVynosVyssia",
+      "choiceString": "vyššia",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "financnaGramotnostVynosRovnaka",
+      "choiceString": "rovnaká",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "financnaGramotnostVynosNizsia",
+      "choiceString": "nižšia",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 0
+    },
+    {
+      "id": "financnaGramotnostBytHotovost",
+      "choiceString": "použijem 100,000€ na kúpu bytu",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "financnaGramotnostByt5050",
+      "choiceString": "na kúpu bytu použijem vlastných 50,000€ a na ďalších 50,000€ si vezmem hypotéku",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 1
+    },
+    {
+      "id": "financnaGramotnostBytPoziciamSi",
+      "choiceString": "z banky si požičiam najviac, ako sa dá a zvyšok doplatím",
+      "resultTitle": "",
+      "resultVysvetlenie": "",
+      "resultPointsStratil": 0
     },
     {
       "id": "coChcesVedietVlastneByvanie1",
