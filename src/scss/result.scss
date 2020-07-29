@@ -154,7 +154,7 @@
     }
 
     &__header {
-      max-width: 360px;
+      width: 360px;
       padding: 32px;
       display: flex;
       flex-flow: column;
@@ -164,6 +164,7 @@
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
       @media (max-width: 768px) {
+        width: auto;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         border-bottom-left-radius: 0;
