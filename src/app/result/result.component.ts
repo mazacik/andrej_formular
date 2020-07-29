@@ -40,7 +40,7 @@ export class ResultComponent implements OnInit {
         $el.addClass('open');
       }
     });
-    
+
     // anchor navigation
     $(document).on('click', 'a[href^="#"]', function (event) {
       event.preventDefault();

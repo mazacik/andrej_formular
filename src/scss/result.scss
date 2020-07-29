@@ -244,3 +244,71 @@
     }
   }
 }
+
+.form-consultation {
+  padding: 64px;
+
+  @media(max-width: 768px) {
+    padding: 8px;
+  }
+
+  &__header {
+    background-color: #FDD998;
+    padding: 16px;
+
+    @media(max-width: 768px) {
+      img {
+        max-height: 90px;
+      }
+    }
+
+    h5 {
+      font-weight: 600;
+      font-size: 30px;
+
+      @media(max-width: 768px) {
+        font-size: 20px;
+      }
+    }
+    p {
+      font-weight: normal;
+      font-size: 24px;
+      color: #505050;
+      @media(max-width: 768px) {
+        font-size: 12px;
+      }
+    }
+  }
+
+  &__body {
+    padding: 0 32px;
+
+    h5 {
+      font-weight: 600;
+      font-size: 23px;
+      @media(max-width: 768px) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__text-input {
+    border-bottom: 3px solid #E5A024;
+    color: #000;
+    padding: 4px;
+    margin: 16px 0;
+
+    label, input {
+      background-color: transparent;
+      margin-left: 8px;
+
+      &:focus, &:active {
+        outline: none;
+      }
+    }
+  }
+
+  &__footer {
+    text-align: center;
+  }
+}
