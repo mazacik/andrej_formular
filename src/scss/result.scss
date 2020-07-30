@@ -114,9 +114,17 @@
   max-width: 600px;
   margin: 120px auto 0 auto;
 
+  @media(max-width: 768px) {
+    margin: 16px;
+  }
+
   p {
     font-weight: 100;
     font-size: 22px;
+
+    @media(max-width: 768px) {
+      font-size: 16px;
+    }
   }
 }
 
