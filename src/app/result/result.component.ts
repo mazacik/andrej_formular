@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
 import tippy from 'tippy.js';
+import * as Snackbar from 'node-snackbar';
 
 import { ToggleElement } from './funct/toggleelement';
 import { ResultBodovanie } from './funct/bodovanie';
@@ -293,5 +294,14 @@ export class ResultComponent implements OnInit {
   }
   email_ziadost(): void {
     ResultEmail.email_ziadost(this.getDataURL(), this.data);
+  }
+
+  onChallengeButtonClick(challengeLink: string) {
+    this.clipboard(challengeLink);
+    Snackbar.show({
+      text: 'Link skopírovaný, môžeš ho prilepiť.',
+      pos: 'top-right',
+      showAction: false
+    });
   }
 }
