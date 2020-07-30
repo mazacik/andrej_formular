@@ -483,3 +483,60 @@ body.sekciaOkruhyZaujmu {
     text-align: center;
   }
 }
+
+.text-input {
+  border-bottom: 3px solid #E5A024;
+  color: #000;
+  padding: 4px;
+  margin: 16px 0;
+
+  label, input {
+    background-color: transparent;
+    margin-left: 8px;
+
+    &:focus, &:active {
+      outline: none;
+    }
+  }
+}
+
+.popup {
+  background-color: white;
+  vertical-align: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  position: fixed;
+  display: none;
+
+  &__wrapper {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 35px;
+  }
+
+  &__subtitle {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    color: #000000;
+  }
+
+  &__close {
+    top: 16px;
+    right: 16px;
+    position: absolute;
+
+    &__icon {
+      cursor: pointer;
+    }
+  }
+}

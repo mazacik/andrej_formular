@@ -32,6 +32,10 @@ export class ResultComponent implements OnInit {
 
   ngOnInit(): void {
 
+    $('.popup .popup__close__icon').on('click', (event) => {
+      $(event.target).closest('.popup').css('display', 'none');
+    });
+
     // navigation
     $('.navigation__burger').on('click', event => {
       const $el = $('.navigation');
@@ -303,5 +307,9 @@ export class ResultComponent implements OnInit {
       pos: 'top-right',
       showAction: false
     });
+  }
+
+  onSaveResultButtonClick() {
+    $('.popup-result').css('display', 'flex');
   }
 }
