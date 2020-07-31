@@ -24,7 +24,7 @@
       <div class="navigation__buttons">
         <button id="challengeButton" class="button-main"
           (click)="onChallengeButtonClick(resultBodovanie.challengeLink)">Vyzvať kamaráta</button>
-        <button class="button-main">Uložiť vyhodnotenie</button>
+        <button (click)="onSaveResultButtonClick()" class="button-main">Uložiť vyhodnotenie</button>
       </div>
     </div>
   </nav>
@@ -963,75 +963,86 @@
     <div class="form-consultation__body">
       <div class="mt-8">
         <h5 class="text-center">Na úvodnej bezplatnej konzultácii sa chcem informovať o:</h5>
-        <label hidden class="ml-4 checkbox naj_produktyUverHypotekaPozickaNiePlanujem naj_coChcesVedietVlastneByvanie"
+        <label style="display:none;"
+          class="ml-4 checkbox naj_produktyUverHypotekaPozickaNiePlanujem naj_coChcesVedietVlastneByvanie"
           for="chcemSaInfo1">Podmienkach za akých mi banka poskytne hypotéku
           <input type="checkbox" name="chcemSaInfo1" id="chcemSaInfo1" checked>
           <span class="checkmark"></span>
         </label>
-        <label hidden
+        <label style="display:none;"
           class="ml-4 checkbox naj_produktyHypotekaUrokDo2 naj_produktyHypotekaUrokViacAko2 naj_produktyHypotekaUrokNeviem"
           for="chcemSaInfo2">Zhodnotíme či sa v Tvojom prípade oplatí refinancovať hypotéka na nižší úrok
           <input type="checkbox" name="chcemSaInfo2" id="chcemSaInfo2" checked>
           <span class="checkmark"></span>
         </label>
-        <label hidden class="ml-4 checkbox naj_produktyInvesticieSporeniaNiePlanujem" for="chcemSaInfo3">Porovnáme
+        <label style="display:none;" class="ml-4 checkbox naj_produktyInvesticieSporeniaNiePlanujem"
+          for="chcemSaInfo3">Porovnáme
           dostupné investičné produkty a odporučíme tie, ktorá by Ti najviac vyhovovali
           <input type="checkbox" name="chcemSaInfo3" id="chcemSaInfo3" checked>
           <span class="checkmark"></span>
         </label>
-        <label hidden
+        <label style="display:none;"
           class="ml-4 checkbox naj_produktyInvesticieSporeniaAno naj_produktyInvesticieSporeniaAnoAPlanujemDalsie"
           for="chcemSaInfo4">Pozrieme sa na Tvoju investičnú stratégiu a porovnáme ju s aktuálnymi možnosťami
           <input type="checkbox" name="chcemSaInfo4" id="chcemSaInfo4" checked>
           <span class="checkmark"></span>
         </label>
-        <label hidden class="ml-4 checkbox naj_produktyDruhyPilierNiePlanujem" for="chcemSaInfo5">Založíme Ti druhý
+        <label style="display:none;" class="ml-4 checkbox naj_produktyDruhyPilierNiePlanujem"
+          for="chcemSaInfo5">Založíme Ti druhý
           pilier so správne nastavenou stratégiou
           <input type="checkbox" name="chcemSaInfo5" id="chcemSaInfo5" checked>
           <span class="checkmark"></span>
         </label>
-        <label hidden class="ml-4 checkbox naj_produktyDruhyPilierFondyAkciove naj_produktyDruhyPilierFondyDlhopisove"
+        <label style="display:none;"
+          class="ml-4 checkbox naj_produktyDruhyPilierFondyAkciove naj_produktyDruhyPilierFondyDlhopisove"
           for="chcemSaInfo6">Prenastavíme Ti druhý pilier na tie najvýhodnejšie fondy
           <input type="checkbox" name="chcemSaInfo6" id="chcemSaInfo6" checked>
           <span class="checkmark"></span>
         </label>
-        <label hidden class="ml-4 checkbox naj_produktyZivotnePoistenieAno naj_produktyZivotnePoistenieRodicia"
+        <label style="display:none;"
+          class="ml-4 checkbox naj_produktyZivotnePoistenieAno naj_produktyZivotnePoistenieRodicia"
           for="chcemSaInfo7">Skontrolujeme Ti poistenie a zhodnotíme, či spĺňa Tvoje očakávania
           <input type="checkbox" name="chcemSaInfo7" id="chcemSaInfo7" checked>
           <span class="checkmark"></span>
         </label>
-        <label hidden class="ml-4 checkbox naj_coChcesVedietIdealneRozlozenie" for="chcemSaInfo8">Pomôžeme Ti nastaviť
+        <label style="display:none;" class="ml-4 checkbox naj_coChcesVedietIdealneRozlozenie"
+          for="chcemSaInfo8">Pomôžeme Ti nastaviť
           čo najefektívnejšie rozloženie portfólia vzhľadom na Tvoje ciele
           <input type="checkbox" name="chcemSaInfo8" id="chcemSaInfo8" checked>
           <span class="checkmark"></span>
         </label>
-        <label hidden
+        <label style="display:none;"
           class="ml-4 checkbox naj_produktyInvesticieSporeniaNiePlanujem naj_produktyInvesticieSporeniaAnoAPlanujemDalsie naj_odkladaniePenaziSposobBeznyUcet naj_odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca naj_odkladaniePenaziSposobNie naj_odkladaniePenaziSposobSporiaciUcetPriebezne naj_odkladaniePenaziSposobRazZaCas"
           for="chcemSaInfo9">Ukážeme Ti sporiace účty, ktoré sú zadarmo, a majú aj zhodnotenie
           <input type="checkbox" name="chcemSaInfo9" id="chcemSaInfo9" checked>
           <span class="checkmark"></span>
         </label>
-        <label hidden class="ml-4 checkbox naj_produktyDruhyPilierFondyNeviem" for="chcemSaInfo10">Skontrolujeme Ti, či
+        <label style="display:none;" class="ml-4 checkbox naj_produktyDruhyPilierFondyNeviem"
+          for="chcemSaInfo10">Skontrolujeme Ti, či
           máš druhý pilier nastavený správne
           <input type="checkbox" name="chcemSaInfo10" id="chcemSaInfo10" checked>
           <span class="checkmark"></span>
         </label>
-        <label hidden class="ml-4 checkbox naj_produktyZivotnePoistenieInvesticiaAno" for="chcemSaInfo11">Ukážeme Ti
+        <label style="display:none;" class="ml-4 checkbox naj_produktyZivotnePoistenieInvesticiaAno"
+          for="chcemSaInfo11">Ukážeme Ti
           všetky poplatky v Tvojom investičnom životnom poistení a navrhneme alternatívu
           <input type="checkbox" name="chcemSaInfo11" id="chcemSaInfo11" checked>
           <span class="checkmark"></span>
         </label>
-        <label hidden class="ml-4 checkbox naj_produktyTretiPilierNiePlanuje" for="chcemSaInfo12">Porovnáme za Teba
+        <label style="display:none;" class="ml-4 checkbox naj_produktyTretiPilierNiePlanuje"
+          for="chcemSaInfo12">Porovnáme za Teba
           všetky tretie piliere a odporučíme ten najvýhodnejší
           <input type="checkbox" name="chcemSaInfo12" id="chcemSaInfo12" checked>
           <span class="checkmark"></span>
         </label>
-        <label hidden class="ml-4 checkbox naj_produktyTretiPilierFondyNeviem" for="chcemSaInfo13">Skontrolujeme Ti, či
+        <label style="display:none;" class="ml-4 checkbox naj_produktyTretiPilierFondyNeviem"
+          for="chcemSaInfo13">Skontrolujeme Ti, či
           máš tretí pilier nastavený správne
           <input type="checkbox" name="chcemSaInfo13" id="chcemSaInfo13" checked>
           <span class="checkmark"></span>
         </label>
-        <label hidden class="ml-4 checkbox naj_produktyZivotnePoistenieNiePlanujem naj_produktyZivotnePoistenieNie"
+        <label style="display:none;"
+          class="ml-4 checkbox naj_produktyZivotnePoistenieNiePlanujem naj_produktyZivotnePoistenieNie"
           for="chcemSaInfo14">Navrhneme Ti životné poistenie tak, aby spĺnalo všetky Tvoje potreby
           <input type="checkbox" name="chcemSaInfo14" id="chcemSaInfo14" checked>
           <span class="checkmark"></span>

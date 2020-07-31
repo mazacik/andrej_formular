@@ -68,6 +68,7 @@ export class ResultNaj3 {
     }
 
     // top 3 s cim ti vieme pomoct
+    // TODO MICHAL bug: niektore veci sa zobrazuju z najlepsich/horsich a sCimViemePomoct zaroven -> zobrazia sa viac ako 3 veci
     var sCimTiViemePomoctPocet = 0;
     for (let i = 0; i < sCimTiViemePomoctOrder.priority.length; i++) {
       if (sCimTiViemePomoctPocet == 3) break;
@@ -103,6 +104,7 @@ export class ResultNaj3 {
     for (let i = 0; i < elements.length; i++) {
       const element = elements[i];
       element.removeAttribute("hidden");
+      (<HTMLElement>element).style.display = "block";
     }
   }
 }
