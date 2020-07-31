@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
 import tippy from 'tippy.js';
+import * as Snackbar from 'node-snackbar';
 
 import { ToggleElement } from './funct/toggleelement';
 import { ResultBodovanie } from './funct/bodovanie';
@@ -30,6 +31,10 @@ export class ResultComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    $('.popup .popup__close__icon').on('click', (event) => {
+      $(event.target).closest('.popup').css('display', 'none');
+    });
 
     // navigation
     $('.navigation__burger').on('click', event => {
@@ -293,5 +298,18 @@ export class ResultComponent implements OnInit {
   }
   email_ziadost(): void {
     ResultEmail.email_ziadost(this.getDataURL(), this.data);
+  }
+
+  onChallengeButtonClick(challengeLink: string) {
+    this.clipboard(challengeLink);
+    Snackbar.show({
+      text: 'Link skopírovaný, môžeš ho prilepiť.',
+      pos: 'top-right',
+      showAction: false
+    });
+  }
+
+  onSaveResultButtonClick() {
+    $('.popup-result').css('display', 'flex');
   }
 }

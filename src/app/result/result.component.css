@@ -7,12 +7,6 @@ h1 {
   font-size: 3em;
 }
 
-.section {
-  padding: 32px 200 px;
-}
-
-
-
 .section-money-work {
   background-color: #EAE2C2;
 }
@@ -35,4 +29,8 @@ h1 {
   border-bottom: solid 2px #3B301B;
   padding: 16px;
   border-radius: 2px;
+}
+
+body {
+  background: linear-gradient(180deg, #FFEFD2 0%, #FFFFFF 15.63%, #FFEFD2 30.73%, #FFFFFF 45.31%, #FFEFD2 58.33%, #FFFFFF 72.4%, #FFEFD2 85.42%);
 }

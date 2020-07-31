@@ -1,7 +1,9 @@
 <div class="result">
   <nav class="navigation">
     <div class="navigation__logo">
-      <img src="/assets/logo.svg" alt="logo">
+      <a href="https://montest.sk/">
+        <img src="/assets/logo.svg" alt="logo">
+      </a>
       <button type="button" class="navigation__burger">
         <span class="navigation__burger__icon"></span>
       </button>
@@ -20,7 +22,7 @@
         </a>
       </div>
       <div class="navigation__buttons">
-        <button class="button-main" (click)="clipboard(resultBodovanie.challengeLink)">Vyzvať kamaráta</button>
+        <button id="challengeButton" class="button-main" (click)="onChallengeButtonClick(resultBodovanie.challengeLink)">Vyzvať kamaráta</button>
         <button class="button-main">Uložiť vyhodnotenie</button>
       </div>
     </div>
@@ -270,7 +272,9 @@
     <div class="flex justify-center">
       <p>Ulož si vyhodnotenie a naštuduj si naše odporúčania aj neskôr.</p>
       <div class="ml-2">
-        <button class="button-main">Uložiť</button>
+        <button
+          (click)="onSaveResultButtonClick()"
+          class="button-main">Uložiť</button>
       </div>
     </div>
   </section>
@@ -966,17 +970,20 @@
     <div class="form-consultation__body">
       <div class="mt-8">
         <h5 class="text-center">Na úvodnej bezplatnej konzultácii sa chcem informovať o:</h5>
-        <input type="checkbox" name="hypoteka-podmienky" id="hypoteka-podmienky">
-        <label class="ml-4" for="hypoteka-podmienky">Podmienkach za akých mi banka poskytne hypotéku</label>
+        <label class="ml-4 checkbox" for="hypoteka-podmienky">
+          Podmienkach za akých mi banka poskytne hypotéku
+          <input type="checkbox" name="hypoteka-podmienky" id="hypoteka-podmienky" checked>
+          <span class="checkmark"></span>
+        </label>
       </div>
       <div class="mt-8">
         <h5>Ako ťa máme kontaktovať?</h5>
-        <div class="form-consultation__text-input">
+        <div class="text-input">
           <i class="fa fa-envelope"></i>
           <label for="email">Mailom:</label>
           <input id="email" type="email" placeholder="tvojmail@mail.sk" name="email">
         </div>
-        <div class="form-consultation__text-input">
+        <div class="text-input">
           <i class="fa fa-phone"></i>
           <label for="phone">Cez telefón:</label>
           <input id="phone" type="tel" placeholder="0948 873 051" name="phone">
@@ -987,4 +994,24 @@
       <input type="submit" class="button-main" value="Odoslať">
     </div>
   </form>
+</div>
+
+<div class="popup popup-result">
+  <div class="popup__close">
+    <i class="fa fa-times popup__close__icon" aria-hidden="true"></i>
+  </div>
+  <div class="popup__wrapper">
+    <form action="#">
+      <h4 class="popup__title">Vyhodnotenie ti zašleme na email</h4>
+      <div class="poup__subtitle mt-2">Nakoľko sa uloží aj u nás, budeš si ho môcť kedykoľvek vyžiadať znovu.</div>
+      <div class="text-input inline-block mt-8">
+        <i class="fa fa-envelope"></i>
+        <label for="result-email">Mail:</label>
+        <input id="result-email" type="email" placeholder="tvojmail@mail.sk" name="result-email">
+      </div>
+      <div>
+        <input type="submit" class="button-main mt-4" value="Odoslať">
+      </div>
+    </form>
+  </div>
 </div>
