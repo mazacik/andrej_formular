@@ -1,19 +1,90 @@
 export class SurveyNavBar {
-  sections: string[];
-  currentSection: string;
-  navbarElements;
+  //TODO pred finalnou verziu treba ocekovat, ci tu su vsetky pages z survey.json
+  sekcie = [
+    {
+      simple: "sekciaUvodneOtazky",
+      pretty: "Úvodné otázky",
+      pages: [
+        "pageMeno",
+        "pageZaciatokUvodnychOtazok",
+        "pageVek",
+        "pageStudium",
+        "pageZdrojPrijmu",
+        "pageVyskaPrijmu",
+        "pageNemaPrijem",
+        "pageDajteMiVediet",
+        "pageKdePracujes",
+        "pageOdkladaniePenazi",
+        "pageOdkladaniePenaziSposob",
+        "pageKdePracujes",
+        "pageOdkladaniePenazi",
+        "pageOdkladaniePenaziVyska"
+      ]
+    },
+    {
+      simple: "sekciaVyberProduktov",
+      pretty: "Výber produktov",
+      pages: [
+        "pageZaciatokBodovania",
+        "pageProduktyZivotnePoistenie",
+        "pageProduktyZivotnePoistenieKolkoPlati",
+        "pageProduktyZivotnePoistenieInvesticia",
+        "pageProduktyZivotnePoistenieInvesticiaVyska",
+        "pageProduktyDruhyPilier",
+        "pageProduktyTretiPilier",
+        "pageProduktyTretiPilierFondy",
+        "pageProduktyTretiPilierVyskaPrispevku",
+        "pageProduktyTretiPilierVyskaPrispevkuZamestnavatela",
+        "pageProduktyUverHypotekaPozicka",
+        "pageNajomne",
+        "pageProduktyHypotekaVyskaSplatky",
+        "pageProduktyHypotekaUrok",
+        "pageProduktyUverPozickaVyskaSplatky",
+        "pageProduktyUverPozickaUrok",
+        "pageProduktyBeznyUcet",
+        "pageProduktyInvesticieSporenia",
+        "pageZaciatokOtazokOInvestovani",
+        "pageKratkodobeInvesticie",
+        "pageDynamickeInvesticie",
+        "pageAkeInvesticiePlanujes"
+      ]
+    },
+    {
+      simple: "sekciaPracaSPeniazmi",
+      pretty: "Práca s peniazmi",
+      pages: [
+        "pageSKymSaRadis",
+        "pageFinancnaRezerva",
+        "pageFinancnaRezervaVyska",
+        "pagePrehladOVydavkoch",
+        "pageOmeskanieSplatky"
+      ]
+    },
+    {
+      simple: "sekciaFinancnaGramotnost",
+      pretty: "Finančná gramotnosť",
+      pages: [
+        "pageZaciatokGramotnosti",
+        "pageFinancnaGramotnostDlhodobaInvesticia",
+        "pageFinancnaGramotnostPoisteniePriInvestovani",
+        "pageFinancnaGramotnostDruhyPilier",
+        "pageFinancnaGramotnostVynos",
+        "pageFinancnaGramotnostByt"
+      ]
+    },
+    {
+      simple: "sekciaOkruhyZaujmu",
+      pretty: "Okruhy záujmu",
+      pages: [
+        "pageCoChcesVediet"
+      ]
+    }
+  ];
+
+  sekciaAktualna = this.sekcie[0];
+  navbarElements = [];
 
   constructor() {
-    this.sections = [
-      "sekciaUvodneOtazky",
-      "sekciaVyberProduktov",
-      "sekciaPracaSPeniazmi",
-      "sekciaFinancnaGramotnost",
-      "sekciaOkruhyZaujmu"
-    ];
-    this.currentSection = this.sections[0];
-    this.navbarElements = [];
-
     this.createNavBar();
   }
 
@@ -27,31 +98,15 @@ export class SurveyNavBar {
     navProgBar.className = "navigationProgressbar";
     navProgBarDiv.appendChild(navProgBar);
 
-    for (var i = 0; i < this.sections.length; i++) {
+    for (var i = 0; i < this.sekcie.length; i++) {
       var liEl = document.createElement("li");
       // TODO MICHAL
       liEl.setAttribute("style", "--count:0");
-      if (this.currentSection == this.sections[i]) {
+      if (this.sekciaAktualna == this.sekcie[i]) {
         liEl.classList.add("current");
       }
       var sekciaString = document.createElement("span");
-      switch (this.sections[i]) {
-        case "sekciaUvodneOtazky":
-          sekciaString.innerText = "Úvodné otázky";
-          break;
-        case "sekciaVyberProduktov":
-          sekciaString.innerText = "Výber produktov";
-          break;
-        case "sekciaPracaSPeniazmi":
-          sekciaString.innerText = "Práca s peniazmi";
-          break;
-        case "sekciaFinancnaGramotnost":
-          sekciaString.innerText = "Finančná gramotnosť";
-          break;
-        case "sekciaOkruhyZaujmu":
-          sekciaString.innerText = "Okruhy záujmu";
-          break;
-      }
+      sekciaString.innerText = this.sekcie[i].pretty;
       sekciaString.className = "sectionTitle";
       liEl.appendChild(sekciaString);
       this.navbarElements.push(liEl);
@@ -59,82 +114,46 @@ export class SurveyNavBar {
     }
   }
 
-  getSectionByCurrentPage(survey) {
-    switch (survey.currentPage.name) {
-      case "pageMeno":
-      case "pageZaciatokUvodnychOtazok":
-      case "pageVek":
-      case "pageStudium":
-      case "pageZdrojPrijmu":
-      case "pageVyskaPrijmu":
-      case "pageNemaPrijem":
-      case "pageDajteMiVediet":
-      case "pageKdePracujes":
-      case "pageOdkladaniePenazi":
-      case "pageOdkladaniePenaziSposob":
-      case "pageKdePracujes":
-      case "pageOdkladaniePenazi":
-      case "pageOdkladaniePenaziVyska":
-        return this.sections[0];
-      case "pageZaciatokBodovania":
-      case "pageProduktyZivotnePoistenie":
-      case "pageProduktyZivotnePoistenieKolkoPlati":
-      case "pageProduktyZivotnePoistenieInvesticia":
-      case "pageProduktyZivotnePoistenieInvesticiaVyska":
-      case "pageProduktyDruhyPilier":
-      case "pageProduktyTretiPilier":
-      case "pageProduktyTretiPilierFondy":
-      case "pageProduktyTretiPilierVyskaPrispevku":
-      case "pageProduktyTretiPilierVyskaPrispevkuZamestnavatela":
-      case "pageProduktyUverHypotekaPozicka":
-      case "pageNajomne":
-      case "pageProduktyHypotekaVyskaSplatky":
-      case "pageProduktyHypotekaUrok":
-      case "pageProduktyUverPozickaVyskaSplatky":
-      case "pageProduktyUverPozickaUrok":
-      case "pageProduktyBeznyUcet":
-      case "pageProduktyInvesticieSporenia":
-      case "pageZaciatokOtazokOInvestovani":
-      case "pageKratkodobeInvesticie":
-      case "pageDynamickeInvesticie":
-      case "pageAkeInvesticiePlanujes":
-        return this.sections[1];
-      case "pageSKymSaRadis":
-      case "pageFinancnaRezerva":
-      case "pageFinancnaRezervaVyska":
-      case "pagePrehladOVydavkoch":
-      case "pageOmeskanieSplatky":
-        return this.sections[2];
-      case "pageZaciatokGramotnosti":
-      case "pageFinancnaGramotnostDlhodobaInvesticia":
-      case "pageFinancnaGramotnostPoisteniePriInvestovani":
-      case "pageFinancnaGramotnostDruhyPilier":
-      case "pageFinancnaGramotnostVynos":
-      case "pageFinancnaGramotnostByt":
-        return this.sections[3];
-      case "pageCoChcesVediet":
-        return this.sections[4];
+  getSectionByPageName(pageName) {
+    for (let i = 0; i < this.sekcie.length; i++) {
+      const sekcia = this.sekcie[i];
+      if (sekcia.pages.indexOf(pageName) != -1) {
+        return sekcia;
+      }
     }
+
+    alert("error: (navbar.ts): " + pageName + " sa nenachadza v ziadnej sekcii");
+    console.log("error: (navbar.ts): " + pageName + " sa nenachadza v ziadnej sekcii");
+    return this.sekcie[0];
   }
 
   updateNavBar(survey: any) {
-    var newSection = this.getSectionByCurrentPage(survey);
+    const pageName = survey.currentPage.name;
+    const section = this.getSectionByPageName(pageName);
+    const sectionIndex = this.sekcie.indexOf(section);
+    var navNumber = 0;
 
     // set section name as body class name
-    for (let i = 0; i < this.sections.length; i++) {
-      document.getElementsByTagName("body")[0].classList.remove(this.sections[i]);
-    }
-    document.getElementsByTagName("body")[0].classList.add(newSection);
+    for (let i = 0; i < this.sekcie.length; i++)
+      document.getElementsByTagName("body")[0].classList.remove(this.sekcie[i].simple);
+    document.getElementsByTagName("body")[0].classList.add(section.simple);
 
     // set navigation items current state
-    for (let i = 0; i < this.navbarElements.length; i++) {
+    for (let i = 0; i < this.navbarElements.length; i++)
       this.navbarElements[i].classList.remove("current");
-    }
+    this.navbarElements[this.sekcie.indexOf(section)].classList.add("current");
 
-    // TODO: sometimes newSection is undefined
-    if (newSection) {
-      this.navbarElements[this.sections.indexOf(newSection)].classList.add("current");
+    // update number in nav circle
+    for (let i = 0; i < this.navbarElements.length; i++) {
+      if (sectionIndex < i) {
+        navNumber = this.sekcie[i].pages.length;
+      } else if (sectionIndex > i) {
+        navNumber = 0;
+      } else {
+        const currentPageIndex = this.sekcie[i].pages.indexOf(pageName);
+        navNumber = this.sekcie[i].pages.length - currentPageIndex;
+      }
+      this.navbarElements[i].setAttribute("style", "--count:" + navNumber);
     }
   }
 }
-
