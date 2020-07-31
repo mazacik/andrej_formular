@@ -21,7 +21,7 @@ export class SurveyTooltip {
 
         if (indexFirst >= 0) {
           innerHTML = innerHTML.slice(0, indexLast) + "</span>" + innerHTML.slice(indexLast);
-          innerHTML = innerHTML.slice(0, indexFirst) + "<span data-tippy-content='" + tooltipText + "'>" + innerHTML.slice(indexFirst);
+          innerHTML = innerHTML.slice(0, indexFirst) + "<span class='tooltip-link' data-tippy-content='" + tooltipText + "'>" + innerHTML.slice(indexFirst);
 
           titleElement.innerHTML = innerHTML;
         }

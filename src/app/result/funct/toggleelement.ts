@@ -48,6 +48,7 @@ export class ToggleElement {
         // content
         var pContent = document.createElement("p");
         pContent.classList.add(id + "Content");
+        pContent.classList.add("explanation");
         pContent.setAttribute("hidden", "true");
         pContent.innerHTML = content;
 

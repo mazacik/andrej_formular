@@ -22,7 +22,8 @@
         </a>
       </div>
       <div class="navigation__buttons">
-        <button id="challengeButton" class="button-main" (click)="onChallengeButtonClick(resultBodovanie.challengeLink)">Vyzvať kamaráta</button>
+        <button id="challengeButton" class="button-main"
+          (click)="onChallengeButtonClick(resultBodovanie.challengeLink)">Vyzvať kamaráta</button>
         <button class="button-main">Uložiť vyhodnotenie</button>
       </div>
     </div>
@@ -40,7 +41,7 @@
           <strong class="level">{{resultBodovanie.hodnostPretty}}</strong>.
         </div>
         <div class="mt-4 text-grey">Máš vyššiu finančnú inteligenciu ako 67% ľudí.</div>
-        <div class="mt-2">Viac o bodovaní</div>
+        <div class="mt-2 pozrietSystemBodovania"></div>
         <div class="mt-4">Chceš sa porovnať s kamarátmi?</div>
         <div class="mt-2">
           Pošli im link s výzvou
@@ -87,17 +88,17 @@
               až 4% z Tvojho príjmu.
             </li>
             <li class="naj_produktyDruhyPilierAno" hidden>Máš druhý pilier.</li>
-            <li class="naj_kratkodobeInvesticieViacAko10" hidden>Mesačné kratkodobé <span
+            <li class="naj_kratkodobeInvesticieViacAko10" hidden>Mesačné kratkodobé <span class="tooltip-link"
                 data-tippy-content="ktíva sú peniaze, ktoré odkladáš a vedia Ti zarobiť ďaľšie peniaze. Patria sem rôzne sporenia a investície.">aktíva</span>
               máš vyššie ako 10% z príjmu
             </li>
-            <li class="naj_dlhodobeInvesticieViacAko10" hidden>Mesačné dlhodobé <span
+            <li class="naj_dlhodobeInvesticieViacAko10" hidden>Mesačné dlhodobé <span class="tooltip-link"
                 data-tippy-content="ktíva sú peniaze, ktoré odkladáš a vedia Ti zarobiť ďaľšie peniaze. Patria sem rôzne sporenia a investície.">aktíva</span>
               máš vyššie ako 10% z príjmu
             </li>
             <li class="naj_produktyZivotnePoistenieInvesticiaNie" hidden>Nemáš životné poistenie spojené s investíciou.
             </li>
-            <li class="naj_byvanieMensieAko30" hidden><span
+            <li class="naj_byvanieMensieAko30" hidden><span class="tooltip-link"
                 data-tippy-content="Pasívum je výdavok, ktorého splácaním prichádzaš o ďaľsie peniaze. Patrí sem úver alebo hypotéka a my sem rátame aj podnájom.">Pasíva</span>
               máš menšie ako 30% svojho príjmu.
             </li>
@@ -141,11 +142,11 @@
             <li class="naj_odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca" hidden>Neodkladáš si peniaze okamžite po
               výplate.
             </li>
-            <li class="naj_kratkodobeInvesticieMenejAko10" hidden>Mesačné kratkodobé <span
+            <li class="naj_kratkodobeInvesticieMenejAko10" hidden>Mesačné kratkodobé <span class="tooltip-link"
                 data-tippy-content="ktíva sú peniaze, ktoré odkladáš a vedia Ti zarobiť ďaľšie peniaze. Patria sem rôzne sporenia a investície.">aktíva</span>
               máš nižšie ako 10% z príjmu.
             </li>
-            <li class="naj_dlhodobeInvesticieMenejAko10" hidden>Mesačné dlhodobé <span
+            <li class="naj_dlhodobeInvesticieMenejAko10" hidden>Mesačné dlhodobé <span class="tooltip-link"
                 data-tippy-content="ktíva sú peniaze, ktoré odkladáš a vedia Ti zarobiť ďaľšie peniaze. Patria sem rôzne sporenia a investície.">aktíva</span>
               máš nižšie ako 10% z príjmu.
             </li>
@@ -166,7 +167,7 @@
             </li>
             <li class="naj_produktyDruhyPilierFondyAkciove" hidden>V druhom pilieri nemáš indexové podielové fondy.</li>
             <li class="naj_produktyTretiPilierFondyAkciove" hidden>V tretom pilieri nemáš indexové podielové fondy.</li>
-            <li class="naj_byvanieVyssieAko30" hidden><span
+            <li class="naj_byvanieVyssieAko30" hidden><span class="tooltip-link"
                 data-tippy-content="Pasívum je výdavok, ktorého splácaním prichádzaš o ďaľsie peniaze. Patrí sem úver alebo hypotéka a my sem rátame aj podnájom.">Pasíva</span>
               máš vyššie ako 30% svojho príjmu.
             </li>
@@ -272,9 +273,7 @@
     <div class="flex justify-center">
       <p>Ulož si vyhodnotenie a naštuduj si naše odporúčania aj neskôr.</p>
       <div class="ml-2">
-        <button
-          (click)="onSaveResultButtonClick()"
-          class="button-main">Uložiť</button>
+        <button (click)="onSaveResultButtonClick()" class="button-main">Uložiť</button>
       </div>
     </div>
   </section>
@@ -591,7 +590,7 @@
                 v rozumnej výške.</p>
             </li>
             <li class="byvanieMensieAko30" hidden><span class="points" id="byvanieMensieAko30Points"></span>
-              <h5><span
+              <h5><span class="tooltip-link"
                   data-tippy-content="Pasívum je výdavok, ktorého splácaním prichádzaš o ďaľsie peniaze. Patrí sem úver alebo hypotéka a my sem rátame aj podnájom.">Pasíva</span>
                 máš menšie ako 30%
                 svojho príjmu. </h5>
@@ -656,7 +655,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostDlhodobaInvesticiaUserChoice"></span><span
               class="points financnaGramotnostDlhodobaInvesticiaPoints"></span></p>
           <p>Správna odpoveď: Vložím tam ďalšie peniaze</p>
-          <div class="financnaGramotnostDlhodobaInvesticiaVysvetlenie"></div>
+          <div class="financnaGramotnostDlhodobaInvesticiaVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -671,7 +670,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostDlhodobaInvesticiaUserChoice"></span><span
               class="points financnaGramotnostDlhodobaInvesticiaPoints"></span></p>
           <p>Správna odpoveď: Vložím tam ďalšie peniaze</p>
-          <div class="financnaGramotnostDlhodobaInvesticiaVysvetlenie"></div>
+          <div class="financnaGramotnostDlhodobaInvesticiaVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -686,7 +685,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostDlhodobaInvesticiaUserChoice"></span><span
               class="points financnaGramotnostDlhodobaInvesticiaPoints"></span></p>
           <p>Správna odpoveď: Vložím tam ďalšie peniaze</p>
-          <div class="financnaGramotnostDlhodobaInvesticiaVysvetlenie"></div>
+          <div class="financnaGramotnostDlhodobaInvesticiaVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -703,7 +702,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostPoisteniePriInvestovaniUserChoice"></span><span
               class="points financnaGramotnostPoisteniePriInvestovaniPoints"></span></p>
           <p>Správna odpoveď: Životné poistenie a sporenie zvlášť</p>
-          <div class="financnaGramotnostPoisteniePriInvestovaniVysvetlenie"></div>
+          <div class="financnaGramotnostPoisteniePriInvestovaniVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -718,7 +717,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostPoisteniePriInvestovaniUserChoice"></span><span
               class="points financnaGramotnostPoisteniePriInvestovaniPoints"></span></p>
           <p>Správna odpoveď: Životné poistenie a sporenie zvlášť</p>
-          <div class="financnaGramotnostPoisteniePriInvestovaniVysvetlenie"></div>
+          <div class="financnaGramotnostPoisteniePriInvestovaniVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -733,7 +732,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostPoisteniePriInvestovaniUserChoice"></span><span
               class="points financnaGramotnostPoisteniePriInvestovaniPoints"></span></p>
           <p>Správna odpoveď: Životné poistenie a sporenie zvlášť</p>
-          <div class="financnaGramotnostPoisteniePriInvestovaniVysvetlenie"></div>
+          <div class="financnaGramotnostPoisteniePriInvestovaniVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -750,7 +749,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostDruhyPilierUserChoice"></span><span
               class="points financnaGramotnostDruhyPilierPoints"></span></p>
           <p>Správna odpoveď: Indexové negarantované fondy</p>
-          <div class="financnaGramotnostDruhyPilierVysvetlenie"></div>
+          <div class="financnaGramotnostDruhyPilierVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -765,7 +764,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostDruhyPilierUserChoice"></span><span
               class="points financnaGramotnostDruhyPilierPoints"></span></p>
           <p>Správna odpoveď: Indexové negarantované fondy</p>
-          <div class="financnaGramotnostDruhyPilierVysvetlenie"></div>
+          <div class="financnaGramotnostDruhyPilierVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -780,7 +779,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostDruhyPilierUserChoice"></span><span
               class="points financnaGramotnostDruhyPilierPoints"></span></p>
           <p>Správna odpoveď: Indexové negarantované fondy</p>
-          <div class="financnaGramotnostDruhyPilierVysvetlenie"></div>
+          <div class="financnaGramotnostDruhyPilierVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -797,7 +796,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostVynosUserChoice"></span><span
               class="points financnaGramotnostVynosPoints"></span></p>
           <p>Správna odpoveď: Nižšia</p>
-          <div class="financnaGramotnostVynosVysvetlenie"></div>
+          <div class="financnaGramotnostVynosVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -812,7 +811,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostVynosUserChoice"></span><span
               class="points financnaGramotnostVynosPoints"></span></p>
           <p>Správna odpoveď: Nižšia</p>
-          <div class="financnaGramotnostVynosVysvetlenie"></div>
+          <div class="financnaGramotnostVynosVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -827,7 +826,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostVynosUserChoice"></span><span
               class="points financnaGramotnostVynosPoints"></span></p>
           <p>Správna odpoveď: Nižšia</p>
-          <div class="financnaGramotnostVynosVysvetlenie"></div>
+          <div class="financnaGramotnostVynosVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -844,7 +843,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostBytUserChoice"></span><span
               class="points financnaGramotnostBytPoints"></span></p>
           <p>Správna odpoveď: Z banky si požičiam, čo najviac mi dajú a ostatné si financujem sám.</p>
-          <div class="financnaGramotnostBytVysvetlenie"></div>
+          <div class="financnaGramotnostBytVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -859,7 +858,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostBytUserChoice"></span><span
               class="points financnaGramotnostBytPoints"></span></p>
           <p>Správna odpoveď: Z banky si požičiam, čo najviac mi dajú a ostatné si financujem sám.</p>
-          <div class="financnaGramotnostBytVysvetlenie"></div>
+          <div class="financnaGramotnostBytVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -874,7 +873,7 @@
           <p>Tvoja odpoveď: <span class="financnaGramotnostBytUserChoice"></span><span
               class="points financnaGramotnostBytPoints"></span></p>
           <p>Správna odpoveď: Z banky si požičiam, čo najviac mi dajú a ostatné si financujem sám.</p>
-          <div class="financnaGramotnostBytVysvetlenie"></div>
+          <div class="financnaGramotnostBytVysvetlenie explanation"></div>
         </div>
       </div>
     </div>
@@ -970,9 +969,60 @@
     <div class="form-consultation__body">
       <div class="mt-8">
         <h5 class="text-center">Na úvodnej bezplatnej konzultácii sa chcem informovať o:</h5>
-        <label class="ml-4 checkbox" for="hypoteka-podmienky">
-          Podmienkach za akých mi banka poskytne hypotéku
-          <input type="checkbox" name="hypoteka-podmienky" id="hypoteka-podmienky" checked>
+        <label hidden class="ml-4 checkbox naj_produktyUverHypotekaPozickaNiePlanujem naj_coChcesVedietVlastneByvanie" for="chcemSaInfo1">Podmienkach za akých mi banka poskytne hypotéku
+          <input type="checkbox" name="chcemSaInfo1" id="chcemSaInfo1" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label hidden class="ml-4 checkbox naj_produktyHypotekaUrokDo2 naj_produktyHypotekaUrokViacAko2 naj_produktyHypotekaUrokNeviem" for="chcemSaInfo2">Zhodnotíme či sa v Tvojom prípade oplatí refinancovať hypotéka na nižší úrok
+          <input type="checkbox" name="chcemSaInfo2" id="chcemSaInfo2" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label hidden class="ml-4 checkbox naj_produktyInvesticieSporeniaNiePlanujem" for="chcemSaInfo3">Porovnáme dostupné investičné produkty a odporučíme tie, ktorá by Ti najviac vyhovovali
+          <input type="checkbox" name="chcemSaInfo3" id="chcemSaInfo3" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label hidden class="ml-4 checkbox naj_produktyInvesticieSporeniaAno naj_produktyInvesticieSporeniaAnoAPlanujemDalsie" for="chcemSaInfo4">Pozrieme sa na Tvoju investičnú stratégiu a porovnáme ju s aktuálnymi možnosťami
+          <input type="checkbox" name="chcemSaInfo4" id="chcemSaInfo4" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label hidden class="ml-4 checkbox naj_produktyDruhyPilierNiePlanujem" for="chcemSaInfo5">Založíme Ti druhý pilier so správne nastavenou stratégiou
+          <input type="checkbox" name="chcemSaInfo5" id="chcemSaInfo5" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label hidden class="ml-4 checkbox naj_produktyDruhyPilierFondyAkciove naj_produktyDruhyPilierFondyDlhopisove" for="chcemSaInfo6">Prenastavíme Ti druhý pilier na tie najvýhodnejšie fondy
+          <input type="checkbox" name="chcemSaInfo6" id="chcemSaInfo6" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label hidden class="ml-4 checkbox naj_produktyZivotnePoistenieAno naj_produktyZivotnePoistenieRodicia" for="chcemSaInfo7">Skontrolujeme Ti poistenie a zhodnotíme, či spĺňa Tvoje očakávania
+          <input type="checkbox" name="chcemSaInfo7" id="chcemSaInfo7" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label hidden class="ml-4 checkbox naj_coChcesVedietIdealneRozlozenie" for="chcemSaInfo8">Pomôžeme Ti nastaviť čo najefektívnejšie rozloženie portfólia vzhľadom na Tvoje ciele
+          <input type="checkbox" name="chcemSaInfo8" id="chcemSaInfo8" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label hidden class="ml-4 checkbox naj_produktyInvesticieSporeniaNiePlanujem naj_produktyInvesticieSporeniaAnoAPlanujemDalsie naj_odkladaniePenaziSposobBeznyUcet naj_odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca naj_odkladaniePenaziSposobNie naj_odkladaniePenaziSposobSporiaciUcetPriebezne naj_odkladaniePenaziSposobRazZaCas" for="chcemSaInfo9">Ukážeme Ti sporiace účty, ktoré sú zadarmo, a majú aj zhodnotenie
+          <input type="checkbox" name="chcemSaInfo9" id="chcemSaInfo9" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label hidden class="ml-4 checkbox naj_produktyDruhyPilierFondyNeviem" for="chcemSaInfo10">Skontrolujeme Ti, či máš druhý pilier nastavený správne
+          <input type="checkbox" name="chcemSaInfo10" id="chcemSaInfo10" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label hidden class="ml-4 checkbox naj_produktyZivotnePoistenieInvesticiaAno" for="chcemSaInfo11">Ukážeme Ti všetky poplatky v Tvojom investičnom životnom poistení a navrhneme alternatívu
+          <input type="checkbox" name="chcemSaInfo11" id="chcemSaInfo11" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label hidden class="ml-4 checkbox naj_produktyTretiPilierNiePlanuje" for="chcemSaInfo12">Porovnáme za Teba všetky tretie piliere a odporučíme ten najvýhodnejší
+          <input type="checkbox" name="chcemSaInfo12" id="chcemSaInfo12" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label hidden class="ml-4 checkbox naj_produktyTretiPilierFondyNeviem" for="chcemSaInfo13">Skontrolujeme Ti, či máš tretí pilier nastavený správne
+          <input type="checkbox" name="chcemSaInfo13" id="chcemSaInfo13" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label hidden class="ml-4 checkbox naj_produktyZivotnePoistenieNiePlanujem naj_produktyZivotnePoistenieNie" for="chcemSaInfo14">Navrhneme Ti životné poistenie tak, aby spĺnalo všetky Tvoje potreby
+          <input type="checkbox" name="chcemSaInfo14" id="chcemSaInfo14" checked>
           <span class="checkmark"></span>
         </label>
       </div>

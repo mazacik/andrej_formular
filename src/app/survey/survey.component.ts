@@ -173,7 +173,7 @@ export class SurveyComponent implements OnInit {
 
       var titleElement = document.getElementsByClassName("sv_q_title").item(0);
       if (titleElement) {
-        const challengeText = "<p>vyzíva ťa " + name + " s hodnosťou <span data-tippy-content='test123'>" + rankPretty + "</span>, </p>";
+        const challengeText = "<p>vyzíva ťa " + name + " s hodnosťou <span class='tooltip-link' data-tippy-content='test123'>" + rankPretty + "</span>, </p>";
         var innerHTML = titleElement.innerHTML;
         var indexFirst = innerHTML.indexOf("ako si želáš, aby sme Ťa oslovovali?");
         if (indexFirst >= 0) {
