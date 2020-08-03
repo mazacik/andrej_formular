@@ -1226,7 +1226,7 @@
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
-              "value": "omeskanieSplatkyÁno",
+              "value": "omeskanieSplatkyAno",
               "text": "áno"
             },
             {

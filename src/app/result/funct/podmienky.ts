@@ -13,6 +13,8 @@ export class ResultPodmienky {
   evaluate(bodovanie: ResultBodovanie, data: any): void {
     this.bodovanie = bodovanie;
 
+    //TODO skontrolovat, ci sa vsade pracuje so spravnym poctom bodov
+
     //produktyUverHypotekaPozickaNemaUver
     if (!data.produktyUverHypotekaPozickaNemaUver) {
       this.create("produktyUverHypotekaPozickaNemaUver");
@@ -109,7 +111,7 @@ export class ResultPodmienky {
   }
 
   private create(id: string, pocetBodovMax: number = 1, pocetBodovStratil: number = -1): void {
-    ResultNaj3.naj3_manualne[ResultNaj3.naj3_manualne.length] = 'naj_' + id;
+    var najKategoria: string;
 
     var answer = this.getAnswerById(id);
     this.showElementsByClass(id);
@@ -120,6 +122,7 @@ export class ResultPodmienky {
 
       this.bodovanie.pocetBodovMax += pocetBodovMax;
       this.bodovanie.pocetBodovStratil += answer.resultPointsStratil;
+      najKategoria = this.getNajCategory(answer.resultPointsStratil);
     } else {
       if (pocetBodovStratil >= 0) {
         var spanPoints = document.getElementById(id + "Points");
@@ -127,7 +130,24 @@ export class ResultPodmienky {
 
         this.bodovanie.pocetBodovMax += pocetBodovMax;
         this.bodovanie.pocetBodovStratil += pocetBodovStratil;
+        najKategoria = this.getNajCategory(pocetBodovStratil);
       }
+    }
+
+    // TODO vela veci ma kategoriu undefined
+    // TODO ma sa kategoria zistovat podla poctu bodov? alebo by mala byt vzdy pevne zadana?
+    ResultNaj3.naj3_manualne.push('naj_' + najKategoria + "_" + id);
+  }
+
+  private getNajCategory(pocetBodovStratil: number): string {
+    if (pocetBodovStratil == 0) {
+      return "good";
+    } else if (pocetBodovStratil == 0.5) {
+      return "help";
+    } else if (pocetBodovStratil == 1) {
+      return "bad";
+    } else {
+      return "undefined";
     }
   }
 

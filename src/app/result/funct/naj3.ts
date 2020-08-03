@@ -1,5 +1,4 @@
-import * as naj3Order from '../../json/naj3Order.json';
-import * as sCimTiViemePomoctOrder from '../../json/sCimViemePomoctOrder.json';
+import * as najorder from '../../json/naj3Order.json';
 
 export class ResultNaj3 {
   static naj3_manualne: string[] = [];
@@ -7,92 +6,72 @@ export class ResultNaj3 {
   constructor() { }
 
   static calculate(data: any): void {
-    // top 3 najlepsie
-    var najlepsiePocet = 0;
-    for (let i = 0; i < naj3Order.najlepsie.length; i++) {
-      if (najlepsiePocet == 3) break;
-      const entry = naj3Order.najlepsie[i];
-      var found = false;
-      for (let j = 0; j < ResultNaj3.naj3_manualne.length; j++) {
-        const extra = ResultNaj3.naj3_manualne[j];
-        if (entry == extra) {
-          this.showElementsByClass(entry);
-          found = true;
-          najlepsiePocet++;
-          break;
-        }
+    // good
+    var countGood = 0;
+    for (let i = 0; countGood < 3 && i < najorder.good.length; i++) {
+      const entry = najorder.good[i];
+
+      if (ResultNaj3.naj3_manualne.indexOf(entry) != -1) {
+        this.showElementsByClass(entry);
+        countGood++;
+        continue;
       }
 
-      if (!found) {
-        for (var value in data) {
-          var answer = data[value];
-          if (typeof answer == 'string') {
-            if (entry.endsWith(answer)) {
-              this.showElementsByClass(entry);
-              najlepsiePocet++;
-              break;
-            }
+      for (var value in data) {
+        const answer = data[value];
+        if (typeof answer == 'string') {
+          if (entry.endsWith(answer)) {
+            this.showElementsByClass(entry);
+            countGood++;
+            break;
           }
         }
       }
     }
 
-    // top 3 najhorsie
-    var najhorsiePocet = 0;
-    for (let i = 0; i < naj3Order.najhorsie.length; i++) {
-      if (najhorsiePocet == 3) break;
-      const entry = naj3Order.najhorsie[i];
-      var found = false;
-      for (let j = 0; j < ResultNaj3.naj3_manualne.length; j++) {
-        const extra = ResultNaj3.naj3_manualne[j];
-        if (entry == extra) {
-          this.showElementsByClass(entry);
-          found = true;
-          najhorsiePocet++;
-          break;
-        }
+    // bad
+    var countBad = 0;
+    for (let i = 0; countBad < 3 && i < najorder.bad.length; i++) {
+      const entry = najorder.bad[i];
+
+      if (ResultNaj3.naj3_manualne.indexOf(entry) != -1) {
+        this.showElementsByClass(entry);
+        countBad++;
+        continue;
       }
 
-      if (!found) {
-        for (var value in data) {
-          var answer = data[value];
-          if (typeof answer == 'string') {
-            if (entry.endsWith(answer)) {
-              this.showElementsByClass(entry);
-              najhorsiePocet++;
-              break;
-            }
+      for (var value in data) {
+        const answer = data[value];
+        if (typeof answer == 'string') {
+          if (entry.endsWith(answer)) {
+            this.showElementsByClass(entry);
+            countBad++;
+            break;
           }
         }
       }
     }
 
-    // top 3 s cim ti vieme pomoct
-    // TODO MICHAL bug: niektore veci sa zobrazuju z najlepsich/horsich a sCimViemePomoct zaroven -> zobrazia sa viac ako 3 veci
-    var sCimTiViemePomoctPocet = 0;
-    for (let i = 0; i < sCimTiViemePomoctOrder.priority.length; i++) {
-      if (sCimTiViemePomoctPocet == 3) break;
-      const entry = sCimTiViemePomoctOrder.priority[i];
-      var found = false;
-      // for (let j = 0; j < naj3Extra.length; j++) {
-      //   const extra = naj3Extra[j];
-      //   if (entry == extra) {
-      //     this.showElementsByClass(entry);
-      //     found = true;
-      //     sCimTiViemePomoctPocet++;
-      //     break;
-      //   }
+    // help
+    var countHelp = 0;
+    for (let i = 0; i < najorder.help.length; i++) {
+      const entry = najorder.help[i];
+
+      // if (ResultNaj3.naj3_manualne.indexOf(entry) != -1) {
+      //   this.showElementsByClass(entry);
+      //   countHelp++;
+      //   continue;
       // }
 
-      if (!found) {
-        for (var value in data) {
-          var answer = data[value];
-          if (typeof answer == 'string') {
-            if (entry.endsWith(answer)) {
-              this.showElementsByClass(entry);
-              sCimTiViemePomoctPocet++;
-              break;
-            }
+      for (var value in data) {
+        const answer = data[value];
+        if (typeof answer == 'string') {
+          if (entry.endsWith(answer)) {
+            var className = entry;
+            if (countHelp >= 3) className += " checkbox";
+            this.showElementsByClass(className);
+            countHelp++;
+            break;
           }
         }
       }
