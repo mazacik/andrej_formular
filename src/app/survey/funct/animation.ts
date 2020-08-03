@@ -23,10 +23,12 @@ export class SurveyAnimation {
       $('.sv_body > div:first-child').css({
         transform: 'translateY(' + (animateNext ? '-' : '+') + '100vh)',
       });
+      const presahuje = $('#surveyNavBar').height() - (window.innerHeight / 2) + ($(".sv_row").height() / 2);
+      const posun = presahuje > 0 ? presahuje : 0;
       setTimeout(() => {
         $toAnimate.css('transition', 'all .4s');
         $toAnimate.css({
-          transform: 'translateY(0px)',
+          transform: 'translateY(' + posun + 'px)',
         });
       }, 0);
     });

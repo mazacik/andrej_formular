@@ -9,7 +9,7 @@
   "pagePrevText": "←",
   "pageNextText": "→",
   "completeText": "Dokončiť",
-  "showNavigationButtons": "top",
+  "showNavigationButtons": "bottom",
   "showQuestionNumbers": "off",
   "editText": "Upraviť",
   "pages": [
@@ -31,7 +31,7 @@
         {
           "type": "html",
           "name": "zaciatokUvodnychOtazok",
-          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Ahoj <strong>{meno}</strong>, na úvod 3 veci.<br><br> 1. Vyhodnotenie testu dostaneš <strong>bez</strong> nutnosti zadania <strong>emailu</strong> alebo platobnej <strong>karty</strong>.<br><br>2. O svoje <strong>údaje sa</strong> nemusíš báť, nakoľko sa  po Tvojom odchode z testu všetky <strong>zmažú</strong>.           <br><br>3. Ako prvé sa Ťa spýtame zopár otázok, po ktorých Ti vyberieme najvhodnejšiu verziu testu.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Začať test' class='sv_next_btn sv_next_btn--alternative'>"
+          "html": "<h5 class='question-text sv_q_title' style='font-weight: 500'><span>Ahoj <strong>{meno}</strong>, na úvod 3 veci.<br><br> 1. Vyhodnotenie testu dostaneš <strong>bez</strong> nutnosti zadania <strong>emailu</strong> alebo platobnej <strong>karty</strong>.<br><br>2. O svoje <strong>údaje sa</strong> nemusíš báť, nakoľko sa  po Tvojom odchode z testu všetky <strong>zmažú</strong>.           <br><br>3. Ako prvé sa Ťa spýtame zopár otázok, po ktorých Ti vyberieme najvhodnejšiu verziu testu.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Začať test' class='sv_next_btn sv_next_btn--alternative'>"
         }
       ]
     },
@@ -172,9 +172,8 @@
           "type": "text",
           "name": "vyskaPrijmu",
           "title": "Aká je výška Tvojho priemerného mesačného príjmu? (v čistom)",
-          "isRequired": false,
-          "requiredErrorText": "Otázka je povinná.",
-          "description": "Bez toho, aby sme vedeli Tvoj príjem, nedokážeme Tvoje financie vyhodnotiť naozaj na mieru. O svoje informácie sa nemusíš obávať nakoľko sa hneď po vyhodnotení zmažú.",
+          "isRequired": true,
+          "requiredErrorText": "Bez toho, aby sme vedeli Tvoj príjem, nedokážeme Tvoje financie vyhodnotiť naozaj na mieru. O svoje informácie sa nemusíš obávať nakoľko sa hneď po vyhodnotení zmažú.",
           "inputType": "number",
           "min": "0",
           "placeHolder": "Hodnota v €"
@@ -293,7 +292,7 @@
         {
           "type": "html",
           "name": "zaciatokBodovania",
-          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Ďakujeme {meno} za vyplnenie otázok, teraz už vieme ktorý test bude pre Teba najvhodnejší.<br><br>Ako prvé otestujeme Tvoj výber finančných produktov.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
+          "html": "<h5 class='question-text sv_q_title' style='font-weight: 500'><span>Ďakujeme {meno} za vyplnenie otázok, teraz už vieme ktorý test bude pre Teba najvhodnejší.<br><br>Ako prvé otestujeme Tvoj výber finančných produktov.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
         }
       ]
     },
@@ -328,7 +327,7 @@
       ]
     },
     {
-      "name": "pageProduktyDruhyPilier",
+      "name": "pageProduktyDruhyPilierFondy",
       "elements": [
         {
           "type": "radiogroup",
@@ -763,7 +762,7 @@
         {
           "type": "html",
           "name": "zaciatokOtazokOInvestovani",
-          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>Dobre {meno}, teraz si prejdeme do hĺbky Tvoje sporiace a investičné produkty. Vo vyhodnotení dostaneš spätnú väzbu na ich výber a rozloženie vzhľadom na Tvoj príjem.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
+          "html": "<h5 class='question-text sv_q_title' style='font-weight: 500'><span>Dobre {meno}, teraz si prejdeme do hĺbky Tvoje sporiace a investičné produkty. Vo vyhodnotení dostaneš spätnú väzbu na ich výber a rozloženie vzhľadom na Tvoj príjem.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
         }
       ],
       "visibleIf": "{produktyInvesticieSporenia} = 'produktyInvesticieSporeniaAno'"
@@ -775,7 +774,7 @@
           "type": "matrixdynamic",
           "name": "konzervativneInvesticie",
           "title": "Pozrime sa najprv na Tvoje konzervatívne produkty",
-          "description": "(zarabaju menej, ale vieš si z nich bez rizika vybrať peniaze v kratšej dobre - ak máš iba dlhodobé produkty, otázku preskoč)",
+          "description": "(Ak máš iba dlhodobé produkty, otázku preskoč.)",
           "columns": [
             {
               "name": "konzervativneInvesticieNazovProduktu",
@@ -970,7 +969,6 @@
           "type": "matrixdynamic",
           "name": "dynamickeInvesticie",
           "title": "Teraz Tvoje dynamické investičné produkty.",
-          "description": "(zarábajú viac, ale vieš si z nich peniaze vybrať bez rizika až po dlhšej dobe - ak nemáš žiaden, otázku preskoč)",
           "columns": [
             {
               "name": "dynamickeInvesticieNazovProduktu",
@@ -1300,7 +1298,7 @@
         {
           "type": "html",
           "name": "zaciatokBodovania",
-          "html": "<h5 class='question-text sv_q_title' style='font-weight: 300'><span>{meno}, teraz nasleduje 5 otázok na finančnú gramotnosť, pri ktorých si vieš overiť ako rozumieš peniazom.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
+          "html": "<h5 class='question-text sv_q_title' style='font-weight: 500'><span>{meno}, teraz nasleduje 5 otázok na finančnú gramotnosť, pri ktorých si vieš overiť ako rozumieš peniazom.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
         }
       ]
     },
