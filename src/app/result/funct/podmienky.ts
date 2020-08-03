@@ -13,7 +13,7 @@ export class ResultPodmienky {
   evaluate(bodovanie: ResultBodovanie, data: any): void {
     this.bodovanie = bodovanie;
 
-    //TODO skontrolovat, ci sa vsade pracuje so spravnym poctom bodov
+    // TODO MICHAL ANDREJ  skontrolovat, ci sa vsade pracuje so spravnym poctom bodov
 
     //produktyUverHypotekaPozickaNemaUver
     if (!data.produktyUverHypotekaPozickaNemaUver) {
@@ -134,8 +134,8 @@ export class ResultPodmienky {
       }
     }
 
-    // TODO vela veci ma kategoriu undefined
-    // TODO ma sa kategoria zistovat podla poctu bodov? alebo by mala byt vzdy pevne zadana?
+    // TODO MICHAL ANDREJ vela veci ma kategoriu undefined
+    // TODO MICHAL ANDREJ ma sa kategoria zistovat podla poctu bodov? alebo by mala byt vzdy pevne zadana?
     ResultNaj3.naj3_manualne.push('naj_' + najKategoria + "_" + id);
   }
 
