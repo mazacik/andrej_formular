@@ -45,7 +45,7 @@
       font-weight: 600;
     }
     h3, strong {
-      font-size: 40px;
+      font-size: 70px;
     }
   }
 }
@@ -233,22 +233,22 @@
 .section-topics {
   .section-big__card__header h4 {
     color: #962913;
-    font-size: 32px;
+    font-size: 50px;
     font-weight: bold;
   }
 }
 
 .section-gramotnost {
   &__points {
-    font-size: 24px;
+    font-size: 33px;
   }
   &__title {
     margin: 0 auto;
     h3 {
-      font-size: 40px;
+      font-size: 70px !important;
     }
     p {
-      font-size: 21px;
+      font-size: 33px;
       color: #575757;
     }
   }

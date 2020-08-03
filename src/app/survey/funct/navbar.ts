@@ -10,15 +10,12 @@ export class SurveyNavBar {
         "pageVek",
         "pageStudium",
         "pageZdrojPrijmu",
-        "pageVyskaPrijmu",
         "pageNemaPrijem",
-        "pageDajteMiVediet",
+        "pageVyskaPrijmu",
         "pageKdePracujes",
         "pageOdkladaniePenazi",
         "pageOdkladaniePenaziSposob",
-        "pageKdePracujes",
-        "pageOdkladaniePenazi",
-        "pageOdkladaniePenaziVyska"
+        "pageOdkladaniePenaziVyska",
       ]
     },
     {
@@ -26,15 +23,16 @@ export class SurveyNavBar {
       pretty: "Výber produktov",
       pages: [
         "pageZaciatokBodovania",
-        "pageProduktyZivotnePoistenie",
-        "pageProduktyZivotnePoistenieKolkoPlati",
-        "pageProduktyZivotnePoistenieInvesticia",
-        "pageProduktyZivotnePoistenieInvesticiaVyska",
         "pageProduktyDruhyPilier",
+        "pageProduktyDruhyPilierFondy",
         "pageProduktyTretiPilier",
         "pageProduktyTretiPilierFondy",
         "pageProduktyTretiPilierVyskaPrispevku",
         "pageProduktyTretiPilierVyskaPrispevkuZamestnavatela",
+        "pageProduktyZivotnePoistenie",
+        "pageProduktyZivotnePoistenieKolkoPlati",
+        "pageProduktyZivotnePoistenieInvesticia",
+        "pageProduktyZivotnePoistenieInvesticiaVyska",
         "pageProduktyUverHypotekaPozicka",
         "pageNajomne",
         "pageProduktyHypotekaVyskaSplatky",
@@ -54,10 +52,10 @@ export class SurveyNavBar {
       pretty: "Práca s peniazmi",
       pages: [
         "pageSKymSaRadis",
+        "pageOmeskanieSplatky",
         "pageFinancnaRezerva",
         "pageFinancnaRezervaVyska",
-        "pagePrehladOVydavkoch",
-        "pageOmeskanieSplatky"
+        "pagePrehladOVydavkoch"
       ]
     },
     {
