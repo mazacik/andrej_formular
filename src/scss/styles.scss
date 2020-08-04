@@ -476,7 +476,9 @@ body.sekciaOkruhyZaujmu {
 
 .sv_qcbx, .sv_qcbc {
   display: flex;
-  min-width: 360px;
+  @media(min-width: 768px) {
+    min-width: 360px;
+  }
 }
 
 .tippy-box {
