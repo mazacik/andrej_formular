@@ -116,7 +116,8 @@
 
 .section {
   &__title {
-    font-size: 60px;
+    font-size: 50px;
+    line-height: 50px;
     font-weight: 400;
     margin: 16px 0;
     @media(max-width: 768px) {
