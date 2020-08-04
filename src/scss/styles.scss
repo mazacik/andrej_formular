@@ -707,3 +707,31 @@ body.sekciaOkruhyZaujmu {
 .contact-button {
   font-size: 0.7em !important;
 }
+
+.section-navigation-sidebar {
+  position: fixed;
+  left: 5px;
+  bottom: 5px;
+}
+
+.section-navigation-sidebar li {
+  margin: 15px 0;
+}
+
+@media (max-width: 768px) {
+  .section-navigation-sidebar {
+  display: none;
+  }
+ 
+  }
+
+  ::selection {
+    background: #962913; /* WebKit/Blink Browsers */
+    color: white;
+  }
+  ::-moz-selection {
+    background: #962913; /* WebKit/Blink Browsers */
+    color: white;
+  }
+
+
