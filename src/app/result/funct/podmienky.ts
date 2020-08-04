@@ -130,21 +130,18 @@ export class ResultPodmienky {
 
         this.bodovanie.pocetBodovMax += pocetBodovMax;
         this.bodovanie.pocetBodovStratil += pocetBodovStratil;
-        najKategoria = this.getNajCategory(pocetBodovStratil);
       }
+
+      najKategoria = this.getNajCategory(pocetBodovStratil);
     }
 
-    // TODO MICHAL ANDREJ vela veci ma kategoriu undefined
-    // TODO MICHAL ANDREJ ma sa kategoria zistovat podla poctu bodov? alebo by mala byt vzdy pevne zadana?
     ResultNaj3.naj3_manualne.push('naj_' + najKategoria + "_" + id);
   }
 
   private getNajCategory(pocetBodovStratil: number): string {
-    if (pocetBodovStratil == 0) {
+    if (pocetBodovStratil == 0 || pocetBodovStratil == -1) {
       return "good";
-    } else if (pocetBodovStratil == 0.5) {
-      return "help";
-    } else if (pocetBodovStratil == 1) {
+    } else if (pocetBodovStratil == 1 || pocetBodovStratil == 0.5) {
       return "bad";
     } else {
       return "undefined";
