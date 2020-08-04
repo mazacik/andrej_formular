@@ -1,7 +1,12 @@
 .navigation {
-  padding: 4px;
+  padding: 12px 4px;
   display: flex;
-  vertical-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #FFEFD2;
+  z-index: 1000;
 
   &.open {
     .navigation__actions {
@@ -20,6 +25,13 @@
     @media(max-width: 768px) {
       display: flex;
       justify-content: space-between;
+    }
+
+    display: flex;
+    align-items: center;
+
+    a {
+      display: block;
     }
   }
 

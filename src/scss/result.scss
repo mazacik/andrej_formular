@@ -34,7 +34,7 @@
 
   &__wrapper {
     width: 80vw;
-    margin: 64px auto 0 auto;
+    margin: 143px auto 0 auto;
   }
 
   &__title {
@@ -42,9 +42,9 @@
       margin: 0;
       font-weight: 100;
       @media (max-width: 768px) {
-        line-height: 1; 
+        line-height: 1;
       }
-      
+
     }
     strong {
       font-weight: 600;
