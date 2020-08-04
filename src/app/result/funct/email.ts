@@ -1,7 +1,7 @@
 export class ResultEmail {
   static email_dataURL(dataURL: string): void {
     if (this.spamCheck()) return;
-
+//ulozit subor
     var to = "";
     var from = "kontakt@montest.sk";
     var subject = "Výsledky Tvojho finančného dotazníku";
@@ -22,7 +22,7 @@ export class ResultEmail {
     }
 
     // email body
-    body = "Gratulujeme k vyplneniu.";
+    body = "Gratulujeme <br> k vyplneniu.";
 
     // email attachments
     var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + dataURL + "'></head>";
