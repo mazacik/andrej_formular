@@ -81,23 +81,11 @@ export class ResultEmail {
       }
     };
 
-    // Email.send({
-    //   // v google ucet nastaveniach treba vypnut 2-faktor autentifikaciu
-    //   // v google ucet nastaveniach treba povolit "less secure apps"
-    //   SecureToken : "2cb4ec7b-33de-4bb2-81ff-2dfecdd3f063",
-    //   To: to,
-    //   From: from,
-    //   Subject: subject,
-    //   Body: body
-    // });
-
     if (attachment) {
       email.send({
         // v google ucet nastaveniach treba vypnut 2-faktor autentifikaciu
         // v google ucet nastaveniach treba povolit "less secure apps"
-        Host: "smtp.gmail.com",
-        Username: "surveyemailer123",
-        Password: "surveyemailerandrej123",
+        SecureToken : "d2e87481-99b4-4ffc-b5bb-f3a8eef61c2e",
         To: to,
         From: from,
         Subject: subject,
@@ -113,9 +101,7 @@ export class ResultEmail {
       email.send({
         // v google ucet nastaveniach treba vypnut 2-faktor autentifikaciu
         // v google ucet nastaveniach treba povolit "less secure apps"
-        Host: "smtp.gmail.com",
-        Username: "surveyemailer123",
-        Password: "surveyemailerandrej123",
+        SecureToken : "d2e87481-99b4-4ffc-b5bb-f3a8eef61c2e",
         To: to,
         From: from,
         Subject: subject,
