@@ -282,7 +282,49 @@ color: black !important;
   color: black !important;
 }
 
+.navigationProgressbar {
+  @media(max-width: 320px) {
+    li:nth-of-type(1) .sectionTitle {
+      font-size: 0;
+      &::after {
+        content: "Úvod";
+        font-size: 10px;
+      }
+    }
 
+    li:nth-of-type(2) .sectionTitle {
+      font-size: 0;
+      &::after {
+        content: "Produkty";
+        font-size: 10px;
+      }
+    }
+
+    li:nth-of-type(3) .sectionTitle {
+      font-size: 0;
+      &::after {
+        content: "Peniaze";
+        font-size: 10px;
+      }
+    }
+
+    li:nth-of-type(4) .sectionTitle {
+      font-size: 0;
+      &::after {
+        content: "Gramotnosť";
+        font-size: 10px;
+      }
+    }
+
+    li:nth-of-type(5) .sectionTitle {
+      font-size: 0;
+      &::after {
+        content: "Záujmy";
+        font-size: 10px;
+      }
+    }
+  }
+}
 
 .navigationProgressbar .sectionTitle {
   font-weight: bold;
@@ -658,4 +700,8 @@ body.sekciaOkruhyZaujmu {
 
 #chcemSaInfo-subtitle {
   margin: 20px 0 !important;
+}
+
+.contact-button {
+  font-size: 0.7em !important;
 }
