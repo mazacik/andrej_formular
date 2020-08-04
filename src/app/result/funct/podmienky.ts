@@ -13,8 +13,6 @@ export class ResultPodmienky {
   evaluate(bodovanie: ResultBodovanie, data: any): void {
     this.bodovanie = bodovanie;
 
-    // TODO MICHAL ANDREJ  skontrolovat, ci sa vsade pracuje so spravnym poctom bodov
-
     //produktyUverHypotekaPozickaNemaUver
     if (!data.produktyUverHypotekaPozickaNemaUver) {
       this.create("produktyUverHypotekaPozickaNemaUver");
@@ -22,7 +20,7 @@ export class ResultPodmienky {
 
     //dlhodobeInvesticieMenejAko10
     if (ResultGraphs.calcInvesticieDlhodobe(data) < data.vyskaPrijmu * 0.1) {
-      this.create("dlhodobeInvesticieMenejAko10");
+      this.create("dlhodobeInvesticieMenejAko10", 1, 1);
     }
 
     //dlhodobeInvesticieViacAko10
@@ -37,7 +35,7 @@ export class ResultPodmienky {
 
     //kratkodobeInvesticieMenejAko10 ak este nema rezervu
     if ((data.financnaRezervaVyska >= data.vyskaPrijmu * 0.1 && data.financnaRezervaVyska <= data.vyskaPrijmu * 6) && ResultGraphs.calcInvesticieKratkodobe(data) < data.vyskaPrijmu * 0.1) {
-      this.create("kratkodobeInvesticieMenejAko10");
+      this.create("kratkodobeInvesticieMenejAko10", 1, 1);
     }
 
     //kratkodobeInvesticieMenejAko10AleUzMaRezervu ak uz nema rezervu
@@ -47,22 +45,22 @@ export class ResultPodmienky {
 
     //byvanieVyssieAko30
     if (ResultGraphs.calcPasiva(data) > data.vyskaPrijmu * 0.3) {
-      this.create("byvanieVyssieAko30");
+      this.create("byvanieVyssieAko30", 1, 1);
     }
 
     //byvanieMensieAko30
     if (ResultGraphs.calcPasiva(data) <= data.vyskaPrijmu * 0.3) {
-      this.create("byvanieMensieAko30");
+      this.create("byvanieMensieAko30", 1, 1);
     }
 
     //zivotnePoistenieVyskaSplatkyNad4
     if ((data.produktyZivotnePoistenieKolkoPlati - data.produktyZivotnePoistenieInvesticiaVyska) > data.vyskaPrijmu * 0.04) {
-      this.create("zivotnePoistenieVyskaSplatkyNad4");
+      this.create("zivotnePoistenieVyskaSplatkyNad4", 1, 1);
     }
 
     //zivotnePoistenieVyskaSplatkyPod3
     if ((data.produktyZivotnePoistenieKolkoPlati - data.produktyZivotnePoistenieInvesticiaVyska) < data.vyskaPrijmu * 0.03) {
-      this.create("zivotnePoistenieVyskaSplatkyPod3");
+      this.create("zivotnePoistenieVyskaSplatkyPod3", 1, 1);
     }
 
     //zivotnePoistenieVyskaSplatky3az4 3 az 4%
@@ -82,7 +80,7 @@ export class ResultPodmienky {
 
     // odlozitMenejAko10percentprijmu
     if (data.odkladaniePenaziVyska < data.vyskaPrijmu * 0.1) {
-      this.create("odlozitMenejAko10percentprijmu");
+      this.create("odlozitMenejAko10percentprijmu", 1, 1);
     }
 
     //vyskarezervy3az6nasobokPrijmu vyska rezervy 3 az 6 nasobok
@@ -91,17 +89,17 @@ export class ResultPodmienky {
     }
     //vyskarezervyDo1nasobokPrijmu vyska rezervy do 1 nasobok prijmu
     if (data.financnaRezervaVyska < data.vyskaPrijmu) {
-      this.create("vyskarezervyDo1nasobokPrijmu");
+      this.create("vyskarezervyDo1nasobokPrijmu", 1, 1);
     }
 
     //vyskarezervyDo3nasobokPrijmu vyska rezervy do 3 nasobok prijmu
     if (data.financnaRezervaVyska >= data.vyskaPrijmu && data.financnaRezervaVyska < data.vyskaPrijmu * 3) {
-      this.create("vyskarezervyDo3nasobokPrijmu");
+      this.create("vyskarezervyDo3nasobokPrijmu", 1, 0.5);
     }
 
     //vyskarezervyNad6nasobokPrijmu vyska rezervy nad 6 nasobok prijmu
     if (data.financnaRezervaVyska > data.vyskaPrijmu * 6) {
-      this.create("vyskarezervyNad6nasobokPrijmu");
+      this.create("vyskarezervyNad6nasobokPrijmu", 1, 0.5);
     }
 
     // mesacnarezerva30percentprijmu

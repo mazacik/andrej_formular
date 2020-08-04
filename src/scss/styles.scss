@@ -53,7 +53,7 @@ h5.sv_q_title {
 }
 
 h5.sv_q_title span {
-  font-size: 42px !important;
+  font-size: 30px !important;
 }
 
 .sv_main .sv_container {
@@ -173,6 +173,10 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
   border-radius: 2px;
   color: white;
   box-shadow: 3px 3px 3px $tippyColor;
+  @media (max-width: 768px) {
+    font-size: 20px !important;
+    }
+
 }
 
 .button-main.big {
@@ -192,7 +196,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 }
 
 .sv_q_radiogroup_label, .sv_q_checkbox_control_label {
-  font-size: 1.8rem;
+  font-size: 1.2em;
 }
 
 @media (max-width: 768px) {
@@ -263,7 +267,12 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
   flex: 1 1 0px;
   text-align: center;
   width: 0;
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
 }
+
+
 
 .sv_q_erbox  {
 font-size: 25px;
@@ -407,6 +416,9 @@ body.sekciaOkruhyZaujmu {
 .question-text {
   font-size: 16px;
   font-weight: 500;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 }
 
 .sv_q_description span {
@@ -536,6 +548,11 @@ body.sekciaOkruhyZaujmu {
     font-weight: 600;
     font-size: 45px;
     line-height: 35px;
+    @media (max-width: 768px) {
+      font-size: 20px;
+      line-height: 20px;
+    }
+
   }
 
   &__subtitle {
@@ -544,6 +561,10 @@ body.sekciaOkruhyZaujmu {
     font-size: 35px;
     line-height: 25px;
     color: #000000;
+    @media (max-width: 768px) {
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
 
   &__close {
@@ -565,6 +586,10 @@ body.sekciaOkruhyZaujmu {
 .explanation {
   font-size: 23px;
   color: #000;
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+
 }
 
 .sv_q_matrix_dynamic {
@@ -572,7 +597,7 @@ body.sekciaOkruhyZaujmu {
 }
 
 .sv_matrix_dynamic_button {
-  font-size: 1em !important;
+  font-size: 0.7em !important;
 }
 
 .challengeButton {
@@ -585,10 +610,16 @@ body.sekciaOkruhyZaujmu {
 
 .hero__right img {
   height: 20em !important;
+  @media (max-width: 768px) {
+    height: 200px !important;
+  }
 }
 
 .hero__left {
   margin-left: 7em;
+  @media (max-width: 768px) {
+    margin-left: 0em;
+  }
 }
 
 .popup__close__icon {
@@ -597,11 +628,19 @@ body.sekciaOkruhyZaujmu {
 
 .popup__wrapper .text-input {
   font-size: 30px !important;
+  @media (max-width: 768px) {
+    font-size: 20px !important;
+  }
 }
 
 
 .charts h2 {
   font-size: 1.5em;
+}
+.chart-container {
+@media (max-width: 768px) {
+  margin-bottom: 50px !important;
+}
 }
 
 #temy p {

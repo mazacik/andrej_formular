@@ -41,18 +41,28 @@
     h3 {
       margin: 0;
       font-weight: 100;
+      @media (max-width: 768px) {
+        line-height: 1; 
+      }
+      
     }
     strong {
       font-weight: 600;
     }
     h3, strong {
-      font-size: 70px;
+      font-size: 55px;
+      @media (max-width: 768px) {
+        font-size: 40px;
+      }
     }
   }
 }
 
 .summary {
   padding: 0 32px;
+  @media (max-width: 768px) {
+    padding: 0 0px;
+  }
   margin-top: 5em;
   &__cards {
     display: flex;
@@ -109,6 +119,9 @@
     font-size: 60px;
     font-weight: 400;
     margin: 16px 0;
+    @media(max-width: 768px) {
+      font-size: 30px;
+    }
   }
 }
 
@@ -160,6 +173,7 @@
 
     @media (max-width: 768px) {
       flex-flow: column;
+      margin: 30px 10px;
     }
 
     &__header {
@@ -205,12 +219,16 @@
       @media (max-width: 768px) {
         border-top-right-radius: 0;
         border-bottom-left-radius: 10px;
+        padding: 10px;
       }
 
       h5 {
-        font-size: 30px;
-        line-height: 35px;
+        font-size: 25px;
+        line-height: 28px;
         margin-bottom: 4px;
+        @media (max-width: 768px) {
+          font-size: 20px;
+        }
       }
 
       &__list {
@@ -219,8 +237,11 @@
         }
 
         p {
-          font-size: 25px;
+          font-size: 22px;
           color: #000;
+          @media (max-width: 768px) {
+            font-size: 16px;
+          }
         }
 
         h5 {
@@ -242,16 +263,23 @@
 
 .section-gramotnost {
   &__points {
-    font-size: 33px;
+    font-size: 27px;
   }
   &__title {
     margin: 0 auto;
     h3 {
-      font-size: 70px !important;
+      font-size: 55px !important;
+@media (max-width: 768px) {
+  font-size: 27px !important;
+}
+
     }
     p {
       font-size: 33px;
       color: #575757;
+      @media (max-width: 768px) {
+        font-size: 15px !important;
+      }
     }
   }
 }
@@ -262,8 +290,11 @@
   background-color: rgba(#FFF5E4, 1);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 padding-bottom: 20px;
+border-radius: 10px;
   @media(max-width: 768px) {
-    padding: 8px;
+    padding: 0px;
+    padding-bottom: 20px;
+    margin: 10px;
   }
 
   &__header {
@@ -296,6 +327,10 @@ padding-bottom: 20px;
 
   &__body {
     padding: 0 32px;
+    @media(max-width: 768px) {
+      padding: 0 10px;
+      }
+
 
     h5 {
       font-weight: 600;
