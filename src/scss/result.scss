@@ -259,6 +259,9 @@
     color: #962913;
     font-size: 40px;
     font-weight: bold;
+    @media (max-width: 768px) {
+      font-size: 30px;
+    }
   }
 }
 
@@ -280,6 +283,8 @@
       color: #575757;
       @media (max-width: 768px) {
         font-size: 15px !important;
+        text-align: center;
+        margin: 5px;
       }
     }
   }
