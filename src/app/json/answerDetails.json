@@ -47,14 +47,14 @@
       "choiceString": "investičné životné poistenie",
       "resultTitle": "",
       "resultVysvetlenie": "",
-      "resultPointsStratil": 0
+      "resultPointsStratil": 1
     },
     {
       "id": "financnaGramotnostPoisteniePriInvestovaniZvlast",
-      "choiceString": "životné poistenie a sporenie zvlásť",
+      "choiceString": "životné poistenie a sporenie zvlášť",
       "resultTitle": "",
       "resultVysvetlenie": "",
-      "resultPointsStratil": 1
+      "resultPointsStratil": 0
     },
     {
       "id": "financnaGramotnostDruhyPilierGarantovane",
@@ -242,7 +242,7 @@
       "id": "coChcesVedietIdealneRozlozenie2",
       "choiceString": "",
       "resultTitle": "Aké využivať produkty?",
-      "resultVysvetlenie": "Investuj pravidelne každý mesiac a ideálne do ETF fondov .Ak si platíš za životné poistenie menej ako 3% z príjmu (tvoj príjem * 0.03), poistenie pravdepodobne nie je dostatočne. Ak viac ako 5% poistenie je zbytočne dráhe. Rezervu si drž na sporiacom úcte mimo banky. Existujú účty, ktoré sú zadarmo a majú dokonca aj malé zhodnotenie.",
+      "resultVysvetlenie": "Investuj pravidelne každý mesiac a ideálne do ETF fondov. Ak si platíš za životné poistenie menej ako 3% z príjmu (tvoj príjem * 0.03), poistenie pravdepodobne nie je dostatočne. Ak viac ako 5% poistenie je zbytočne dráhe. Rezervu si drž na sporiacom úcte mimo banky. Existujú účty, ktoré sú zadarmo a majú dokonca aj malé zhodnotenie.",
       "resultPointsStratil": 1
     },
     {
