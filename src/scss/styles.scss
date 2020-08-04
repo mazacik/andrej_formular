@@ -489,6 +489,8 @@ body.sekciaOkruhyZaujmu {
   font-size: 15px;
   margin: 0 8px;
   cursor: pointer;
+  width: 31px;
+  text-align: center;
 }
 
 .points {
@@ -535,7 +537,7 @@ body.sekciaOkruhyZaujmu {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 100;
+  z-index: 1001;
   position: fixed;
   display: none;
 
@@ -589,7 +591,9 @@ body.sekciaOkruhyZaujmu {
   @media (max-width: 768px) {
     font-size: 18px;
   }
-
+  background-color: #FFF1D8;
+  padding: 30px;
+  border-radius: 10px;
 }
 
 .sv_q_matrix_dynamic {
