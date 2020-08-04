@@ -3,6 +3,7 @@
 .result {
   color: #000;
   font-family: Open Sans, sans-serif;
+  font-size: 1.2em;
 }
 
 .hero {
@@ -52,6 +53,7 @@
 
 .summary {
   padding: 0 32px;
+  margin-top: 5em;
   &__cards {
     display: flex;
     @media (max-width: 1024px) {
@@ -104,8 +106,8 @@
 
 .section {
   &__title {
-    font-size: 40px;
-    font-weight: 100;
+    font-size: 60px;
+    font-weight: 400;
     margin: 16px 0;
   }
 }
@@ -154,7 +156,7 @@
 
   &__card {
     display: flex;
-    margin: 40px 20px;
+    margin: 40px 150px;
 
     @media (max-width: 768px) {
       flex-flow: column;
@@ -195,7 +197,7 @@
     &__content {
       flex: 1 0;
       padding: 32px;
-      background-color: #fff;
+      background-color: white;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -206,8 +208,8 @@
       }
 
       h5 {
-        font-size: 22px;
-        line-height: 22px;
+        font-size: 30px;
+        line-height: 35px;
         margin-bottom: 4px;
       }
 
@@ -217,7 +219,7 @@
         }
 
         p {
-          font-size: 18px;
+          font-size: 25px;
           color: #000;
         }
 
@@ -233,7 +235,7 @@
 .section-topics {
   .section-big__card__header h4 {
     color: #962913;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
   }
 }
@@ -255,14 +257,17 @@
 }
 
 .form-consultation {
-  padding: 64px;
-
+  //padding: 64px;
+  margin: 64px;
+  background-color: rgba(#FFF5E4, 1);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+padding-bottom: 20px;
   @media(max-width: 768px) {
     padding: 8px;
   }
 
   &__header {
-    background-color: #FDD998;
+    background-color: #FDD998 !important;
     padding: 16px;
 
     @media(max-width: 768px) {

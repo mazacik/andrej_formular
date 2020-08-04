@@ -4,7 +4,6 @@
     "naj_good_vyskarezervy3az6nasobokPrijmu",
     "naj_good_produktyBeznyUcetNie",
     "naj_good_odlozitViacAko20percentprijmu",
-    "naj_good_odlozit50percentprijmu",
     "naj_good_mesacnarezerva30percentprijmu",
     "naj_good_odkladaniePenaziSposobSporiaciUcetPoVyplate",
     "naj_good_produktyTretiPilierFondyIndexove",
@@ -19,7 +18,8 @@
     "naj_good_produktyTretiPilierNieBezPrispevku",
     "naj_good_sKymSaRadisFinancnyPoradca",
     "naj_good_produktyUverHypotekaPozickaNemaUver",
-    "naj_good_naj_good_produktyDruhyPilierAno",
+    "naj_good_produktyDruhyPilierAno",
+    "naj_good_produktyHypotekaUrokDo1",
     "naj_good_kratkodobeInvesticieMenejAko10AleUzMaRezervu"
   ],
   "bad": [

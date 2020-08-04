@@ -22,9 +22,9 @@
         </a>
       </div>
       <div class="navigation__buttons">
-        <button id="challengeButton" class="button-main"
+        <button id="challengeButton" class="button-main challengeButton"
           (click)="onChallengeButtonClick(resultBodovanie.challengeLink)">Vyzvať kamaráta</button>
-        <button (click)="onSaveResultButtonClick()" id="saveButton" class="button-main">Uložiť vyhodnotenie</button>
+        <button (click)="onSaveResultButtonClick()" id="saveButton" class="button-main saveButton">Uložiť vyhodnotenie</button>
       </div>
     </div>
   </nav>
@@ -33,7 +33,7 @@
     <div class="hero">
       <div class="hero__left">
         <div class="hero__title">
-          <h3>Gratulujeme <strong>Tadeáš!</strong></h3>
+          <h3>Gratulujeme <strong>{{data.meno}}</strong></h3>
         </div>
         <div class="mt-2">
           Podarilo sa Ti získať {{resultBodovanie.pocetBodovMax - resultBodovanie.pocetBodovStratil}} z
@@ -45,7 +45,8 @@
         <div class="mt-4">Chceš sa porovnať s kamarátmi?</div>
         <div class="mt-2">
           Pošli im link s výzvou
-          <button class="button-main ml-2" (click)="clipboard(resultBodovanie.challengeLink)">kopírovať link</button>
+          <button class="button-main ml-2 challengeButton"(click)="onChallengeButtonClick(resultBodovanie.challengeLink)">Kopírovať link</button>
+          
         </div>
       </div>
       <div class="hero__right">
@@ -68,8 +69,6 @@
         </div>
         <div class="summary__card__content">
           <ul class="ticks-list">
-            <!-- TODO MICHAL ANDREJ  - naj_good_produktyHypotekaUrokDo1 sa nenachadza v naj3order.json, je mozne ze ostatne IDcka tam tiez chybaju -->
-            <!-- TODO MICHAL ANDREJ  - naopak, naj_good_mesacnarezerva30percentprijmu je v naj3order.json ale neni nikde tu -->
             <li class="naj_good_produktyHypotekaUrokDo1" hidden>Úrok na hypotéke máš pod 1%.</li>
             <li class="naj_good_produktyDruhyPilierFondyIndexove" hidden>Druhý pilier máš správne nastavený v indexových
               negarantovaných fondoch.
@@ -94,6 +93,8 @@
               až 4% z Tvojho príjmu.
             </li>
             <li class="naj_good_produktyDruhyPilierAno" hidden>Máš druhý pilier.</li>
+            <li class="naj_good_mesacnarezerva30percentprijmu" hidden>Mesačne
+              si odkladáš 30% z Tvojho príjmu na rezervu.</li>
             <li class="naj_good_kratkodobeInvesticieViacAko10" hidden>Mesačné kratkodobé <span class="tooltip-link"
                 data-tippy-content="ktíva sú peniaze, ktoré odkladáš a vedia Ti zarobiť ďaľšie peniaze. Patria sem rôzne sporenia a investície.">aktíva</span>
               máš vyššie ako 10% z príjmu
@@ -296,7 +297,7 @@
     <div class="flex justify-center">
       <p>Ulož si vyhodnotenie a naštuduj si naše odporúčania aj neskôr.</p>
       <div class="ml-2">
-        <button (click)="onSaveResultButtonClick()" class="button-main">Uložiť</button>
+        <button (click)="onSaveResultButtonClick()" class="button-main saveButton">Uložiť</button>
       </div>
     </div>
   </section>
@@ -316,7 +317,7 @@
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="#rozlozenie">
           <img src="assets/illustrations/rozlozenie.png" alt="">
           <span>Rozloženie</span>
         </a>
@@ -387,7 +388,7 @@
               </h5>
               <p>Na finančnom trhu nezoženieš lepší úrok ako máš práve teraz.</p>
             </li>
-            <li class="roduktyBeznyUcetNie" hidden>
+            <li class="produktyBeznyUcetNie" hidden>
               <h5>Za bežný účet si neplatíš.
               </h5>
               <p>Je vidieť, že využívaš len tie najvýhodnejšie produkty, super.</p>
@@ -645,7 +646,7 @@
   </section>
 
   <!-- gramotnost -->
-  <section class="section section-gramotnost section-big">
+  <section id="gramotnost" class="section section-gramotnost section-big">
     <div class="flex justify-center section-gramotnost__title">
       <div>
         <img class="m-auto" src="assets/illustrations/gramotnost.png" alt="">
@@ -668,6 +669,7 @@
           <strong>Výborne</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 1</strong></h3>
           <h5>Na dlhodobú investíciu vložíš 1000€, o rok hodnota tejto investície klesla na 900€. Čo urobíš?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostDlhodobaInvesticiaUserChoice"></span><span
               class="points financnaGramotnostDlhodobaInvesticiaPoints"></span></p>
@@ -683,6 +685,7 @@
           <strong>Neutrálne</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 1</strong></h3>
           <h5>Na dlhodobú investíciu vložíš 1000€, o rok hodnota tejto investície klesla na 900€. Čo urobíš?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostDlhodobaInvesticiaUserChoice"></span><span
               class="points financnaGramotnostDlhodobaInvesticiaPoints"></span></p>
@@ -698,6 +701,7 @@
           <strong>Zle</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 1</strong></h3>
           <h5>Na dlhodobú investíciu vložíš 1000€, o rok hodnota tejto investície klesla na 900€. Čo urobíš?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostDlhodobaInvesticiaUserChoice"></span><span
               class="points financnaGramotnostDlhodobaInvesticiaPoints"></span></p>
@@ -715,6 +719,7 @@
           <strong>Výborne</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 2</strong></h3>
           <h5>Ak chceš mať poistenie a tiež investovať, aký produkt si vyberieš?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostPoisteniePriInvestovaniUserChoice"></span><span
               class="points financnaGramotnostPoisteniePriInvestovaniPoints"></span></p>
@@ -730,6 +735,7 @@
           <strong>Neutrálne</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 2</strong></h3>
           <h5>Ak chceš mať poistenie a tiež investovať, aký produkt si vyberieš?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostPoisteniePriInvestovaniUserChoice"></span><span
               class="points financnaGramotnostPoisteniePriInvestovaniPoints"></span></p>
@@ -745,6 +751,7 @@
           <strong>Zle</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 2</strong></h3>
           <h5>Ak chceš mať poistenie a tiež investovať, aký produkt si vyberieš?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostPoisteniePriInvestovaniUserChoice"></span><span
               class="points financnaGramotnostPoisteniePriInvestovaniPoints"></span></p>
@@ -762,6 +769,7 @@
           <strong>Výborne</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 3</strong></h3>
           <h5>V ktorých fondoch je najlepšie mať založený druhý pilier?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostDruhyPilierUserChoice"></span><span
               class="points financnaGramotnostDruhyPilierPoints"></span></p>
@@ -777,6 +785,7 @@
           <strong>Neutrálne</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 3</strong></h3>
           <h5>V ktorých fondoch je najlepšie mať založený druhý pilier?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostDruhyPilierUserChoice"></span><span
               class="points financnaGramotnostDruhyPilierPoints"></span></p>
@@ -792,6 +801,7 @@
           <strong>Zle</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 3</strong></h3>
           <h5>V ktorých fondoch je najlepšie mať založený druhý pilier?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostDruhyPilierUserChoice"></span><span
               class="points financnaGramotnostDruhyPilierPoints"></span></p>
@@ -809,6 +819,7 @@
           <strong>Výborne</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 4</strong></h3>
           <h5>V banke máš vložených 1000€ s 1%-ným výnosom. Aká bude reálna hodnota Tvojich peňazí o rok?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostVynosUserChoice"></span><span
               class="points financnaGramotnostVynosPoints"></span></p>
@@ -824,6 +835,7 @@
           <strong>Neutrálne</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 4</strong></h3>
           <h5>V banke máš vložených 1000€ s 1%-ným výnosom. Aká bude reálna hodnota Tvojich peňazí o rok?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostVynosUserChoice"></span><span
               class="points financnaGramotnostVynosPoints"></span></p>
@@ -839,6 +851,7 @@
           <strong>Zle</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 4</strong></h3>
           <h5>V banke máš vložených 1000€ s 1%-ným výnosom. Aká bude reálna hodnota Tvojich peňazí o rok?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostVynosUserChoice"></span><span
               class="points financnaGramotnostVynosPoints"></span></p>
@@ -856,6 +869,7 @@
           <strong>Výborne</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 5</strong></h3>
           <h5>Máš 100 000€ a chceš si kúpiť byt v hodnote 100 000€, čo urobíš?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostBytUserChoice"></span><span
               class="points financnaGramotnostBytPoints"></span></p>
@@ -871,6 +885,7 @@
           <strong>Neutrálne</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 5</strong></h3>
           <h5>Máš 100 000€ a chceš si kúpiť byt v hodnote 100 000€, čo urobíš?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostBytUserChoice"></span><span
               class="points financnaGramotnostBytPoints"></span></p>
@@ -886,6 +901,7 @@
           <strong>Zle</strong>
         </div>
         <div class="section-big__card__content">
+          <h3><strong>Otázka 5</strong></h3>
           <h5>Máš 100 000€ a chceš si kúpiť byt v hodnote 100 000€, čo urobíš?</h5>
           <p>Tvoja odpoveď: <span class="financnaGramotnostBytUserChoice"></span><span
               class="points financnaGramotnostBytPoints"></span></p>
@@ -985,7 +1001,7 @@
     </div>
     <div class="form-consultation__body">
       <div class="mt-8">
-        <h5 class="text-center">Na úvodnej bezplatnej konzultácii sa chcem informovať o:</h5>
+        <h5 id="chcemSaInfo-subtitle" >Na úvodnej bezplatnej konzultácii sa chcem informovať o:</h5>
         <label style="display:none;"
           class="ml-4 checkbox naj_help_produktyUverHypotekaPozickaNiePlanujem naj_help_coChcesVedietVlastneByvanie"
           for="chcemSaInfo1">Podmienkach za akých mi banka poskytne hypotéku
@@ -994,85 +1010,78 @@
         </label>
         <label style="display:none;"
           class="ml-4 checkbox naj_help_produktyHypotekaUrokDo2 naj_help_produktyHypotekaUrokViacAko2 naj_help_produktyHypotekaUrokNeviem"
-          for="chcemSaInfo2">Zhodnotíme či sa v Tvojom prípade oplatí refinancovať hypotéka na nižší úrok
+          for="chcemSaInfo2">Možnostiach a výhodnosti refinancovania mojej hypotéky
           <input type="checkbox" name="chcemSaInfo2" id="chcemSaInfo2" checked>
           <span class="checkmark"></span>
         </label>
         <label style="display:none;" class="ml-4 checkbox naj_help_produktyInvesticieSporeniaNiePlanujem"
-          for="chcemSaInfo3">Porovnáme
-          dostupné investičné produkty a odporučíme tie, ktorá by Ti najviac vyhovovali
+          for="chcemSaInfo3">Možnostiach investovania
           <input type="checkbox" name="chcemSaInfo3" id="chcemSaInfo3" checked>
           <span class="checkmark"></span>
         </label>
         <label style="display:none;"
           class="ml-4 checkbox naj_help_produktyInvesticieSporeniaAno naj_help_produktyInvesticieSporeniaAnoAPlanujemDalsie"
-          for="chcemSaInfo4">Pozrieme sa na Tvoju investičnú stratégiu a porovnáme ju s aktuálnymi možnosťami
+          for="chcemSaInfo4">Zhodnotení a poplatkoch mojej aktuálnej investície
           <input type="checkbox" name="chcemSaInfo4" id="chcemSaInfo4" checked>
           <span class="checkmark"></span>
         </label>
         <label style="display:none;" class="ml-4 checkbox naj_help_produktyDruhyPilierNiePlanujem"
-          for="chcemSaInfo5">Založíme Ti druhý
-          pilier so správne nastavenou stratégiou
+          for="chcemSaInfo5">Postupe ako si založiť druhý pilier
           <input type="checkbox" name="chcemSaInfo5" id="chcemSaInfo5" checked>
           <span class="checkmark"></span>
         </label>
         <label style="display:none;"
           class="ml-4 checkbox naj_help_produktyDruhyPilierFondyAkciove naj_help_produktyDruhyPilierFondyDlhopisove"
-          for="chcemSaInfo6">Prenastavíme Ti druhý pilier na tie najvýhodnejšie fondy
+          for="chcemSaInfo6">Postupe ako si správne nastaviť druhý pilier
           <input type="checkbox" name="chcemSaInfo6" id="chcemSaInfo6" checked>
           <span class="checkmark"></span>
         </label>
         <label style="display:none;"
           class="ml-4 checkbox naj_help_produktyZivotnePoistenieAno naj_help_produktyZivotnePoistenieRodicia"
-          for="chcemSaInfo7">Skontrolujeme Ti poistenie a zhodnotíme, či spĺňa Tvoje očakávania
+          for="chcemSaInfo7">Aktuálnom nastavení môjho životného poistenia
           <input type="checkbox" name="chcemSaInfo7" id="chcemSaInfo7" checked>
           <span class="checkmark"></span>
         </label>
         <label style="display:none;" class="ml-4 checkbox naj_help_coChcesVedietIdealneRozlozenie"
-          for="chcemSaInfo8">Pomôžeme Ti nastaviť
-          čo najefektívnejšie rozloženie portfólia vzhľadom na Tvoje ciele
+          for="chcemSaInfo8">Ideálnom rozložení mojich financií
           <input type="checkbox" name="chcemSaInfo8" id="chcemSaInfo8" checked>
           <span class="checkmark"></span>
         </label>
         <label style="display:none;"
           class="ml-4 checkbox naj_help_produktyInvesticieSporeniaNiePlanujem naj_help_produktyInvesticieSporeniaAnoAPlanujemDalsie naj_help_odkladaniePenaziSposobBeznyUcet naj_help_odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca naj_help_odkladaniePenaziSposobNie naj_help_odkladaniePenaziSposobSporiaciUcetPriebezne naj_help_odkladaniePenaziSposobRazZaCas"
-          for="chcemSaInfo9">Ukážeme Ti sporiace účty, ktoré sú zadarmo, a majú aj zhodnotenie
+          for="chcemSaInfo9">Alternatívach oproti bežnému účtu v banke
           <input type="checkbox" name="chcemSaInfo9" id="chcemSaInfo9" checked>
           <span class="checkmark"></span>
         </label>
         <label style="display:none;" class="ml-4 checkbox naj_help_produktyDruhyPilierFondyNeviem"
-          for="chcemSaInfo10">Skontrolujeme Ti, či
-          máš druhý pilier nastavený správne
+          for="chcemSaInfo10">Nastavení môjho druhého piliera
           <input type="checkbox" name="chcemSaInfo10" id="chcemSaInfo10" checked>
           <span class="checkmark"></span>
         </label>
         <label style="display:none;" class="ml-4 checkbox naj_help_produktyZivotnePoistenieInvesticiaAno"
-          for="chcemSaInfo11">Ukážeme Ti
-          všetky poplatky v Tvojom investičnom životnom poistení a navrhneme alternatívu
+          for="chcemSaInfo11">Poplatkoch v mojom investičnom životnom poistení a jeho výhodnejších alternatívach
           <input type="checkbox" name="chcemSaInfo11" id="chcemSaInfo11" checked>
           <span class="checkmark"></span>
         </label>
         <label style="display:none;" class="ml-4 checkbox naj_help_produktyTretiPilierNiePlanuje"
-          for="chcemSaInfo12">Porovnáme za Teba
-          všetky tretie piliere a odporučíme ten najvýhodnejší
+          for="chcemSaInfo12">Postupe ako si založiť tretí pilier
           <input type="checkbox" name="chcemSaInfo12" id="chcemSaInfo12" checked>
           <span class="checkmark"></span>
         </label>
         <label style="display:none;" class="ml-4 checkbox naj_help_produktyTretiPilierFondyNeviem"
-          for="chcemSaInfo13">Skontrolujeme Ti, či
-          máš tretí pilier nastavený správne
+          for="chcemSaInfo13">Nastavení môjho druhého piliera
           <input type="checkbox" name="chcemSaInfo13" id="chcemSaInfo13" checked>
           <span class="checkmark"></span>
         </label>
         <label style="display:none;"
           class="ml-4 checkbox naj_help_produktyZivotnePoistenieNiePlanujem naj_help_produktyZivotnePoistenieNie"
-          for="chcemSaInfo14">Navrhneme Ti životné poistenie tak, aby spĺnalo všetky Tvoje potreby
+          for="chcemSaInfo14">Nastavení ideálneho životného poistenia
           <input type="checkbox" name="chcemSaInfo14" id="chcemSaInfo14" checked>
           <span class="checkmark"></span>
         </label>
       </div>
       <div class="mt-8">
-        <h5>Ako ťa máme kontaktovať?</h5>
+        <h5>Ako Ťa máme kontaktovať?</h5>
         <div class="text-input">
           <i class="fa fa-envelope"></i>
           <label for="email">Mailom:</label>
@@ -1097,8 +1106,8 @@
   </div>
   <div class="popup__wrapper">
     <form action="#">
-      <h4 class="popup__title">Vyhodnotenie ti zašleme na email</h4>
-      <div class="poup__subtitle mt-2">Nakoľko sa uloží aj u nás, budeš si ho môcť kedykoľvek vyžiadať znovu.</div>
+      <h4 class="popup__title">Vyhodnotenie Ti zašleme na email</h4>
+      <div class="popup__subtitle mt-2">Nakoľko sa uloží aj u nás, budeš si ho môcť kedykoľvek vyžiadať znovu.</div>
       <div class="text-input inline-block mt-8">
         <i class="fa fa-envelope"></i>
         <label for="result-email">Mail:</label>
@@ -1108,5 +1117,6 @@
         <input type="submit" class="button-main mt-4" value="Odoslať">
       </div>
     </form>
-  </div>
+  </div>  
 </div>
+
