@@ -11,7 +11,7 @@ export class ResultEmail {
     if (!this.isEmailValid(email_klient)) return;
 
     // email body
-    email_body = "Gratulujeme <br> k vyplneniu.";
+    email_body = "<div style='background-color: #fff5eb; padding: 30px;'><h1 style='text-align: center;'>Ahoj, ďakujeme za Tvoj čas pri vypĺňan&iacute; testu.</h1><h2 style='text-align: center;'>Ver&iacute;me, že Ťa naučil niečo nov&eacute;.</h2><div>&nbsp;</div><div>&nbsp;</div><blockquote><h3>Vyhodnotenie m&aacute;&scaron; teraz k dispoz&iacute;cii aj offline.</h3><h3><strong>Dostane&scaron; sa k nemu nasledovne:</strong></h3></blockquote><ol><li><p><strong>V pr&iacute;lohe klikni na 'Stiahnuť'</strong></p></li><li><p><strong>Klikni na stiahnut&yacute; s&uacute;bor a&nbsp;n&aacute;sledne na 'otvoriť&nbsp;s'</strong></p></li><li><p><strong>Vyber svoj prehliadač</strong></p></li></ol></div>";
 
     // email attachments
     var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + dataURL + "'></head>";
@@ -56,7 +56,7 @@ export class ResultEmail {
 
     // potvrdenie o ziadosti
     var email_potvrdenie_subject = "Ozveme sa Ti";
-    var email_potvrdenie_body = "Ozveme sa Ti ohladne žiadosti o bezplatnú konzultáciu";
+    var email_potvrdenie_body = "<div style='background-color: #fff5eb; padding: 30px;'><h1 style='text-align: center;'>Ahoj, ďakujeme za z&aacute;ujem o konzult&aacute;ciu.</h1><h3 style='text-align: center;'>Ozveme sa Ti do 24 hod&iacute;n.</h3><p style='text-align: center;'><br />Zatiaľ si o n&aacute;s m&ocirc;že&scaron; zistiť viac na <a href='https://montest.sk' target='_blank' rel='noopener'>na&scaron;om webe.</a></p></div>";
     this.emailSend(email_klient, email_montest, email_potvrdenie_subject, email_potvrdenie_body);
   }
   static emailSend(to: string, from: string, subject: string, body: string, attachment: any = undefined): void {
@@ -84,7 +84,7 @@ export class ResultEmail {
         Body: body,
         Attachments: [
           {
-            name: "Vysledok.html",
+            name: "Vyhodnotenie.html",
             data: attachment
           }
         ]

@@ -238,7 +238,7 @@ export class ResultComponent implements OnInit {
   saveHTML_dataURL(): void {
     var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + this.getDataURL() + "'></head>";
     var fileBlob = new Blob([htmlContent], { type: "text/plain;charset=utf-8" });
-    var fileName = "Vysledok.html";
+    var fileName = "Vyhodnotenie.html";
     FileSaver.saveAs(fileBlob, fileName);
   }
   clipboard(value: string): void {
