@@ -571,12 +571,12 @@
               "text": "áno, mám úver alebo pôžičku"
             },
             {
-              "value": "produktyUverHypotekaPozickaNie",
-              "text": "nie"
-            },
-            {
               "value": "produktyUverHypotekaPozickaNiePlanujem",
               "text": "nie, ale plánujem v budúcnosti hypotéku"
+            },
+            {
+              "value": "produktyUverHypotekaPozickaNie",
+              "text": "nie"
             }
           ]
         }
@@ -1354,7 +1354,7 @@
             },
             {
               "value": "financnaGramotnostPoisteniePriInvestovaniZvlast",
-              "text": "životné poistenie a sporenie zvlásť"
+              "text": "životné poistenie a sporenie zvlášť"
             },
             {
               "value": "financnaGramotnostPoisteniePriInvestovaniNeviem",
@@ -1439,6 +1439,7 @@
           "type": "radiogroup",
           "name": "financnaGramotnostByt",
           "title": "5 Máš 100,000€ a chceš si kúpiť byt v tejto hodnote, čo urobíš?",
+          "description": "(Rezervu už máš vybudovanú.)",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
