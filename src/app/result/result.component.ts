@@ -102,45 +102,6 @@ export class ResultComponent implements OnInit {
     }
   }
 
-  createDozviesSaViac(): void {
-    var dozviesSaViacO = "Viac o ";
-    var stringy = [];
-    if (this.data.coChcesVediet) {
-      for (let i = 0; i < this.data.coChcesVediet.length; i++) {
-        const entry = this.data.coChcesVediet[i];
-        switch (entry) {
-          case "coChcesVedietInvestovanie":
-            stringy[stringy.length] = "investovaní";
-            break;
-          case "coChcesVedietIdealneRoznozenie":
-            stringy[stringy.length] = "ideálnom rozložení";
-            break;
-          case "coChcesVedietVlastneByvanie":
-            stringy[stringy.length] = "vlastnom bývaní";
-            break;
-          case "coChcesVedietFinancnaNezavislost":
-            stringy[stringy.length] = "finančnej nezávislosti";
-            break;
-          case "coChcesVedietMenezovanieVydavkov":
-            stringy[stringy.length] = "menežovaní výdavkov";
-            break;
-        }
-      }
-    }
-    for (let i = 0; i < stringy.length; i++) {
-      if (i == stringy.length - 1) {
-        dozviesSaViacO += " a ";
-      } else if (i != 0) {
-        dozviesSaViacO += ", ";
-      }
-      const entry = stringy[i];
-      dozviesSaViacO += entry;
-    }
-    dozviesSaViacO += ".";
-
-    document.getElementById("dozviesSaViacO").innerHTML = dozviesSaViacO;
-  }
-
   getQuestionById(id: string) {
     for (let i = 0; i < questionDetails.questions.length; i++) {
       const question = questionDetails.questions[i];
@@ -213,7 +174,7 @@ export class ResultComponent implements OnInit {
       } else if (id.startsWith("coChcesVediet")) {
         var answers = this.getAnswersStartingWithId(id);
         // zobrazi "nadpis"
-        this.showElementsByClass(id);
+        if (answers.length > 0) this.showElementsByClass(id);
         for (let i = 0; i < answers.length; i++) {
           const answer = answers[i];
           // vygeneruje toggleElement do divu podla 'id'

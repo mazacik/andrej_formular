@@ -1,7 +1,7 @@
 export class ResultEmail {
   static email_dataURL(dataURL: string): void {
-    if (this.spamCheck()) return;
-//ulozit subor
+    // if (this.spamCheck()) return;
+    //ulozit subor
     var to = "";
     var from = "kontakt@montest.sk";
     var subject = "Výsledky Tvojho finančného dotazníku";
@@ -34,8 +34,9 @@ export class ResultEmail {
     });
   }
   static email_ziadost(dataURL: string, data: any): void {
-    if (this.spamCheck()) return;
-
+    // if (this.spamCheck()) return;
+    // TODO MICHAL znova zapnut kontrolu
+    
     var to = "andrej.nejedlik@montest.sk";
     var from = "";
     var subject = "Žiadosť o úvodnú konzultáciu zdarma";
@@ -85,7 +86,7 @@ export class ResultEmail {
       email.send({
         // v google ucet nastaveniach treba vypnut 2-faktor autentifikaciu
         // v google ucet nastaveniach treba povolit "less secure apps"
-        SecureToken : "d2e87481-99b4-4ffc-b5bb-f3a8eef61c2e",
+        SecureToken: "d2e87481-99b4-4ffc-b5bb-f3a8eef61c2e",
         To: to,
         From: from,
         Subject: subject,
@@ -101,7 +102,7 @@ export class ResultEmail {
       email.send({
         // v google ucet nastaveniach treba vypnut 2-faktor autentifikaciu
         // v google ucet nastaveniach treba povolit "less secure apps"
-        SecureToken : "d2e87481-99b4-4ffc-b5bb-f3a8eef61c2e",
+        SecureToken: "d2e87481-99b4-4ffc-b5bb-f3a8eef61c2e",
         To: to,
         From: from,
         Subject: subject,

@@ -867,6 +867,7 @@
               "visibleIf": "{row.frekvenciaPlatby} = 'frekvenciaPlatbyNepravidelne'",
               "requiredIf": "{row.frekvenciaPlatby} notempty",
               "inputType": "number",
+              "requiredErrorText": "Otázka je povinná.",
               "min": "0"
             },
             {
@@ -1065,6 +1066,7 @@
               "visibleIf": "{row.dynamickeInvesticieFrekvenciaPlatby} = 'dynamickeInvesticieFrekvenciaPlatbyNepravidelne'",
               "requiredIf": "{row.dynamickeInvesticieFrekvenciaPlatby} notempty",
               "inputType": "number",
+              "requiredErrorText": "Otázka je povinná.",
               "min": "0"
             },
             {
