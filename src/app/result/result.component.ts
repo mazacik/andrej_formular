@@ -204,6 +204,8 @@ export class ResultComponent implements OnInit {
 
           // vygeneruje toggleElement do divu podla 'id'
           ToggleElement.create(answer.id, answer.resultTitle, answer.resultVysvetlenie, answer.resultPointsStratil);
+        } else {
+          console.log(id);
         }
       }
     } else {
@@ -228,7 +230,9 @@ export class ResultComponent implements OnInit {
     var elements = document.getElementsByClassName(c);
     for (let i = 0; i < elements.length; i++) {
       const element = elements[i];
+      //const element = (<any>elements[i]);
       element.removeAttribute("hidden");
+      //if(element.getAttribute("display") == "none") element.style.display = "flex";
     }
   }
 
