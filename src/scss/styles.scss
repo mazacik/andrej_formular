@@ -61,7 +61,7 @@ h5.sv_q_title span {
 }
 
 .sv_q_radiogroup, .sv_q_checkbox {
-  padding: 20px;
+  padding: 15px;
   background-color: rgba($color3, .4);
   margin: 8px 0;
   box-shadow: rgba($color1, .4) 0 0 0 1px inset;
@@ -187,6 +187,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 
 .sv_next_btn, .sv_complete_btn {
   margin-left: 8px;
+  padding: 3px 30px !important;
   background-color: $color2!important;
 }
 
@@ -398,7 +399,7 @@ background: -webkit-linear-gradient(top,  #ffefd2 11%,#ffffff 21%,#ffffff 30%,#f
 background: linear-gradient(to bottom,  #ffefd2 11%,#ffffff 21%,#ffffff 30%,#ffefd2 46%,#ffefd2 53%,#ffffff 63%,#ffffff 63%,#ffffff 75%,#ffffff 75%,#ffefd2 83%,#ffffff 92%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefd2', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 
-
+background-repeat: no-repeat;
 
 }
 
@@ -723,6 +724,7 @@ body.sekciaOkruhyZaujmu {
   color: white;
   display: inline-block;
   margin: 0 4px;
+  padding: 3px 30px !important;
 }
 
 .survey-navigation {
