@@ -9,7 +9,7 @@
   "pagePrevText": "←",
   "pageNextText": "→",
   "completeText": "Dokončiť",
-  "showNavigationButtons": "bottom",
+  "showNavigationButtons": false,
   "showQuestionNumbers": "off",
   "editText": "Upraviť",
   "pages": [
@@ -159,7 +159,7 @@
               "value": "nemaPrijemAnoChcemPokracovat",
               "text": "Áno, chcem aj tak pokračovať"
             }
-           
+
           ]
         }
       ],
@@ -1242,7 +1242,7 @@
         {
           "type": "text",
           "name": "financnaRezervaMesacne",
-          "title": "Za mesiac si v priemere odložíš {odkladaniePenaziVyska}€, koľko z toho vnímaš ako finančnú rezervu?", 
+          "title": "Za mesiac si v priemere odložíš {odkladaniePenaziVyska}€, koľko z toho vnímaš ako finančnú rezervu?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "description": "(nerátaj peniaze, ktoré dávaš do sporiacich produktov mimo banky)",
@@ -1460,7 +1460,7 @@
         }
       ]
     },
-    
+
     {
       "name": "pageCoChcesVediet",
       "elements": [

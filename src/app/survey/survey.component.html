@@ -1,5 +1,12 @@
 <div id="surveyContainerMain">
-  <div id="surveyNavBar"></div>
+  <div id="surveyNavBarWrapper">
+    <div id="surveyNavBar"></div>
+    <div class="text-center survey-navigation">
+      <div class="sv_next_btn" id="surveyPrev" onclick="survey.prevPage();"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+      <div class="sv_prev_btn" id="surveyNext" onclick="survey.nextPage();"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+      <div class="sv_complete_btn" id="surveyComplete" onclick="survey.completeLastPage();">Dokončiť</div>
+    </div>
+  </div>
 
   <div id="surveyContainer" class="survey-container contentcontainer codecontainer">
     <div id="surveyElement"></div>

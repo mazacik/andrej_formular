@@ -34,7 +34,7 @@ h1 {
 
 .sv_nav {
   position: absolute;
-  bottom: 0;
+  top: 103px;
   left: 0;
   right: 0;
   padding: 24px!important;
@@ -162,7 +162,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
   -moz-appearance: textfield;
 }
 
-.sv_next_btn, .sv_prev_btn, .button-main {
+.button-main {
   background-color: $color2!important;
   font-size: 1.6em;
   font-weight: bold;
@@ -227,7 +227,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 
 
 /*navigacny bar*/
-.navigationContainer {
+#surveyNavBarWrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -706,4 +706,20 @@ body.sekciaOkruhyZaujmu {
 
 .contact-button {
   font-size: 0.7em !important;
+}
+
+.sv_next_btn, .sv_prev_btn, .sv_complete_btn {
+  background-color: $color2!important;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 2px;
+  color: white;
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.survey-navigation {
+  margin: 0 32px;
 }
