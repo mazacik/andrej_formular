@@ -312,14 +312,14 @@
       "id": "produktyTretiPilierNie",
       "choiceString": "",
       "resultTitle": "Nemáš tretí pilier.",
-      "resultVysvetlenie": "Tretí pilier je účet, na ktorý si vieš sporiť na dôchodok. Jeho založenie je pre Teba výhodné iba vtedy, ak by Ti naň prispieval aj zamestnávateľ. V tom prípade dostaneš na dôchodok zadarmo peniaze. Nie každý zamestnávateľ však tento benefit poskytuje, preto sa určite v práci spýtaj, ako je to u vás.",
+      "resultVysvetlenie": "Tretí pilier je účet, v ktorom si vieš sporiť na dôchodok. Jeho založenie je pre Teba výhodné iba vtedy, ak by Ti naň prispieval aj zamestnávateľ. V tom prípade dostaneš na dôchodok zadarmo peniaze. Nie každý zamestnávateľ však tento benefit poskytuje, preto sa určite v práci spýtaj, ako je to u vás.",
       "resultPointsStratil": 0.5
     },
     {
       "id": "produktyTretiPilierNeviemCoToJe",
       "choiceString": "",
       "resultTitle": "Nevieš, čo znamená tretí pilier.",
-      "resultVysvetlenie": "Tretí pilier je účet, na ktorý si vieš sporiť na dôchodok. Jeho založenie je pre Teba výhodné iba vtedy, ak by Ti naň prispieval aj zamestnávateľ. V tom prípade dostaneš na dôchodok zadarmo peniaze. Nie každý zamestnávateľ však tento benefit poskytuje, preto sa určite v práci spýtaj, ako je to u vás.",
+      "resultVysvetlenie": "Tretí pilier je účet, v ktorom si vieš sporiť na dôchodok. Jeho založenie je pre Teba výhodné iba vtedy, ak by Ti naň prispieval aj zamestnávateľ. V tom prípade dostaneš na dôchodok zadarmo peniaze. Nie každý zamestnávateľ však tento benefit poskytuje, preto sa určite v práci spýtaj, ako je to u vás.",
       "resultPointsStratil": 0.5
     },
     {
