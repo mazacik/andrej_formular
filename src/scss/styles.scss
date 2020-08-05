@@ -34,7 +34,7 @@ h1 {
 
 .sv_nav {
   position: absolute;
-  bottom: 0;
+  top: 103px;
   left: 0;
   right: 0;
   padding: 24px!important;
@@ -162,7 +162,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
   -moz-appearance: textfield;
 }
 
-.sv_next_btn, .sv_prev_btn, .button-main {
+.button-main {
   background-color: $color2!important;
   font-size: 1.6em;
   font-weight: bold;
@@ -227,7 +227,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 
 
 /*navigacny bar*/
-.navigationContainer {
+#surveyNavBarWrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -390,11 +390,16 @@ color: black !important;
 }
 
 body {
-  background-color: $bg1;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-image:url(/assets/bg/UvodneOtazky.png);
+  background-image: none;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffefd2+11,ffffff+21,ffffff+30,ffefd2+46,ffefd2+53,ffffff+63,ffffff+63,ffffff+75,ffffff+75,ffefd2+83,ffffff+92 */
+background: #ffefd2; /* Old browsers */
+background: -moz-linear-gradient(top,  #ffefd2 11%, #ffffff 21%, #ffffff 30%, #ffefd2 46%, #ffefd2 53%, #ffffff 63%, #ffffff 63%, #ffffff 75%, #ffffff 75%, #ffefd2 83%, #ffffff 92%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #ffefd2 11%,#ffffff 21%,#ffffff 30%,#ffefd2 46%,#ffefd2 53%,#ffffff 63%,#ffffff 63%,#ffffff 75%,#ffffff 75%,#ffefd2 83%,#ffffff 92%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #ffefd2 11%,#ffffff 21%,#ffffff 30%,#ffefd2 46%,#ffefd2 53%,#ffffff 63%,#ffffff 63%,#ffffff 75%,#ffffff 75%,#ffefd2 83%,#ffffff 92%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefd2', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+
+
 }
 
 body.sekciaUvodneOtazky {
@@ -708,6 +713,22 @@ body.sekciaOkruhyZaujmu {
   font-size: 0.7em !important;
 }
 
+.sv_next_btn, .sv_prev_btn, .sv_complete_btn {
+  background-color: $color2!important;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 2px;
+  color: white;
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.survey-navigation {
+  margin: 0 32px;
+}
+
 .section-navigation-sidebar {
   position: fixed;
   left: 5px;
@@ -722,7 +743,7 @@ body.sekciaOkruhyZaujmu {
   .section-navigation-sidebar {
   display: none;
   }
- 
+
   }
 
   ::selection {
@@ -733,5 +754,3 @@ body.sekciaOkruhyZaujmu {
     background: #962913; /* WebKit/Blink Browsers */
     color: white;
   }
-
-

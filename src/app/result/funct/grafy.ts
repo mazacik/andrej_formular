@@ -42,7 +42,7 @@ export class ResultGraphs {
         maintainAspectRatio: false,
         legend: {
           labels: {
-            fontSize: 16
+            fontSize: 17
           }
         }
       }
@@ -83,7 +83,7 @@ export class ResultGraphs {
         maintainAspectRatio: false,
         legend: {
           labels: {
-            fontSize: 16
+            fontSize: 17
           }
         }
       }

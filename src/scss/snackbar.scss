@@ -3,7 +3,8 @@
 .snackbar-container {
   transition: all 500ms ease;
   transition-property: top, right, bottom, left, opacity;
-  font-family: Roboto, sans-serif;
+  font-family: Open Sans, sans-serif;
+  font-weight: 500 !important;
   font-size: 14px;
   min-height: 14px;
   background-color: $tippyColor!important;

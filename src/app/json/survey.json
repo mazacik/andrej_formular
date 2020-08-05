@@ -9,7 +9,7 @@
   "pagePrevText": "←",
   "pageNextText": "→",
   "completeText": "Dokončiť",
-  "showNavigationButtons": "bottom",
+  "showNavigationButtons": false,
   "showQuestionNumbers": "off",
   "editText": "Upraviť",
   "pages": [
@@ -159,7 +159,7 @@
               "value": "nemaPrijemAnoChcemPokracovat",
               "text": "Áno, chcem aj tak pokračovať"
             }
-           
+
           ]
         }
       ],
@@ -571,12 +571,12 @@
               "text": "áno, mám úver alebo pôžičku"
             },
             {
-              "value": "produktyUverHypotekaPozickaNie",
-              "text": "nie"
-            },
-            {
               "value": "produktyUverHypotekaPozickaNiePlanujem",
               "text": "nie, ale plánujem v budúcnosti hypotéku"
+            },
+            {
+              "value": "produktyUverHypotekaPozickaNie",
+              "text": "nie"
             }
           ]
         }
@@ -1244,7 +1244,7 @@
         {
           "type": "text",
           "name": "financnaRezervaMesacne",
-          "title": "Za mesiac si v priemere odložíš {odkladaniePenaziVyska}€, koľko z toho vnímaš ako finančnú rezervu?", 
+          "title": "Za mesiac si v priemere odložíš {odkladaniePenaziVyska}€, koľko z toho vnímaš ako finančnú rezervu?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "description": "(nerátaj peniaze, ktoré dávaš do sporiacich produktov mimo banky)",
@@ -1354,7 +1354,7 @@
             },
             {
               "value": "financnaGramotnostPoisteniePriInvestovaniZvlast",
-              "text": "životné poistenie a sporenie zvlásť"
+              "text": "životné poistenie a sporenie zvlášť"
             },
             {
               "value": "financnaGramotnostPoisteniePriInvestovaniNeviem",
@@ -1439,6 +1439,7 @@
           "type": "radiogroup",
           "name": "financnaGramotnostByt",
           "title": "5 Máš 100,000€ a chceš si kúpiť byt v tejto hodnote, čo urobíš?",
+          "description": "(Rezervu už máš vybudovanú.)",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
@@ -1462,7 +1463,7 @@
         }
       ]
     },
-    
+
     {
       "name": "pageCoChcesVediet",
       "elements": [

@@ -50,6 +50,7 @@
       font-weight: 600;
     }
     h3, strong {
+      margin-top: 50px !important;
       font-size: 55px;
       @media (max-width: 768px) {
         font-size: 40px;
@@ -292,7 +293,7 @@
 
 .form-consultation {
   //padding: 64px;
-  margin: 64px;
+  margin: 150px;
   background-color: rgba(#FFF5E4, 1);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 padding-bottom: 20px;
