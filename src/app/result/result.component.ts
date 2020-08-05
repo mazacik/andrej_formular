@@ -232,7 +232,7 @@ export class ResultComponent implements OnInit {
       const element = elements[i];
       //const element = (<any>elements[i]);
       element.removeAttribute("hidden");
-      //if(element.getAttribute("display") == "none") element.style.display = "flex";
+      if (window.getComputedStyle(element).display == "none") (<any>element).style.display = "flex";
     }
   }
 

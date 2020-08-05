@@ -169,7 +169,7 @@
 .section-big {
   margin-top: 180px;
   &__card {
-    display: flex;
+    display: none;
     margin: 40px 150px;
 
     @media (max-width: 768px) {
