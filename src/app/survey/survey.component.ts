@@ -124,7 +124,15 @@ export class SurveyComponent implements OnInit {
     this.insertAlternativeNextButton();
     this.surveyNavBar.updateNavBar(this.survey);
 
+    this.updateNavButtons();
+
     SurveyTooltip.createTooltips(this.survey);
+  }
+
+  updateNavButtons() {
+    document.getElementById('surveyPrev').style.display = !this.survey.isFirstPage ? "inline-block" : "none";
+    document.getElementById('surveyNext').style.display = !this.survey.isLastPage ? "inline-block" : "none";
+    document.getElementById('surveyComplete').style.display = this.survey.isLastPage ? "inline-block" : "none";
   }
 
   onUpdateQuestionCssClasses(survey: Survey.SurveyModel, options: any): void {
