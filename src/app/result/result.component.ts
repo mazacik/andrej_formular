@@ -258,7 +258,7 @@ export class ResultComponent implements OnInit {
     this.clipboard(this.getDataURL());
   }
   email_dataURL(): void {
-    ResultEmail.email_dataURL(this.getDataURL());
+    ResultEmail.email_dataURL(this.getDataURL(), this.data);
   }
   email_ziadost(): void {
     ResultEmail.email_ziadost(this.getDataURL(), this.data);
