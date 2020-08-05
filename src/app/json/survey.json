@@ -451,7 +451,7 @@
         {
           "type": "text",
           "name": "produktyTretiPilierVyskaPrispevkuZamestnavatela",
-          "title": "Koľko mesačne ti prispieva zamestnávateľ?",
+          "title": "Koľko mesačne Ti prispieva zamestnávateľ?",
           "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",

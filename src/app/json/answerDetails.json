@@ -133,6 +133,52 @@
       "resultPointsStratil": 0
     },
     {
+      "id": "produktyUverHypotekaPozickaNiePlanujem",
+      "resultPointsStratil": 0
+    },
+    {
+      "id": "produktyHypotekaUrokDo1",
+      "resultPointsStratil": 0
+    },
+    {
+      "id": "produktyUverPozickaUrokDo5",
+      "resultPointsStratil": 0
+    },
+    {
+      "id": "produktyBeznyUcetNie",
+      "resultPointsStratil": 0
+    }, 
+    {
+      "id": "produktyInvesticieSporeniaAno",
+      "resultPointsStratil": 0
+    },
+    {
+      "id": "produktyInvesticieSporeniaAnoAPlanujemDalsie",
+      "resultPointsStratil": 0
+    },
+    {
+      "id": "sKymSaRadisFinancnyPoradca",
+      "resultPointsStratil": 0
+    },
+    {
+      "id": "omeskanieSplatkyNie",
+      "resultPointsStratil": 0
+    },
+    {
+      "id": "prehladOVydavkochKazdyVydavok",
+      "resultPointsStratil": 0
+    },   
+    {
+    "id": "produktyDruhyPilierAno",
+      "resultPointsStratil": 0
+    },  
+    {
+      "id": "produktyTretiPilierAnoZamestnavatelPrispieva",
+        "resultPointsStratil": 0
+      },  
+    
+
+    {
       "id": "coChcesVedietVlastneByvanie1",
       "choiceString": "",
       "resultTitle": "Koľko potrebuješ peňazí? ",
@@ -406,6 +452,12 @@
       "resultPointsStratil": 1
     },
     {
+      "id": "produktyZivotnePoistenieInvesticiaNie",
+      "choiceString": "",
+      "resultPointsStratil": 0
+    },
+    
+    {
       "id": "produktyZivotnePoistenieInvesticiaNeviem",
       "choiceString": "",
       "resultTitle": "Nevieš či máš poistenie spojené s investíciou.",
@@ -556,6 +608,16 @@
     },
     {
       "id": "produktyDruhyPilierFondyIndexove",
+      "choiceString": "",
+      "resultPointsStratil": 0
+    },
+    {
+      "id": "odkladaniePenaziSposobSporiaciUcetPoVyplate",
+      "choiceString": "",
+      "resultPointsStratil": 0
+    },
+    {
+      "id": "produktyZivotnePoistenieAno",
       "choiceString": "",
       "resultPointsStratil": 0
     },
