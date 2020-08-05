@@ -154,10 +154,12 @@ export class ResultComponent implements OnInit {
         element.innerHTML = answer.choiceString;
       }
 
-      var userChoiceElements = document.getElementsByClassName(question.id + "Points");
-      for (let i = 0; i < userChoiceElements.length; i++) {
-        const element = userChoiceElements[i];
-        element.innerHTML = "-" + answer.resultPointsStratil.toString() + "b";
+      if (answer.resultPointsStratil != 0) {
+        var userChoiceElements = document.getElementsByClassName(question.id + "Points");
+        for (let i = 0; i < userChoiceElements.length; i++) {
+          const element = userChoiceElements[i];
+          element.innerHTML = "-" + answer.resultPointsStratil.toString() + "b";
+        }
       }
 
       ToggleElement.create(question.id, "Vysvetlenie", question.resultVysvetlenie, -1, "Vysvetlenie");
@@ -206,6 +208,7 @@ export class ResultComponent implements OnInit {
       }
     } else {
       // odpoved je objekt (matica)
+      console.log("123456789");
     }
   }
 

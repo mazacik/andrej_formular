@@ -25,6 +25,15 @@ export class ResultNaj3 {
             countGood++;
             break;
           }
+        } else if (typeof answer == 'object') {
+          for (let i = 0; i < answer.length; i++) {
+            const a = answer[i];
+            if (entry.endsWith(a)) {
+              this.showElementsByClass(entry);
+              countGood++;
+              break;
+            }
+          }
         }
       }
     }
@@ -47,6 +56,15 @@ export class ResultNaj3 {
             this.showElementsByClass(entry);
             countBad++;
             break;
+          }
+        } else if (typeof answer == 'object') {
+          for (let i = 0; i < answer.length; i++) {
+            const a = answer[i];
+            if (entry.endsWith(a)) {
+              this.showElementsByClass(entry);
+              countBad++;
+              break;
+            }
           }
         }
       }
@@ -72,6 +90,17 @@ export class ResultNaj3 {
             this.showElementsByClass(className);
             countHelp++;
             break;
+          }
+        } else if (typeof answer == 'object') {
+          for (let i = 0; i < answer.length; i++) {
+            const a = answer[i];
+            if (entry.endsWith(a)) {
+              var className = entry;
+              if (countHelp >= 3) className += " checkbox";
+              this.showElementsByClass(className);
+              countHelp++;
+              break;
+            }
           }
         }
       }

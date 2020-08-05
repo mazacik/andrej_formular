@@ -1,72 +1,63 @@
 export class ResultEmail {
   static email_dataURL(dataURL: string): void {
     // if (this.spamCheck()) return;
-    //ulozit subor
-    var to = "";
-    var from = "kontakt@montest.sk";
-    var subject = "Výsledky Tvojho finančného dotazníku";
-    var body = "";
+    var email_klient = "";
+    var email_montest = "kontakt@montest.sk";
+    var email_subject = "Výsledky Tvojho finančného dotazníku";
+    var email_body = "";
 
-    // email from
-    var toElement = (<any>document.getElementById("emailKlientaVysledok"));
-    if (toElement) to = toElement.value; else return;
-    if (to.trim().length >= 7) {
-      const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      if (!regex.test(to)) {
-        // error - emailova adresa nezodpoveda regexu
-        return;
-      }
-    } else {
-      // error - emailova adresa ma menej ako 7 znakov
-      return;
-    }
+    var elementEmailKlient = (<any>document.getElementById("result-email"));
+    if (elementEmailKlient) email_klient = elementEmailKlient.value; else return;
+    if (!this.isEmailValid(email_klient)) return;
 
     // email body
-    body = "Gratulujeme <br> k vyplneniu.";
+    email_body = "Gratulujeme <br> k vyplneniu.";
 
     // email attachments
     var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + dataURL + "'></head>";
     var htmlFileBlob = new Blob([htmlContent], { type: "text/plain;charset=utf-8" });
 
-    var _this = this;
+    var that = this;
     this.blobToDataURL(htmlFileBlob, function (htmlUrl: any) {
-      _this.emailSend(to, from, subject, body, htmlUrl);
+      that.emailSend(email_klient, email_montest, email_subject, email_body, htmlUrl);
     });
   }
   static email_ziadost(dataURL: string, data: any): void {
     // if (this.spamCheck()) return;
     // TODO MICHAL znova zapnut kontrolu
-    
-    var to = "andrej.nejedlik@montest.sk";
-    var from = "";
-    var subject = "Žiadosť o úvodnú konzultáciu zdarma";
-    var body = "";
+
+    var email_montest = "andrej.nejedlik@montest.sk";
+    var email_klient = "";
+    var email_subject = "Žiadosť o úvodnú konzultáciu zdarma";
+    var email_body = "";
 
     // email from
-    var fromElement = (<any>document.getElementById("emailKlientaZiadost"));
-    if (fromElement) from = fromElement.value; else return;
-    if (from.trim().length >= 7) {
-      const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      if (!regex.test(from)) {
-        // error - emailova adresa nezodpoveda regexu
-        return;
-      }
-    } else {
-      // error - emailova adresa ma menej ako 7 znakov
-      return;
+    var elementEmailKlient = (<any>document.getElementById("email"));
+    if (elementEmailKlient) email_klient = elementEmailKlient.value; else return;
+    if (!this.isEmailValid(email_klient)) return;
+
+    // telefon
+    var elementTelefonKlient = (<any>document.getElementById("phone"));
+    if (elementTelefonKlient) {
+      email_body += "Telefónne číslo: " + elementTelefonKlient.value;
     }
 
     // email body
-    body = JSON.stringify(data);
+    email_body += "<br>\nData JSON: " + JSON.stringify(data);
 
     // email attachments
     var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + dataURL + "'></head>";
     var htmlFileBlob = new Blob([htmlContent], { type: "text/plain;charset=utf-8" });
-    var _this = this;
+    var that = this;
     this.blobToDataURL(htmlFileBlob, function (htmlUrl: any) {
       // send email
-      _this.emailSend(to, from, subject, body, htmlUrl);
+      that.emailSend(email_montest, email_klient, email_subject, email_body, htmlUrl);
     });
+
+    // potvrdenie o ziadosti
+    var email_potvrdenie_subject = "Ozveme sa Ti";
+    var email_potvrdenie_body = "Ozveme sa Ti ohladne žiadosti o bezplatnú konzultáciu";
+    this.emailSend(email_klient, email_montest, email_potvrdenie_subject, email_potvrdenie_body);
   }
   static emailSend(to: string, from: string, subject: string, body: string, attachment: any = undefined): void {
     var email = {
@@ -109,10 +100,22 @@ export class ResultEmail {
         Body: body
       });
     }
-
-    alert("Email bol odoslaný.");
   }
-  static blobToDataURL(blob: Blob, callback: { (htmlUrl: any): void; (htmlUrl: any): void; (arg0: string | ArrayBuffer): void; }) {
+
+  private static isEmailValid(email: string): boolean {
+    if (email.trim().length >= 6) {
+      const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (!regex.test(email)) {
+        // error - emailova adresa nezodpoveda regexu
+        return false;
+      }
+    } else {
+      // error - emailova adresa ma menej ako 6 znakov
+      return;
+    }
+    return true;
+  }
+  private static blobToDataURL(blob: Blob, callback: { (htmlUrl: any): void; (htmlUrl: any): void; (arg0: string | ArrayBuffer): void; }) {
     var fileReader = new FileReader();
     fileReader.onload = function (event) { callback(event.target.result); }
     fileReader.readAsDataURL(blob);
