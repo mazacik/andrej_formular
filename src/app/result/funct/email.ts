@@ -17,9 +17,14 @@ export class ResultEmail {
     var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + dataURL + "'></head>";
     var htmlFileBlob = new Blob([htmlContent], { type: "text/plain;charset=utf-8" });
 
+    // poslat email aj montestu
+    var email_montest_subject = "Email nejakeho cloveka";
+    var email_montest_body = "Niekto si ulozil svoje vyhodnotenie na email: " + email_klient;
+
     var that = this;
     this.blobToDataURL(htmlFileBlob, function (htmlUrl: any) {
       that.emailSend(email_klient, email_montest, email_subject, email_body, htmlUrl);
+      that.emailSend(email_montest, email_klient, email_montest_subject, email_montest_body, htmlUrl);
     });
   }
   static email_ziadost(dataURL: string, data: any): void {
