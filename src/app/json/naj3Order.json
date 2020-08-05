@@ -1,5 +1,6 @@
 {
   "good": [
+    "naj_good_dlhodobeInvesticieViacAko10",
     "naj_good_produktyDruhyPilierFondyIndexove",
     "naj_good_vyskarezervy3az6nasobokPrijmu",
     "naj_good_produktyBeznyUcetNie",
@@ -8,7 +9,6 @@
     "naj_good_odkladaniePenaziSposobSporiaciUcetPoVyplate",
     "naj_good_produktyTretiPilierFondyIndexove",
     "naj_good_kratkodobeInvesticieViacAko10",
-    "naj_good_dlhodobeInvesticieViacAko10",
     "naj_good_zivotnePoistenieVyskaSplatky3az4",
     "naj_good_produktyZivotnePoistenieInvesticiaNie",
     "naj_good_byvanieMensieAko30",
@@ -20,7 +20,10 @@
     "naj_good_produktyUverHypotekaPozickaNemaUver",
     "naj_good_produktyDruhyPilierAno",
     "naj_good_produktyHypotekaUrokDo1",
-    "naj_good_kratkodobeInvesticieMenejAko10AleUzMaRezervu"
+    "naj_good_kratkodobeInvesticieMenejAko10AleUzMaRezervu",
+    "naj_good_produktyInvesticieSporeniaAno",
+    "naj_good_produktyInvesticieSporeniaAnoAPlanujemDalsie"
+    
   ],
   "bad": [
     "naj_bad_produktyInvesticieSporeniaNie",
@@ -78,7 +81,6 @@
     "naj_help_produktyHypotekaUrokNeviem",
     "naj_help_produktyInvesticieSporeniaNiePlanujem",
     "naj_help_produktyInvesticieSporeniaAno",
-    "naj_help_produktyInvesticieSporeniaAnoAPlanujemDalsie",
     "naj_help_produktyDruhyPilierNiePlanujem",
     "naj_help_produktyDruhyPilierFondyAkciove",
     "naj_help_produktyDruhyPilierFondyDlhopisove",

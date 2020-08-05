@@ -359,7 +359,7 @@
     },
     {
       "id": "financnaGramotnostByt5050",
-      "choiceString": "Na kúpu bytu použijem vlastných 50,000€ a na ďalších 50,000€ si vezmem hypotéku",
+      "choiceString": "Na kúpu bytu použijem vlastných 50 000€ a na ďalších 50 000€ si vezmem hypotéku",
       "resultTitle": "",
       "resultVysvetlenie": "",
       "resultPointsStratil": 1
@@ -556,6 +556,11 @@
       "resultPointsStratil": 1
     },
     {
+      "id": "produktyDruhyPilierFondyIndexove",
+      "choiceString": "",
+      "resultPointsStratil": 0
+    },
+    {
       "id": "odlozitViacAko10percentprijmu",
       "choiceString": "",
       "resultTitle": "Odkladáš si menej ako 20% z príjmu.",
@@ -563,7 +568,7 @@
       "resultPointsStratil": 0.5
     },
     {
-      "id": "naj_produktyDruhyPilierNie",
+      "id": "produktyDruhyPilierNie",
       "choiceString": "",
       "resultTitle": "Nemáš druhý pilier.",
       "resultVysvetlenie": "Druhý pilier sú jediné peniaze, ktoré vieš od štátu získať zadarmo navyše len tak. Funguje to tak, že časť z Tvojich odvodov nesmerujú na vyplácanie aktuálnych dôchodcov, ale idú priamo Tebe na účet, z ktorého si vieš nasporené peniaze vytiahnuť na dôchodku. Založenie druhého piliera by malo byť jeden z prvých úkonov, ktoré spravíš po získaní prvého pracovného miesta, aj brigády.",

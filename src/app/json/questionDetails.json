@@ -13,7 +13,7 @@
       "resultVysvetlenie": ""
     },
     {
-      "id": "pageProduktyDruhyPilier",
+      "id": "produktyDruhyPilier",
       "resultPointsMax": 1,
       "correctChoice": "",
       "resultVysvetlenie": ""
@@ -121,7 +121,7 @@
       "resultVysvetlenie": ""
     },
     {
-      "id": "pagePrehladOVydavkoch",
+      "id": "prehladOVydavkoch",
       "resultPointsMax": 1,
       "correctChoice": "",
       "resultVysvetlenie": ""

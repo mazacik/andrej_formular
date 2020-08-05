@@ -50,7 +50,7 @@ export class ResultPodmienky {
 
     //byvanieMensieAko30
     if (ResultGraphs.calcPasiva(data) <= data.vyskaPrijmu * 0.3) {
-      this.create("byvanieMensieAko30", 1, 1);
+      this.create("byvanieMensieAko30", 1, 0);
     }
 
     //zivotnePoistenieVyskaSplatkyNad4
