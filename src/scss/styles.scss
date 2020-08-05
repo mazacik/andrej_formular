@@ -390,11 +390,16 @@ color: black !important;
 }
 
 body {
-  background-color: $bg1;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-image:url(/assets/bg/UvodneOtazky.png);
+  background-image: none;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffefd2+11,ffffff+21,ffffff+30,ffefd2+46,ffefd2+53,ffffff+63,ffffff+63,ffffff+75,ffffff+75,ffefd2+83,ffffff+92 */
+background: #ffefd2; /* Old browsers */
+background: -moz-linear-gradient(top,  #ffefd2 11%, #ffffff 21%, #ffffff 30%, #ffefd2 46%, #ffefd2 53%, #ffffff 63%, #ffffff 63%, #ffffff 75%, #ffffff 75%, #ffefd2 83%, #ffffff 92%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #ffefd2 11%,#ffffff 21%,#ffffff 30%,#ffefd2 46%,#ffefd2 53%,#ffffff 63%,#ffffff 63%,#ffffff 75%,#ffffff 75%,#ffefd2 83%,#ffffff 92%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #ffefd2 11%,#ffffff 21%,#ffffff 30%,#ffefd2 46%,#ffefd2 53%,#ffffff 63%,#ffffff 63%,#ffffff 75%,#ffffff 75%,#ffefd2 83%,#ffffff 92%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefd2', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+
+
 }
 
 body.sekciaUvodneOtazky {
@@ -723,3 +728,29 @@ body.sekciaOkruhyZaujmu {
 .survey-navigation {
   margin: 0 32px;
 }
+
+.section-navigation-sidebar {
+  position: fixed;
+  left: 5px;
+  bottom: 5px;
+}
+
+.section-navigation-sidebar li {
+  margin: 15px 0;
+}
+
+@media (max-width: 768px) {
+  .section-navigation-sidebar {
+  display: none;
+  }
+
+  }
+
+  ::selection {
+    background: #962913; /* WebKit/Blink Browsers */
+    color: white;
+  }
+  ::-moz-selection {
+    background: #962913; /* WebKit/Blink Browsers */
+    color: white;
+  }

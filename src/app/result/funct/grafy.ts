@@ -39,7 +39,12 @@ export class ResultGraphs {
         }]
       },
       options: {
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        legend: {
+          labels: {
+            fontSize: 17
+          }
+        }
       }
     });
   }
@@ -75,7 +80,12 @@ export class ResultGraphs {
         }]
       },
       options: {
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        legend: {
+          labels: {
+            fontSize: 17
+          }
+        }
       }
     });
   }

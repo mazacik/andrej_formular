@@ -173,7 +173,7 @@ export class SurveyComponent implements OnInit {
 
       var titleElement = document.getElementsByClassName("sv_q_title").item(0);
       if (titleElement) {
-        const challengeText = "<p>vyzíva ťa " + name + " s hodnosťou <span class='tooltip-link' data-tippy-content='Úspešnosť Úroveň<br><br>91% - 100%        Finančná Legenda<br>81% - 90% Finančná hviezda<br>71% - 80% Finančný kúzelník <br>11% - 70% Finančný profesor<br>51% - 60% Finančný majster<br>41% - 50% Finančný učeň<br>31% - 40% Finančný junior <br>21% - 30% Finančný nováčik<br>11% - 20% Finančný začiatočník<br>0% - 10% Finančné embryo'>" + rankPretty + "</span>, </p>";
+        const challengeText = "<p>vyzíva Ťa " + name + " s hodnosťou <span class='tooltip-link' data-tippy-content='Úspešnosť Úroveň<br><br>91% - 100%        Finančná Legenda<br>81% - 90% Finančná hviezda<br>71% - 80% Finančný kúzelník <br>11% - 70% Finančný profesor<br>51% - 60% Finančný majster<br>41% - 50% Finančný učeň<br>31% - 40% Finančný junior <br>21% - 30% Finančný nováčik<br>11% - 20% Finančný začiatočník<br>0% - 10% Finančné embryo'>" + rankPretty + "</span>, </p>";
         var innerHTML = titleElement.innerHTML;
         var indexFirst = innerHTML.indexOf("ako si želáš, aby sme Ťa oslovovali?");
         if (indexFirst >= 0) {

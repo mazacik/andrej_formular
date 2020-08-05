@@ -7,11 +7,9 @@ export class SurveyTooltip {
     SurveyTooltip.create(survey, "konzervativneInvesticie", "konzervatívne produkty", "Zarábaju menej, ale vieš si z nich bez rizika vybrať peniaze v kratšej dobe.");
     SurveyTooltip.create(survey, "dynamickeInvesticie", "dynamické investičné produkty", "Zarábaju menej, ale vieš si z nich bez rizika vybrať peniaze v kratšej dobe.");
 
-
-    
     // tooltip na hodnosti pri challengelinku je rieseny v metode checkChallengeLink() v survey.ts
 
-    tippy('[data-tippy-content]');
+    tippy('[data-tippy-content]', { allowHTML: true });
   }
 
   static create(survey: any, questionId: string, word: string, tooltipText: string): void {
