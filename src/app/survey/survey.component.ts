@@ -30,7 +30,7 @@ export class SurveyComponent implements OnInit {
   surveyAnimation: SurveyAnimation;
   surveyKeyboardEvent: SurveyKeyboardEvent;
 
-  survey: any = null;
+  survey: Survey.SurveyModel = null;
 
   constructor(
     public router: Router,
@@ -143,6 +143,11 @@ export class SurveyComponent implements OnInit {
   }
 
   onSurveyComplete(): void {
+    // remove section class from body (removes background image)
+    var poslednaSekcia = this.surveyNavBar.sekcie[this.surveyNavBar.sekcie.length - 1];
+    document.getElementsByTagName("body")[0].classList.remove(poslednaSekcia.simple);
+    
+    // navigate to result
     this.router.navigate(['vyhodnotenie/' + btoa(JSON.stringify(this.survey.data))]);
   }
 

@@ -98,7 +98,6 @@ export class SurveyNavBar {
 
     for (var i = 0; i < this.sekcie.length; i++) {
       var liEl = document.createElement("li");
-      // TODO MICHAL
       liEl.setAttribute("style", "--count:0");
       if (this.sekciaAktualna == this.sekcie[i]) {
         liEl.classList.add("current");
