@@ -229,11 +229,6 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 
 /*navigacny bar*/
 #surveyNavBarWrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
   color: $text;
 }
 
@@ -387,7 +382,21 @@ color: black !important;
 
 .sv_body {
   background: none;
-  overflow: auto;
+}
+
+#surveyContainerMain {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#surveyContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
 }
 
 body {
