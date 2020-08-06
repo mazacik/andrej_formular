@@ -265,6 +265,7 @@ export class ResultComponent implements OnInit {
   }
   email_ziadost(): void {
     ResultEmail.email_ziadost(this.getDataURL(), this.data);
+    $('.popup-consultation').css('display', 'flex');
   }
 
   onChallengeButtonClick(challengeLink: string) {
