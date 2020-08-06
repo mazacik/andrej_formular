@@ -32,9 +32,7 @@ export class ResultComponent implements OnInit {
 
   ngOnInit(): void {
 
-    $('.popup .popup__close__icon').on('click', (event) => {
-      $(event.target).closest('.popup').css('display', 'none');
-    });
+    $('.popup .popup__close__icon').on('click', this.closeResultPopup);
 
     // navigation
     $('.navigation__burger').on('click', event => {
@@ -263,6 +261,7 @@ export class ResultComponent implements OnInit {
   }
   email_dataURL(): void {
     ResultEmail.email_dataURL(this.getDataURL(), this.data);
+    this.closeResultPopup();
   }
   email_ziadost(): void {
     ResultEmail.email_ziadost(this.getDataURL(), this.data);
@@ -279,5 +278,9 @@ export class ResultComponent implements OnInit {
 
   onSaveResultButtonClick() {
     $('.popup-result').css('display', 'flex');
+  }
+
+  private closeResultPopup() {
+    $('.popup .popup__close__icon').closest('.popup').css('display', 'none');
   }
 }
