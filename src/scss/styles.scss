@@ -54,6 +54,9 @@ h5.sv_q_title {
 
 h5.sv_q_title span {
   font-size: 30px !important;
+  @media (max-width: 768px) {
+    font-size: 20px !important;
+    }
 }
 
 .sv_main .sv_container {
@@ -198,6 +201,9 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 
 .sv_q_radiogroup_label, .sv_q_checkbox_control_label {
   font-size: 1.2em;
+  @media (max-width: 768px) { 
+    font-size: 1em;
+  }
 }
 
 @media (max-width: 768px) {
@@ -216,6 +222,9 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
   }
   .sv_q_text_root, .sv_q_radiogroup_other {
     font-size: 1rem!important;
+    @media (max-width: 425px) {
+      font-size: 2rem!important;
+      }
   }
 }
 
@@ -483,6 +492,9 @@ body.sekciaOkruhyZaujmu {
   font-weight: 400;
   text-align: center;
   color: #000;
+  @media (max-width: 768px) {
+    font-size: 18px !important;
+    }
 }
 
 .sv_q_description {
@@ -661,7 +673,7 @@ body.sekciaOkruhyZaujmu {
 }
 
 .sv_matrix_dynamic_button {
-  font-size: 0.7em !important;
+  font-size: 10px !important;
 }
 
 .challengeButton {
