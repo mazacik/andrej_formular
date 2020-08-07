@@ -782,7 +782,7 @@
               "cellType": "dropdown",
               "optionsCaption": "Vyber názov..",
               "requiredErrorText": "Otázka je povinná.",
-              "isRequired": true,
+              "isRequired": false,
               "choices": [
                 {
                   "value": "konzervativneInvesticieNazovProduktuNeviem",
@@ -826,7 +826,7 @@
               "name": "frekvenciaPlatby",
               "title": "Posielaš sem peniaze pravidelne?",
               "cellType": "dropdown",
-              "isRequired": true,
+              "isRequired": false,
               "optionsCaption": "Vyber možnosť..",
               "visibleIf": "{row.konzervativneInvesticieNazovProduktu} notempty",
               "requiredIf": "{row.konzervativneInvesticieNazovProduktu} notempty",
@@ -850,7 +850,7 @@
               "name": "frekvenciaMesacneHodnota",
               "title": "Koľko platíš mesačne?",
               "cellType": "text",
-              "isRequired": true,
+              "isRequired": false,
               "visibleIf": "{row.frekvenciaPlatby} = 'frekvenciaPlatbyKazdyMesiac'",
               "requiredIf": "{row.frekvenciaPlatby} notempty",
               "inputType": "number",
@@ -863,7 +863,7 @@
               "name": "frekvenciaNepravidelneHodnota",
               "title": "Koľko si sem poslal za posledných 6 mesiacov?",
               "cellType": "text",
-              "isRequired": true,
+              "isRequired": false,
               "visibleIf": "{row.frekvenciaPlatby} = 'frekvenciaPlatbyNepravidelne'",
               "requiredIf": "{row.frekvenciaPlatby} notempty",
               "inputType": "number",
@@ -876,7 +876,7 @@
               "requiredErrorText": "Otázka je povinná.",
               "cellType": "dropdown",
               "optionsCaption": "Zadaj účel..",
-              "isRequired": true,
+              "isRequired": false,
               "requiredIf": "{row.konzervativneInvesticieNazovProduktu} notempty",
               "choices": [
                 {
@@ -919,7 +919,7 @@
               "cellType": "dropdown",
               "requiredErrorText": "Otázka je povinná.",
               "optionsCaption": "Vyber obdobie..",
-              "isRequired": true,
+              "isRequired": false,
               "choices": [
                 {
                   "value": "oKolkoRokovVyberieDo1",
@@ -977,7 +977,7 @@
               "cellType": "dropdown",
               "optionsCaption": "Vyber názov..",
               "requiredErrorText": "Otázka je povinná.",
-              "isRequired": true,
+              "isRequired": false,
               "choices": [
                 {
                   "value": "dynamickeInvesticieNazovProduktuNeviem",
@@ -1025,7 +1025,7 @@
               "name": "dynamickeInvesticieFrekvenciaPlatby",
               "title": "Posielaš sem peniaze pravidelne?",
               "cellType": "dropdown",
-              "isRequired": true,
+              "isRequired": false,
               "optionsCaption": "Vyber možnosť..",
               "visibleIf": "{row.dynamickeInvesticieNazovProduktu} notempty",
               "requiredIf": "{row.dynamickeInvesticieNazovProduktu} notempty",
@@ -1049,7 +1049,7 @@
               "name": "dynamickeInvesticieFrekvenciaMesacneHodnota",
               "title": "Koľko platíš mesačne?",
               "cellType": "text",
-              "isRequired": true,
+              "isRequired": false,
               "visibleIf": "{row.dynamickeInvesticieFrekvenciaPlatby} = 'dynamickeInvesticieFrekvenciaPlatbyKazdyMesiac'",
               "requiredIf": "{row.dynamickeInvesticieFrekvenciaPlatby} notempty",
               "inputType": "number",
@@ -1062,7 +1062,7 @@
               "name": "dynamickeInvesticieFrekvenciaNepravidelneHodnota",
               "title": "Koľko si sem poslal za posledných 6 mesiacov?",
               "cellType": "text",
-              "isRequired": true,
+              "isRequired": false,
               "visibleIf": "{row.dynamickeInvesticieFrekvenciaPlatby} = 'dynamickeInvesticieFrekvenciaPlatbyNepravidelne'",
               "requiredIf": "{row.dynamickeInvesticieFrekvenciaPlatby} notempty",
               "inputType": "number",
@@ -1075,7 +1075,7 @@
               "requiredErrorText": "Otázka je povinná.",
               "cellType": "dropdown",
               "optionsCaption": "Zadaj účel..",
-              "isRequired": true,
+              "isRequired": false,
               "requiredIf": "{row.dynamickeInvesticieNazovProduktu} notempty",
               "choices": [
                 {
@@ -1118,7 +1118,7 @@
               "cellType": "dropdown",
               "requiredErrorText": "Otázka je povinná.",
               "optionsCaption": "Vyber obdobie..",
-              "isRequired": true,
+              "isRequired": false,
               "choices": [
                 {
                   "value": "dynamickeInvesticieOKolkoRokovVyberieDo1",
@@ -1169,7 +1169,7 @@
           "type": "checkbox",
           "name": "akeInvesticiePlanujes",
           "title": "Aké investície alebo sporenia plánuješ?",
-          "isRequired": true,
+          "isRequired": false,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
