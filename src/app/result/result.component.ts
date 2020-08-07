@@ -62,7 +62,7 @@ export class ResultComponent implements OnInit {
 
     if (!this.data) {
       this.data = '{"meno": ""}'; // prevents console error
-      this.router.navigate(['otazky']);
+      this.router.navigate(['']);
     } else {
       // cyklus hlada zhodu ID vybratej odpovede a ID HTML elementu
       for (var value in this.data) {

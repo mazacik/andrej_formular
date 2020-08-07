@@ -83,6 +83,6 @@ export class ResultBodovanie {
       this.percentilGramotnost = 5;
     }
 
-    this.challengeLink = window.location.origin + "/otazky/" + meno + "/" + this.hodnostSimple;
+    this.challengeLink = window.location.origin + "/" + meno + "/" + this.hodnostSimple;
   }
 }
