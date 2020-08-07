@@ -20,7 +20,7 @@
           "type": "text",
           "name": "meno",
           "title": "Vítame Ťa v Monteste, ako si želáš, aby sme Ťa oslovovali?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná."
         }
       ]
@@ -42,7 +42,7 @@
           "type": "radiogroup",
           "name": "vek",
           "title": "Koľko máš rokov?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -76,7 +76,7 @@
           "type": "radiogroup",
           "name": "studium",
           "title": "Študuješ?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -103,7 +103,7 @@
           "type": "checkbox",
           "name": "zdrojPrijmu",
           "title": "Aké su tvoje aktuálne zdroje príjmu?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -152,7 +152,7 @@
           "type": "radioGroup",
           "name": "nemaPrijem",
           "title": "Test je zameraný na osobu s aspoň čiastočným príjmom, avšak aj Ty sa v ňom vieš dozvedieť veľa zaujímavostí. Želáš si aj napriek tomu pokračovať?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -187,7 +187,7 @@
           "type": "radiogroup",
           "name": "kdePracujes",
           "title": "V ktorom kraji pracuješ?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -238,7 +238,7 @@
           "name": "odkladaniePenaziSposob",
           "title": "Vies si odložiť z Tvojho prijímu peniaze?",
           "descrition": "(rátaj aj pravidelné sporenia a investície)",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -277,7 +277,7 @@
           "name": "odkladaniePenaziVyska",
           "title": "Koľko sa Ti darí priemerne mesačne odložiť?",
           "description": "(rátaj aj sporenia, investície a rezervu)",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
           "min": "0",
@@ -303,7 +303,7 @@
           "type": "radiogroup",
           "name": "produktyDruhyPilier",
           "title": "Máš založený druhý pilier?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -334,7 +334,7 @@
           "name": "produktyDruhyPilierFondy",
           "title": "V akých fondoch máš druhý pilier?",
           "description": "(akú tam máš nastavenú investičnú stratégiu)",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -365,7 +365,7 @@
           "type": "radiogroup",
           "name": "produktyTretiPilier",
           "title": "Máš založený tretí pilier?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -405,7 +405,7 @@
           "name": "produktyTretiPilierFondy",
           "title": "V akých fondoch máš tretí pilier?",
           "description": "(akú tam máš nastavenú investičnú stratégiu)",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -436,7 +436,7 @@
           "type": "text",
           "name": "produktyTretiPilierVyskaPrispevku",
           "title": "Koľko mesačne si prispievaš?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
           "min": "0",
@@ -452,7 +452,7 @@
           "type": "text",
           "name": "produktyTretiPilierVyskaPrispevkuZamestnavatela",
           "title": "Koľko mesačne Ti prispieva zamestnávateľ?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
           "min": "0",
@@ -468,7 +468,7 @@
           "type": "radiogroup",
           "name": "produktyZivotnePoistenie",
           "title": "Platíš si životné poistenie?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -498,7 +498,7 @@
           "type": "text",
           "name": "produktyZivotnePoistenieKolkoPlati",
           "title": "Koľko priemerne mesačne platíš za svoje poistenie?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
           "min": "0",
@@ -514,7 +514,7 @@
           "type": "radiogroup",
           "name": "produktyZivotnePoistenieInvesticia",
           "title": "Máš poistenie spojené s investíciou?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -542,7 +542,7 @@
           "name": "produktyZivotnePoistenieInvesticiaVyska",
           "title": "Koľko z {produktyZivotnePoistenieKolkoPlati}€ je investičná zložka?",
           "description": "(napíš aspoň približne, ak naozaj nevieš, otázku preskoč)",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
           "min": "0",
@@ -559,7 +559,7 @@
           "name": "produktyUverHypotekaPozicka",
           "title": "Máš požičané peniaze?",
           "description": "(hypotéka, úver, pôžička)",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -589,7 +589,7 @@
           "type": "text",
           "name": "najomne",
           "title": "Koľko mesačne platíš za svoje bývanie?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "description": "(Nájomné, prispievanie rodičom, energie)",
           "inputType": "number",
@@ -606,7 +606,7 @@
           "type": "text",
           "name": "produktyHypotekaVyskaSplatky",
           "title": "Aká je Tvoja mesačná splátka hypotéky?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
           "min": "0",
@@ -622,7 +622,7 @@
           "type": "radiogroup",
           "name": "produktyHypotekaUrok",
           "title": "Aký máš na hypotéke úrok?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -653,7 +653,7 @@
           "type": "text",
           "name": "produktyUverPozickaVyskaSplatky",
           "title": "Aká je Tvoja mesačná splátka úveru alebo pôžičky?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
           "min": "0",
@@ -669,7 +669,7 @@
           "type": "radiogroup",
           "name": "produktyUverPozickaUrok",
           "title": "Aké máš úroky?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -700,7 +700,7 @@
           "type": "radiogroup",
           "name": "produktyBeznyUcet",
           "title": "Platíš si za bežný účet?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -728,7 +728,7 @@
           "name": "produktyInvesticieSporenia",
           "title": "Máš sporenia alebo investície?",
           "description": "(Nerátaj bežný účet ani sporiaci účet v banke)",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -782,7 +782,7 @@
               "cellType": "dropdown",
               "optionsCaption": "Vyber názov..",
               "requiredErrorText": "Otázka je povinná.",
-              "isRequired": false,
+              "isRequired": true,
               "choices": [
                 {
                   "value": "konzervativneInvesticieNazovProduktuNeviem",
@@ -826,7 +826,7 @@
               "name": "frekvenciaPlatby",
               "title": "Posielaš sem peniaze pravidelne?",
               "cellType": "dropdown",
-              "isRequired": false,
+              "isRequired": true,
               "optionsCaption": "Vyber možnosť..",
               "visibleIf": "{row.konzervativneInvesticieNazovProduktu} notempty",
               "requiredIf": "{row.konzervativneInvesticieNazovProduktu} notempty",
@@ -850,7 +850,7 @@
               "name": "frekvenciaMesacneHodnota",
               "title": "Koľko platíš mesačne?",
               "cellType": "text",
-              "isRequired": false,
+              "isRequired": true,
               "visibleIf": "{row.frekvenciaPlatby} = 'frekvenciaPlatbyKazdyMesiac'",
               "requiredIf": "{row.frekvenciaPlatby} notempty",
               "inputType": "number",
@@ -863,7 +863,7 @@
               "name": "frekvenciaNepravidelneHodnota",
               "title": "Koľko si sem poslal za posledných 6 mesiacov?",
               "cellType": "text",
-              "isRequired": false,
+              "isRequired": true,
               "visibleIf": "{row.frekvenciaPlatby} = 'frekvenciaPlatbyNepravidelne'",
               "requiredIf": "{row.frekvenciaPlatby} notempty",
               "inputType": "number",
@@ -876,7 +876,7 @@
               "requiredErrorText": "Otázka je povinná.",
               "cellType": "dropdown",
               "optionsCaption": "Zadaj účel..",
-              "isRequired": false,
+              "isRequired": true,
               "requiredIf": "{row.konzervativneInvesticieNazovProduktu} notempty",
               "choices": [
                 {
@@ -919,7 +919,7 @@
               "cellType": "dropdown",
               "requiredErrorText": "Otázka je povinná.",
               "optionsCaption": "Vyber obdobie..",
-              "isRequired": false,
+              "isRequired": true,
               "choices": [
                 {
                   "value": "oKolkoRokovVyberieDo1",
@@ -977,7 +977,7 @@
               "cellType": "dropdown",
               "optionsCaption": "Vyber názov..",
               "requiredErrorText": "Otázka je povinná.",
-              "isRequired": false,
+              "isRequired": true,
               "choices": [
                 {
                   "value": "dynamickeInvesticieNazovProduktuNeviem",
@@ -1025,7 +1025,7 @@
               "name": "dynamickeInvesticieFrekvenciaPlatby",
               "title": "Posielaš sem peniaze pravidelne?",
               "cellType": "dropdown",
-              "isRequired": false,
+              "isRequired": true,
               "optionsCaption": "Vyber možnosť..",
               "visibleIf": "{row.dynamickeInvesticieNazovProduktu} notempty",
               "requiredIf": "{row.dynamickeInvesticieNazovProduktu} notempty",
@@ -1049,7 +1049,7 @@
               "name": "dynamickeInvesticieFrekvenciaMesacneHodnota",
               "title": "Koľko platíš mesačne?",
               "cellType": "text",
-              "isRequired": false,
+              "isRequired": true,
               "visibleIf": "{row.dynamickeInvesticieFrekvenciaPlatby} = 'dynamickeInvesticieFrekvenciaPlatbyKazdyMesiac'",
               "requiredIf": "{row.dynamickeInvesticieFrekvenciaPlatby} notempty",
               "inputType": "number",
@@ -1062,7 +1062,7 @@
               "name": "dynamickeInvesticieFrekvenciaNepravidelneHodnota",
               "title": "Koľko si sem poslal za posledných 6 mesiacov?",
               "cellType": "text",
-              "isRequired": false,
+              "isRequired": true,
               "visibleIf": "{row.dynamickeInvesticieFrekvenciaPlatby} = 'dynamickeInvesticieFrekvenciaPlatbyNepravidelne'",
               "requiredIf": "{row.dynamickeInvesticieFrekvenciaPlatby} notempty",
               "inputType": "number",
@@ -1075,7 +1075,7 @@
               "requiredErrorText": "Otázka je povinná.",
               "cellType": "dropdown",
               "optionsCaption": "Zadaj účel..",
-              "isRequired": false,
+              "isRequired": true,
               "requiredIf": "{row.dynamickeInvesticieNazovProduktu} notempty",
               "choices": [
                 {
@@ -1118,7 +1118,7 @@
               "cellType": "dropdown",
               "requiredErrorText": "Otázka je povinná.",
               "optionsCaption": "Vyber obdobie..",
-              "isRequired": false,
+              "isRequired": true,
               "choices": [
                 {
                   "value": "dynamickeInvesticieOKolkoRokovVyberieDo1",
@@ -1169,7 +1169,7 @@
           "type": "checkbox",
           "name": "akeInvesticiePlanujes",
           "title": "Aké investície alebo sporenia plánuješ?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -1192,7 +1192,7 @@
           "type": "radiogroup",
           "name": "sKymSaRadis",
           "title": "S kým sa najčastejšie radíš o svojich financiách, resp. odkiaľ získavaš informácie?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -1222,7 +1222,7 @@
           "type": "radiogroup",
           "name": "omeskanieSplatky",
           "title": "Nastalo u Teba niekedy meškanie pri splácaní splátok?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -1245,7 +1245,7 @@
           "type": "text",
           "name": "financnaRezervaMesacne",
           "title": "Za mesiac si v priemere odložíš {odkladaniePenaziVyska}€, koľko z toho vnímaš ako finančnú rezervu?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "description": "(nerátaj peniaze, ktoré dávaš do sporiacich produktov mimo banky)",
           "inputType": "number",
@@ -1261,7 +1261,7 @@
           "type": "text",
           "name": "financnaRezervaVyska",
           "title": "Koľko eur tvorí teraz Tvoju rezervu?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "inputType": "number",
           "placeHolder": "Hodnota v €"
@@ -1275,7 +1275,7 @@
           "type": "radiogroup",
           "name": "prehladOVydavkoch",
           "title": "Aký máš prehľad o svojich výdavkoch?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -1311,7 +1311,7 @@
           "type": "radiogroup",
           "name": "financnaGramotnostDlhodobaInvesticia",
           "title": "1 Na dlhodobú investíciu vložíš 1000€. Počas roka hodnota investície klesla na 900€. Čo bude Tvoj ďalší krok?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -1341,7 +1341,7 @@
           "type": "radiogroup",
           "name": "financnaGramotnostPoisteniePriInvestovani",
           "title": "2 Ak chceš mať poistenie a zároveň tiež investovať, aký produkt si vyberieš?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -1371,7 +1371,7 @@
           "type": "radiogroup",
           "name": "financnaGramotnostDruhyPilier",
           "title": "3 V ktorých fondoch je najlepšie mať založený druhý pilier?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -1409,7 +1409,7 @@
           "type": "radiogroup",
           "name": "financnaGramotnostVynos",
           "title": "4 Máš v banke 1000€ s 1% výnosom. Aká bude reálna hodnota týchto peňazí o rok?",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -1440,7 +1440,7 @@
           "name": "financnaGramotnostByt",
           "title": "5 Máš 100,000€ a chceš si kúpiť byt v tejto hodnote, čo urobíš?",
           "description": "(Rezervu už máš vybudovanú.)",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
@@ -1472,7 +1472,7 @@
           "name": "coChcesVediet",
           "title": "A posledná otázka - o čom sa chceš dozvedieť viac?",
           "description": "Vo vyhodnotení zobrazíme krátke články, ktoré Ti pomôžu sa v daných témach zorientovať",
-          "isRequired": false,
+          "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "hasOther": true,
           "choices": [

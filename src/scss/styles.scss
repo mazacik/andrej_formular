@@ -554,6 +554,10 @@ body.sekciaOkruhyZaujmu {
   @include ticks("cross");
 }
 
+.exclamation-list {
+  @include ticks("exclamation");
+}
+
 .arrow-more {
   color: #CF4327;
   border-radius: 100px;
@@ -664,6 +668,7 @@ body.sekciaOkruhyZaujmu {
   @media (max-width: 768px) {
     font-size: 18px;
     padding: 10px;
+    
   }
   background-color: #FFF1D8;
   padding: 20px 30px;
