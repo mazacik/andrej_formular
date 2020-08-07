@@ -139,11 +139,11 @@ export class ResultComponent implements OnInit {
       this.resultBodovanie.pocetBodovGramotnostStratil += answer.resultPointsStratil;
 
       if (answer.resultPointsStratil == 0) {
-        this.showElementById(question.id + "Dobre");
+        this.showElementsByClass(question.id + "Dobre");
       } else if (answer.resultPointsStratil == 0.5) {
-        this.showElementById(question.id + "Neutralne");
+        this.showElementsByClass(question.id + "Neutralne");
       } else if (answer.resultPointsStratil == 1) {
-        this.showElementById(question.id + "Zle");
+        this.showElementsByClass(question.id + "Zle");
       }
 
       var userChoiceElements = document.getElementsByClassName(question.id + "UserChoice");
@@ -212,10 +212,6 @@ export class ResultComponent implements OnInit {
     }
   }
 
-  showElementById(elementId: string): void {
-    var element = document.getElementById(elementId);
-    if (element) element.removeAttribute("hidden");
-  }
   toggleElementById(elementId: string): void {
     var element = document.getElementById(elementId);
     if (element) if (element.hasAttribute("hidden")) {
