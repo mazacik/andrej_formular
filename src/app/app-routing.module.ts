@@ -7,8 +7,7 @@ import { ResultComponent } from './result/result.component';
 const routes: Routes = [
   {path:'', component: SurveyComponent},
 
-  {path:'', component: SurveyComponent},
-  {path:':name/:rank', component: SurveyComponent},
+  {path:'otazky/:name/:rank', component: SurveyComponent},
   
   {path:'vyhodnotenie/:base64data', component: ResultComponent},
   
