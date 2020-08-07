@@ -160,6 +160,7 @@ export class ResultPodmienky {
     for (let i = 0; i < elements.length; i++) {
       const element = elements[i];
       element.removeAttribute("hidden");
+      if (window.getComputedStyle(element).display == "none") (<any>element).style.display = "flex";
     }
   }
 }
