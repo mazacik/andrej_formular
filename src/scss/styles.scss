@@ -200,7 +200,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 
 .sv_q_radiogroup_label, .sv_q_checkbox_control_label {
   font-size: 1.2em;
-  @media (max-width: 768px) { 
+  @media (max-width: 768px) {
     font-size: 1em;
   }
 }
@@ -268,7 +268,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
   position: relative;
   display: inline-block;
   margin: 0 8px;
-  flex: 1 1 0px;
+  flex: 1;
   text-align: center;
   width: 0;
   @media (max-width: 768px) {
@@ -666,7 +666,7 @@ body.sekciaOkruhyZaujmu {
   @media (max-width: 768px) {
     font-size: 18px;
     padding: 10px;
-    
+
   }
   background-color: #FFF1D8;
   padding: 20px 30px;
