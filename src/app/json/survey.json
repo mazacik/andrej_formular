@@ -6,8 +6,8 @@
   "maxTextLength": 50,
   "maxOthersLength": 50,
   "startSurveyText": "Začať",
-  "pagePrevText": "←",
-  "pageNextText": "→",
+  "pagePrevText": "← späť",
+  "pageNextText": "ďalej →",
   "completeText": "Dokončiť",
   "showNavigationButtons": false,
   "showQuestionNumbers": "off",
@@ -173,6 +173,7 @@
           "name": "vyskaPrijmu",
           "title": "Aká je výška Tvojho priemerného mesačného príjmu? (v čistom)",
           "isRequired": true,
+          "descrition": "Bez toho, aby sme vedeli Tvoj príjem, nedokážeme Tvoje financie vyhodnotiť naozaj na mieru. O svoje informácie sa nemusíš obávať nakoľko sa hneď po vyhodnotení zmažú.",
           "requiredErrorText": "Bez toho, aby sme vedeli Tvoj príjem, nedokážeme Tvoje financie vyhodnotiť naozaj na mieru. O svoje informácie sa nemusíš obávať nakoľko sa hneď po vyhodnotení zmažú.",
           "inputType": "number",
           "min": "0",
@@ -1354,7 +1355,7 @@
             },
             {
               "value": "financnaGramotnostPoisteniePriInvestovaniZvlast",
-              "text": "životné poistenie a sporenie zvlášť"
+              "text": "životné poistenie a investíciu zvlášť"
             },
             {
               "value": "financnaGramotnostPoisteniePriInvestovaniNeviem",
