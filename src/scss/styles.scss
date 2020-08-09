@@ -503,6 +503,7 @@ body.sekciaOkruhyZaujmu {
 
 .sv_qcbx, .sv_qcbc {
   display: flex;
+  flex-flow: column;
   @media(min-width: 768px) {
     min-width: 360px;
   }
