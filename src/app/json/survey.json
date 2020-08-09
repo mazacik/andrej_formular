@@ -173,7 +173,7 @@
           "name": "vyskaPrijmu",
           "title": "Aká je výška Tvojho priemerného mesačného príjmu? (v čistom)",
           "isRequired": true,
-          "descrition": "Bez toho, aby sme vedeli Tvoj príjem, nedokážeme Tvoje financie vyhodnotiť naozaj na mieru. O svoje informácie sa nemusíš obávať nakoľko sa hneď po vyhodnotení zmažú.",
+          "description": "Bez toho, aby sme vedeli Tvoj príjem, nedokážeme Tvoje financie vyhodnotiť naozaj na mieru. O svoje informácie sa nemusíš obávať nakoľko sa hneď po vyhodnotení zmažú.",
           "requiredErrorText": "Bez toho, aby sme vedeli Tvoj príjem, nedokážeme Tvoje financie vyhodnotiť naozaj na mieru. O svoje informácie sa nemusíš obávať nakoľko sa hneď po vyhodnotení zmažú.",
           "inputType": "number",
           "min": "0",
