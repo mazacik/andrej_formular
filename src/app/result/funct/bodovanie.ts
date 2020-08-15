@@ -40,7 +40,7 @@ export class ResultBodovanie {
       this.hodnostSimple = "FinancnyMajster";
     } else if (this.percent > 40) {
       this.percentil = 53;
-      this.hodnostPretty = "Finančný uceň";
+      this.hodnostPretty = "Finančný učeň";
       this.hodnostSimple = "FinancnyUcen";
     } else if (this.percent > 30) {
       this.percentil = 43;

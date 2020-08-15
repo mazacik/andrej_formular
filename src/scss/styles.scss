@@ -52,9 +52,9 @@ h5.sv_q_title {
 }
 
 h5.sv_q_title span {
-  font-size: 30px !important;
+  font-size: 1.5rem !important;
   @media (max-width: 768px) {
-    font-size: 20px !important;
+    font-size: 1.2rem !important;
     }
 }
 
@@ -63,13 +63,13 @@ h5.sv_q_title span {
 }
 
 .sv_q_radiogroup, .sv_q_checkbox {
-  padding: 15px;
+  padding: 7px;
   background-color: rgba($color3, .4);
   margin: 8px 0;
   box-shadow: rgba($color1, .4) 0 0 0 1px inset;
   border-radius: 6px;
   color: $text;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 body.sekciaUvodneOtazky .sv_q_radiogroup, .sv_q_checkbox {
@@ -123,7 +123,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
   background-color: transparent!important;
   border: none!important;
   border-bottom: 2px solid $text!important;
-  font-size: 2.6rem!important;
+  font-size: 2rem!important;
   color: $text!important;
   padding-left: 8px!important;
   margin-top: 16px!important;
@@ -488,7 +488,7 @@ body.sekciaOkruhyZaujmu {
 }
 
 .sv_q_description span {
-  font-size: 32px;
+  font-size: 1em;
   font-weight: 400;
   text-align: center;
   color: #000;

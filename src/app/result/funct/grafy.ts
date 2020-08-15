@@ -9,15 +9,15 @@ export class ResultGraphs {
     var poistenie = this.calcPoistenie(data);
     var spotreba = vyskaPrijmu - investicieKratkobe - investicieDlhodobe - pasiva - poistenie;
 
-    this.drawGraphUserInfo(investicieKratkobe, investicieDlhodobe, poistenie, pasiva, spotreba);
+    this.drawGraphUserInfo(investicieKratkobe, investicieDlhodobe, poistenie, pasiva, spotreba, vyskaPrijmu);
     this.drawGraphIdeal(vyskaPrijmu);
   }
 
-  private static drawGraphUserInfo(investicieKratkobe: number, investicieDlhodobe: number, poistenie: number, pasiva: number, spotreba: number): void {
+  private static drawGraphUserInfo(investicieKratkobe: number, investicieDlhodobe: number, poistenie: number, pasiva: number, spotreba: number, vyskaPrijmu: number): void {
     new Chart("graf-vyplneny", {
       type: 'pie',
       data: {
-        labels: ['Krátkodobé investície a rezerva [10%]', 'Dlhodobé investície [10-15%]', 'Poistenie [3-4%]', 'Úvery a bývanie [max 30%]', 'Spotreba [40%]'],
+        labels: ['Krátkodobé investície a rezerva ['+ investicieKratkobe / vyskaPrijmu * 100 +'%]', 'Dlhodobé investície ['+ investicieDlhodobe / vyskaPrijmu * 100 +'%]', 'Poistenie ['+ poistenie / vyskaPrijmu * 100 +'%]', 'Úvery a bývanie ['+ pasiva / vyskaPrijmu * 100 +'%]', 'Spotreba ['+ spotreba / vyskaPrijmu * 100 +'%]'],
         datasets: [{
           label: '# of Votes',
           data: [investicieKratkobe, investicieDlhodobe, poistenie, pasiva, spotreba],

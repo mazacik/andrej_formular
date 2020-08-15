@@ -248,15 +248,15 @@
             },
             {
               "value": "odkladaniePenaziSposobSporiaciUcetNaKonciMesiaca",
-              "text": "áno, odložím si ich na konci mesiaca na sporiaci účet"
+              "text": "áno, odložím si ich na konci mesiaca"
             },
             {
               "value": "odkladaniePenaziSposobSporiaciUcetPoVyplate",
-              "text": "áno, odložím si ich hneď po výplate na sporiaci účet"
+              "text": "áno, odložím si ich hneď po výplate"
             },
             {
               "value": "odkladaniePenaziSposobSporiaciUcetPriebezne",
-              "text": "áno, odkladám si ich priebežne počas mesiaca na sporiaci účet"
+              "text": "áno, odkladám si ich priebežne počas mesiaca"
             },
             {
               "value": "odkladaniePenaziSposobRazZaCas",
@@ -774,7 +774,7 @@
         {
           "type": "matrixdynamic",
           "name": "konzervativneInvesticie",
-          "title": "Pozrime sa najprv na Tvoje konzervatívne produkty",
+          "title": "Pozrime sa najprv na Tvoje konzervatívne produkty, posunieš sa tlačidlom \"ďalej\".",
           "description": "(Ak máš iba dlhodobé produkty, otázku preskoč.)",
           "columns": [
             {
@@ -794,12 +794,12 @@
                   "text": "stavebné sporenie"
                 },
                 {
-                  "value": "konzervativneInvesticieNazovProduktuDepozitneKonto",
-                  "text": "depozitné konto"
-                },
-                {
                   "value": "konzervativneInvesticieNazovProduktuAxaUcet",
                   "text": "AXA portfóliový účet"
+                },
+                {
+                  "value": "konzervativneInvesticieNazovProduktuDraheKovy",
+                  "text": "dlhopisy alebo zmenky"
                 },
                 {
                   "value": "konzervativneInvesticieNazovProduktuDraheKovy",
@@ -1007,6 +1007,10 @@
                 {
                   "value": "dynamickeInvesticieNazovProduktuCeleAkcie",
                   "text": "mám nakúpene celé akcie"
+                },
+                {
+                  "value": "dynamickeInvesticieNazovProduktuCeleAkcie",
+                  "text": "obchodujem na burze s komoditami alebo akciami"
                 },
                 {
                   "value": "dynamickeInvesticieNazovProduktuZmiesaneFondy",
@@ -1372,6 +1376,7 @@
           "type": "radiogroup",
           "name": "financnaGramotnostDruhyPilier",
           "title": "3 V ktorých fondoch je najlepšie mať založený druhý pilier?",
+          "description": "(Ak ideš do dôchodku neskôr ako o 15 rokov)",
           "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
@@ -1409,7 +1414,7 @@
         {
           "type": "radiogroup",
           "name": "financnaGramotnostVynos",
-          "title": "4 Máš v banke 1000€ s 1% výnosom. Aká bude reálna hodnota týchto peňazí o rok?",
+          "title": "4 Máš v banke 1000€ s 1% výnosom. Aká bude reálna hodnota týchto peňazí o 3 roky?",
           "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
@@ -1504,3 +1509,5 @@
     }
   ]
 }
+
+

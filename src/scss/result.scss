@@ -236,7 +236,10 @@
         li {
           margin: 32px 0;
         }
-
+        
+         
+        
+          
         p {
           font-size: 22px;
           color: #000;
@@ -350,4 +353,8 @@ border-radius: 10px;
   &__footer {
     text-align: center;
   }
+}
+
+b {
+  text-decoration: underline;
 }
