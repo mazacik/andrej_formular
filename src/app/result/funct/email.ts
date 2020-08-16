@@ -33,7 +33,7 @@ export class ResultEmail {
     // if (this.spamCheck()) return;
     // TODO MICHAL znova zapnut kontrolu
 
-    var email_montest = "andrej.nejedlik@montest.sk";
+    var email_montest = "kontakt@montest.sk";
     var email_klient = "";
     var email_subject = "Žiadosť o úvodnú konzultáciu zdarma";
     var email_body = "";

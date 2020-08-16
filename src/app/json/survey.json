@@ -1226,7 +1226,7 @@
         {
           "type": "radiogroup",
           "name": "omeskanieSplatky",
-          "title": "Nastalo u Teba niekedy meškanie pri splácaní splátok?",
+          "title": "Nastalo u Teba niekedy meškanie pri splácaní splátok úverov, pôžičok alebo hypotéky?",
           "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [

@@ -9,7 +9,7 @@ export class ToggleElement {
       if (div.innerHTML == "") {
         // toggle button
         var buttonToggle = document.createElement("i");
-        buttonToggle.classList.add("arrow-more", "fa", "fa-arrow-down");
+        buttonToggle.classList.add("arrow-more", "fa", "fa-angle-down");
         buttonToggle.setAttribute("name", id);
         buttonToggle.onclick = (event) => {
           let $button = $(event.target);
@@ -20,13 +20,13 @@ export class ToggleElement {
             if (element.hasAttribute("hidden")) {
               element.removeAttribute('hidden');
   
-              $button.removeClass('fa-arrow-down');
-              $button.addClass('fa-arrow-up');
+              $button.removeClass('fa-angle-down');
+              $button.addClass('fa-angle-up');
             } else {
               (<any>element).hidden = true;
   
-              $button.addClass('fa-arrow-down');
-              $button.removeClass('fa-arrow-up');
+              $button.addClass('fa-angle-down');
+              $button.removeClass('fa-angle-up');
             }
           }
         }
