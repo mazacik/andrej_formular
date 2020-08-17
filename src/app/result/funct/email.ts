@@ -8,12 +8,13 @@ export class ResultEmail {
     var email_body = "";
 
     // email klient
-    var elementEmailKlient = (<any>document.getElementById("")); // TODO - ID html elementu
+    var elementEmailKlient = (<any>document.getElementById("ask-email"));
     if (elementEmailKlient) email_klient = elementEmailKlient.value; else return;
     if (!this.isEmailValid(email_klient)) return;
 
     // email body
-    email_body = ""; // TODO nacitat obsah z textarea
+    var elementEmailBody = (<any>document.getElementById("popup-ask-content"));
+    if (elementEmailBody) email_body = elementEmailBody.value; else return;
 
     // confirmation email
     var email_clovek_subject = "Ďakujeme za otázku"; // TODO
