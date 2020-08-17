@@ -102,7 +102,7 @@
         {
           "type": "checkbox",
           "name": "zdrojPrijmu",
-          "title": "Aké sú tvoje aktuálne zdroje príjmu?",
+          "title": "Aké sú Tvoje aktuálne zdroje príjmu?",
           "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
@@ -136,6 +136,10 @@
               "value": "zdrojPrijmuProspechoveStipendium",
               "text": "prospechové štipendium",
               "visibleIf": "{studium} anyof ['studiumStredna', 'studiumVysoka']"
+            },
+            {
+              "value": "zdrojPrijmuIné",
+              "text": "iné"
             },
             {
               "value": "zdrojPrijmuNemaPrijem",
@@ -225,7 +229,7 @@
             },
             {
               "value": "kdePracujesMimoSR",
-              "text": "V žiadnom, pracujem v zahraničí"
+              "text": "pracujem v zahraničí"
             }
           ]
         }
@@ -264,7 +268,7 @@
             },
             {
               "value": "odkladaniePenaziSposobNie",
-              "text": "Nie"
+              "text": "nie"
             }
           ]
         }
@@ -293,7 +297,7 @@
         {
           "type": "html",
           "name": "zaciatokBodovania",
-          "html": "<h5 class='question-text sv_q_title' style='font-weight: 500'><span>Ďakujeme {meno} za vyplnenie otázok, teraz už vieme ktorý test bude pre Teba najvhodnejší.<br><br>Ako prvé otestujeme Tvoj výber finančných produktov.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
+          "html": "<h5 class='question-text sv_q_title' style='font-weight: 500'><span>Ďakujeme {meno} za vyplnenie otázok, teraz už vieme, ktorý test bude pre Teba najvhodnejší.<br><br>Ako prvé otestujeme Tvoj výber finančných produktov.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Ok' class='sv_next_btn sv_next_btn--alternative'>"
         }
       ]
     },
@@ -1488,18 +1492,18 @@
             },
             {
               "value": "coChcesVedietVlastneByvanie",
-              "text": "vlastné bývanie - čo všetko treba vedieť a ako sa na to pripraviť."
+              "text": "vlastné bývanie - čo všetko treba vedieť a ako sa na to pripraviť"
             },
             {
               "value": "coChcesVedietFinancnaNezavislost",
-              "text": "finančná nezávislosť - ako sa dá vytvoriť pasívny príjem, ktorý pokrýva nevyhnutné životné výdavky."
+              "text": "finančná nezávislosť - ako sa dá vytvoriť pasívny príjem, ktorý pokrýva nevyhnutné životné výdavky"
             },
             {
               "value": "coChcesVedietMenezovanieVydavkov",
-              "text": "menežovanie vydávkov - ako sa zamýšľať nad svojimi výdavkami a nájsť balans medzi šetrením a užívaním si."
+              "text": "menežovanie vydávkov - ako sa zamýšľať nad svojimi výdavkami a nájsť balans medzi šetrením a užívaním si"
             }
           ],
-          "otherText": "Iné"
+          "otherText": "iné"
         }
       ]
     }
