@@ -257,6 +257,7 @@ export class ResultComponent implements OnInit {
   }
   email_opytajsa(): void {
     ResultEmail.email_opytajsa();
+    this.closeResultPopup();
   }
   email_dataURL(): void {
     ResultEmail.email_dataURL(this.getDataURL(), this.data);
