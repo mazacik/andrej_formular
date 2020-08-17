@@ -1,6 +1,28 @@
 import { data } from 'jquery';
 
 export class ResultEmail {
+  static email_opytajsa(): void {
+    var email_klient = "";
+    var email_montest = "kontakt@montest.sk";
+    var email_subject = "Človek sa chce niečo opýtať"; // TODO
+    var email_body = "";
+
+    // email klient
+    var elementEmailKlient = (<any>document.getElementById("")); // TODO - ID html elementu
+    if (elementEmailKlient) email_klient = elementEmailKlient.value; else return;
+    if (!this.isEmailValid(email_klient)) return;
+
+    // email body
+    email_body = ""; // TODO nacitat obsah z textarea
+
+    // confirmation email
+    var email_clovek_subject = "Ďakujeme za otázku"; // TODO
+    var email_clovek_body = "Niečo si sa opýtal, čoskoro ti odpovieme."; // TODO
+
+    // send email
+    this.emailSend(email_montest, email_klient, email_subject, email_body);
+    this.emailSend(email_klient, email_montest, email_clovek_subject, email_clovek_body);
+  }
   static email_dataURL(dataURL: string, data: any): void {
     // if (this.spamCheck()) return;
     var email_klient = "";
