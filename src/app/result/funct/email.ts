@@ -1,7 +1,7 @@
 import { data } from 'jquery';
 
 export class ResultEmail {
-  static email_opytajsa(): void {
+  static email_opytajsa(data: any): void {
     var email_klient = "";
     var email_montest = "kontakt@montest.sk";
     var email_subject = "Človek sa chce niečo opýtať"; // TODO
@@ -17,8 +17,8 @@ export class ResultEmail {
     if (elementEmailBody) email_body = elementEmailBody.value; else return;
 
     // confirmation email
-    var email_clovek_subject = "Ďakujeme za otázku"; // TODO
-    var email_clovek_body = "Niečo si sa opýtal, čoskoro ti odpovieme."; // TODO
+    var email_clovek_subject = "Montest - ďakujeme za otázku"; // TODO
+    var email_clovek_body = "<div style='background-color: #fff5eb; padding: 30px; text-align: center;'><h1>Ahoj " + data.meno + ", <br />ďakujeme za ot&aacute;zku, do 24 hod&iacute;n Ťa budeme kontaktovať.</h1><br /><br /><h3>Zatiaľ n&aacute;s m&ocirc;že&scaron; sledovať na <a href='https://www.facebook.com/Montest-101434388313005'>facebooku</a> alebo si pozri n&aacute;&scaron; <a href='https://montest.sk/'>web</a>.<br /><br /></h3></div>"; // TODO
 
     // send email
     this.emailSend(email_montest, email_klient, email_subject, email_body);

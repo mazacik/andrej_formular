@@ -256,7 +256,7 @@ export class ResultComponent implements OnInit {
     this.clipboard(this.getDataURL());
   }
   email_opytajsa(): void {
-    ResultEmail.email_opytajsa();
+    ResultEmail.email_opytajsa(this.data);
     this.closeResultPopup();
   }
   email_dataURL(): void {

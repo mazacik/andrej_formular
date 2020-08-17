@@ -836,3 +836,34 @@ body.sekciaOkruhyZaujmu {
 .margin-top15 {
   margin-top: 15px;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffefd2+11,ffffff+21,ffffff+30,ffefd2+46,ffefd2+53,ffffff+63,ffffff+63,ffffff+75,ffffff+75,ffefd2+83,ffffff+92 */
+background: #ffefd2; /* Old browsers */
+background: -moz-linear-gradient(top,  #ffefd2 11%, #ffffff 21%, #ffffff 30%, #ffefd2 46%, #ffefd2 53%, #ffffff 63%, #ffffff 63%, #ffffff 75%, #ffffff 75%, #ffefd2 83%, #ffffff 92%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #ffefd2 11%,#ffffff 21%,#ffffff 30%,#ffefd2 46%,#ffefd2 53%,#ffffff 63%,#ffffff 63%,#ffffff 75%,#ffffff 75%,#ffefd2 83%,#ffffff 92%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #ffefd2 11%,#ffffff 21%,#ffffff 30%,#ffefd2 46%,#ffefd2 53%,#ffffff 63%,#ffffff 63%,#ffffff 75%,#ffffff 75%,#ffefd2 83%,#ffffff 92%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefd2', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #962913;
+  border-radius: 15px;
+  border: #962913;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #EEBDB3;
+}
+
+
+
+ 
