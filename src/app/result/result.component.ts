@@ -277,6 +277,10 @@ export class ResultComponent implements OnInit {
     $('.popup-result').css('display', 'flex');
   }
 
+  onAskButtonClick() {
+    $('.popup-ask').css('display', 'flex');
+  }
+
   private closeResultPopup() {
     $('.popup .popup__close__icon').closest('.popup').css('display', 'none');
   }

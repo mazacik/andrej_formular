@@ -1143,7 +1143,32 @@
 
 
 
-<button (click)="onSaveResultButtonClick()" id="saveButton" >
+<div class="popup popup-ask">
+  <div class="popup__close">
+    <i class="fa fa-times popup__close__icon" aria-hidden="true"></i>
+  </div>
+  <div class="popup__wrapper">
+    <form action="#">
+      <h4 class="popup__title">Radi Ti odpovieme na akúkoľvek otázku.</h4>
+      <div class="text-input inline-block mt-8">
+        <i class="fa fa-envelope"></i>
+        <label for="result-email">Mail:</label>
+        <input id="ask-email" type="email" placeholder="tvojmail@mail.sk" name="ask-email">
+<textarea id="popup-ask-content" name="popup-ask-content" rows="4" cols="50">
+Tvoja otázka..
+</textarea>
+      </div>
+      <div>
+        <input type="submit" class="button-main mt-4" value="Odoslať" (click)="email_dataURL()">
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+<button (click)="onAskButtonClick()" id="askButton" >
   <div class="opytat-sa text-center">
     <p><strong>Opýtaj sa.</strong></p>
     <p>Čokoľvek.</p>
