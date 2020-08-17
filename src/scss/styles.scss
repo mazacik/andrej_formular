@@ -531,7 +531,7 @@ body.sekciaOkruhyZaujmu {
   }
   li:before {
     position: absolute;
-    top: 0;
+    top: 0px;
     left: -$tickSize - 8px;
     content: "";
     background: url(/assets/icons/#{$iconName}.svg);
@@ -799,15 +799,22 @@ body.sekciaOkruhyZaujmu {
   margin: 0 32px;
 }
 
-.section-navigation-sidebar {
+.opytat-sa {
   position: fixed;
   right: 20px;
-  bottom: 0px;
-  color: #CF4327;
-    font-size: 55px;    
+  bottom: 20px;
+}
+
+.opytat-sa-icon {
+  padding: 10px;
+  color: white;
+    font-size: 30px;    
     cursor: pointer;
-    width: 31px;
+    width: 50px;
     text-align: center;
+    border-radius: 100px;
+    background-color: #962913;
+    box-shadow: 0px 3px 13px 1px rgba(0,0,0,0.12);
 }
 
 

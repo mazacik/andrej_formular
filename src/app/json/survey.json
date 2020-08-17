@@ -102,13 +102,13 @@
         {
           "type": "checkbox",
           "name": "zdrojPrijmu",
-          "title": "Aké su tvoje aktuálne zdroje príjmu?",
+          "title": "Aké sú tvoje aktuálne zdroje príjmu?",
           "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
           "choices": [
             {
               "value": "zdrojPrijmuTPP",
-              "text": "trvalý pracovný pomer"
+              "text": "zamestnanie"
             },
             {
               "value": "zdrojPrijmuBrigada",
@@ -120,7 +120,7 @@
             },
           {
             "value": "zdrojPrijmuSRO",
-            "text": "s.r.o."
+            "text": "podnikanie (konateľ s.r.o.)"
           },
             {
               "value": "zdrojPrijmuVreckove",
@@ -237,7 +237,7 @@
         {
           "type": "radiogroup",
           "name": "odkladaniePenaziSposob",
-          "title": "Vies si odložiť z Tvojho prijímu peniaze?",
+          "title": "Vieš si odložiť z Tvojho prijímu peniaze?",
           "descrition": "(rátaj aj pravidelné sporenia a investície)",
           "isRequired": true,
           "requiredErrorText": "Otázka je povinná.",
@@ -478,7 +478,7 @@
             },
             {
               "value": "produktyZivotnePoistenieRodicia",
-              "text": "platia mi ho rodičia"
+              "text": "platí mi ho niekto iný"
             },
             {
               "value": "produktyZivotnePoistenieNiePlanujem",
@@ -899,10 +899,6 @@
                 {
                   "value": "ucelProduktuSetrenieNaByvanie",
                   "text": "šetrenie na bývanie"
-                },
-                {
-                  "value": "ucelProduktuPoisteniePredStratouHodnoty",
-                  "text": "poistenie pred stratou hodnoty"
                 },
                 {
                   "value": "ucelProduktuPredcasneSplatenieHypoteky",

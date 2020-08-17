@@ -5,7 +5,7 @@ export class SurveyTooltip {
     SurveyTooltip.create(survey, "financnaRezervaMesacne", "rezervu", "Peniaze, ktoré si odkladáš tzv. \"na horšie časy\".");
     SurveyTooltip.create(survey, "meno", "Monteste", "Test, v ktorom za 15minút zistíš úroveň svojej finančnej inteligencie a dostaneš odporúčania namieru ako pracovať s peniazmi efektívnejšie.");
     SurveyTooltip.create(survey, "konzervativneInvesticie", "konzervatívne produkty", "Zarábaju menej, ale vieš si z nich bez rizika vybrať peniaze v kratšej dobe.");
-    SurveyTooltip.create(survey, "dynamickeInvesticie", "dynamické investičné produkty", "Zarábaju menej, ale vieš si z nich bez rizika vybrať peniaze v kratšej dobe.");
+    SurveyTooltip.create(survey, "dynamickeInvesticie", "dynamické investičné produkty", "Zarábaju síce viac, ale vieš si z nich bez rizika vybrať peniaze až za dlhšiu dobu.");
 
     // tooltip na hodnosti pri challengelinku je rieseny v metode checkChallengeLink() v survey.ts
 

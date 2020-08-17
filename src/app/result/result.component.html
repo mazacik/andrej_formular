@@ -293,9 +293,6 @@
               tak, aby spĺnalo všetky Tvoje potreby.
             </li>
           </ul>
-          <div class="text-center">
-            <a class="button-main contact-button" href="#kontakt">Kontaktovať</a>
-          </div>
         </div>
       </div>
     </div>
@@ -305,7 +302,7 @@
     <div class="form-consultation__header flex items-center">
       <div>
         <h5>Využi od nás úvodnú konzultáciu zdarma.</h5>
-        <p>Na konkrétnych podmienkach spolupráce sa dohodneme až keď zistime Tvoje požiadavky.</p>
+        <p>Na konkrétnych podmienkach spolupráce sa dohodneme až keď zistíme Tvoje požiadavky.</p>
       </div>
       <div class="md:ml-8">
         <img src="/assets/illustrations/partnership.png" alt="partnership">
@@ -1143,9 +1140,14 @@
   </div>
 </div>
 
-<nav class="section-navigation-sidebar">
-      <a href="#kontakt">
-        <i class="fa fa-angle-up"></i>
-      </a>
-</nav>
- 
+
+
+
+<button (click)="onSaveResultButtonClick()" id="saveButton" >
+  <div class="opytat-sa text-center">
+    <p><strong>Opýtaj sa.</strong></p>
+    <p>Čokoľvek.</p>
+          <i class="opytat-sa-icon fa fa-question"></i>
+  </div>
+</button>
+
