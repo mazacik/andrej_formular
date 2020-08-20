@@ -62,6 +62,18 @@ export class SurveyComponent implements OnInit {
     this.onCurrentPageChanged();
   }
 
+  insertClassToPageKratkodobeInvesticie(): void {
+    var $el = $(".sv_q.sv_qstn");
+    if ($el.length > 0) {
+      const pageName = this.survey.currentPage.name;
+      if (pageName == "pageKratkodobeInvesticie") {
+        $el.addClass("lukas-class-123");
+      } else {
+        $el.removeClass("lukas-class-123");
+      }
+    }
+  }
+
   insertAlternativeNextButton(): void {
     function showAlternativeNextButton() {
       $el.append('<input id="surveyNextAlternative" onclick="survey.nextPage()"' +
@@ -122,6 +134,7 @@ export class SurveyComponent implements OnInit {
     $('.sv_qcbc').parent().css('justify-content', 'center');
 
     this.insertAlternativeNextButton();
+    this.insertClassToPageKratkodobeInvesticie();
     this.surveyNavBar.updateNavBar(this.survey);
 
     this.updateNavButtons();
@@ -146,7 +159,7 @@ export class SurveyComponent implements OnInit {
     // remove section class from body (removes background image)
     var poslednaSekcia = this.surveyNavBar.sekcie[this.surveyNavBar.sekcie.length - 1];
     document.getElementsByTagName("body")[0].classList.remove(poslednaSekcia.simple);
-    
+
     // navigate to result
     this.router.navigate(['vyhodnotenie/' + btoa(JSON.stringify(this.survey.data))]);
   }

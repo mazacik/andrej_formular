@@ -36,21 +36,28 @@ export class ResultEmail {
     if (!this.isEmailValid(email_klient)) return;
 
     // email body
-    email_body = "<div style='background-color: #fff5eb; padding: 30px;'><h1 style='text-align: center;'>Ahoj " + data.meno + ", ďakujeme za Tvoj čas pri vypĺňan&iacute; testu.</h1><h2 style='text-align: center;'>Ver&iacute;me, že Ťa naučil niečo nov&eacute;.</h2><div>&nbsp;</div><div>&nbsp;</div><blockquote><h3>Vyhodnotenie m&aacute;&scaron; teraz k dispoz&iacute;cii aj offline.</h3><h3><strong>Dostane&scaron; sa k nemu nasledovne:</strong></h3></blockquote><ol><li><p><strong>V pr&iacute;lohe klikni na 'Stiahnuť'</strong></p></li><li><p><strong>Klikni na stiahnut&yacute; s&uacute;bor a&nbsp;n&aacute;sledne na 'otvoriť&nbsp;s'</strong></p></li><li><p><strong>Vyber svoj prehliadač</strong></p></li></ol></div>";
+    // email_body = "<div style='background-color: #fff5eb; padding: 30px;'><h1 style='text-align: center;'>Ahoj " + data.meno + ", ďakujeme za Tvoj čas pri vypĺňan&iacute; testu.</h1><h2 style='text-align: center;'>Ver&iacute;me, že Ťa naučil niečo nov&eacute;.</h2><div>&nbsp;</div><div>&nbsp;</div><blockquote><h3>Vyhodnotenie m&aacute;&scaron; teraz k dispoz&iacute;cii aj offline.</h3><h3><strong>Dostane&scaron; sa k nemu nasledovne:</strong></h3></blockquote><ol><li><p><strong>V pr&iacute;lohe klikni na 'Stiahnuť'</strong></p></li><li><p><strong>Klikni na stiahnut&yacute; s&uacute;bor a&nbsp;n&aacute;sledne na 'otvoriť&nbsp;s'</strong></p></li><li><p><strong>Vyber svoj prehliadač</strong></p></li></ol></div>";
+    // -> ANDREJ -> tu mas tu URLku. uprav si ten "a href" element ako chces, tie parametre target a rel vobec neviem co robia.
+    email_body = "<a href='" + dataURL + "' target='_blank' rel='noopener'>Test 123</a>";
 
     // email attachments
-    var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + dataURL + "'></head>";
-    var htmlFileBlob = new Blob([htmlContent], { type: "text/plain;charset=utf-8" });
+    // var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + dataURL + "'></head>";
+    // var htmlFileBlob = new Blob([htmlContent], { type: "text/plain;charset=utf-8" });
 
     // poslat email aj montestu
     var email_montest_subject = "Email nejakeho cloveka";
-    var email_montest_body = "Niekto si ulozil svoje vyhodnotenie na email: " + email_klient;
 
-    var that = this;
-    this.blobToDataURL(htmlFileBlob, function (htmlUrl: any) {
-      that.emailSend(email_klient, email_montest, email_subject, email_body, htmlUrl);
-      that.emailSend(email_montest, email_klient, email_montest_subject, email_montest_body, htmlUrl);
-    });
+    // -> ANDREJ -> tuto to uprav tak isto ako hore
+    var email_montest_body = "Niekto si ulozil svoje vyhodnotenie na email: " + email_klient + ", <a href='" + dataURL + "' target='_blank' rel='noopener'>jeho vyhodnotenie</a>";
+
+    this.emailSend(email_klient, email_montest, email_subject, email_body);
+    this.emailSend(email_montest, email_klient, email_montest_subject, email_montest_body);
+
+    // var that = this;
+    // this.blobToDataURL(htmlFileBlob, function (htmlUrl: any) {
+    //   that.emailSend(email_klient, email_montest, email_subject, email_body, htmlUrl);
+    //   that.emailSend(email_montest, email_klient, email_montest_subject, email_montest_body, htmlUrl);
+    // });
   }
   static email_ziadost(dataURL: string, data: any): void {
     // if (this.spamCheck()) return;
@@ -73,16 +80,19 @@ export class ResultEmail {
     }
 
     // email body
-    email_body += "<br>\nData JSON: " + JSON.stringify(data);
+    // -> ANDREJ -> tuto tiez
+    email_body += "<br>\nData JSON: " + JSON.stringify(data) + ", <a href='" + dataURL + "' target='_blank' rel='noopener'>vyhodnotenie</a>";
 
     // email attachments
-    var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + dataURL + "'></head>";
-    var htmlFileBlob = new Blob([htmlContent], { type: "text/plain;charset=utf-8" });
-    var that = this;
-    this.blobToDataURL(htmlFileBlob, function (htmlUrl: any) {
-      // send email
-      that.emailSend(email_montest, email_klient, email_subject, email_body, htmlUrl);
-    });
+    // var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + dataURL + "'></head>";
+    // var htmlFileBlob = new Blob([htmlContent], { type: "text/plain;charset=utf-8" });
+    // var that = this;
+    // this.blobToDataURL(htmlFileBlob, function (htmlUrl: any) {
+    //   // send email
+    //   that.emailSend(email_montest, email_klient, email_subject, email_body, htmlUrl);
+    // });
+
+    this.emailSend(email_montest, email_klient, email_subject, email_body);
 
     // potvrdenie o ziadosti
     var email_potvrdenie_subject = "Ozveme sa Ti";
