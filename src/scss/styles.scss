@@ -166,7 +166,7 @@ body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
 
 .button-main {
   background-color: $color2!important;
-  font-size: 1.6em;
+  font-size: 1.2em;
   font-weight: bold;
   border: none;
   min-width: 100px;
@@ -695,6 +695,8 @@ body.sekciaOkruhyZaujmu {
       text-align: center;
     }
 
+#ask-email {font-size: 1.2rem !important;}
+
     textarea {
       font-family: Open Sans, sans-serif;
       max-width: 100%;
@@ -718,7 +720,7 @@ body.sekciaOkruhyZaujmu {
 
     .mail-input {
       border-bottom: 3px solid #E5A024;
-      font-size: 24px;
+      font-size: 1.2rem;
       display: flex;
       align-items: center;
 
