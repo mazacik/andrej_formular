@@ -38,8 +38,8 @@ export class ResultEmail {
     // email body
     // email_body = "<div style='background-color: #fff5eb; padding: 30px;'><h1 style='text-align: center;'>Ahoj " + data.meno + ", ďakujeme za Tvoj čas pri vypĺňan&iacute; testu.</h1><h2 style='text-align: center;'>Ver&iacute;me, že Ťa naučil niečo nov&eacute;.</h2><div>&nbsp;</div><div>&nbsp;</div><blockquote><h3>Vyhodnotenie m&aacute;&scaron; teraz k dispoz&iacute;cii aj offline.</h3><h3><strong>Dostane&scaron; sa k nemu nasledovne:</strong></h3></blockquote><ol><li><p><strong>V pr&iacute;lohe klikni na 'Stiahnuť'</strong></p></li><li><p><strong>Klikni na stiahnut&yacute; s&uacute;bor a&nbsp;n&aacute;sledne na 'otvoriť&nbsp;s'</strong></p></li><li><p><strong>Vyber svoj prehliadač</strong></p></li></ol></div>";
     // -> ANDREJ -> tu mas tu URLku. uprav si ten "a href" element ako chces, tie parametre target a rel vobec neviem co robia.
-    email_body = "<a href='" + dataURL + "' target='_blank' rel='noopener'>Test 123</a>";
-
+    email_body = "<div style='background-color: #fff5eb; padding: 15px;'><h1 style='text-align: center;'>Ahoj " + data.meno + ", ďakujeme za Tvoj čas pri vypĺňan&iacute; testu.</h1><h2 style='text-align: center;'>Svoje vyhodnotenie si m&ocirc;že&scaron; kedykoľvek pozrieť <a href='" + dataURL + "' target='_blank'>TU</a>.</h2><blockquote style='background-color: #eebdb3; padding: 5px;'><p style='text-align: center;'>Upozorňujeme, že vyhodnotenie sa Ti zobraz&iacute; iba ak m&aacute;&scaron; dan&yacute; link k dispoz&iacute;cii. Ak tento mail strat&iacute;&scaron;, už sa k vyhodnoteniu nedostane&scaron;.</p></blockquote></div>";
+    
     // email attachments
     // var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + dataURL + "'></head>";
     // var htmlFileBlob = new Blob([htmlContent], { type: "text/plain;charset=utf-8" });

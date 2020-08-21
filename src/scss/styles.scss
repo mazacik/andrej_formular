@@ -558,21 +558,25 @@ body.sekciaOkruhyZaujmu {
 }
 
 .arrow-more {
-  color: #CF4327;
-  //border-radius: 100px;
-  //border: solid 4px #CF4327;
-  //padding: 4px;
-  font-size: 45px;
-  margin: 0 8px;
+  color: white;
+  border-radius: 100px;
+  border: solid 410x #CF4327;
+  background-color: #CF4327;
+  font-size: 20px;
+  padding: 6px;
+  margin: 0px 8px;
   cursor: pointer;
   width: 31px;
   text-align: center;
+  
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 
 .arrow-more {
     -webkit-animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 5 alternate both;
             animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 5 alternate both;
+
 }
 
 /* ----------------------------------------------
@@ -589,8 +593,8 @@ body.sekciaOkruhyZaujmu {
  */
  @-webkit-keyframes scale-up-center {
   0% {
-    -webkit-transform: scale(0.7);
-            transform: scale(0.7);
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
   }
   100% {
     -webkit-transform: scale(1);
@@ -599,8 +603,8 @@ body.sekciaOkruhyZaujmu {
 }
 @keyframes scale-up-center {
   0% {
-    -webkit-transform: scale(0.7);
-            transform: scale(0.7);
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
   }
   100% {
     -webkit-transform: scale(1);
