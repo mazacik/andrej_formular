@@ -149,11 +149,11 @@ export default {
       "resultPointsStratil": 0
     }, 
     {
-      "id": "produktyInvesticieSporeniaAno",
+      "id": "produktyInvesticieAno",
       "resultPointsStratil": 0
     },
     {
-      "id": "produktyInvesticieSporeniaAnoAPlanujemDalsie",
+      "id": "produktyInvesticieAnoAPlanujemDalsie",
       "resultPointsStratil": 0
     },
     {
@@ -361,7 +361,7 @@ export default {
       "resultPointsStratil": 0.5
     },
     {
-      "id": "produktyTretiPilierNeviemCoToJe",
+      "id": "produktyTretiPilierNeviem",
       "choiceString": "",
       "resultTitle": "Nevieš, čo znamená tretí pilier.",
       "resultVysvetlenie": "Tretí pilier je účet, v ktorom si vieš sporiť na dôchodok. Jeho založenie je pre Teba výhodné iba vtedy, ak by Ti naň prispieval aj zamestnávateľ. V tom prípade dostaneš na dôchodok zadarmo peniaze. Nie každý zamestnávateľ však tento benefit poskytuje, preto sa určite v práci spýtaj, ako je to u vás.",
@@ -417,7 +417,7 @@ export default {
       "resultPointsStratil": 0.5
     },
     {
-      "id": "produktyDruhyPilierNeviemCoToJe",
+      "id": "produktyDruhyPilierNeviem",
       "choiceString": "",
       "resultTitle": "Nevieš, čo znamená druhý pilier.",
       "resultVysvetlenie": "Druhý pilier sú jediné peniaze, ktoré vieš od štátu získať zadarmo navyše len tak. Funguje to tak, že časť z Tvojich odvodov nesmerujú na vyplácanie aktuálnych dôchodcov, ale idú priamo Tebe na účet, z ktorého si vieš nasporené peniaze vytiahnuť na dôchodku. Založenie druhého piliera by malo byť jeden z prvých úkonov, ktoré spravíš po získaní prvého pracovného miesta, aj brigády.",
@@ -493,7 +493,7 @@ export default {
       "resultPointsStratil": 1
     },
     {
-      "id": "produktyHypotekaUrokDo2",
+      "id": "produktyHypotekaUrok1az2",
       "choiceString": "",
       "resultTitle": "Na hypotéke máš viac ako 1% úrok.",
       "resultVysvetlenie": "V dnešnej dobe banky poskytujú najnižšie úroky aké kedy boli. Preto ak máš na hypotéke úrok viac ako 1%, daj si ju refinancovať. Ušetríš na mesačnej splátke a aj preplatení. Keďže sa banky bijú o klientov, neváhaj navštíviť aj inú banku, možno Ti dajú výhodnejšie podmienky.",
@@ -514,7 +514,7 @@ export default {
       "resultPointsStratil": 0.5
     },
     {
-      "id": "produktyUverPozickaUrokDo10",
+      "id": "produktyUverPozickaUrok5az10",
       "choiceString": "",
       "resultTitle": "Na úvere máš väčší úrok ako 5%.",
       "resultVysvetlenie": "V dnešnej dobe banky poskytujú veľmi výhodné úvery, odporúčame sa pozrieť na možnosť refinancovania. Môžeš tak ušetriť na mesačnej splátke a aj celkovom preplatení.",
@@ -542,14 +542,14 @@ export default {
       "resultPointsStratil": 0.5
     },   
     {
-      "id": "produktyInvesticieSporeniaNie",
+      "id": "produktyInvesticieNie",
       "choiceString": "",
       "resultTitle": "Neinvestuješ.",
       "resultVysvetlenie": "S investovaním je najlepšie začať čo najskôr, hoci by to malo znamenať, že investuješ len 10€ mesačne. Týmto spôsobom si buduješ návyk na mesačné odkladanie peňazí a, navyše, aj malá čiastka sa vie pekne zhodnotiť. Ak vezmeme do úvahy riziko, výnos a energiu, investovanie je ten najefektívnejší spôsob, ako nadobudnúť peniaze bez práce.",
       "resultPointsStratil": 1
     },      
     {
-      "id": "produktyInvesticieSporeniaNiePlanujem",
+      "id": "produktyInvesticieNiePlanujem",
       "choiceString": "",
       "resultTitle": "Nemáš ešte žiadne investície.",
       "resultVysvetlenie": "Investovať by mal každý okamžite ako dostane prvú výplatu. O investovaní sme slabo informovaní a preto je pochopiteľné, že ešte neinvestuješ a o to chvályhodnejšie, že investovať plánuješ. Aktuálne je najvýhodnejšia forma investovania cez takzvané ETF fondy.",
@@ -557,7 +557,7 @@ export default {
     },      
     
     {
-      "id": "produktyInvesticieSporeniaAnoPlatiaRodicia",
+      "id": "produktyInvesticieAnoPlatiaRodicia",
       "choiceString": "",
       "resultTitle": "Sporenia majú pod kontrolou Tvoji rodičia.",
       "resultVysvetlenie": "Častokrát sa stáva, že rodičia založia sporenie a dlhé roky sa tomu nevenujú, pričom je vysoko pravdepodobné, že medzičasom na trh prišli výhodnejšie produkty. Nasporené peniaze sú Tvoje, preto si radšej zisti, či neexistuje niečo výhodnejšie, napriek tomu, že rodičom veríš, že sa oň dobre starajú.",

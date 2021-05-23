@@ -1,13 +1,10 @@
 {
-  "name": "angular-project",
+  "name": "findemy-test",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build": "ng build"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +17,7 @@
     "@angular/platform-browser": "~11.2.14",
     "@angular/platform-browser-dynamic": "~11.2.14",
     "@angular/router": "~11.2.14",
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "animate.css": "^4.1.1",
     "autoprefixer": "^10.2.5",
     "chart.js": "^2.9.4",

@@ -73,7 +73,7 @@ export default {
       "resultVysvetlenie": ""
     },
     {
-      "id": "produktyInvesticieSporenia",
+      "id": "produktyInvesticie",
       "resultPointsMax": 1,
       "correctChoice": "",
       "resultVysvetlenie": ""

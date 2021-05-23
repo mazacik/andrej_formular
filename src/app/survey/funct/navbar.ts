@@ -40,7 +40,7 @@ export class SurveyNavBar {
         "pageProduktyUverPozickaVyskaSplatky",
         "pageProduktyUverPozickaUrok",
         "pageProduktyBeznyUcet",
-        "pageProduktyInvesticieSporenia",
+        "pageProduktyInvesticie",
         "pageZaciatokOtazokOInvestovani",
         "pageKratkodobeInvesticie",
         "pageDynamickeInvesticie",
@@ -129,11 +129,6 @@ export class SurveyNavBar {
     const section = this.getSectionByPageName(pageName);
     const sectionIndex = this.sekcie.indexOf(section);
     var navNumber = 0;
-
-    // set section name as body class name
-    for (let i = 0; i < this.sekcie.length; i++)
-      document.getElementsByTagName("body")[0].classList.remove(this.sekcie[i].simple);
-    document.getElementsByTagName("body")[0].classList.add(section.simple);
 
     // set navigation items current state
     for (let i = 0; i < this.navbarElements.length; i++)

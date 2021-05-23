@@ -22,7 +22,7 @@ Survey.Serializer.addProperty("page", {
 @Component({
   selector: 'app-survey',
   templateUrl: './survey.component.html',
-  styleUrls: ['./survey.component.css'],
+  styleUrls: ['./survey.component.scss'],
 })
 
 export class SurveyComponent implements OnInit {
@@ -76,7 +76,7 @@ export class SurveyComponent implements OnInit {
 
   insertAlternativeNextButton(): void {
     function showAlternativeNextButton() {
-      $el.append('<input id="surveyNextAlternative" onclick="survey.nextPage()"' +
+      $el.last().append('<input id="surveyNextAlternative" onclick="survey.nextPage()"' +
         ' type="button"' +
         ' value="Ok"' +
         ' class="sv_next_btn sv_next_btn--alternative">');

@@ -17,7 +17,7 @@ import answerDetails from '../json/answerDetails';
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
-  styleUrls: ['./result.component.css']
+  styleUrls: ['./result.component.scss']
 })
 export class ResultComponent implements OnInit {
   resultBodovanie: ResultBodovanie = new ResultBodovanie();
