@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as FileSaver from 'file-saver';
 import tippy from 'tippy.js';
-import * as Snackbar from 'node-snackbar';
 
 import { ToggleElement } from './funct/toggleelement';
 import { ResultBodovanie } from './funct/bodovanie';
 import { ResultPodmienky } from './funct/podmienky';
-import { ResultGraphs } from './funct/grafy';
 import { ResultEmail } from './funct/email';
 import { ResultNaj3 } from './funct/naj3';
 
@@ -91,9 +88,6 @@ export class ResultComponent implements OnInit {
 
       // bodovanie
       this.resultBodovanie.calculate(this.data.meno);
-
-      // grafy
-      ResultGraphs.draw(this.data);
 
       // dozvies sa viac o...
       //this.createDozviesSaViac();
@@ -233,12 +227,6 @@ export class ResultComponent implements OnInit {
   getDataURL(): string {
     return window.location.origin + "/vyhodnotenie/" + btoa(JSON.stringify(this.data));
   }
-  saveHTML_dataURL(): void {
-    var htmlContent = "<head><meta http-equiv='refresh' content='0; URL=" + this.getDataURL() + "'></head>";
-    var fileBlob = new Blob([htmlContent], { type: "text/plain;charset=utf-8" });
-    var fileName = "Vyhodnotenie.html";
-    FileSaver.saveAs(fileBlob, fileName);
-  }
   clipboard(value: string): void {
     const copyElement = document.createElement('textarea');
     copyElement.style.position = 'fixed';
@@ -270,11 +258,6 @@ export class ResultComponent implements OnInit {
 
   onChallengeButtonClick(challengeLink: string) {
     this.clipboard(challengeLink);
-    Snackbar.show({
-      text: 'Link skopírovaný, môžeš ho prilepiť.',
-      pos: 'top-right',
-      showAction: false
-    });
   }
 
   onSaveResultButtonClick() {

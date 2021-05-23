@@ -83,7 +83,7 @@ export class SurveyNavBar {
   navbarElements = [];
 
   constructor() {
-    this.createNavBar();
+    // this.createNavBar();
   }
 
   createNavBar() {

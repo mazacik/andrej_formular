@@ -4,23 +4,34 @@
 @import "survey";
 @import "illustrations";
 @import "result";
-@import 'snackbar';
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import '~@fortawesome/fontawesome-free/css/solid.css';
+@import '~@fortawesome/fontawesome-free/css/fontawesome.css';
 
 body {
 	margin: 0;
-	color: $text;
-	font-family: Arial, serif;
 	overflow: hidden;
+	background-color: $background-color;
 }
 
-h1 {
-	font-family: 'Raleway', sans-serif;
+body,
+input {
+	font-family: 'Quicksand';
 }
 
 *,
  ::before,
  ::after {
 	box-sizing: border-box;
+}
+
+.display-none {
+	display: none !important;
+}
+
+.fas {
+	margin: 0 8px;
 }
 
 .container {
@@ -47,9 +58,10 @@ h5.sv_q_title {
 }
 
 h5.sv_q_title span {
-	font-size: 1.5rem !important;
+	font-size: 40px;
+	font-weight: 600;
 	@media (max-width: 768px) {
-		font-size: 1.2rem !important;
+		font-size: 1.2rem;
 	}
 }
 
@@ -155,10 +167,22 @@ h5.sv_q_title span {
 }
 
 .sv_next_btn,
+.sv_prev_btn,
 .sv_complete_btn {
-	margin-left: 8px;
-	padding: 3px 30px !important;
-	background-color: $color2!important;
+	border: none;
+	margin: 0 4px;
+	cursor: pointer;
+	padding: 3px 30px;
+	background-color: $color2;
+	font-size: 30px;
+	font-weight: 500;
+	display: inline-flex;
+	min-width: 160px;
+	border-radius: 7px;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+  height: 60px;
 }
 
 .sv_next_btn--alternative {
@@ -236,7 +260,6 @@ h5.sv_q_title span {
 
 .navigationProgressbar li {
 	font-size: 14px;
-	font-family: 'Raleway', sans-serif;
 	position: relative;
 	display: inline-block;
 	margin: 0 8px;
@@ -369,7 +392,6 @@ h5.sv_q_title span {
 }
 
 #surveyContainer {
-	flex: 1;
 	display: flex;
 	justify-content: center;
 	vertical-align: middle;
@@ -425,10 +447,9 @@ h5.sv_q_title span {
 }
 
 .sv_q_description span {
-	font-size: 1em;
-	font-weight: 400;
+	font-size: 1rem;
+	font-weight: 500;
 	text-align: center;
-	color: #000;
 	@media (max-width: 768px) {
 		font-size: 18px !important;
 	}
@@ -631,7 +652,6 @@ h5.sv_q_title span {
 			font-size: 1.2rem !important;
 		}
 		textarea {
-			font-family: Open Sans, sans-serif;
 			max-width: 100%;
 			font-weight: normal;
 			font-size: 12px;
@@ -782,21 +802,6 @@ h5.sv_q_title span {
 
 .contact-button {
 	font-size: 0.7em !important;
-}
-
-.sv_next_btn,
-.sv_prev_btn,
-.sv_complete_btn {
-	background-color: $color2!important;
-	font-size: 16px;
-	border: none;
-	cursor: pointer;
-	padding: 2px 8px;
-	border-radius: 2px;
-	color: white;
-	display: inline-block;
-	margin: 0 4px;
-	padding: 3px 30px !important;
 }
 
 .survey-navigation {

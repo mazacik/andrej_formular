@@ -1,13 +1,12 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as Survey from 'survey-angular';
-import * as $ from "jquery";
 
 import { SurveyNavBar } from './funct/navbar';
 import { SurveyAnimation } from './funct/animation';
 import { SurveyKeyboardEvent } from './funct/keyevent';
 
-import * as jsonFile from '../json/survey.json';
+import * as surveyJson from '../json/survey';
 import { SurveyTooltip } from './funct/tooltip';
 
 Survey.Serializer.addProperty("page", {
@@ -45,7 +44,7 @@ export class SurveyComponent implements OnInit {
   ngOnInit(): void {
     this.surveyNavBar = new SurveyNavBar();
 
-    this.survey = new Survey.Model((<any>jsonFile).default);
+    this.survey = new Survey.Model(surveyJson.default);
     this.survey.onComplete.add(() => this.onSurveyComplete());
     this.survey.onCurrentPageChanged.add(() => this.onCurrentPageChanged());
     this.survey.onAfterRenderQuestion.add(() => this.doAfterRenderQuestion());
@@ -60,18 +59,6 @@ export class SurveyComponent implements OnInit {
 
     this.checkChallengeLink();
     this.onCurrentPageChanged();
-  }
-
-  insertClassToPageKratkodobeInvesticie(): void {
-    var $el = $(".sv_q.sv_qstn");
-    if ($el.length > 0) {
-      const pageName = this.survey.currentPage.name;
-      if (pageName == "pageKratkodobeInvesticie") {
-        $el.addClass("lukas-class-123");
-      } else {
-        $el.removeClass("lukas-class-123");
-      }
-    }
   }
 
   insertAlternativeNextButton(): void {
@@ -134,8 +121,7 @@ export class SurveyComponent implements OnInit {
     $('.sv_qcbc').parent().css('justify-content', 'center');
 
     this.insertAlternativeNextButton();
-    this.insertClassToPageKratkodobeInvesticie();
-    this.surveyNavBar.updateNavBar(this.survey);
+    // this.surveyNavBar.updateNavBar(this.survey);
 
     this.updateNavButtons();
 
@@ -143,9 +129,19 @@ export class SurveyComponent implements OnInit {
   }
 
   updateNavButtons() {
-    document.getElementById('surveyPrev').style.display = !this.survey.isFirstPage ? "inline-block" : "none";
-    document.getElementById('surveyNext').style.display = !this.survey.isLastPage ? "inline-block" : "none";
-    document.getElementById('surveyComplete').style.display = this.survey.isLastPage ? "inline-block" : "none";
+    if (this.survey.isFirstPage) {
+      document.getElementById('surveyPrev').classList.add('display-none');
+      document.getElementById('surveyNext').classList.remove('display-none');
+      document.getElementById('surveyComplete').classList.add('display-none');
+    } else if (this.survey.isLastPage) {
+      document.getElementById('surveyPrev').classList.remove('display-none');
+      document.getElementById('surveyNext').classList.add('display-none');
+      document.getElementById('surveyComplete').classList.remove('display-none');
+    } else {
+      document.getElementById('surveyPrev').classList.remove('display-none');
+      document.getElementById('surveyNext').classList.remove('display-none');
+      document.getElementById('surveyComplete').classList.add('display-none');
+    }
   }
 
   onUpdateQuestionCssClasses(survey: Survey.SurveyModel, options: any): void {

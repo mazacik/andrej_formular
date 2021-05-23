@@ -3,7 +3,7 @@ import { ResultBodovanie } from './bodovanie';
 import { ResultNaj3 } from './naj3';
 
 import answerDetails from '../../json/answerDetails';
-import { ResultGraphs } from './grafy';
+import { ResultUtils } from './result.utils';
 
 export class ResultPodmienky {
   bodovanie: ResultBodovanie;
@@ -19,37 +19,37 @@ export class ResultPodmienky {
     }
 
     //dlhodobeInvesticieMenejAko10
-    if (ResultGraphs.calcInvesticieDlhodobe(data) < data.vyskaPrijmu * 0.1) {
+    if (ResultUtils.calcInvesticieDlhodobe(data) < data.vyskaPrijmu * 0.1) {
       this.create("dlhodobeInvesticieMenejAko10", 1, 1);
     }
 
     //dlhodobeInvesticieViacAko10
-    if (ResultGraphs.calcInvesticieDlhodobe(data) >= data.vyskaPrijmu * 0.1) {
+    if (ResultUtils.calcInvesticieDlhodobe(data) >= data.vyskaPrijmu * 0.1) {
       this.create("dlhodobeInvesticieViacAko10");
     }
 
     //kratkodobeInvesticieViacAko10
-    if (ResultGraphs.calcInvesticieKratkodobe(data) >= data.vyskaPrijmu * 0.1) {
+    if (ResultUtils.calcInvesticieKratkodobe(data) >= data.vyskaPrijmu * 0.1) {
       this.create("kratkodobeInvesticieViacAko10");
     }
 
     //kratkodobeInvesticieMenejAko10 ak este nema rezervu
-    if ((data.financnaRezervaVyska >= data.vyskaPrijmu * 0.1 && data.financnaRezervaVyska <= data.vyskaPrijmu * 6) && ResultGraphs.calcInvesticieKratkodobe(data) < data.vyskaPrijmu * 0.1) {
+    if ((data.financnaRezervaVyska >= data.vyskaPrijmu * 0.1 && data.financnaRezervaVyska <= data.vyskaPrijmu * 6) && ResultUtils.calcInvesticieKratkodobe(data) < data.vyskaPrijmu * 0.1) {
       this.create("kratkodobeInvesticieMenejAko10", 1, 1);
     }
 
     //kratkodobeInvesticieMenejAko10AleUzMaRezervu ak uz nema rezervu
-    if ((data.financnaRezervaVyska >= data.vyskaPrijmu * 0.1 && data.financnaRezervaVyska > data.vyskaPrijmu * 6) && ResultGraphs.calcInvesticieKratkodobe(data) < data.vyskaPrijmu * 0.1) {
+    if ((data.financnaRezervaVyska >= data.vyskaPrijmu * 0.1 && data.financnaRezervaVyska > data.vyskaPrijmu * 6) && ResultUtils.calcInvesticieKratkodobe(data) < data.vyskaPrijmu * 0.1) {
       this.create("kratkodobeInvesticieMenejAko10AleUzMaRezervu");
     }
 
     //byvanieVyssieAko30
-    if (ResultGraphs.calcPasiva(data) > data.vyskaPrijmu * 0.3) {
+    if (ResultUtils.calcPasiva(data) > data.vyskaPrijmu * 0.3) {
       this.create("byvanieVyssieAko30", 1, 1);
     }
 
     //byvanieMensieAko30
-    if (ResultGraphs.calcPasiva(data) <= data.vyskaPrijmu * 0.3) {
+    if (ResultUtils.calcPasiva(data) <= data.vyskaPrijmu * 0.3) {
       this.create("byvanieMensieAko30", 1, 0);
     }
 

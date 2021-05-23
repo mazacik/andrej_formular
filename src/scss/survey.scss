@@ -10,7 +10,6 @@
 	right: 10px;
 	background-color: cadetblue;
 	padding: 1px;
-	font-family: 'Raleway', sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 400;
@@ -78,7 +77,6 @@
 
 .sv_main input[type="button"],
 .sv_main button {
-	color: white;
 	background-color: $color2;
 }
 
@@ -219,24 +217,11 @@
 .sv_main {
 	position: relative;
 	width: 100%;
-	font-family: 'Raleway', sans-serif;
 	font-size: 14px;
 }
 
 .sv_main hr {
 	border: none;
-}
-
-.sv_main input[type="button"],
-.sv_main button {
-	font-size: 1.6em;
-	font-weight: bold;
-	line-height: 2em;
-	border: none;
-	min-width: 100px;
-	cursor: pointer;
-	padding: 0 2em;
-	border-radius: 2px;
 }
 
 .sv_main .sv_custom_header {
@@ -634,7 +619,6 @@
 	.sv_main .sv_container .sv_body .sv_p_root .sv_row .sv_q,
 	.sv_main .sv_container .sv_body .sv_p_root .sv_row .sv_qstn {
 		display: block;
-		width: 100% !important;
 	}
 	.sv_main .sv_container .sv_body .sv_p_root .sv_row .sv_q .title-left,
 	.sv_main .sv_container .sv_body .sv_p_root .sv_row .sv_qstn .title-left {

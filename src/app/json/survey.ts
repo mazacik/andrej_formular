@@ -1,4 +1,4 @@
-{
+export default {
   "showTitle": false,
   "goNextPageAutomatic": true,
   "textUpdateMode": "onTyping",
