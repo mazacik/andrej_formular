@@ -1,583 +1,606 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-
 @import "variables";
 @import "navigation";
 @import "inputs";
-
 @import "survey";
 @import "illustrations";
 @import "result";
-
 @import 'snackbar';
 
 body {
-  margin: 0;
-  color: $text;
-  font-family: Arial, serif;
-  overflow-y: scroll;
+	margin: 0;
+	color: $text;
+	font-family: Arial, serif;
+	overflow-y: scroll;
 }
 
 h1 {
-  font-family: 'Raleway', sans-serif;
+	font-family: 'Raleway', sans-serif;
 }
 
-*, ::before, ::after {
-  box-sizing: border-box;
+*,
+ ::before,
+ ::after {
+	box-sizing: border-box;
 }
 
 .container {
-  margin: 0 auto;
+	margin: 0 auto;
 }
 
 .sv_nav {
-  position: absolute;
-  top: 103px;
-  left: 0;
-  right: 0;
-  padding: 24px!important;
-  display: flex;
-  justify-content: flex-end;
-  z-index: 100;
+	position: absolute;
+	top: 103px;
+	left: 0;
+	right: 0;
+	padding: 24px!important;
+	display: flex;
+	justify-content: flex-end;
+	z-index: 100;
 }
 
 .sv_qstn {
-  margin: 0 160px;
-  max-width: 70%!important;
+	margin: 0 160px;
+	max-width: 70%!important;
 }
 
 h5.sv_q_title {
-  color: $text;
+	color: $text;
 }
 
 h5.sv_q_title span {
-  font-size: 1.5rem !important;
-  @media (max-width: 768px) {
-    font-size: 1.2rem !important;
-    }
+	font-size: 1.5rem !important;
+	@media (max-width: 768px) {
+		font-size: 1.2rem !important;
+	}
 }
 
 .sv_main .sv_container {
-  color: $text;
+	color: $text;
 }
 
-.sv_q_radiogroup, .sv_q_checkbox {
-  padding: 7px;
-  background-color: rgba($color3, .4);
-  margin: 8px 0;
-  box-shadow: rgba($color1, .4) 0 0 0 1px inset;
-  border-radius: 6px;
-  color: $text;
-  font-size: 1rem;
+.sv_q_radiogroup,
+.sv_q_checkbox {
+	padding: 7px;
+	background-color: rgba($color3, .4);
+	margin: 8px 0;
+	box-shadow: rgba($color1, .4) 0 0 0 1px inset;
+	border-radius: 6px;
+	color: $text;
+	font-size: 1rem;
 }
 
-body.sekciaUvodneOtazky .sv_q_radiogroup, .sv_q_checkbox {
-  &:hover, &.checked {
-    background-color: rgba(#EA9D13, 1);
-  }
-  background-color: rgba(#EA9D13, .4);
+body.sekciaUvodneOtazky .sv_q_radiogroup,
+.sv_q_checkbox {
+	&:hover,
+	&.checked {
+		background-color: rgba(#EA9D13, 1);
+	}
+	background-color: rgba(#EA9D13, .4);
 }
 
-body.sekciaVyberProduktov .sv_q_radiogroup, .sv_q_checkbox {
-  &:hover, &.checked {
-    background-color: rgba(#EA9D13, 1);
-  }
-  background-color: rgba(#EA9D13, .4);
-}
-body.sekciaPracaSPeniazmi .sv_q_radiogroup, .sv_q_checkbox {
-  &:hover, &.checked {
-    background-color: rgba(#BDB720, 1);
-  }
-  background-color: rgba(#BDB720, .4);
-}
-body.sekciaFinancnaGramotnost .sv_q_radiogroup, .sv_q_checkbox {
-  &:hover, &.checked {
-    background-color: rgba(#AE1D00, 1);
-  }
-  background-color: rgba(#AE1D00, .4);
-}
-body.sekciaOkruhyZaujmu .sv_q_radiogroup, .sv_q_checkbox {
-  &:hover, &.checked {
-    background-color: rgba(#BDB720, 1);
-  }
-  background-color: rgba(#BDB720, .4);
+body.sekciaVyberProduktov .sv_q_radiogroup,
+.sv_q_checkbox {
+	&:hover,
+	&.checked {
+		background-color: rgba(#EA9D13, 1);
+	}
+	background-color: rgba(#EA9D13, .4);
 }
 
-.sv_q_radiogroup label, .sv_q_checkbox label {
-  cursor: pointer;
-  display: block;
-  min-height: 100%;
-  height: auto !important;
-  font-weight: 500;
-  color: $text;
+body.sekciaPracaSPeniazmi .sv_q_radiogroup,
+.sv_q_checkbox {
+	&:hover,
+	&.checked {
+		background-color: rgba(#BDB720, 1);
+	}
+	background-color: rgba(#BDB720, .4);
+}
+
+body.sekciaFinancnaGramotnost .sv_q_radiogroup,
+.sv_q_checkbox {
+	&:hover,
+	&.checked {
+		background-color: rgba(#AE1D00, 1);
+	}
+	background-color: rgba(#AE1D00, .4);
+}
+
+body.sekciaOkruhyZaujmu .sv_q_radiogroup,
+.sv_q_checkbox {
+	&:hover,
+	&.checked {
+		background-color: rgba(#BDB720, 1);
+	}
+	background-color: rgba(#BDB720, .4);
+}
+
+.sv_q_radiogroup label,
+.sv_q_checkbox label {
+	cursor: pointer;
+	display: block;
+	min-height: 100%;
+	height: auto !important;
+	font-weight: 500;
+	color: $text;
 }
 
 .sv_row {
-  border-bottom: none!important;
-  background-color: transparent!important;
-  justify-content: center;
+	border-bottom: none!important;
+	background-color: transparent!important;
+	justify-content: center;
 }
 
-.sv_q_text_root, .input-text {
-  background-color: transparent!important;
-  border: none!important;
-  border-bottom: 2px solid $text!important;
-  font-size: 2rem!important;
-  color: $text!important;
-  padding-left: 8px!important;
-  margin-top: 16px!important;
+.sv_q_text_root,
+.input-text {
+	background-color: transparent!important;
+	border: none!important;
+	border-bottom: 2px solid $text!important;
+	font-size: 2rem!important;
+	color: $text!important;
+	padding-left: 8px!important;
+	margin-top: 16px!important;
 }
 
-
-
-::-webkit-input-placeholder { /* Edge */
-  color: rgba($text, .5);
+::-webkit-input-placeholder {
+	/* Edge */
+	color: rgba($text, .5);
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: rgba($text, .5);
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: rgba($text, .5);
 }
 
 ::placeholder {
-  color: rgba($text, .5);
+	color: rgba($text, .5);
 }
 
 .sv_q_radiogroup_other {
-  background-color: transparent!important;
-  border: none!important;
-  border-bottom: 2px solid $text!important;
-  font-size: 1.6rem!important;
-  color: $text!important;
-  margin-left: 0!important;
-  padding-left: 8px!important;
+	background-color: transparent!important;
+	border: none!important;
+	border-bottom: 2px solid $text!important;
+	font-size: 1.6rem!important;
+	color: $text!important;
+	margin-left: 0!important;
+	padding-left: 8px!important;
 }
 
 .sv_q_text_root::-webkit-outer-spin-button,
 .sv_q_text_root::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
 
+
 /* Firefox */
+
 .sv_q_text_root[type=number] {
-  -moz-appearance: textfield;
+	-moz-appearance: textfield;
 }
 
 .button-main {
-  background-color: $color2!important;
-  font-size: 1.2em;
-  font-weight: bold;
-  border: none;
-  min-width: 100px;
-  cursor: pointer;
-  padding: 8px 32px;
-  border-radius: 2px;
-  color: white;
-  box-shadow: 3px 3px 3px $tippyColor;
-  @media (max-width: 768px) {
-    font-size: 20px !important;
-    }
-
+	background-color: $color2!important;
+	font-size: 1.2em;
+	font-weight: bold;
+	border: none;
+	min-width: 100px;
+	cursor: pointer;
+	padding: 8px 32px;
+	border-radius: 2px;
+	color: white;
+	box-shadow: 3px 3px 3px $tippyColor;
+	@media (max-width: 768px) {
+		font-size: 20px !important;
+	}
 }
 
 .button-main.big {
-  padding: 8px 32px;
-  border-radius: 100px;
-  font-size: 1.6em;
+	padding: 8px 32px;
+	border-radius: 100px;
+	font-size: 1.6em;
 }
 
-.sv_next_btn, .sv_complete_btn {
-  margin-left: 8px;
-  padding: 3px 30px !important;
-  background-color: $color2!important;
+.sv_next_btn,
+.sv_complete_btn {
+	margin-left: 8px;
+	padding: 3px 30px !important;
+	background-color: $color2!important;
 }
 
 .sv_next_btn--alternative {
-  margin: 16px auto 0 auto!important;
-  display: block!important;
+	margin: 16px auto 0 auto!important;
+	display: block!important;
 }
 
-.sv_q_radiogroup_label, .sv_q_checkbox_control_label {
-  font-size: 1.2em;
-  @media (max-width: 768px) {
-    font-size: 1em;
-  }
+.sv_q_radiogroup_label,
+.sv_q_checkbox_control_label {
+	font-size: 1.2em;
+	@media (max-width: 768px) {
+		font-size: 1em;
+	}
 }
 
 @media (max-width: 768px) {
-  .sv_qstn {
-    margin: 0 60px;
-  }
-  h5.sv_q_title {
-    font-size: 1rem!important;
-  }
-  .sv_q_radiogroup, .sv_q_checkbox {
-    font-size: 1rem;
-    margin: 4px 0;
-  }
-  .sv_q_checkbox_control_item, .sv_q_radiogroup_control_item {
-    margin-right: 0!important;
-  }
-  .sv_q_text_root, .sv_q_radiogroup_other {
-    font-size: 1rem!important;
-    @media (max-width: 425px) {
-      font-size: 2rem!important;
-      }
-  }
+	.sv_qstn {
+		margin: 0 60px;
+	}
+	h5.sv_q_title {
+		font-size: 1rem!important;
+	}
+	.sv_q_radiogroup,
+	.sv_q_checkbox {
+		font-size: 1rem;
+		margin: 4px 0;
+	}
+	.sv_q_checkbox_control_item,
+	.sv_q_radiogroup_control_item {
+		margin-right: 0!important;
+	}
+	.sv_q_text_root,
+	.sv_q_radiogroup_other {
+		font-size: 1rem!important;
+		@media (max-width: 425px) {
+			font-size: 2rem!important;
+		}
+	}
 }
 
-
 @media (max-width: 425px) {
-  .sv_qstn {
-    margin: 0 30px;
-  }
+	.sv_qstn {
+		margin: 0 30px;
+	}
 }
 
 
 /*navigacny bar*/
+
 #surveyNavBarWrapper {
-  color: $text;
+	color: $text;
 }
 
 .navigationProgressbarImage {
-  display: inline-block;
-  vertical-align: top;
-  margin-top: 26px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 26px;
 }
 
 .navigationProgressbarImage.hidden {
-  visibility: hidden;
+	visibility: hidden;
 }
 
 .navigationProgressbar {
-  padding-left: 0;
-  display: flex;
-  max-width: 1000px;
-  margin: 0 auto;
+	padding-left: 0;
+	display: flex;
+	max-width: 1000px;
+	margin: 0 auto;
 }
 
 .navigationProgressbarDiv {
-  margin: 16px auto;
-  font-size: 150px;
+	margin: 16px auto;
+	font-size: 150px;
 }
 
 .navigationProgressbar li {
-  font-size: 14px;
-  font-family: 'Raleway', sans-serif;
-  position: relative;
-  display: inline-block;
-  margin: 0 8px;
-  flex: 1;
-  text-align: center;
-  width: 0;
-  @media (max-width: 768px) {
-    font-size: 10px;
-  }
+	font-size: 14px;
+	font-family: 'Raleway', sans-serif;
+	position: relative;
+	display: inline-block;
+	margin: 0 8px;
+	flex: 1;
+	text-align: center;
+	width: 0;
+	@media (max-width: 768px) {
+		font-size: 10px;
+	}
 }
 
-
-
-.sv_q_erbox  {
-font-size: 25px;
-color: black !important;
+.sv_q_erbox {
+	font-size: 25px;
+	color: black !important;
 }
+
 .sv_q_erbox:not {
-  color: black !important;
+	color: black !important;
 }
 
 .navigationProgressbar {
-  @media(max-width: 320px) {
-    li:nth-of-type(1) .sectionTitle {
-      font-size: 0;
-      &::after {
-        content: "Úvod";
-        font-size: 10px;
-      }
-    }
-
-    li:nth-of-type(2) .sectionTitle {
-      font-size: 0;
-      &::after {
-        content: "Produkty";
-        font-size: 10px;
-      }
-    }
-
-    li:nth-of-type(3) .sectionTitle {
-      font-size: 0;
-      &::after {
-        content: "Peniaze";
-        font-size: 10px;
-      }
-    }
-
-    li:nth-of-type(4) .sectionTitle {
-      font-size: 0;
-      &::after {
-        content: "Gramotnosť";
-        font-size: 10px;
-      }
-    }
-
-    li:nth-of-type(5) .sectionTitle {
-      font-size: 0;
-      &::after {
-        content: "Záujmy";
-        font-size: 10px;
-      }
-    }
-  }
+	@media(max-width: 320px) {
+		li:nth-of-type(1) .sectionTitle {
+			font-size: 0;
+			&::after {
+				content: "Úvod";
+				font-size: 10px;
+			}
+		}
+		li:nth-of-type(2) .sectionTitle {
+			font-size: 0;
+			&::after {
+				content: "Produkty";
+				font-size: 10px;
+			}
+		}
+		li:nth-of-type(3) .sectionTitle {
+			font-size: 0;
+			&::after {
+				content: "Peniaze";
+				font-size: 10px;
+			}
+		}
+		li:nth-of-type(4) .sectionTitle {
+			font-size: 0;
+			&::after {
+				content: "Gramotnosť";
+				font-size: 10px;
+			}
+		}
+		li:nth-of-type(5) .sectionTitle {
+			font-size: 0;
+			&::after {
+				content: "Záujmy";
+				font-size: 10px;
+			}
+		}
+	}
 }
 
 .navigationProgressbar .sectionTitle {
-  font-weight: bold;
-  color: $text;
-  word-break: break-all;
+	font-weight: bold;
+	color: $text;
+	word-break: break-all;
 }
 
 .navigationProgressbar li:before {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  border: 5px solid $color2;
-  display: block;
-  margin: 0 auto 10px;
-  border-radius: 50%;
-  font-weight: 900;
-  counter-reset: count var(--count);
-  content: counter(count);
-  box-sizing: content-box;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	border: 5px solid $color2;
+	display: block;
+	margin: 0 auto 10px;
+	border-radius: 50%;
+	font-weight: 900;
+	counter-reset: count var(--count);
+	content: counter(count);
+	box-sizing: content-box;
 }
+
 .navigationProgressbar li:after {
-  width: calc(100% - 45px);
-  height: 5px;
-  position: absolute;
-  background-color: $color2;
-  top: 15px;
-  right: calc(50% + 30px);
-  z-index: 11;
-  content: '';
-  box-sizing: content-box;
+	width: calc(100% - 45px);
+	height: 5px;
+	position: absolute;
+	background-color: $color2;
+	top: 15px;
+	right: calc(50% + 30px);
+	z-index: 11;
+	content: '';
+	box-sizing: content-box;
 }
+
 .navigationProgressbar li:first-of-type:after {
-  content: none;
+	content: none;
 }
 
 .navigationProgressbar li:before {
-  border-color: $color2;
+	border-color: $color2;
 }
 
 .navigationProgressbar li.current:before {
-  border-color: $color2;
-  background-color: $color2;
-  color: white;
+	border-color: $color2;
+	background-color: $color2;
+	color: white;
 }
 
 .text-input-wrapper {
-  position: relative
+	position: relative
 }
 
 .text-input-wrapper:after {
-  position: absolute;
-  bottom: 0;
-  content: "€";
-  right: 0;
-  font-size: 2em;
-  line-height: 2em;
-  color: $text;
+	position: absolute;
+	bottom: 0;
+	content: "€";
+	right: 0;
+	font-size: 2em;
+	line-height: 2em;
+	color: $text;
 }
 
 .sv_body {
-  background: none;
+	background: none;
 }
 
 #surveyContainerMain {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  min-height: 100vh;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	min-height: 100vh;
 }
 
 #surveyContainer {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  vertical-align: middle;
-  align-items: center;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	vertical-align: middle;
+	align-items: center;
 }
 
 body {
-  background-image: none;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffefd2+11,ffffff+21,ffffff+30,ffefd2+46,ffefd2+53,ffffff+63,ffffff+63,ffffff+75,ffffff+75,ffefd2+83,ffffff+92 */
-background: #ffefd2; /* Old browsers */
-background: -moz-linear-gradient(top,  #ffefd2 11%, #ffffff 21%, #ffffff 30%, #ffefd2 46%, #ffefd2 53%, #ffffff 63%, #ffffff 63%, #ffffff 75%, #ffffff 75%, #ffefd2 83%, #ffffff 92%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #ffefd2 11%,#ffffff 21%,#ffffff 30%,#ffefd2 46%,#ffefd2 53%,#ffffff 63%,#ffffff 63%,#ffffff 75%,#ffffff 75%,#ffefd2 83%,#ffffff 92%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #ffefd2 11%,#ffffff 21%,#ffffff 30%,#ffefd2 46%,#ffefd2 53%,#ffffff 63%,#ffffff 63%,#ffffff 75%,#ffffff 75%,#ffefd2 83%,#ffffff 92%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefd2', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-
-background-repeat: no-repeat;
-background-position: center;
-
+	background-image: none;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffefd2+11,ffffff+21,ffffff+30,ffefd2+46,ffefd2+53,ffffff+63,ffffff+63,ffffff+75,ffffff+75,ffefd2+83,ffffff+92 */
+	background: #ffefd2;
+	/* Old browsers */
+	background: -moz-linear-gradient(top, #ffefd2 11%, #ffffff 21%, #ffffff 30%, #ffefd2 46%, #ffefd2 53%, #ffffff 63%, #ffffff 63%, #ffffff 75%, #ffffff 75%, #ffefd2 83%, #ffffff 92%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #ffefd2 11%, #ffffff 21%, #ffffff 30%, #ffefd2 46%, #ffefd2 53%, #ffffff 63%, #ffffff 63%, #ffffff 75%, #ffffff 75%, #ffefd2 83%, #ffffff 92%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #ffefd2 11%, #ffffff 21%, #ffffff 30%, #ffefd2 46%, #ffefd2 53%, #ffffff 63%, #ffffff 63%, #ffffff 75%, #ffffff 75%, #ffefd2 83%, #ffffff 92%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefd2', endColorstr='#ffffff', GradientType=0);
+	/* IE6-9 */
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 body.sekciaUvodneOtazky {
-  background-image:url(/assets/bg/UvodneOtazky.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
+	background-image: url(/assets/bg/UvodneOtazky.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
 }
 
 body.sekciaVyberProduktov {
-  background-image: url(/assets/bg/Produkty.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
-}
-body.sekciaPracaSPeniazmi {
-  background-image: url(/assets/bg/PracaSPeniazmi.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
-}
-body.sekciaFinancnaGramotnost {
-  background-image: url(/assets/bg/Gramotnost.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
-}
-body.sekciaOkruhyZaujmu {
-  background-color: $bg5;
-  background-image: url(/assets/bg/Zaujmy.png);
+	background-image: url(/assets/bg/Produkty.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
 }
 
-.sv_body > div:first-child {
-  transition: all .4s;
-  transform: translateY(0px);
-  z-index: 100;
+body.sekciaPracaSPeniazmi {
+	background-image: url(/assets/bg/PracaSPeniazmi.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
+}
+
+body.sekciaFinancnaGramotnost {
+	background-image: url(/assets/bg/Gramotnost.png), linear-gradient(0deg, rgba(#C17C00, .2), #fff);
+}
+
+body.sekciaOkruhyZaujmu {
+	background-color: $bg5;
+	background-image: url(/assets/bg/Zaujmy.png);
+}
+
+.sv_body>div:first-child {
+	transition: all .4s;
+	transform: translateY(0px);
+	z-index: 100;
 }
 
 .arrow {
-  border: solid;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  cursor: pointer;
-  margin-right: 8px;
+	border: solid;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	cursor: pointer;
+	margin-right: 8px;
 }
 
 .right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
 }
 
 .left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
+	transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
 }
 
 .up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
 }
 
 .down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
 }
 
 .my-48 {
-  margin-top: 48px;
-  margin-bottom: 48px;
+	margin-top: 48px;
+	margin-bottom: 48px;
 }
 
 .question-text {
-  font-size: 16px;
-  font-weight: 500;
-  @media (max-width: 768px) {
-    font-size: 12px;
-  }
+	font-size: 16px;
+	font-weight: 500;
+	@media (max-width: 768px) {
+		font-size: 12px;
+	}
 }
 
 .sv_q_description span {
-  font-size: 1em;
-  font-weight: 400;
-  text-align: center;
-  color: #000;
-  @media (max-width: 768px) {
-    font-size: 18px !important;
-    }
+	font-size: 1em;
+	font-weight: 400;
+	text-align: center;
+	color: #000;
+	@media (max-width: 768px) {
+		font-size: 18px !important;
+	}
 }
 
 .sv_q_description {
-  margin-top: 16px!important;
+	margin-top: 16px!important;
 }
 
-.sv_qcbx, .sv_qcbc {
-  display: flex;
-  flex-flow: column;
-  @media(min-width: 768px) {
-    min-width: 360px;
-  }
+.sv_qcbx,
+.sv_qcbc {
+	display: flex;
+	flex-flow: column;
+	@media(min-width: 768px) {
+		min-width: 360px;
+	}
 }
 
 .tippy-box {
-  background-color: $tippyColor;
-  font-weight: 600;
+	background-color: $tippyColor;
+	font-weight: 600;
 }
 
 .tippy-content {
-  padding: 16px;
-  font-size: 18px !important;
+	padding: 16px;
+	font-size: 18px !important;
 }
 
 .tippy-arrow {
-  color: $tippyColor;
+	color: $tippyColor;
 }
 
 @mixin ticks ($iconName) {
-  $tickSize: 30px;
-  li {
-    position: relative;
-    margin-left: 8px + $tickSize;
-  }
-  li:before {
-    position: absolute;
-    top: 0px;
-    left: -$tickSize - 8px;
-    content: "";
-    background: url(/assets/icons/#{$iconName}.svg);
-    width: $tickSize;
-    height: $tickSize;
-    background-size: cover;
-  }
+	$tickSize: 30px;
+	li {
+		position: relative;
+		margin-left: 8px + $tickSize;
+	}
+	li:before {
+		position: absolute;
+		top: 0px;
+		left: -$tickSize - 8px;
+		content: "";
+		background: url(/assets/icons/#{$iconName}.svg);
+		width: $tickSize;
+		height: $tickSize;
+		background-size: cover;
+	}
 }
 
 .ticks-list {
-  @include ticks("tick");
+	@include ticks("tick");
 }
 
 .questions-list {
-  @include ticks("question");
+	@include ticks("question");
 }
 
 .crosses-list {
-  @include ticks("cross");
+	@include ticks("cross");
 }
 
 .exclamation-list {
-  @include ticks("exclamation");
+	@include ticks("exclamation");
 }
 
 .arrow-more {
-  color: white;
-  border-radius: 100px;
-  border: solid 410x #CF4327;
-  background-color: #CF4327;
-  font-size: 20px;
-  padding: 6px;
-  margin: 0px 8px;
-  cursor: pointer;
-  width: 31px;
-  text-align: center;
-  
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	color: white;
+	border-radius: 100px;
+	border: solid 410x #CF4327;
+	background-color: #CF4327;
+	font-size: 20px;
+	padding: 6px;
+	margin: 0px 8px;
+	cursor: pointer;
+	width: 31px;
+	text-align: center;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
-
 
 .arrow-more {
-    -webkit-animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 5 alternate both;
-            animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 5 alternate both;
-
+	-webkit-animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 5 alternate both;
+	animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 5 alternate both;
 }
+
 
 /* ----------------------------------------------
  * Generated by Animista on 2020-8-16 18:16:51
@@ -586,366 +609,362 @@ body.sekciaOkruhyZaujmu {
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
 
+
 /**
  * ----------------------------------------
  * animation scale-up-center
  * ----------------------------------------
  */
- @-webkit-keyframes scale-up-center {
-  0% {
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
+
+@-webkit-keyframes scale-up-center {
+	0% {
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+	}
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
 }
+
 @keyframes scale-up-center {
-  0% {
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
+	0% {
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+	}
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
 }
-
-
 
 .points {
-  margin: 0 4px;
-  color: $tippyColor;
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 22px;
+	margin: 0 4px;
+	color: $tippyColor;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 22px;
 }
 
 .charts {
-  display: flex;
-  padding: 100px 0;
-  @media (max-width: 768px) {
-    flex-flow: column;
-  }
-
-  h2 {
-    text-align: center;
-  }
+	display: flex;
+	padding: 100px 0;
+	@media (max-width: 768px) {
+		flex-flow: column;
+	}
+	h2 {
+		text-align: center;
+	}
 }
 
 .text-input {
-  border-bottom: 3px solid #E5A024;
-  color: #000;
-  padding: 4px;
-  margin: 16px 0;
-
-  label, input {
-    background-color: transparent;
-    margin-left: 8px;
-
-    &:focus, &:active {
-      outline: none;
-    }
-  }
+	border-bottom: 3px solid #E5A024;
+	color: #000;
+	padding: 4px;
+	margin: 16px 0;
+	label,
+	input {
+		background-color: transparent;
+		margin-left: 8px;
+		&:focus,
+		&:active {
+			outline: none;
+		}
+	}
 }
 
 .popup {
-  background-color: white;
-  vertical-align: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1001;
-  position: fixed;
-  display: none;
-
-  &-ask {
-    position: fixed;
-    right: 50px;
-    bottom: 50px;
-    left: auto;
-    top: auto;
-    width: 368px;
-    height: 514px;
-
-    @media (max-width: 768px) {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    background: #FFF6E6;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-
-    .popup__wrapper {
-      padding: 64px 26px 26px;
-      max-width: 100%;
-    }
-
-    .text-input {
-      max-width: 100%;
-    }
-
-    .popup__title {
-      font-weight: 600;
-      font-size: 26px;
-      line-height: 35px;
-      text-align: center;
-    }
-
-#ask-email {font-size: 1.2rem !important;}
-
-    textarea {
-      font-family: Open Sans, sans-serif;
-      max-width: 100%;
-      font-weight: normal;
-      font-size: 12px;
-      line-height: 16px;
-      color: #962913;
-      border-bottom: 3px solid #E5A024;
-      padding: 8px;
-      border-radius: 10px 5px 0 0;
-      margin-top: 36px;
-
-      &, &:focus, &:active, &:hover {
-        outline: none;
-      }
-    }
-
-    .text-input {
-      border-bottom: none;
-    }
-
-    .mail-input {
-      border-bottom: 3px solid #E5A024;
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-
-      input {
-        margin-left: 16px;
-      }
-
-      ::placeholder,
-      :-ms-input-placeholder,
-      ::-webkit-input-placeholder {
-        font-style: italic;
-      }
-    }
-  }
-
-  &__wrapper {
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  &__title {
-    font-weight: 600;
-    font-size: 45px;
-    line-height: 35px;
-    @media (max-width: 768px) {
-      font-size: 20px;
-      line-height: 20px;
-    }
-
-  }
-
-  &__subtitle {
-    margin: 40px 0px;
-    font-weight: normal;
-    font-size: 35px;
-    line-height: 25px;
-    color: #000000;
-    @media (max-width: 768px) {
-      font-size: 16px;
-      line-height: 20px;
-    }
-  }
-
-  &__close {
-    top: 16px;
-    right: 16px;
-    position: absolute;
-
-    &__icon {
-      cursor: pointer;
-    }
-  }
+	background-color: white;
+	vertical-align: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1001;
+	position: fixed;
+	display: none;
+	&-ask {
+		position: fixed;
+		right: 50px;
+		bottom: 50px;
+		left: auto;
+		top: auto;
+		width: 368px;
+		height: 514px;
+		@media (max-width: 768px) {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+		}
+		background: #FFF6E6;
+		box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+		.popup__wrapper {
+			padding: 64px 26px 26px;
+			max-width: 100%;
+		}
+		.text-input {
+			max-width: 100%;
+		}
+		.popup__title {
+			font-weight: 600;
+			font-size: 26px;
+			line-height: 35px;
+			text-align: center;
+		}
+		#ask-email {
+			font-size: 1.2rem !important;
+		}
+		textarea {
+			font-family: Open Sans, sans-serif;
+			max-width: 100%;
+			font-weight: normal;
+			font-size: 12px;
+			line-height: 16px;
+			color: #962913;
+			border-bottom: 3px solid #E5A024;
+			padding: 8px;
+			border-radius: 10px 5px 0 0;
+			margin-top: 36px;
+			&,
+			&:focus,
+			&:active,
+			&:hover {
+				outline: none;
+			}
+		}
+		.text-input {
+			border-bottom: none;
+		}
+		.mail-input {
+			border-bottom: 3px solid #E5A024;
+			font-size: 1.2rem;
+			display: flex;
+			align-items: center;
+			input {
+				margin-left: 16px;
+			}
+			 ::placeholder,
+			 :-ms-input-placeholder,
+			 ::-webkit-input-placeholder {
+				font-style: italic;
+			}
+		}
+	}
+	&__wrapper {
+		margin: 0 auto;
+		text-align: center;
+	}
+	&__title {
+		font-weight: 600;
+		font-size: 45px;
+		line-height: 35px;
+		@media (max-width: 768px) {
+			font-size: 20px;
+			line-height: 20px;
+		}
+	}
+	&__subtitle {
+		margin: 40px 0px;
+		font-weight: normal;
+		font-size: 35px;
+		line-height: 25px;
+		color: #000000;
+		@media (max-width: 768px) {
+			font-size: 16px;
+			line-height: 20px;
+		}
+	}
+	&__close {
+		top: 16px;
+		right: 16px;
+		position: absolute;
+		&__icon {
+			cursor: pointer;
+		}
+	}
 }
 
 .tooltip-link {
-  text-decoration: underline;
-  color: #CF4327;
+	text-decoration: underline;
+	color: #CF4327;
 }
 
 .explanation {
-  font-size: 23px;
-  color: #000;
-  @media (max-width: 768px) {
-    font-size: 18px;
-    padding: 10px;
-
-  }
-  background-color: #FFF1D8;
-  padding: 20px 30px;
-  border-radius: 10px;
+	font-size: 23px;
+	color: #000;
+	@media (max-width: 768px) {
+		font-size: 18px;
+		padding: 10px;
+	}
+	background-color: #FFF1D8;
+	padding: 20px 30px;
+	border-radius: 10px;
 }
 
 .sv_q_matrix_dynamic {
-  font-size: 20px !important;
+	font-size: 20px !important;
 }
 
 .sv_matrix_dynamic_button {
-  font-size: 10px !important;
+	font-size: 10px !important;
 }
 
 .challengeButton {
-  font-size: 0.7em !important;
+	font-size: 0.7em !important;
 }
 
 .saveButton {
-  font-size: 0.7em !important;
+	font-size: 0.7em !important;
 }
 
 .hero__right img {
-  height: 20em !important;
-  @media (max-width: 768px) {
-    height: 200px !important;
-  }
+	height: 20em !important;
+	@media (max-width: 768px) {
+		height: 200px !important;
+	}
 }
 
 .hero__left {
-  margin-left: 7em;
-  @media (max-width: 768px) {
-    margin-left: 0em;
-  }
+	margin-left: 7em;
+	@media (max-width: 768px) {
+		margin-left: 0em;
+	}
 }
 
 .popup__close__icon {
-  font-size: 2.5em !important;
+	font-size: 2.5em !important;
 }
 
 .popup__wrapper .text-input {
-  font-size: 30px !important;
-  @media (max-width: 768px) {
-    font-size: 20px !important;
-  }
+	font-size: 30px !important;
+	@media (max-width: 768px) {
+		font-size: 20px !important;
+	}
 }
-
 
 .charts h2 {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
+
 .chart-container {
-@media (max-width: 768px) {
-  margin-bottom: 50px !important;
-}
+	@media (max-width: 768px) {
+		margin-bottom: 50px !important;
+	}
 }
 
 #temy p {
-  margin: 15px 0 !important;
+	margin: 15px 0 !important;
 }
 
 #temy h4 {
-  margin: 0px 10px !important;
+	margin: 0px 10px !important;
 }
 
 #chcemSaInfo-subtitle {
-  margin: 20px 0 !important;
+	margin: 20px 0 !important;
 }
 
 .contact-button {
-  font-size: 0.7em !important;
+	font-size: 0.7em !important;
 }
 
-.sv_next_btn, .sv_prev_btn, .sv_complete_btn {
-  background-color: $color2!important;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  padding: 2px 8px;
-  border-radius: 2px;
-  color: white;
-  display: inline-block;
-  margin: 0 4px;
-  padding: 3px 30px !important;
+.sv_next_btn,
+.sv_prev_btn,
+.sv_complete_btn {
+	background-color: $color2!important;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	padding: 2px 8px;
+	border-radius: 2px;
+	color: white;
+	display: inline-block;
+	margin: 0 4px;
+	padding: 3px 30px !important;
 }
 
 .survey-navigation {
-  margin: 0 32px;
+	margin: 0 32px;
 }
 
 .opytat-sa {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
 }
 
 .opytat-sa-icon {
-  padding: 10px;
-  color: white;
-    font-size: 30px;
-    cursor: pointer;
-    width: 50px;
-    text-align: center;
-    border-radius: 100px;
-    background-color: #962913;
-    box-shadow: 0px 3px 13px 1px rgba(0,0,0,0.12);
+	padding: 10px;
+	color: white;
+	font-size: 30px;
+	cursor: pointer;
+	width: 50px;
+	text-align: center;
+	border-radius: 100px;
+	background-color: #962913;
+	box-shadow: 0px 3px 13px 1px rgba(0, 0, 0, 0.12);
 }
 
+ ::selection {
+	background: #962913;
+	/* WebKit/Blink Browsers */
+	color: white;
+}
 
-
-
-  ::selection {
-    background: #962913; /* WebKit/Blink Browsers */
-    color: white;
-  }
-  ::-moz-selection {
-    background: #962913; /* WebKit/Blink Browsers */
-    color: white;
-  }
+ ::-moz-selection {
+	background: #962913;
+	/* WebKit/Blink Browsers */
+	color: white;
+}
 
 .popup-consultation .popup-ask {
-  background-color: $bg1;
+	background-color: $bg1;
 }
 
 .margin-top15 {
-  margin-top: 15px;
+	margin-top: 15px;
 }
+
 
 /* width */
+
 ::-webkit-scrollbar {
-  width: 20px;
+	width: 20px;
 }
+
 
 /* Track */
+
 ::-webkit-scrollbar-track {
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffefd2+11,ffffff+21,ffffff+30,ffefd2+46,ffefd2+53,ffffff+63,ffffff+63,ffffff+75,ffffff+75,ffefd2+83,ffffff+92 */
-background: #ffefd2; /* Old browsers */
-background: -moz-linear-gradient(top,  #ffefd2 11%, #ffffff 21%, #ffffff 30%, #ffefd2 46%, #ffefd2 53%, #ffffff 63%, #ffffff 63%, #ffffff 75%, #ffffff 75%, #ffefd2 83%, #ffffff 92%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #ffefd2 11%,#ffffff 21%,#ffffff 30%,#ffefd2 46%,#ffefd2 53%,#ffffff 63%,#ffffff 63%,#ffffff 75%,#ffffff 75%,#ffefd2 83%,#ffffff 92%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #ffefd2 11%,#ffffff 21%,#ffffff 30%,#ffefd2 46%,#ffefd2 53%,#ffffff 63%,#ffffff 63%,#ffffff 75%,#ffffff 75%,#ffefd2 83%,#ffffff 92%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefd2', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffefd2+11,ffffff+21,ffffff+30,ffefd2+46,ffefd2+53,ffffff+63,ffffff+63,ffffff+75,ffffff+75,ffefd2+83,ffffff+92 */
+	background: #ffefd2;
+	/* Old browsers */
+	background: -moz-linear-gradient(top, #ffefd2 11%, #ffffff 21%, #ffffff 30%, #ffefd2 46%, #ffefd2 53%, #ffffff 63%, #ffffff 63%, #ffffff 75%, #ffffff 75%, #ffefd2 83%, #ffffff 92%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #ffefd2 11%, #ffffff 21%, #ffffff 30%, #ffefd2 46%, #ffefd2 53%, #ffffff 63%, #ffffff 63%, #ffffff 75%, #ffffff 75%, #ffefd2 83%, #ffffff 92%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #ffefd2 11%, #ffffff 21%, #ffffff 30%, #ffefd2 46%, #ffefd2 53%, #ffffff 63%, #ffffff 63%, #ffffff 75%, #ffffff 75%, #ffefd2 83%, #ffffff 92%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefd2', endColorstr='#ffffff', GradientType=0);
+	/* IE6-9 */
 }
+
 
 /* Handle */
+
 ::-webkit-scrollbar-thumb {
-  background: #962913;
-  border-radius: 15px;
-  border: #962913;
+	background: #962913;
+	border-radius: 15px;
+	border: #962913;
 }
+
 
 /* Handle on hover */
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #EEBDB3;
+	background: #EEBDB3;
 }
-
-
-
-
