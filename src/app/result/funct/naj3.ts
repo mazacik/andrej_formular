@@ -1,4 +1,4 @@
-import * as najorder from '../../json/naj3Order.json';
+import najorder from '../../json/naj3Order';
 
 export class ResultNaj3 {
   static naj3_manualne: string[] = [];

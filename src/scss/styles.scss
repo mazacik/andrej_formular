@@ -615,7 +615,6 @@ body.sekciaOkruhyZaujmu {
  * animation scale-up-center
  * ----------------------------------------
  */
-
 @-webkit-keyframes scale-up-center {
 	0% {
 		-webkit-transform: scale(0.5);
@@ -931,14 +930,12 @@ body.sekciaOkruhyZaujmu {
 
 
 /* width */
-
 ::-webkit-scrollbar {
 	width: 20px;
 }
 
 
 /* Track */
-
 ::-webkit-scrollbar-track {
 	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffefd2+11,ffffff+21,ffffff+30,ffefd2+46,ffefd2+53,ffffff+63,ffffff+63,ffffff+75,ffffff+75,ffefd2+83,ffffff+92 */
 	background: #ffefd2;
@@ -955,7 +952,6 @@ body.sekciaOkruhyZaujmu {
 
 
 /* Handle */
-
 ::-webkit-scrollbar-thumb {
 	background: #962913;
 	border-radius: 15px;
@@ -964,7 +960,6 @@ body.sekciaOkruhyZaujmu {
 
 
 /* Handle on hover */
-
 ::-webkit-scrollbar-thumb:hover {
 	background: #EEBDB3;
 }

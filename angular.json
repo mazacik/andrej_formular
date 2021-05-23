@@ -1,7 +1,10 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
+  "defaultProject": "angular-project",
+  "cli": {
+    "analytics": false
+  },
   "projects": {
     "angular-project": {
       "projectType": "application",
@@ -9,13 +12,13 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "sk"
+      },
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "customWebpackConfig": {
-              "path": "./webpack.config.js"
-            },
             "outputPath": "dist/angular-project",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -29,7 +32,9 @@
             "styles": [
               "src/scss/styles.scss"
             ],
-            "scripts": ["node_modules/jquery/dist/jquery.min.js"]
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -63,11 +68,8 @@
           }
         },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "customWebpackConfig": {
-              "path": "./webpack.config.js"
-            },
             "browserTarget": "angular-project:build"
           },
           "configurations": {
@@ -96,7 +98,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": ["node_modules/jquery/dist/jquery.min.js"]
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js"
+            ]
           }
         },
         "lint": {
@@ -126,9 +130,5 @@
         }
       }
     }
-  },
-  "defaultProject": "angular-project",
-  "cli": {
-    "analytics": false
   }
 }

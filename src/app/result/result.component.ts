@@ -11,8 +11,8 @@ import { ResultGraphs } from './funct/grafy';
 import { ResultEmail } from './funct/email';
 import { ResultNaj3 } from './funct/naj3';
 
-import * as questionDetails from '../json/questionDetails.json';
-import * as answerDetails from '../json/answerDetails.json';
+import questionDetails from '../json/questionDetails';
+import answerDetails from '../json/answerDetails';
 
 @Component({
   selector: 'app-result',

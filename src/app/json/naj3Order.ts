@@ -1,4 +1,4 @@
-{
+export default {
   "good": [
     "naj_good_dlhodobeInvesticieViacAko10",
     "naj_good_produktyDruhyPilierFondyIndexove",
@@ -23,7 +23,7 @@
     "naj_good_kratkodobeInvesticieMenejAko10AleUzMaRezervu",
     "naj_good_produktyInvesticieSporeniaAno",
     "naj_good_produktyInvesticieSporeniaAnoAPlanujemDalsie"
-    
+
   ],
   "bad": [
     "naj_bad_produktyInvesticieSporeniaNie",

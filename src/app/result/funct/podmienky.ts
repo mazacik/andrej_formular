@@ -2,7 +2,7 @@ import { ToggleElement } from './toggleelement';
 import { ResultBodovanie } from './bodovanie';
 import { ResultNaj3 } from './naj3';
 
-import * as answerDetails from '../../json/answerDetails.json';
+import answerDetails from '../../json/answerDetails';
 import { ResultGraphs } from './grafy';
 
 export class ResultPodmienky {
