@@ -1,17 +1,13 @@
 export default {
   "showTitle": false,
-  "goNextPageAutomatic": true,
-  "textUpdateMode": "onTyping",
+  "textUpdateMode": "onBlur",
   "focusFirstQuestionAutomatic": true,
+  "requiredText": "",
   "maxTextLength": 50,
   "maxOthersLength": 50,
-  "startSurveyText": "Začať",
-  "pagePrevText": "← späť",
-  "pageNextText": "ďalej →",
-  "completeText": "Dokončiť",
   "showNavigationButtons": false,
   "showQuestionNumbers": "off",
-  "editText": "Upraviť",
+  "questionErrorLocation": "top",
   "pages": [
     {
       "name": "pageMeno",
@@ -27,7 +23,8 @@ export default {
           "title": "",
           "titleLocation": "hidden",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná."
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
+          "placeHolder": "Tvoju odpoveď napíš sem..."
         }
       ]
     },
@@ -37,7 +34,7 @@ export default {
         {
           "type": "html",
           "name": "zaciatokUvodnychOtazok",
-          "html": "<h5 class='question-text sv_q_title'><span>Ahoj <strong>{meno}</strong>, na úvod Ťa chceme informovať, že vyhodnotenie testu dostaneš bez nutnosti zadania emailu alebo bez akýchkoľvek dodatočných podmienok.</span></h5><input id='surveyNextAlternative' onclick='survey.nextPage();' type='button' value='Začať test' class='sv_next_btn sv_next_btn--alternative'>"
+          "html": "<h5 class='question-text sv_q_title'><span>Ahoj <strong>{meno}</strong>, na úvod Ťa chceme informovať, že vyhodnotenie testu dostaneš bez nutnosti zadania emailu alebo bez akýchkoľvek dodatočných podmienok.</span></h5>"
         }
       ]
     },
@@ -50,10 +47,11 @@ export default {
           "title": "Aký je Tvoj príjem?",
           "isRequired": true,
           "description": "Bez toho, aby sme vedeli Tvoj príjem, nedokážeme Tvoju prácu s peniazmi vyhodnotiť naozaj na mieru. O svoje informácie sa nemusíš obávať nakoľko sa hneď po vyhodnotení zmažú.",
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "inputType": "number",
           "min": "0",
-          "placeHolder": "Hodnota v €"
+          "minErrorText": "Hodnota nemôže byť negatívna.",
+          "placeHolder": "Tvoju odpoveď napíš sem..."
         }
       ]
     },
@@ -66,10 +64,11 @@ export default {
           "title": "Koľko máš odložených peňazí, ktoré vnímaš ako finančnú rezervu?",
           "description": "Peniaze, ktoré neplánuješ minúť a máš ich odložené na neočakávané udalosti.",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "inputType": "number",
           "min": "0",
-          "placeHolder": "Hodnota v €"
+          "minErrorText": "Hodnota nemôže byť negatívna.",
+          "placeHolder": "Tvoju odpoveď napíš sem..."
         }
       ]
     },
@@ -81,7 +80,7 @@ export default {
           "name": "produktyZivotnePoistenie",
           "title": "Máš životné poistenie?",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
               "value": "produktyZivotnePoistenieAno",
@@ -107,10 +106,11 @@ export default {
           "name": "produktyZivotnePoistenieKolkoPlati",
           "title": "Koľko priemerne mesačne platíš za svoje poistenie?",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "inputType": "number",
           "min": "0",
-          "placeHolder": "Mesačná čiastka v €"
+          "minErrorText": "Hodnota nemôže byť negatívna.",
+          "placeHolder": "Tvoju odpoveď napíš sem..."
         }
       ],
       "visibleIf": "{produktyZivotnePoistenie} = 'produktyZivotnePoistenieAno'"
@@ -123,7 +123,7 @@ export default {
           "name": "produktyZivotnePoistenieInvesticia",
           "title": "Máš poistenie spojené so sporením alebo investovaním?",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
               "value": "produktyZivotnePoistenieInvesticiaAno",
@@ -150,7 +150,7 @@ export default {
           "name": "majetokBytDom",
           "title": "Vlastníš byt alebo dom?",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
               "value": "majetokBytDomAno",
@@ -172,7 +172,7 @@ export default {
           "name": "majetokBytDomPoistenie",
           "title": "Máš poistenú svoju nehnuteľnosť komplexne? (todo tooltip)",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
               "value": "majetokBytDomPoistenieVobec",
@@ -203,7 +203,7 @@ export default {
           "name": "produktyInvesticie",
           "title": "Investuješ?",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
               "value": "produktyInvesticieAno",
@@ -225,10 +225,11 @@ export default {
           "name": "produktyInvesticieMesacne",
           "title": "Koľko v priemere mesačne investuješ?",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "inputType": "number",
           "min": "0",
-          "placeHolder": "Mesačná čiastka v €"
+          "minErrorText": "Hodnota nemôže byť negatívna.",
+          "placeHolder": "Tvoju odpoveď napíš sem..."
         }
       ],
       "visibleIf": "{produktyInvesticie} = 'produktyInvesticieAno'"
@@ -241,7 +242,7 @@ export default {
           "name": "produktyDruhyPilier",
           "title": "Máš založený druhý pilier?",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
               "value": "produktyDruhyPilierAno",
@@ -267,7 +268,7 @@ export default {
           "name": "produktyDruhyPilierFondy",
           "title": "V akých fondoch máš druhý pilier?",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
               "value": "produktyDruhyPilierFondyIndexove",
@@ -302,7 +303,7 @@ export default {
           "name": "produktyTretiPilier",
           "title": "Máš založený tretí pilier?",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
               "value": "produktyTretiPilierAnoZamestnavatelPrispieva",
@@ -332,7 +333,7 @@ export default {
           "name": "produktyTretiPilierFondy",
           "title": "V akých fondoch máš tretí pilier?",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
               "value": "produktyTretiPilierFondyIndexove",
@@ -368,7 +369,7 @@ export default {
           "title": "Máš požičané peniaze?",
           "description": "(hypotéka, úver, pôžička)",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
               "value": "produktyUverHypotekaPozickaNie",
@@ -394,10 +395,11 @@ export default {
           "name": "produktyHypotekaVyskaSplatky",
           "title": "Aká je Tvoja mesačná splátka hypotéky?",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "inputType": "number",
           "min": "0",
-          "placeHolder": "Mesačná splátka v €"
+          "minErrorText": "Hodnota nemôže byť negatívna.",
+          "placeHolder": "Tvoju odpoveď napíš sem..."
         }
       ],
       "visibleIf": "{produktyUverHypotekaPozicka} contains 'produktyUverHypotekaPozickaAnoHypoteka'"
@@ -410,7 +412,7 @@ export default {
           "name": "produktyHypotekaUrok",
           "title": "Aký máš na hypotéke úrok?",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
               "value": "produktyHypotekaUrokDo1",
@@ -441,10 +443,11 @@ export default {
           "name": "produktyUverPozickaVyskaSplatky",
           "title": "Aká je Tvoja mesačná splátka úveru alebo pôžičky?",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "inputType": "number",
           "min": "0",
-          "placeHolder": "mesačná splátka v €"
+          "minErrorText": "Hodnota nemôže byť negatívna.",
+          "placeHolder": "Tvoju odpoveď napíš sem..."
         }
       ],
       "visibleIf": "{produktyUverHypotekaPozicka} contains 'produktyUverHypotekaPozickaAnoUverPozicka'"
@@ -457,7 +460,7 @@ export default {
           "name": "produktyUverPozickaUrok",
           "title": "Aké máš úroky?",
           "isRequired": true,
-          "requiredErrorText": "Otázka je povinná.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
               "value": "produktyUverPozickaUrokDo5",

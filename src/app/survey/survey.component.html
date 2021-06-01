@@ -3,18 +3,17 @@
     <div id="surveyElement"></div>
   </div>
 
-  <div id="surveyNavBarWrapper">
-    <div id="surveyNavBar"></div>
-    <div class="text-center survey-navigation">
-      <div class="sv_prev_btn" id="surveyPrev" (click)="survey.prevPage()">
-        <i class="fas fa-arrow-left" aria-hidden="true"></i>
-        Späť
-      </div>
-      <div class="sv_next_btn" id="surveyNext" (click)="survey.nextPage()">
-        Ďalej
-        <i class="fas fa-arrow-right" aria-hidden="true"></i>
-      </div>
-      <div class="sv_complete_btn" id="surveyComplete" (click)="survey.completeLastPage()">Dokončiť</div>
+  <div class="nav-buttons">
+    <div [ngClass]="{ 'scale-1': !survey.isFirstPage }" id="btn_prev" (click)="survey.prevPage()">
+      <span>Naspäť</span>
     </div>
+    <div id="btn_next" (click)="nextPage()">
+      <span id="btn_next_text"></span>
+    </div>
+    <div [ngClass]="{ 'scale-0': !survey.isFirstPage }" id="enter_hint">Alebo stlač enter</div>
+  </div>
+
+  <div class="sv_progress">
+    <div class="sv_progress_bar"></div>
   </div>
 </div>

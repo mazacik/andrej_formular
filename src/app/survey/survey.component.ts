@@ -1,13 +1,11 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as Survey from 'survey-angular';
 
-import { SurveyNavBar } from './funct/navbar';
-import { SurveyAnimation } from './funct/animation';
-import { SurveyKeyboardEvent } from './funct/keyevent';
+import { AnimationHelper } from './helper/animation.helper';
 
 import * as surveyJson from '../json/survey';
-import { SurveyTooltip } from './funct/tooltip';
+import { SurveyTooltip } from './helper/tooltip';
 
 Survey.Serializer.addProperty("page", {
   name: "navigationTitle:string",
@@ -25,138 +23,96 @@ Survey.Serializer.addProperty("page", {
 })
 
 export class SurveyComponent implements OnInit {
-  surveyNavBar: SurveyNavBar;
-  surveyAnimation: SurveyAnimation;
-  surveyKeyboardEvent: SurveyKeyboardEvent;
-
-  survey: Survey.SurveyModel = null;
+  public survey: Survey.SurveyModel;
 
   constructor(
     public router: Router,
+    private cdr: ChangeDetectorRef,
     private route: ActivatedRoute
   ) { }
 
-  @HostListener('document:keydown', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent) {
-    this.surveyKeyboardEvent.handle(event);
-  }
-
   ngOnInit(): void {
-    this.surveyNavBar = new SurveyNavBar();
-
     this.survey = new Survey.Model(surveyJson.default);
     this.survey.onComplete.add(() => this.onSurveyComplete());
-    this.survey.onCurrentPageChanged.add(() => this.onCurrentPageChanged());
-    this.survey.onAfterRenderQuestion.add(() => this.doAfterRenderQuestion());
+    this.survey.onValueChanging.add((survey: Survey.SurveyModel, options: any) => this.tryGoNextPageAutomatic(survey, options));
+    this.survey.onValueChanged.add((survey: Survey.SurveyModel, options: any) => this.onValueChanged(survey, options));
+    this.survey.onCurrentPageChanging.add((survey: Survey.SurveyModel, options: any) => this.onCurrentPageChanging(survey, options));
+    this.survey.onCurrentPageChanged.add((survey: Survey.SurveyModel, options: any) => this.onCurrentPageChanged(survey, options));
     this.survey.onUpdateQuestionCssClasses.add((survey: Survey.SurveyModel, options: any) => this.onUpdateQuestionCssClasses(survey, options));
-
     Survey.SurveyNG.render("surveyElement", { model: this.survey });
 
-    (<any>window).survey = this.survey; // need for 'onclick="survey.nextPage()"'
-
-    this.surveyAnimation = new SurveyAnimation(this.survey);
-    this.surveyKeyboardEvent = new SurveyKeyboardEvent(this.survey);
-
     this.checkChallengeLink();
-    this.onCurrentPageChanged();
+    this.onCurrentPageChanged(this.survey);
   }
 
-  insertAlternativeNextButton(): void {
-    function showAlternativeNextButton() {
-      $el.last().append('<input id="surveyNextAlternative" onclick="survey.nextPage()"' +
-        ' type="button"' +
-        ' value="Ok"' +
-        ' class="sv_next_btn sv_next_btn--alternative">');
-    }
-    function hideAlternativeNextButton() {
-      $("#surveyNextAlternative").remove();
-    }
-    function checkCheckboxes() {
-      var isAnyChecked = $(".sv_q_checkbox_control_item:checked").length > 0;
-      nextButtonAlreadyExists = $("#surveyNextAlternative").length > 0;
-      const completeButtonExists = $('.sv_complete_btn').css('display') !== 'none';
-      if (isAnyChecked && !nextButtonAlreadyExists && !completeButtonExists) {
-        showAlternativeNextButton();
-      }
-      if (!isAnyChecked) {
-        hideAlternativeNextButton();
-      }
-    }
-
-    var $el = $(".sv_q.sv_qstn");
-    if ($el.length > 0) {
-      var nextButtonAlreadyExists = $("#surveyNextAlternative").length > 0;
-
-      // check if there are checkboxes
-      var checkboxExists = $(".sv_q_checkbox_label").length > 0;
-      if (checkboxExists) {
-        checkCheckboxes();
-        $(".sv_q_checkbox_control_item").on("change", function () {
-          checkCheckboxes();
-        });
-      }
-
-      // check if there is text input
-      var inputTextExists = $(".sv_q_text_root").length > 0;
-      var value = $(".sv_q_text_root").val();
-      if (inputTextExists) {
-        if (value !== "" && !nextButtonAlreadyExists) {
-          showAlternativeNextButton();
-        } else if (value === "") {
-          hideAlternativeNextButton();
-        }
-      }
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    switch (event.key) {
+      case 'Enter':
+      case 'ArrowRight':
+      case 'ArrowDown':
+        this.nextPage();
+        break;
+      case 'ArrowUp':
+      case 'ArrowLeft':
+        this.survey.prevPage();
+        break;
     }
   }
 
-  doAfterRenderQuestion() {
-    var _this = this;
-    $(".sv_q_text_root").on("keyup", function (event) {
-      _this.insertAlternativeNextButton();
-    });
-  }
-
-  onCurrentPageChanged() {
-    $('.sv_qcbc').parent().css('display', 'flex');
-    $('.sv_qcbc').parent().css('justify-content', 'center');
-
-    this.insertAlternativeNextButton();
-    // this.surveyNavBar.updateNavBar(this.survey);
-
-    this.updateNavButtons();
-
-    SurveyTooltip.createTooltips(this.survey);
-  }
-
-  updateNavButtons() {
-    if (this.survey.isFirstPage) {
-      document.getElementById('surveyPrev').classList.add('display-none');
-      document.getElementById('surveyNext').classList.remove('display-none');
-      document.getElementById('surveyComplete').classList.add('display-none');
-    } else if (this.survey.isLastPage) {
-      document.getElementById('surveyPrev').classList.remove('display-none');
-      document.getElementById('surveyNext').classList.add('display-none');
-      document.getElementById('surveyComplete').classList.remove('display-none');
+  nextPage(): void {
+    if (this.survey.isLastPage) {
+      this.survey.completeLastPage();
     } else {
-      document.getElementById('surveyPrev').classList.remove('display-none');
-      document.getElementById('surveyNext').classList.remove('display-none');
-      document.getElementById('surveyComplete').classList.add('display-none');
+      this.survey.nextPage();
+    }
+  }
+
+  isLastPage: boolean = false;
+
+  onValueChanged(survey: Survey.SurveyModel, options: any): void {
+    if (options.question.getType() == "checkbox") {
+      this.processPageCountChange();
+    }
+  }
+
+  onCurrentPageChanging(survey: Survey.SurveyModel, options?: any) {
+    AnimationHelper.onCurrentPageChanging(survey, options);
+  }
+
+  onCurrentPageChanged(survey: Survey.SurveyModel, options?: any) {
+    if (options) AnimationHelper.onCurrentPageChanged(options.isNextPage);
+
+    this.processPageCountChange();
+
+    SurveyTooltip.createTooltips(survey);
+  }
+
+  processPageCountChange(): void {
+    this.isLastPage = this.survey.currentPageNo + 1 == this.survey.visiblePageCount;
+    this.cdr.detectChanges();
+    console.log(this.isLastPage);
+
+    document.getElementById('btn_next_text').innerText = this.isLastPage ? 'Dokončiť' : 'Ďalej';
+
+    let progress: number = (this.survey.currentPageNo + 1) / this.survey.visiblePageCount * 100;
+    $('.sv_progress_bar').width(progress + '%');
+  }
+
+  tryGoNextPageAutomatic(survey: Survey.SurveyModel, options: any): void {
+    if (options.value && options.question.getType() == "radiogroup") {
+      setTimeout(() => this.nextPage(), 100);
     }
   }
 
   onUpdateQuestionCssClasses(survey: Survey.SurveyModel, options: any): void {
-    if (options.question.name === "odkladaniePenaziVyska") {
+    if (options.question.inputType == "number") {
       options.cssClasses.content += " text-input-wrapper";
       options.cssClasses.root += " currency";
     }
   }
 
   onSurveyComplete(): void {
-    // remove section class from body (removes background image)
-    var poslednaSekcia = this.surveyNavBar.sekcie[this.surveyNavBar.sekcie.length - 1];
-    document.getElementsByTagName("body")[0].classList.remove(poslednaSekcia.simple);
-
-    // navigate to result
     this.router.navigate(['vyhodnotenie/' + btoa(JSON.stringify(this.survey.data))]);
   }
 

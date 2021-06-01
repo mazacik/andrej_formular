@@ -49,19 +49,16 @@ input {
 	z-index: 100;
 }
 
-.sv_qstn {
-	margin: 0 160px;
-}
-
 h5.sv_q_title {
 	color: $text;
 }
 
 h5.sv_q_title span {
-	font-size: 40px;
-	font-weight: 600;
+	font-size: $header-font-size-pc;
+	font-weight: $header-font-weight;
+
 	@media (max-width: 768px) {
-		font-size: 1.2rem;
+		font-size: $header-font-size-mo;
 	}
 }
 
@@ -71,13 +68,22 @@ h5.sv_q_title span {
 
 .sv_q_radiogroup,
 .sv_q_checkbox {
-	padding: 7px;
-	background-color: rgba($color3, .4);
+	padding: 5px 50px !important;
+	background-color: $background-color-radio;
 	margin: 8px 0;
-	box-shadow: rgba($color1, .4) 0 0 0 1px inset;
-	border-radius: 6px;
+	box-shadow: $background-color-selection 0 0 0 2px inset;
+	border-radius: 10px;
 	color: $text;
-	font-size: 1rem;
+	font-size: $text-font-size-pc;
+
+	@media (max-width: 768px) {
+		font-size: $text-font-size-mo;
+	}
+}
+
+.sv_q_radiogroup.checked,
+.sv_q_checkbox.checked {
+	box-shadow: $background-color-button 0 0 0 2px inset;
 }
 
 .sv_q_radiogroup label,
@@ -91,20 +97,26 @@ h5.sv_q_title span {
 }
 
 .sv_row {
-	border-bottom: none!important;
-	background-color: transparent!important;
+	border-bottom: none !important;
+	background-color: transparent !important;
 	justify-content: center;
 }
 
 .sv_q_text_root,
 .input-text {
-	background-color: transparent!important;
-	border: none!important;
-	border-bottom: 2px solid $text!important;
-	font-size: 2rem!important;
-	color: $text!important;
-	padding-left: 8px!important;
-	margin-top: 16px!important;
+	background-color: transparent !important;
+	border: none !important;
+	border-bottom: 2px solid $text !important;
+	font-size: $text-font-size-pc;
+	color: $text !important;
+	margin-top: 16px !important;
+	@media (max-width: 768px) {
+		font-size: $text-font-size-mo;
+	}
+
+	&.currency {
+		padding-left: 24px !important;
+	}
 }
 
 ::-webkit-input-placeholder {
@@ -119,6 +131,10 @@ h5.sv_q_title span {
 
 ::placeholder {
 	color: rgba($text, .5);
+}
+
+.sv_q_checkbox_control_item {
+	display: none;
 }
 
 .sv_q_radiogroup_other {
@@ -139,13 +155,12 @@ h5.sv_q_title span {
 
 
 /* Firefox */
-
 .sv_q_text_root[type=number] {
 	-moz-appearance: textfield;
 }
 
 .button-main {
-	background-color: $color2!important;
+	background-color: $background-color-button!important;
 	font-size: 1.2em;
 	font-weight: bold;
 	border: none;
@@ -166,35 +181,78 @@ h5.sv_q_title span {
 	font-size: 1.6em;
 }
 
-.sv_next_btn,
-.sv_prev_btn,
-.sv_complete_btn {
-	border: none;
+#btn_next,
+#btn_prev {
 	margin: 0 4px;
 	cursor: pointer;
-	padding: 3px 30px;
-	background-color: $color2;
-	font-size: 30px;
+	padding: 5px 30px;
 	font-weight: 500;
 	display: inline-flex;
-	min-width: 160px;
 	border-radius: 7px;
-	text-align: center;
-	justify-content: center;
-	align-items: center;
-  height: 60px;
+	font-size: $button-font-size-pc;
+	@media (max-width: 768px) {
+		font-size: $button-font-size-mo;
+	}
 }
 
-.sv_next_btn--alternative {
-	margin: 16px auto 0 auto!important;
-	display: block!important;
+#btn_prev {
+	transform: scale(0);
+	color: $color-button-prev;
+	transition: transform 0.4s ease;
+}
+
+#btn_next {
+	background-color: $background-color-button;
+}
+
+#enter_hint {
+	margin: 0 4px;
+	padding: 5px 15px;
+	font-size: 20px;
+	display: inline-flex;
+	font-weight: 300;
+	transition: transform 0.4s ease;
+	position: absolute;
+}
+
+.scale-0 {
+	transform: scale(0) !important;
+}
+
+.scale-1 {
+	transform: scale(1) !important;
 }
 
 .sv_q_radiogroup_label,
 .sv_q_checkbox_control_label {
-	font-size: 1.2em;
+	font-size: $text-font-size-pc;
 	@media (max-width: 768px) {
-		font-size: 1em;
+		font-size: $text-font-size-mo;
+	}
+}
+
+.sv_q_checkbox {
+	>label {
+		display: flex;
+	}
+
+	.sv_q_checkbox_control_label {
+		display: flex;
+		margin-left: -5px;
+	
+		&::before {
+			top: 3px;
+			left: 3px;
+			position: relative;
+			margin-right: 15px;
+			content: url("../assets/checkbox_unchecked.svg");
+		}
+	}
+
+	&.checked {
+		.sv_q_checkbox_control_label::before {
+			content: url("../assets/checkbox_checked.svg");
+		}
 	}
 }
 
@@ -231,7 +289,6 @@ h5.sv_q_title span {
 
 
 /*navigacny bar*/
-
 #surveyNavBarWrapper {
 	color: $text;
 }
@@ -269,15 +326,6 @@ h5.sv_q_title span {
 	@media (max-width: 768px) {
 		font-size: 10px;
 	}
-}
-
-.sv_q_erbox {
-	font-size: 25px;
-	color: black !important;
-}
-
-.sv_q_erbox:not {
-	color: black !important;
 }
 
 .navigationProgressbar {
@@ -330,7 +378,7 @@ h5.sv_q_title span {
 	width: 30px;
 	height: 30px;
 	line-height: 30px;
-	border: 5px solid $color2;
+	border: 5px solid $background-color-button;
 	display: block;
 	margin: 0 auto 10px;
 	border-radius: 50%;
@@ -344,7 +392,7 @@ h5.sv_q_title span {
 	width: calc(100% - 45px);
 	height: 5px;
 	position: absolute;
-	background-color: $color2;
+	background-color: $background-color-button;
 	top: 15px;
 	right: calc(50% + 30px);
 	z-index: 11;
@@ -357,12 +405,12 @@ h5.sv_q_title span {
 }
 
 .navigationProgressbar li:before {
-	border-color: $color2;
+	border-color: $background-color-button;
 }
 
 .navigationProgressbar li.current:before {
-	border-color: $color2;
-	background-color: $color2;
+	border-color: $background-color-button;
+	background-color: $background-color-button;
 	color: white;
 }
 
@@ -370,12 +418,11 @@ h5.sv_q_title span {
 	position: relative
 }
 
-.text-input-wrapper:after {
+.text-input-wrapper::before {
 	position: absolute;
 	bottom: 0;
 	content: "€";
-	right: 0;
-	font-size: 2em;
+	font-size: $text-font-size-pc;
 	line-height: 2em;
 	color: $text;
 }
@@ -389,6 +436,9 @@ h5.sv_q_title span {
 	flex-flow: column;
 	justify-content: center;
 	min-height: 100vh;
+	width: 66vw;
+	margin: auto;
+	padding-bottom: 50px;
 }
 
 #surveyContainer {
@@ -398,7 +448,7 @@ h5.sv_q_title span {
 	align-items: center;
 }
 
-.sv_body>div:first-child {
+.sv_p_root {
 	transition: all .4s;
 	transform: translateY(0px);
 	z-index: 100;
@@ -447,11 +497,12 @@ h5.sv_q_title span {
 }
 
 .sv_q_description span {
-	font-size: 1rem;
-	font-weight: 500;
+	font-size: $desc-font-size-pc;
+	font-weight: $desc-font-weight;
 	text-align: center;
+
 	@media (max-width: 768px) {
-		font-size: 18px !important;
+		font-size: $desc-font-size-mo;
 	}
 }
 
@@ -463,8 +514,10 @@ h5.sv_q_title span {
 .sv_qcbc {
 	display: flex;
 	flex-flow: column;
+	text-align: center;
+	margin-top: 1em !important;
 	@media(min-width: 768px) {
-		min-width: 360px;
+		min-width: 240px;
 	}
 }
 
@@ -804,8 +857,13 @@ h5.sv_q_title span {
 	font-size: 0.7em !important;
 }
 
-.survey-navigation {
-	margin: 0 32px;
+.survey-navigation,
+.nav-buttons {
+	left: 0;
+  right: 0;
+	bottom: 130px;
+	position: absolute;
+	text-align: center;
 }
 
 .opytat-sa {
@@ -827,15 +885,15 @@ h5.sv_q_title span {
 }
 
  ::selection {
-	background: #962913;
+	background-color: $background-color-selection;
 	/* WebKit/Blink Browsers */
-	color: white;
+	// color: white;
 }
 
  ::-moz-selection {
-	background: #962913;
+	background-color: $background-color-selection;
 	/* WebKit/Blink Browsers */
-	color: white;
+	// color: white;
 }
 
 .popup-consultation .popup-ask {
