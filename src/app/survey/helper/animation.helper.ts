@@ -3,7 +3,7 @@ import { SurveyModel } from "survey-angular";
 export abstract class AnimationHelper {
 
   private static skip: boolean = false;
-  private static animationSpeed: number = 400;
+  public static readonly animationSpeed: number = 400;
 
   public static onCurrentPageChanging(survey: SurveyModel, options: any): void {
     if (this.skip) return;
@@ -21,7 +21,6 @@ export abstract class AnimationHelper {
   }
 
   public static onCurrentPageChanged(isNextPage: boolean): void {
-
     const $toAnimate = $('.sv_p_root');
     $toAnimate.css('transform', 'translateX(' + (isNextPage ? '-' : '+') + '100vw)');
 

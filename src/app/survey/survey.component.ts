@@ -4,8 +4,8 @@ import * as Survey from 'survey-angular';
 
 import { AnimationHelper } from './helper/animation.helper';
 
-import * as surveyJson from '../json/survey';
-import { SurveyTooltip } from './helper/tooltip';
+import * as surveyJson from '../data/survey';
+import { TooltipHelper } from './helper/tooltip.helper';
 
 Survey.Serializer.addProperty("page", {
   name: "navigationTitle:string",
@@ -25,6 +25,11 @@ Survey.Serializer.addProperty("page", {
 export class SurveyComponent implements OnInit {
   public survey: Survey.SurveyModel;
 
+  private tooltipHelper: TooltipHelper = new TooltipHelper();
+
+  isLastPage: boolean = false;
+  errors: any[];
+
   constructor(
     public router: Router,
     private cdr: ChangeDetectorRef,
@@ -32,6 +37,13 @@ export class SurveyComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    document.body.classList.add('body-survey');
+    document.body.classList.remove('body-result');
+    document.getElementsByTagName('html').item(0).classList.add('body-survey');
+    document.getElementsByTagName('html').item(0).classList.remove('body-result');
+
+    this.onResize();
+
     this.survey = new Survey.Model(surveyJson.default);
     this.survey.onComplete.add(() => this.onSurveyComplete());
     this.survey.onValueChanging.add((survey: Survey.SurveyModel, options: any) => this.tryGoNextPageAutomatic(survey, options));
@@ -39,10 +51,19 @@ export class SurveyComponent implements OnInit {
     this.survey.onCurrentPageChanging.add((survey: Survey.SurveyModel, options: any) => this.onCurrentPageChanging(survey, options));
     this.survey.onCurrentPageChanged.add((survey: Survey.SurveyModel, options: any) => this.onCurrentPageChanged(survey, options));
     this.survey.onUpdateQuestionCssClasses.add((survey: Survey.SurveyModel, options: any) => this.onUpdateQuestionCssClasses(survey, options));
+    this.survey.onValidatedErrorsOnCurrentPage.add((survey: Survey.SurveyModel, options: any) => this.onValidatedErrorsOnCurrentPage(survey, options));
     Survey.SurveyNG.render("surveyElement", { model: this.survey });
 
-    this.checkChallengeLink();
+    this.survey.allowCompleteSurveyAutomatic = false;
+    this.survey.goNextPageAutomatic = false;
+
+    // this.checkChallengeLink();
     this.onCurrentPageChanged(this.survey);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event?) {
+    $('#surveyContainerMain').innerHeight(window.innerHeight - $('#surveyUtilityContainer').height());
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -68,12 +89,14 @@ export class SurveyComponent implements OnInit {
     }
   }
 
-  isLastPage: boolean = false;
-
   onValueChanged(survey: Survey.SurveyModel, options: any): void {
     if (options.question.getType() == "checkbox") {
       this.processPageCountChange();
     }
+  }
+
+  onValidatedErrorsOnCurrentPage(survey: Survey.SurveyModel, options?: any) {
+    this.errors = options.errors;
   }
 
   onCurrentPageChanging(survey: Survey.SurveyModel, options?: any) {
@@ -83,15 +106,25 @@ export class SurveyComponent implements OnInit {
   onCurrentPageChanged(survey: Survey.SurveyModel, options?: any) {
     if (options) AnimationHelper.onCurrentPageChanged(options.isNextPage);
 
+    if (window.innerHeight > $('#surveyElement').height() + $('#surveyUtilityContainer').height() + 50) {
+      const textQuestion = (this.survey.currentPage as Survey.Page).questions.find(question => question.getType() == "text");
+      if (textQuestion) {
+        setTimeout(() => {
+          textQuestion.focus();
+        }, AnimationHelper.animationSpeed);
+      }
+    }
+
     this.processPageCountChange();
 
-    SurveyTooltip.createTooltips(survey);
+    this.errors = null;
+
+    this.tooltipHelper.create(survey);
   }
 
   processPageCountChange(): void {
     this.isLastPage = this.survey.currentPageNo + 1 == this.survey.visiblePageCount;
     this.cdr.detectChanges();
-    console.log(this.isLastPage);
 
     document.getElementById('btn_next_text').innerText = this.isLastPage ? 'Dokončiť' : 'Ďalej';
 
@@ -100,7 +133,7 @@ export class SurveyComponent implements OnInit {
   }
 
   tryGoNextPageAutomatic(survey: Survey.SurveyModel, options: any): void {
-    if (options.value && options.question.getType() == "radiogroup") {
+    if (!this.isLastPage && options.value && options.question.getType() == "radiogroup") {
       setTimeout(() => this.nextPage(), 100);
     }
   }
@@ -113,7 +146,7 @@ export class SurveyComponent implements OnInit {
   }
 
   onSurveyComplete(): void {
-    this.router.navigate(['vyhodnotenie/' + btoa(JSON.stringify(this.survey.data))]);
+    this.survey.navigateToUrl = 'vyhodnotenie/' + btoa(JSON.stringify(this.survey.data));
   }
 
   checkChallengeLink(): void {
@@ -151,7 +184,7 @@ export class SurveyComponent implements OnInit {
 
       var titleElement = document.getElementsByClassName("sv_q_title").item(0);
       if (titleElement) {
-        const challengeText = "<p>vyzýva Ťa " + name + " s hodnosťou <span class='tooltip-link' data-tippy-content='Úspešnosť Úroveň<br><br>91% - 100%        Finančná Legenda<br>81% - 90% Finančná hviezda<br>71% - 80% Finančný kúzelník <br>11% - 70% Finančný profesor<br>51% - 60% Finančný majster<br>41% - 50% Finančný učeň<br>31% - 40% Finančný junior <br>21% - 30% Finančný nováčik<br>11% - 20% Finančný začiatočník<br>0% - 10% Finančné embryo'>" + rankPretty + "</span>, </p>";
+        const challengeText = "<p>vyzýva Ťa " + name + " s hodnosťou <span class='tooltip-link' tippy-content='Úspešnosť Úroveň<br><br>91% - 100%        Finančná Legenda<br>81% - 90% Finančná hviezda<br>71% - 80% Finančný kúzelník <br>11% - 70% Finančný profesor<br>51% - 60% Finančný majster<br>41% - 50% Finančný učeň<br>31% - 40% Finančný junior <br>21% - 30% Finančný nováčik<br>11% - 20% Finančný začiatočník<br>0% - 10% Finančné embryo'>" + rankPretty + "</span>, </p>";
         var innerHTML = titleElement.innerHTML;
         var indexFirst = innerHTML.indexOf("ako si želáš, aby sme Ťa oslovovali?");
         if (indexFirst >= 0) {
@@ -169,5 +202,9 @@ export class SurveyComponent implements OnInit {
         }
       }
     }
+  }
+
+  hasErrors(): boolean {
+    return this.errors && this.errors.length > 0;
   }
 }

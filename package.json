@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~11.2.14",
     "@angular/router": "~11.2.14",
     "@fortawesome/fontawesome-free": "^5.15.3",
+    "@popperjs/core": "^2.9.2",
     "jquery": "^3.6.0",
     "rxjs": "~6.6.0",
     "survey-angular": "^1.8.48",

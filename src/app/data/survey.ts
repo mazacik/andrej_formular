@@ -1,13 +1,12 @@
 export default {
   "showTitle": false,
-  "textUpdateMode": "onBlur",
-  "focusFirstQuestionAutomatic": true,
+  "textUpdateMode": "onTyping",
   "requiredText": "",
   "maxTextLength": 50,
   "maxOthersLength": 50,
   "showNavigationButtons": false,
   "showQuestionNumbers": "off",
-  "questionErrorLocation": "top",
+  "showCompletedPage": false,
   "pages": [
     {
       "name": "pageMeno",
@@ -56,6 +55,40 @@ export default {
       ]
     },
     {
+      "name": "pageKolkoMesacneOstavaNaUcte",
+      "elements": [
+        {
+          "type": "text",
+          "name": "kolkoMesacneOstavaNaUcte",
+          "title": "Koľko Ti v priemere ostáva na konci mesiaca na účte?",
+          "isRequired": true,
+          "description": "Po zaplatení všetkých výdavkov, účtov, sporení, poistení, úverov, atď.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
+          "inputType": "number",
+          "min": "0",
+          "minErrorText": "Hodnota nemôže byť negatívna.",
+          "placeHolder": "Tvoju odpoveď napíš sem..."
+        }
+      ]
+    },
+    {
+      "name": "pageKolkoMesacneSpori",
+      "elements": [
+        {
+          "type": "text",
+          "name": "kolkoMesacneSpori",
+          "title": "Koľko si mesačne sporíš?",
+          "isRequired": true,
+          "description": "Sporiace účty, odkladanie do \"šuflíka\" a iné sporiace produkty. Nerátaj investičné produkty.",
+          "requiredErrorText": "Prosím, vyplň túto odpoveď.",
+          "inputType": "number",
+          "min": "0",
+          "minErrorText": "Hodnota nemôže byť negatívna.",
+          "placeHolder": "Tvoju odpoveď napíš sem..."
+        }
+      ]
+    },
+    {
       "name": "pageOdkladaniePenaziVyska",
       "elements": [
         {
@@ -73,25 +106,25 @@ export default {
       ]
     },
     {
-      "name": "pageProduktyZivotnePoistenie",
+      "name": "pageZivotnePoistenie",
       "elements": [
         {
           "type": "radiogroup",
-          "name": "produktyZivotnePoistenie",
+          "name": "zivotnePoistenie",
           "title": "Máš životné poistenie?",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
-              "value": "produktyZivotnePoistenieAno",
+              "value": "zivotnePoistenieMa",
               "text": "áno"
             },
             {
-              "value": "produktyZivotnePoistenieNie",
+              "value": "zivotnePoistenieNema",
               "text": "nie"
             },
             {
-              "value": "produktyZivotnePoistenieRodicia",
+              "value": "zivotnePoisteniePlatiNiektoIny",
               "text": "áno, ale platí mi ho niekto iný"
             }
           ]
@@ -99,11 +132,11 @@ export default {
       ]
     },
     {
-      "name": "pageProduktyZivotnePoistenieKolkoPlati",
+      "name": "pageZivotnePoistenieKolkoPlati",
       "elements": [
         {
           "type": "text",
-          "name": "produktyZivotnePoistenieKolkoPlati",
+          "name": "zivotnePoistenieKolkoPlati",
           "title": "Koľko priemerne mesačne platíš za svoje poistenie?",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
@@ -113,34 +146,34 @@ export default {
           "placeHolder": "Tvoju odpoveď napíš sem..."
         }
       ],
-      "visibleIf": "{produktyZivotnePoistenie} = 'produktyZivotnePoistenieAno'"
+      "visibleIf": "{zivotnePoistenie} = 'zivotnePoistenieMa'"
     },
     {
-      "name": "pageProduktyZivotnePoistenieInvesticia",
+      "name": "pageZivotnePoistenieInvesticia",
       "elements": [
         {
           "type": "radiogroup",
-          "name": "produktyZivotnePoistenieInvesticia",
+          "name": "zivotnePoistenieInvesticia",
           "title": "Máš poistenie spojené so sporením alebo investovaním?",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
-              "value": "produktyZivotnePoistenieInvesticiaAno",
+              "value": "zivotnePoistenieInvesticiaAno",
               "text": "áno"
             },
             {
-              "value": "produktyZivotnePoistenieInvesticiaNie",
+              "value": "zivotnePoistenieInvesticiaNie",
               "text": "nie"
             },
             {
-              "value": "produktyZivotnePoistenieInvesticiaNeviem",
+              "value": "zivotnePoistenieInvesticiaNeviem",
               "text": "neviem"
             }
           ]
         }
       ],
-      "visibleIf": "{produktyZivotnePoistenie} = 'produktyZivotnePoistenieAno'"
+      "visibleIf": "{zivotnePoistenie} = 'zivotnePoistenieMa'"
     },
     {
       "name": "pageMajetokBytDom",
@@ -170,7 +203,7 @@ export default {
         {
           "type": "radiogroup",
           "name": "majetokBytDomPoistenie",
-          "title": "Máš poistenú svoju nehnuteľnosť komplexne? (todo tooltip)",
+          "title": "Máš poistenú svoju nehnuteľnosť komplexne?",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
@@ -196,21 +229,21 @@ export default {
       "visibleIf": "{majetokBytDom} = 'majetokBytDomAno'"
     },
     {
-      "name": "pageProduktyInvesticie",
+      "name": "pageInvesticie",
       "elements": [
         {
           "type": "radiogroup",
-          "name": "produktyInvesticie",
+          "name": "investicie",
           "title": "Investuješ?",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
-              "value": "produktyInvesticieAno",
+              "value": "investicieAno",
               "text": "áno"
             },
             {
-              "value": "produktyInvesticieNie",
+              "value": "investicieNie",
               "text": "nie"
             }
           ]
@@ -218,11 +251,11 @@ export default {
       ]
     },
     {
-      "name": "pageProduktyInvesticieMesacne",
+      "name": "pageInvesticieMesacne",
       "elements": [
         {
           "type": "text",
-          "name": "produktyInvesticieMesacne",
+          "name": "investicieMesacne",
           "title": "Koľko v priemere mesačne investuješ?",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
@@ -232,28 +265,28 @@ export default {
           "placeHolder": "Tvoju odpoveď napíš sem..."
         }
       ],
-      "visibleIf": "{produktyInvesticie} = 'produktyInvesticieAno'"
+      "visibleIf": "{investicie} = 'investicieAno'"
     },
     {
-      "name": "pageProduktyDruhyPilier",
+      "name": "pageDruhyPilier",
       "elements": [
         {
           "type": "radiogroup",
-          "name": "produktyDruhyPilier",
+          "name": "druhyPilier",
           "title": "Máš založený druhý pilier?",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
-              "value": "produktyDruhyPilierAno",
+              "value": "druhyPilierAno",
               "text": "áno"
             },
             {
-              "value": "produktyDruhyPilierNie",
+              "value": "druhyPilierNie",
               "text": "nie"
             },
             {
-              "value": "produktyDruhyPilierNeviem",
+              "value": "druhyPilierNeviem",
               "text": "neviem"
             }
           ]
@@ -261,64 +294,64 @@ export default {
       ]
     },
     {
-      "name": "pageProduktyDruhyPilierFondy",
+      "name": "pageDruhyPilierFondy",
       "elements": [
         {
           "type": "radiogroup",
-          "name": "produktyDruhyPilierFondy",
+          "name": "druhyPilierFondy",
           "title": "V akých fondoch máš druhý pilier?",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
-              "value": "produktyDruhyPilierFondyIndexove",
+              "value": "druhyPilierFondyIndexove",
               "text": "indexové negarantované"
             },
             {
-              "value": "produktyDruhyPilierFondyAkciove",
+              "value": "druhyPilierFondyAkciove",
               "text": "akciové negarantované"
             },
             {
-              "value": "produktyDruhyPilierFondyDlhopisove",
+              "value": "druhyPilierFondyDlhopisove",
               "text": "dlhopisové garantované"
             },
             {
-              "value": "produktyDruhyPilierFondyZmiesane",
+              "value": "druhyPilierFondyZmiesane",
               "text": "zmiešané"
             },
             {
-              "value": "produktyDruhyPilierFondyNeviem",
+              "value": "druhyPilierFondyNeviem",
               "text": "neviem"
             }
           ]
         }
       ],
-      "visibleIf": "{produktyDruhyPilier} = 'produktyDruhyPilierAno'"
+      "visibleIf": "{druhyPilier} = 'druhyPilierAno'"
     },
     {
-      "name": "pageProduktyTretiPilier",
+      "name": "pageTretiPilier",
       "elements": [
         {
           "type": "radiogroup",
-          "name": "produktyTretiPilier",
+          "name": "tretiPilier",
           "title": "Máš založený tretí pilier?",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
-              "value": "produktyTretiPilierAnoZamestnavatelPrispieva",
+              "value": "tretiPilierAnoZamestnavatelPrispieva",
               "text": "mám, prispieva mi zamestnávateľ"
             },
             {
-              "value": "produktyTretiPilierAnoZamestnavatelNeprispieva",
+              "value": "tretiPilierAnoZamestnavatelNeprispieva",
               "text": "mám, zamestnávateľ mi neprispieva"
             },
             {
-              "value": "produktyTretiPilierNemam",
+              "value": "tretiPilierNemam",
               "text": "nemám"
             },
             {
-              "value": "produktyTretiPilierNeviem",
+              "value": "tretiPilierNeviem",
               "text": "neviem"
             }
           ]
@@ -326,61 +359,61 @@ export default {
       ]
     },
     {
-      "name": "pageProduktyTretiPilierFondy",
+      "name": "pageTretiPilierFondy",
       "elements": [
         {
           "type": "radiogroup",
-          "name": "produktyTretiPilierFondy",
+          "name": "tretiPilierFondy",
           "title": "V akých fondoch máš tretí pilier?",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
-              "value": "produktyTretiPilierFondyIndexove",
+              "value": "tretiPilierFondyIndexove",
               "text": "indexové negarantované"
             },
             {
-              "value": "produktyTretiPilierFondyAkciove",
+              "value": "tretiPilierFondyAkciove",
               "text": "akciové negarantované"
             },
             {
-              "value": "produktyTretiPilierFondyDlhopisove",
+              "value": "tretiPilierFondyDlhopisove",
               "text": "dlhopisové garantované"
             },
             {
-              "value": "produktyTretiPilierFondyZmiesane",
+              "value": "tretiPilierFondyZmiesane",
               "text": "zmiešané"
             },
             {
-              "value": "produktyTretiPilierFondyNeviem",
+              "value": "tretiPilierFondyNeviem",
               "text": "neviem"
             }
           ]
         }
       ],
-      "visibleIf": "{produktyTretiPilier} anyof ['produktyTretiPilierAnoZamestnavatelPrispieva', 'produktyTretiPilierAnoZamestnavatelNePrispieva']"
+      "visibleIf": "{tretiPilier} anyof ['tretiPilierAnoZamestnavatelPrispieva', 'tretiPilierAnoZamestnavatelNeprispieva']"
     },
     {
-      "name": "pageProduktyUverHypotekaPozicka",
+      "name": "pageUverHypotekaPozicka",
       "elements": [
         {
           "type": "checkbox",
-          "name": "produktyUverHypotekaPozicka",
+          "name": "uverHypotekaPozicka",
           "title": "Máš požičané peniaze?",
           "description": "(hypotéka, úver, pôžička)",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
-              "value": "produktyUverHypotekaPozickaNie",
+              "value": "uverHypotekaPozickaNie",
               "text": "nie"
             },
             {
-              "value": "produktyUverHypotekaPozickaAnoHypoteka",
+              "value": "uverHypotekaPozickaAnoHypoteka",
               "text": "áno, mám hypotéku"
             },
             {
-              "value": "produktyUverHypotekaPozickaAnoUverPozicka",
+              "value": "uverHypotekaPozickaAnoUverPozicka",
               "text": "áno, mám úver alebo pôžičku"
             }
           ]
@@ -388,11 +421,11 @@ export default {
       ]
     },
     {
-      "name": "pageProduktyHypotekaVyskaSplatky",
+      "name": "pageHypotekaVyskaSplatky",
       "elements": [
         {
           "type": "text",
-          "name": "produktyHypotekaVyskaSplatky",
+          "name": "hypotekaVyskaSplatky",
           "title": "Aká je Tvoja mesačná splátka hypotéky?",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
@@ -402,45 +435,45 @@ export default {
           "placeHolder": "Tvoju odpoveď napíš sem..."
         }
       ],
-      "visibleIf": "{produktyUverHypotekaPozicka} contains 'produktyUverHypotekaPozickaAnoHypoteka'"
+      "visibleIf": "{uverHypotekaPozicka} contains 'uverHypotekaPozickaAnoHypoteka'"
     },
     {
-      "name": "pageProduktyHypotekaUrok",
+      "name": "pageHypotekaUrok",
       "elements": [
         {
           "type": "radiogroup",
-          "name": "produktyHypotekaUrok",
+          "name": "hypotekaUrok",
           "title": "Aký máš na hypotéke úrok?",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
-              "value": "produktyHypotekaUrokDo1",
+              "value": "hypotekaUrokDo1",
               "text": "menej ako 1%"
             },
             {
-              "value": "produktyHypotekaUrok1az2",
+              "value": "hypotekaUrok1az2",
               "text": "1 až 2%"
             },
             {
-              "value": "produktyHypotekaUrokViacAko2",
+              "value": "hypotekaUrokViacAko2",
               "text": "viac ako 2%"
             },
             {
-              "value": "produktyHypotekaUrokNeviem",
+              "value": "hypotekaUrokNeviem",
               "text": "neviem"
             }
           ]
         }
       ],
-      "visibleIf": "{produktyUverHypotekaPozicka} contains 'produktyUverHypotekaPozickaAnoHypoteka'"
+      "visibleIf": "{uverHypotekaPozicka} contains 'uverHypotekaPozickaAnoHypoteka'"
     },
     {
-      "name": "pageProduktyUverPozickaVyskaSplatky",
+      "name": "pageUverPozickaVyskaSplatky",
       "elements": [
         {
           "type": "text",
-          "name": "produktyUverPozickaVyskaSplatky",
+          "name": "uverPozickaVyskaSplatky",
           "title": "Aká je Tvoja mesačná splátka úveru alebo pôžičky?",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
@@ -450,38 +483,38 @@ export default {
           "placeHolder": "Tvoju odpoveď napíš sem..."
         }
       ],
-      "visibleIf": "{produktyUverHypotekaPozicka} contains 'produktyUverHypotekaPozickaAnoUverPozicka'"
+      "visibleIf": "{uverHypotekaPozicka} contains 'uverHypotekaPozickaAnoUverPozicka'"
     },
     {
-      "name": "pageProduktyUverPozickaUrok",
+      "name": "pageUverPozickaUrok",
       "elements": [
         {
           "type": "radiogroup",
-          "name": "produktyUverPozickaUrok",
+          "name": "uverPozickaUrok",
           "title": "Aké máš úroky?",
           "isRequired": true,
           "requiredErrorText": "Prosím, vyplň túto odpoveď.",
           "choices": [
             {
-              "value": "produktyUverPozickaUrokDo5",
+              "value": "uverPozickaUrokDo5",
               "text": "menej ako 5%"
             },
             {
-              "value": "produktyUverPozickaUrok5az10",
+              "value": "uverPozickaUrok5az10",
               "text": "5 až 10%"
             },
             {
-              "value": "produktyUverPozickaUrokViacAko10",
+              "value": "uverPozickaUrokViacAko10",
               "text": "viac ako 10%"
             },
             {
-              "value": "produktyUverPozickaUrokNeviem",
+              "value": "uverPozickaUrokNeviem",
               "text": "neviem"
             }
           ]
         }
       ],
-      "visibleIf": "{produktyUverHypotekaPozicka} contains 'produktyUverHypotekaPozickaAnoUverPozicka'"
+      "visibleIf": "{uverHypotekaPozicka} contains 'uverHypotekaPozickaAnoUverPozicka'"
     }
   ]
 }

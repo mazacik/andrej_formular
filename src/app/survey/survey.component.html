@@ -2,7 +2,11 @@
   <div id="surveyContainer" class="survey-container contentcontainer codecontainer">
     <div id="surveyElement"></div>
   </div>
-
+</div>
+<div id="surveyUtilityContainer">
+  <div id="error-container" [ngClass]="{ 'scale-1': hasErrors() }">
+    <span class="error-message">Prosím, vyplň túto odpoveď.</span>
+  </div>
   <div class="nav-buttons">
     <div [ngClass]="{ 'scale-1': !survey.isFirstPage }" id="btn_prev" (click)="survey.prevPage()">
       <span>Naspäť</span>
@@ -12,7 +16,6 @@
     </div>
     <div [ngClass]="{ 'scale-0': !survey.isFirstPage }" id="enter_hint">Alebo stlač enter</div>
   </div>
-
   <div class="sv_progress">
     <div class="sv_progress_bar"></div>
   </div>
