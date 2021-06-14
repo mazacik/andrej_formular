@@ -1,7 +1,8 @@
-import { AnswerID } from "../enum/answer-id.enum";
+import { AnswerID } from "src/app/result/enum/answer-id.enum";
 
-export const EvaluationPriority = {
-  positive: [
+export abstract class EvaluationPriority {
+
+  private static positive: AnswerID[] = [
     AnswerID.kolkoMesacneOstavaNaUcteNad30,
     AnswerID.zivotnePoistenieMa,
     AnswerID.investicieAno,
@@ -17,8 +18,8 @@ export const EvaluationPriority = {
     AnswerID.tretiPilierFondyIndexove,
     AnswerID.zivotnePoistenieKolkoPlati3az5,
     AnswerID.uverHypotekaPozickaDo20
-  ],
-  negative: [
+  ];
+  private static negative: AnswerID[] = [
     AnswerID.kolkoMesacneSporiNic,
     AnswerID.zivotnePoistenieNema,
     AnswerID.investicieNie,
@@ -42,24 +43,33 @@ export const EvaluationPriority = {
     AnswerID.zivotnePoistenieInvesticiaAno,
     AnswerID.investicieMesacneDo5,
     AnswerID.odkladaniePenaziVyskaDo3x
-  ],
-  neutral: [
-    AnswerID.odkladaniePenaziVyskaNad6x,
-    AnswerID.kolkoMesacneOstavaNaUcteDo30,
-    AnswerID.kolkoMesacneSporiDo5,
-    AnswerID.zivotnePoisteniePlatiNiektoIny,
-    AnswerID.zivotnePoistenieKolkoPlatiPod3,
-    AnswerID.zivotnePoistenieKolkoPlatiNad5,
-    AnswerID.zivotnePoistenieInvesticiaNeviem,
-    AnswerID.majetokBytDomPoistenieNeviemAko,
-    AnswerID.investicieMesacneDo10,
-    AnswerID.druhyPilierNeviem,
-    AnswerID.druhyPilierFondyAkciove,
-    AnswerID.tretiPilierNeviem,
-    AnswerID.tretiPilierFondyAkciove,
-    AnswerID.uverHypotekaPozickaDo30,
-    AnswerID.hypotekaUrok1az2,
+  ];
+  private static neutral: AnswerID[] = [
+    AnswerID.uverPozickaUrokDo5,
     AnswerID.uverPozickaUrok5az10,
-    AnswerID.uverPozickaUrokDo5
-  ]
+    AnswerID.hypotekaUrok1az2,
+    AnswerID.uverHypotekaPozickaDo30,
+    AnswerID.tretiPilierFondyAkciove,
+    AnswerID.druhyPilierFondyAkciove,
+    AnswerID.zivotnePoistenieKolkoPlatiNad5,
+    AnswerID.kolkoMesacneOstavaNaUcteDo30,
+    AnswerID.odkladaniePenaziVyskaNad6x,
+    AnswerID.zivotnePoisteniePlatiNiektoIny,
+    AnswerID.investicieMesacneDo10,
+    AnswerID.tretiPilierNeviem,
+    AnswerID.zivotnePoistenieInvesticiaNeviem,
+    AnswerID.kolkoMesacneSporiDo5,
+    AnswerID.majetokBytDomPoistenieNeviemAko,
+    AnswerID.druhyPilierNeviem,
+    AnswerID.zivotnePoistenieKolkoPlatiPod3
+  ];
+
+  public static getPositive(): AnswerID[] {
+    return [...this.positive, ...this.neutral];
+  }
+
+  public static getNegative(): AnswerID[] {
+    return [...this.negative, ...this.neutral.reverse()];
+  }
+
 };

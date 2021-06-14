@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import tippy from 'tippy.js';
 
-import { QuestionID } from '../enum/question-id.enum';
+import { QuestionID } from './enum/question-id.enum';
 import { RankHelper } from './helper/rank.helper';
 import { EvaluationHelper } from './helper/evaluation.helper';
-import { EvaluationPriority } from '../data/evaluation-priority';
-import { EvaluationAnswer } from '../model/evaluation-answer.model';
+import { EvaluationPriority } from './data/evaluation-priority';
+import { EvaluationAnswer } from './model/evaluation-answer.model';
 import { RankLevelsData } from './data/rank-levels.data';
+import { AnswerID } from './enum/answer-id.enum';
 
 @Component({
   selector: 'app-result',
@@ -67,11 +68,14 @@ export class ResultComponent implements OnInit {
     this.rank = this.rankHelper.getRank();
     this.percentile = this.rankHelper.getPercentile();
 
+    const evaluationPriorityPositive: AnswerID[] = EvaluationPriority.getPositive();
     this.top3positive = this.evaluationHelper.getAnswersPositive().sort((a, b) => {
-      return EvaluationPriority.positive.indexOf(a.id) > EvaluationPriority.positive.indexOf(b.id) ? 1 : -1;
+      return evaluationPriorityPositive.indexOf(a.id) - evaluationPriorityPositive.indexOf(b.id);
     }).slice(0, 3);
+
+    const evaluationPriorityNegative: AnswerID[] = EvaluationPriority.getNegative();
     this.top3negative = this.evaluationHelper.getAnswersNegative().sort((a, b) => {
-      return EvaluationPriority.negative.indexOf(a.id) > EvaluationPriority.negative.indexOf(b.id) ? 1 : -1;
+      return evaluationPriorityNegative.indexOf(a.id) - evaluationPriorityNegative.indexOf(b.id);
     }).slice(0, 3);
 
     tippy('#button-challenge', {

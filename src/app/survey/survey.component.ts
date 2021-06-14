@@ -1,11 +1,9 @@
 import { Component, OnInit, HostListener, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import * as Survey from 'survey-angular';
-
 import { AnimationHelper } from './helper/animation.helper';
-
-import * as surveyJson from '../data/survey';
 import { TooltipHelper } from './helper/tooltip.helper';
+import * as Survey from 'survey-angular';
+import * as surveyJson from './data/survey';
 
 Survey.Serializer.addProperty("page", {
   name: "navigationTitle:string",

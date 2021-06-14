@@ -1,9 +1,9 @@
-import { AnswerID } from "src/app/enum/answer-id.enum";
-import { QuestionID } from "src/app/enum/question-id.enum";
-import { AnswerType } from "src/app/enum/answer-type.enum";
-import { EvaluationQuestion } from "src/app/model/evaluation-question.model";
-import { EvaluationAnswer } from "src/app/model/evaluation-answer.model";
-import { EvaluationData } from "src/app/data/evaluation-data";
+import { AnswerID } from "src/app/result/enum/answer-id.enum";
+import { QuestionID } from "src/app/result/enum/question-id.enum";
+import { AnswerType } from "src/app/result/enum/answer-type.enum";
+import { EvaluationQuestion } from "src/app/result/model/evaluation-question.model";
+import { EvaluationAnswer } from "src/app/result/model/evaluation-answer.model";
+import { EvaluationData } from "src/app/result/data/evaluation-data";
 
 export class EvaluationHelper {
 
@@ -65,6 +65,10 @@ export class EvaluationHelper {
       switch (evaluationAnswer.type) {
         case AnswerType.POSITIVE:
           this.answersPositive.push(evaluationAnswer);
+          break;
+        case AnswerType.NEUTRAL:
+          this.answersPositive.push(evaluationAnswer);
+          this.answersNegative.push(evaluationAnswer);
           break;
         case AnswerType.NEGATIVE:
           this.answersNegative.push(evaluationAnswer);

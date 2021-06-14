@@ -1,4 +1,4 @@
-import { QuestionID } from 'src/app/enum/question-id.enum';
+import { QuestionID } from 'src/app/result/enum/question-id.enum';
 import * as Survey from 'survey-angular';
 import tippy from 'tippy.js';
 
